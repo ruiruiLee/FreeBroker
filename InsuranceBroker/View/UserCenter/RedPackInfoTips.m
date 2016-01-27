@@ -55,7 +55,7 @@
         self.lbDetail.text = @"请在收益统计中查看明细";
         self.lbDetail.textAlignment = NSTextAlignmentCenter;
         
-        self.btnSubmit = [[UIButton alloc] initWithFrame:CGRectMake(16, 170, ScreenWidth - 92, 30)];
+        self.btnSubmit = [[UIButton alloc] initWithFrame:CGRectMake(16, 170, ScreenWidth - 92, 36)];
         [self.bgview addSubview:self.btnSubmit];
         self.btnSubmit.backgroundColor = _COLOR(0xff, 0x66, 0x19);
         self.btnSubmit.titleLabel.font = _FONT(15);

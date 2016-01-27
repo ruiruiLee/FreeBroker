@@ -114,7 +114,9 @@ static inline Reachability* defaultReachability () {
 
 - (void) setLeftBarButtonWithNil
 {
-    [[self navigationItem] setLeftBarButtonItem:nil];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    
+    [[self navigationItem] setLeftBarButtonItem:backItem];
 }
 
 - (void) setLeftBarButtonWithImage:(UIImage *) image
@@ -213,7 +215,7 @@ static inline Reachability* defaultReachability () {
             user.isLogin = NO;
             [self login];
         }
-       // [KVNProgress showErrorWithStatus:msg];
+//        [KVNProgress showErrorWithStatus:msg];
             result = NO;
     }
     return result;

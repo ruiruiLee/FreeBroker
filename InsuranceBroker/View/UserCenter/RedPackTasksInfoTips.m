@@ -26,7 +26,7 @@
         self.lbShowInfo.text = @"就差一点点咯！";
         self.lbDetail.text = @"快完成下面任务，把我带走吧！";
         
-        self.btnSubmit.frame = CGRectMake(16, self.bgview.frame.size.height - 50, ScreenWidth - 92, 30);
+        self.btnSubmit.frame = CGRectMake(16, self.bgview.frame.size.height - 50, ScreenWidth - 92, 36);
         
         self.lbTask1 = [ViewFactory CreateLabelViewWithFont:_FONT(15) TextColor:_COLOR(0x21, 0x21, 0x21)];
         self.lbTask1.translatesAutoresizingMaskIntoConstraints = YES;
