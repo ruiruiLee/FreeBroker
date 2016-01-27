@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15C47a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="InfoTipsView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MF8-kp-1gJ">
+                    <rect key="frame" x="148" y="101" width="240" height="128"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gip-gX-nN4">
+                    <rect key="frame" x="176" y="229" width="185" height="38"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6B3-F0-voR">
+                    <rect key="frame" x="162" y="267" width="212" height="55"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="Weq-VE-x63"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="dataSource" destination="iN0-l3-epB" id="9mv-K4-ufF"/>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="Mbs-72-Ti8"/>
+                    </connections>
+                </tableView>
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bTF-Z1-xCK">
+                    <rect key="frame" x="157" y="322" width="240" height="128"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="bTF-Z1-xCK" secondAttribute="trailing" id="2Tf-la-FM9"/>
+                <constraint firstItem="MF8-kp-1gJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="4lI-yG-AKo"/>
+                <constraint firstItem="bTF-Z1-xCK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="5CR-Fm-F0x"/>
+                <constraint firstItem="6B3-F0-voR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="H3w-ds-GTC"/>
+                <constraint firstAttribute="trailing" secondItem="gip-gX-nN4" secondAttribute="trailing" constant="20" id="HYs-1a-MJL"/>
+                <constraint firstAttribute="bottom" secondItem="bTF-Z1-xCK" secondAttribute="bottom" id="ITT-wT-cJZ"/>
+                <constraint firstItem="gip-gX-nN4" firstAttribute="top" secondItem="MF8-kp-1gJ" secondAttribute="bottom" id="PFV-0p-s9z"/>
+                <constraint firstAttribute="trailing" secondItem="6B3-F0-voR" secondAttribute="trailing" constant="20" id="PMT-Re-k7I"/>
+                <constraint firstItem="6B3-F0-voR" firstAttribute="top" secondItem="gip-gX-nN4" secondAttribute="bottom" id="VDg-e7-thq"/>
+                <constraint firstItem="6B3-F0-voR" firstAttribute="top" secondItem="gip-gX-nN4" secondAttribute="bottom" id="X9O-0M-E3I"/>
+                <constraint firstItem="gip-gX-nN4" firstAttribute="top" secondItem="MF8-kp-1gJ" secondAttribute="bottom" id="cRT-0X-dj5"/>
+                <constraint firstAttribute="trailing" secondItem="MF8-kp-1gJ" secondAttribute="trailing" id="cwa-sq-SCI"/>
+                <constraint firstItem="gip-gX-nN4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="eOE-mB-Nwf"/>
+                <constraint firstItem="bTF-Z1-xCK" firstAttribute="height" secondItem="MF8-kp-1gJ" secondAttribute="height" id="rfH-cH-64d"/>
+                <constraint firstItem="MF8-kp-1gJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="wDF-fG-kR9"/>
+                <constraint firstItem="bTF-Z1-xCK" firstAttribute="top" secondItem="6B3-F0-voR" secondAttribute="bottom" id="xMC-9v-EpA"/>
+                <constraint firstItem="bTF-Z1-xCK" firstAttribute="top" secondItem="6B3-F0-voR" secondAttribute="bottom" id="zmR-GB-p2Z"/>
+            </constraints>
+            <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+            <connections>
+                <outlet property="lbTitle" destination="gip-gX-nN4" id="5ZM-Yg-pda"/>
+                <outlet property="tableHeight" destination="Weq-VE-x63" id="b7g-Vy-90x"/>
+                <outlet property="tableview" destination="6B3-F0-voR" id="yQL-dQ-4Vl"/>
+            </connections>
+            <point key="canvasLocation" x="76" y="-299"/>
+        </view>
+    </objects>
+</document>

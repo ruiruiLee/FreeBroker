@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15C47a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BackGroundView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" tag="1001" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Imo-Qv-k5c">
+                    <rect key="frame" x="277" y="96" width="46" height="30"/>
+                    <animations/>
+                    <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.098039215686274508" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="130" id="Rt1-es-uWf"/>
+                        <constraint firstAttribute="height" constant="32" id="vzh-dP-7TM"/>
+                    </constraints>
+                    <state key="normal" title="立即添加">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="暂无新客户，请添加" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLY-Ic-hll">
+                    <rect key="frame" x="0.0" y="21" width="600" height="67"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ZLY-Ic-hll" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="G4M-TE-aHE"/>
+                <constraint firstAttribute="trailing" secondItem="ZLY-Ic-hll" secondAttribute="trailing" id="QaV-DD-Y3l"/>
+                <constraint firstItem="ZLY-Ic-hll" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="TLi-tN-pui"/>
+                <constraint firstItem="Imo-Qv-k5c" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="d0O-eh-wao"/>
+                <constraint firstAttribute="bottom" secondItem="Imo-Qv-k5c" secondAttribute="bottom" constant="10" id="tne-hN-UEK"/>
+                <constraint firstItem="Imo-Qv-k5c" firstAttribute="top" secondItem="ZLY-Ic-hll" secondAttribute="bottom" constant="20" id="ycP-X8-UrK"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

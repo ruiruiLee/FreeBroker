@@ -1,0 +1,8 @@
+platform :ios, '7.0'
+pod 'AFNetworking'
+pod 'AVOSCloudSNS'
+pod 'AVOSCloud'
+pod 'Mantle'
+pod 'FMDB'
+pod 'SBJson'
+pod 'SDWebImage'

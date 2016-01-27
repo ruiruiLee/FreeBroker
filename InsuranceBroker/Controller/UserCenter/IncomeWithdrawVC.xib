@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15C47a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IncomeWithdrawVC">
+            <connections>
+                <outlet property="btnSubmit" destination="m61-qw-sTx" id="cwQ-Mr-ekn"/>
+                <outlet property="lbExplain" destination="Dlb-dv-9QG" id="exK-CN-Flh"/>
+                <outlet property="tableVConstraint" destination="23K-pd-8qZ" id="JN2-j6-Al2"/>
+                <outlet property="tableview" destination="cS2-P5-M2o" id="gOz-6S-ekZ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewHConstraint" destination="s6m-11-WMc" id="byd-9y-Yct"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ofM-yQ-ehe">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hq3-Uy-lo0">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="shadow" translatesAutoresizingMaskIntoConstraints="NO" id="Fcd-LQ-TUp">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="22"/>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="15" id="j8x-2f-qqZ"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="*提现金额需大于50元，两个工作日内到账" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dlb-dv-9QG">
+                                    <rect key="frame" x="0.0" y="165" width="600" height="31"/>
+                                    <animations/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                    <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m61-qw-sTx">
+                                    <rect key="frame" x="20" y="283" width="562" height="34"/>
+                                    <animations/>
+                                    <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.098039215686274508" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="45" id="Fe4-7O-BZL"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <state key="normal" title="确认提现">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cS2-P5-M2o">
+                                    <rect key="frame" x="0.0" y="24" width="600" height="125"/>
+                                    <animations/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="60" id="23K-pd-8qZ"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="dataSource" destination="-1" id="J1f-Zb-fHy"/>
+                                        <outlet property="delegate" destination="-1" id="1hC-hZ-ND6"/>
+                                    </connections>
+                                </tableView>
+                            </subviews>
+                            <animations/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="cS2-P5-M2o" firstAttribute="top" secondItem="Fcd-LQ-TUp" secondAttribute="bottom" id="8NJ-8I-lZa"/>
+                                <constraint firstItem="Dlb-dv-9QG" firstAttribute="top" secondItem="cS2-P5-M2o" secondAttribute="bottom" constant="10" id="9Za-rB-ZtB"/>
+                                <constraint firstItem="cS2-P5-M2o" firstAttribute="leading" secondItem="hq3-Uy-lo0" secondAttribute="leading" id="DOS-hV-vbO"/>
+                                <constraint firstAttribute="trailing" secondItem="m61-qw-sTx" secondAttribute="trailing" constant="20" id="DaE-vj-fXs"/>
+                                <constraint firstItem="Dlb-dv-9QG" firstAttribute="leading" secondItem="hq3-Uy-lo0" secondAttribute="leading" constant="20" id="Fa9-2K-MFd"/>
+                                <constraint firstAttribute="trailing" secondItem="Fcd-LQ-TUp" secondAttribute="trailing" id="IcF-Ml-YEN"/>
+                                <constraint firstItem="Fcd-LQ-TUp" firstAttribute="leading" secondItem="hq3-Uy-lo0" secondAttribute="leading" id="J53-pb-Twb"/>
+                                <constraint firstAttribute="trailing" secondItem="Dlb-dv-9QG" secondAttribute="trailing" constant="20" id="Xyw-Ng-Ygi"/>
+                                <constraint firstItem="m61-qw-sTx" firstAttribute="leading" secondItem="hq3-Uy-lo0" secondAttribute="leading" constant="20" id="gQG-br-3cC"/>
+                                <constraint firstAttribute="trailing" secondItem="cS2-P5-M2o" secondAttribute="trailing" id="qQD-Vq-LDz"/>
+                                <constraint firstAttribute="bottom" secondItem="m61-qw-sTx" secondAttribute="bottom" constant="10" id="r0f-yw-JEA"/>
+                                <constraint firstAttribute="width" constant="600" id="s6m-11-WMc"/>
+                                <constraint firstItem="m61-qw-sTx" firstAttribute="top" secondItem="Dlb-dv-9QG" secondAttribute="bottom" constant="60" id="sqZ-7Q-AmV"/>
+                                <constraint firstItem="Fcd-LQ-TUp" firstAttribute="top" secondItem="hq3-Uy-lo0" secondAttribute="top" id="wmK-fd-xrC"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="hq3-Uy-lo0" secondAttribute="trailing" id="Eoj-tF-zeM"/>
+                        <constraint firstAttribute="bottom" secondItem="hq3-Uy-lo0" secondAttribute="bottom" id="FbT-nd-5Ho"/>
+                        <constraint firstItem="hq3-Uy-lo0" firstAttribute="leading" secondItem="ofM-yQ-ehe" secondAttribute="leading" id="H8V-jI-zJ3"/>
+                        <constraint firstItem="hq3-Uy-lo0" firstAttribute="top" secondItem="ofM-yQ-ehe" secondAttribute="top" id="bGK-C1-wEc"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ofM-yQ-ehe" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="EUb-Pr-fEt"/>
+                <constraint firstAttribute="bottom" secondItem="ofM-yQ-ehe" secondAttribute="bottom" id="IVi-cu-Hpu"/>
+                <constraint firstAttribute="trailing" secondItem="ofM-yQ-ehe" secondAttribute="trailing" id="JNB-2S-3mg"/>
+                <constraint firstItem="ofM-yQ-ehe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="JrT-y8-YdZ"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="shadow" width="1" height="15"/>
+    </resources>
+</document>

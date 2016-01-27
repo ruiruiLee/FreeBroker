@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15C47a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="246" id="KGk-i7-Jjw" customClass="CustomerFollowUpTableCell">
+            <rect key="frame" x="0.0" y="0.0" width="622" height="246"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="622" height="246"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="face_talk" translatesAutoresizingMaskIntoConstraints="NO" id="j6R-Re-gff">
+                        <rect key="frame" x="17" y="13" width="40" height="41"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="aCc-0C-Ql0"/>
+                            <constraint firstAttribute="width" constant="24" id="hUc-Ae-MfV"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="面谈－报价" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjg-ie-9Qr">
+                        <rect key="frame" x="72" y="18" width="135" height="31"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="今天 21:02" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t8y-kD-DFh">
+                        <rect key="frame" x="515" y="28" width="87" height="21"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="text" translatesAutoresizingMaskIntoConstraints="NO" id="ldh-Gd-dbV">
+                        <rect key="frame" x="20" y="80" width="38" height="34"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="IXX-Sv-HXA"/>
+                            <constraint firstAttribute="width" constant="16" id="lgS-Qa-T2V"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TV0-Oo-YoS">
+                        <rect key="frame" x="77" y="86" width="525" height="23"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="6Ud-tq-qZZ">
+                        <rect key="frame" x="20" y="142" width="38" height="34"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="16" id="iu3-GA-4pu"/>
+                            <constraint firstAttribute="height" constant="16" id="z3w-vk-Gd2"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32m-2v-CiB">
+                        <rect key="frame" x="77" y="148" width="525" height="21"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstItem="ldh-Gd-dbV" firstAttribute="centerX" secondItem="j6R-Re-gff" secondAttribute="centerX" id="4MO-W4-jSv"/>
+                    <constraint firstItem="t8y-kD-DFh" firstAttribute="bottom" secondItem="rjg-ie-9Qr" secondAttribute="bottom" id="4b4-RB-Fv1"/>
+                    <constraint firstItem="j6R-Re-gff" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="6O1-u2-22x"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="t8y-kD-DFh" secondAttribute="trailing" constant="20" id="7ta-t3-9uW"/>
+                    <constraint firstItem="rjg-ie-9Qr" firstAttribute="leading" secondItem="j6R-Re-gff" secondAttribute="trailing" constant="15" id="Ghr-5b-e9h"/>
+                    <constraint firstItem="ldh-Gd-dbV" firstAttribute="top" secondItem="j6R-Re-gff" secondAttribute="bottom" constant="10" id="IEm-rr-E5X"/>
+                    <constraint firstItem="6Ud-tq-qZZ" firstAttribute="centerX" secondItem="j6R-Re-gff" secondAttribute="centerX" id="KwV-y5-9VV"/>
+                    <constraint firstItem="TV0-Oo-YoS" firstAttribute="leading" secondItem="rjg-ie-9Qr" secondAttribute="leading" id="Mah-gb-xmS"/>
+                    <constraint firstItem="6Ud-tq-qZZ" firstAttribute="top" secondItem="ldh-Gd-dbV" secondAttribute="bottom" constant="10" id="Ndf-sj-P5u"/>
+                    <constraint firstItem="t8y-kD-DFh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rjg-ie-9Qr" secondAttribute="trailing" constant="20" id="X7u-wl-bcP"/>
+                    <constraint firstItem="rjg-ie-9Qr" firstAttribute="centerY" secondItem="j6R-Re-gff" secondAttribute="centerY" id="brl-Nm-oM6"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="TV0-Oo-YoS" secondAttribute="trailing" constant="20" id="edg-Da-gz2"/>
+                    <constraint firstItem="j6R-Re-gff" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="20" id="fgV-U0-Vd4"/>
+                    <constraint firstItem="32m-2v-CiB" firstAttribute="centerY" secondItem="6Ud-tq-qZZ" secondAttribute="centerY" id="gqV-UR-DuJ"/>
+                    <constraint firstItem="32m-2v-CiB" firstAttribute="leading" secondItem="rjg-ie-9Qr" secondAttribute="leading" id="k8D-Ab-R5X"/>
+                    <constraint firstItem="j6R-Re-gff" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="qaO-Ol-gtf"/>
+                    <constraint firstItem="TV0-Oo-YoS" firstAttribute="centerY" secondItem="ldh-Gd-dbV" secondAttribute="centerY" id="rXu-K9-fAC"/>
+                    <constraint firstItem="ldh-Gd-dbV" firstAttribute="top" secondItem="j6R-Re-gff" secondAttribute="bottom" constant="10" id="vZo-0A-wpT"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="32m-2v-CiB" secondAttribute="trailing" constant="20" id="zVc-Ox-SLJ"/>
+                </constraints>
+                <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
+            </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="lbAddress" destination="32m-2v-CiB" id="6CN-nD-NFg"/>
+                <outlet property="lbContent" destination="TV0-Oo-YoS" id="csx-1N-79g"/>
+                <outlet property="lbSchedule" destination="rjg-ie-9Qr" id="kXW-cR-d54"/>
+                <outlet property="lbTime" destination="t8y-kD-DFh" id="9Q7-8s-OzF"/>
+                <outlet property="logoImgV" destination="j6R-Re-gff" id="HtM-bv-H9a"/>
+            </connections>
+            <point key="canvasLocation" x="387" y="356"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="face_talk" width="24" height="24"/>
+        <image name="location" width="16" height="16"/>
+        <image name="text" width="16" height="16"/>
+    </resources>
+</document>
