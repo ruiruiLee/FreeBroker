@@ -10,7 +10,7 @@
 
 @interface Util : NSObject
 
-//
++ (NSString *)md5Hash:(NSString *)str;
 + (BOOL) isNilOrNull:(id) obj;
 
 //计算实际高度

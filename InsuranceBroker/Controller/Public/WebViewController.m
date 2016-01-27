@@ -10,7 +10,7 @@
 #import "define.h"
 //#import "UIWebView+AFNetworking.h"
 #import "NetWorkHandler+initOrderShare.h"
-
+#import "EGOCache.h"
 
 @interface WebViewController ()
 
@@ -80,9 +80,29 @@
     [super viewDidAppear:animated];
     
     if(self.urlpath != nil){
+        
+        id cacheDatas =[[EGOCache globalCache] objectForKey:[Util md5Hash:self.urlpath]];
+        if (cacheDatas !=nil) {
+            NSString *datastr = [[NSString alloc] initWithData:cacheDatas encoding:NSUTF8StringEncoding];
+            [ _webview loadHTMLString:datastr baseURL:[NSURL URLWithString:self.urlpath]];
+        }
+        else{
         NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:self.urlpath]];
+        [self addWebCache:request]; // 加缓存
         [_webview loadRequest:request];
+        }
     }
+}
+
+- (void)addWebCache:(NSURLRequest *)request{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+        if (response != nil){
+            // 加缓存
+            [[EGOCache globalCache] setObject:response forKey: [Util md5Hash:self.urlpath]];
+        }
+    } );
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
