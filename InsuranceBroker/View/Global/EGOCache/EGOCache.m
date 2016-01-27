@@ -236,6 +236,7 @@ static inline NSString* cachePathForKey(NSString* directory, NSString* key) {
 #pragma mark -
 #pragma mark Data methods
 
+
 - (void)setData:(NSData*)data forKey:(NSString*)key {
 	[self setData:data forKey:key withTimeoutInterval:self.defaultTimeoutInterval];
 }
