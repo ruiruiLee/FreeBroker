@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="btnGetCaptcha" destination="aCg-uh-VkO" id="hAm-4M-XRl"/>
                 <outlet property="btnSubmit" destination="HER-Tb-ERo" id="TsJ-Ax-Sj9"/>
+                <outlet property="lbAgreement" destination="h4l-a2-qKp" id="v0a-hC-yCJ"/>
                 <outlet property="tfCaptcha" destination="ruh-Gh-bpP" id="6yE-8V-88r"/>
                 <outlet property="tfMobile" destination="hR9-42-jL1" id="WD4-J0-6j6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -24,10 +25,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hR9-42-jL1">
-                            <rect key="frame" x="39" y="38" width="453" height="36"/>
+                            <rect key="frame" x="39" y="38" width="453" height="40"/>
                             <animations/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="36" id="48x-HM-dCt"/>
+                                <constraint firstAttribute="height" constant="40" id="48x-HM-dCt"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -38,17 +39,17 @@
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.098039215686274508" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="90" id="7ht-se-OMR"/>
-                                <constraint firstAttribute="height" constant="36" id="aTU-G5-EXS"/>
+                                <constraint firstAttribute="height" constant="40" id="aTU-G5-EXS"/>
                             </constraints>
                             <state key="normal" title="获取验证码">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ruh-Gh-bpP">
-                            <rect key="frame" x="39" y="108" width="539" height="36"/>
+                            <rect key="frame" x="39" y="108" width="539" height="40"/>
                             <animations/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="36" id="ne8-hd-Tt3"/>
+                                <constraint firstAttribute="height" constant="40" id="ne8-hd-Tt3"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -66,31 +67,45 @@
                             <animations/>
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.098039215686274508" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="36" id="wm7-Fj-ZhD"/>
+                                <constraint firstAttribute="height" constant="40" id="wm7-Fj-ZhD"/>
                             </constraints>
                             <state key="normal" title="登录">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qya-A9-2AU">
+                            <rect key="frame" x="188" y="276" width="66" height="32"/>
+                            <animations/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="66" id="Jje-yM-4DZ"/>
+                            </constraints>
+                            <connections>
+                                <action selector="doBtnAgreementInfo:" destination="-1" eventType="touchUpInside" id="G4K-lB-pBs"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="h4l-a2-qKp" secondAttribute="trailing" constant="20" id="1b4-Dw-ZT5"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="h4l-a2-qKp" secondAttribute="trailing" constant="20" id="1b4-Dw-ZT5"/>
                         <constraint firstAttribute="trailing" secondItem="aCg-uh-VkO" secondAttribute="trailing" constant="20" id="1ds-So-2GP"/>
                         <constraint firstItem="hR9-42-jL1" firstAttribute="top" secondItem="R4p-GN-rtF" secondAttribute="top" constant="30" id="8LX-38-MVA"/>
                         <constraint firstItem="h4l-a2-qKp" firstAttribute="top" secondItem="HER-Tb-ERo" secondAttribute="bottom" constant="20" id="GHM-qL-nJn"/>
                         <constraint firstItem="aCg-uh-VkO" firstAttribute="centerY" secondItem="hR9-42-jL1" secondAttribute="centerY" id="INc-Br-Tgd"/>
-                        <constraint firstItem="HER-Tb-ERo" firstAttribute="top" secondItem="ruh-Gh-bpP" secondAttribute="bottom" constant="20" id="ZEQ-Sp-dR5"/>
+                        <constraint firstItem="HER-Tb-ERo" firstAttribute="top" secondItem="ruh-Gh-bpP" secondAttribute="bottom" constant="30" id="ZEQ-Sp-dR5"/>
                         <constraint firstItem="h4l-a2-qKp" firstAttribute="leading" secondItem="R4p-GN-rtF" secondAttribute="leading" constant="20" id="bbG-pG-kRm"/>
                         <constraint firstItem="ruh-Gh-bpP" firstAttribute="leading" secondItem="R4p-GN-rtF" secondAttribute="leading" constant="20" id="dWM-bA-V2u"/>
+                        <constraint firstItem="qya-A9-2AU" firstAttribute="trailing" secondItem="h4l-a2-qKp" secondAttribute="trailing" id="gtk-8e-una"/>
                         <constraint firstAttribute="width" constant="600" id="iP3-md-sFa"/>
                         <constraint firstAttribute="trailing" secondItem="HER-Tb-ERo" secondAttribute="trailing" constant="20" id="n4z-qi-WR7"/>
+                        <constraint firstItem="qya-A9-2AU" firstAttribute="top" secondItem="h4l-a2-qKp" secondAttribute="top" id="nU1-Pi-wrH"/>
                         <constraint firstAttribute="trailing" secondItem="ruh-Gh-bpP" secondAttribute="trailing" constant="20" id="oOd-ug-pA9"/>
                         <constraint firstItem="HER-Tb-ERo" firstAttribute="leading" secondItem="R4p-GN-rtF" secondAttribute="leading" constant="20" id="qN3-VP-b4a"/>
+                        <constraint firstItem="qya-A9-2AU" firstAttribute="bottom" secondItem="h4l-a2-qKp" secondAttribute="bottom" id="rl0-us-7kd"/>
                         <constraint firstItem="hR9-42-jL1" firstAttribute="leading" secondItem="R4p-GN-rtF" secondAttribute="leading" constant="20" id="vCB-Ui-BFD"/>
                         <constraint firstItem="aCg-uh-VkO" firstAttribute="leading" secondItem="hR9-42-jL1" secondAttribute="trailing" constant="10" id="wWv-KI-zHO"/>
-                        <constraint firstItem="ruh-Gh-bpP" firstAttribute="top" secondItem="aCg-uh-VkO" secondAttribute="bottom" constant="20" id="y4L-dN-COS"/>
+                        <constraint firstItem="ruh-Gh-bpP" firstAttribute="top" secondItem="aCg-uh-VkO" secondAttribute="bottom" constant="30" id="y4L-dN-COS"/>
                     </constraints>
                 </view>
             </subviews>
