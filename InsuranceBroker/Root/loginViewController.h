@@ -12,4 +12,6 @@
 
 @interface loginViewController : BindPhoneNumVC
 
+@property (nonatomic, strong) IBOutlet UILabel *lbAgreement;
+
 @end

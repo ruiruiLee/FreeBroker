@@ -29,40 +29,58 @@
                     </constraints>
                     <state key="normal" title="微信登录" image="wechat_logo"/>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="点击“登录”，即表示您同意用户协议" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBc-5Z-ofO" userLabel="点击“微信登录”，即表示您同意用户协议">
-                    <rect key="frame" x="31" y="413" width="518" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="点击“登录”，即表示您同意用户协议" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBc-5Z-ofO" userLabel="点击“微信登录”，即表示您同意用户协议">
+                    <rect key="frame" x="60" y="413" width="463" height="21"/>
                     <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EWE-ax-dSN">
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EWE-ax-dSN">
                     <rect key="frame" x="347" y="409" width="46" height="30"/>
                     <animations/>
-                    <color key="backgroundColor" red="1" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="60" id="79x-6G-PBt"/>
+                        <constraint firstAttribute="width" constant="65" id="79x-6G-PBt"/>
                     </constraints>
+                    <connections>
+                        <action selector="doBtnAgreementInfo:" destination="-1" eventType="touchUpInside" id="cH4-4O-k3O"/>
+                    </connections>
                 </button>
+                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G7X-XE-egZ">
+                    <rect key="frame" x="524" y="409" width="76" height="120"/>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Xg-g3-TaA">
+                    <rect key="frame" x="0.0" y="391" width="59" height="106"/>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="WMz-hr-fTG" secondAttribute="trailing" constant="20" id="1AJ-oZ-vLT"/>
                 <constraint firstItem="EWE-ax-dSN" firstAttribute="trailing" secondItem="sBc-5Z-ofO" secondAttribute="trailing" id="3I0-ra-ZNz"/>
+                <constraint firstAttribute="trailing" secondItem="G7X-XE-egZ" secondAttribute="trailing" id="9HO-L4-9VL"/>
+                <constraint firstItem="G7X-XE-egZ" firstAttribute="width" secondItem="3Xg-g3-TaA" secondAttribute="width" id="QV9-BR-b5v"/>
                 <constraint firstItem="WMz-hr-fTG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="RSH-p8-wFT"/>
+                <constraint firstItem="G7X-XE-egZ" firstAttribute="leading" secondItem="sBc-5Z-ofO" secondAttribute="trailing" id="UtL-P8-dTK"/>
                 <constraint firstItem="WMz-hr-fTG" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="V0v-PD-Bdg"/>
                 <constraint firstItem="sBc-5Z-ofO" firstAttribute="top" secondItem="WMz-hr-fTG" secondAttribute="bottom" constant="10" id="X6a-va-VvA"/>
-                <constraint firstItem="sBc-5Z-ofO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Y0t-Tc-Mql"/>
                 <constraint firstItem="EWE-ax-dSN" firstAttribute="bottom" secondItem="sBc-5Z-ofO" secondAttribute="bottom" id="YT8-wv-KPf"/>
                 <constraint firstAttribute="bottom" secondItem="cil-dc-wNz" secondAttribute="bottom" id="Z3l-W6-v4k"/>
+                <constraint firstItem="sBc-5Z-ofO" firstAttribute="leading" secondItem="3Xg-g3-TaA" secondAttribute="trailing" id="b0e-MI-95b"/>
                 <constraint firstItem="cil-dc-wNz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="c8y-fy-oEc"/>
+                <constraint firstItem="G7X-XE-egZ" firstAttribute="leading" secondItem="sBc-5Z-ofO" secondAttribute="trailing" id="fcv-Ut-G1h"/>
                 <constraint firstAttribute="trailing" secondItem="cil-dc-wNz" secondAttribute="trailing" id="h0W-PC-J0e"/>
                 <constraint firstItem="EWE-ax-dSN" firstAttribute="top" secondItem="sBc-5Z-ofO" secondAttribute="top" id="ksC-x9-Dqp"/>
+                <constraint firstItem="G7X-XE-egZ" firstAttribute="leading" secondItem="sBc-5Z-ofO" secondAttribute="trailing" id="lhz-C5-yAK"/>
+                <constraint firstAttribute="trailing" secondItem="G7X-XE-egZ" secondAttribute="trailing" id="r6T-xY-UAD"/>
                 <constraint firstItem="cil-dc-wNz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="sVL-RE-0ra"/>
                 <constraint firstItem="WMz-hr-fTG" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="40" id="wFP-uv-sNX"/>
-                <constraint firstAttribute="trailing" secondItem="sBc-5Z-ofO" secondAttribute="trailing" constant="20" id="xo9-v9-GWx"/>
             </constraints>
         </view>
     </objects>

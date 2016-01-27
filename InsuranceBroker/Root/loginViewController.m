@@ -24,6 +24,7 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"快速登录";
     [self setLeftBarButtonWithImage:ThemeImage(@"shut")];
+    self.lbAgreement.attributedText = [Util getAttributeString:@"点击“登录”，即表示您同意用户协议" substr:@"用户协议"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -81,6 +82,15 @@
             self.btnGetCaptcha.enabled = YES;
         }
     }];
+}
+
+- (IBAction)doBtnAgreementInfo:(id)sender
+{
+    WebViewController *web = [IBUIFactory CreateWebViewController];
+    web.title = @"用户协议";
+    [self.navigationController pushViewController:web animated:YES];
+    NSString *url = [NSString stringWithFormat:@"%@%@%@", SERVER_ADDRESS, @"/news/view/", User_Agreement];
+    [web loadHtmlFromUrl:url];
 }
 
 @end

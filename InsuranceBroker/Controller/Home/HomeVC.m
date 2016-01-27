@@ -184,12 +184,12 @@
 
 - (IBAction) doBtnAgentStrategy:(id)sender
 {
-    BOOL result = [self login];
-    if(result){
-        AgentStrategyViewController *vc = [[AgentStrategyViewController alloc] initWithNibName:nil bundle:nil];
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
-    }
+//    BOOL result = [self login];
+//    if(result){
+    AgentStrategyViewController *vc = [[AgentStrategyViewController alloc] initWithNibName:nil bundle:nil];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+//    }
 }
 
 - (IBAction) doBtnMyService:(id)sender

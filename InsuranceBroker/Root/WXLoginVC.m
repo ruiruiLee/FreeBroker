@@ -89,4 +89,13 @@
     }];
 }
 
+- (IBAction)doBtnAgreementInfo:(id)sender
+{
+    WebViewController *web = [IBUIFactory CreateWebViewController];
+    web.title = @"用户协议";
+    [self.navigationController pushViewController:web animated:YES];
+    NSString *url = [NSString stringWithFormat:@"%@%@%@", SERVER_ADDRESS, @"/news/view/", User_Agreement];
+    [web loadHtmlFromUrl:url];
+}
+
 @end
