@@ -246,10 +246,6 @@
 		86A505091C52717A0032A901 /* LeftImgButtonLeft.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A505081C52717A0032A901 /* LeftImgButtonLeft.m */; };
 		86A5050C1C5285D60032A901 /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A5050B1C5285D60032A901 /* NJKWebViewProgressView.m */; };
 		86A5050F1C5285EE0032A901 /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A5050D1C5285EE0032A901 /* NJKWebViewProgress.m */; };
-		86A505181C56264E0032A901 /* KVNProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A505121C56264D0032A901 /* KVNProgress.m */; };
-		86A505191C56264E0032A901 /* KVNProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86A505131C56264D0032A901 /* KVNProgressView.xib */; };
-		86A5051A1C56264E0032A901 /* UIImage+KVNEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A505151C56264D0032A901 /* UIImage+KVNEmpty.m */; };
-		86A5051B1C56264E0032A901 /* UIImage+KVNImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A505171C56264D0032A901 /* UIImage+KVNImageEffects.m */; };
 		86A505211C57588D0032A901 /* ZWIntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A505201C57588D0032A901 /* ZWIntroductionViewController.m */; };
 		86C3BB111C228D6F00F98E80 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C3BB011C228D6F00F98E80 /* EGORefreshTableHeaderView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		86C3BB121C228D6F00F98E80 /* LoadMoreTableFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C3BB031C228D6F00F98E80 /* LoadMoreTableFooterView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -347,6 +343,11 @@
 		86C3BCC71C2E933600F98E80 /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 86C3BCBB1C2E933600F98E80 /* IQKeyboardManager.bundle */; };
 		86C3BCCB1C2E999300F98E80 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C3BCC91C2E999300F98E80 /* loginViewController.m */; };
 		86C3BCCC1C2E999300F98E80 /* loginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C3BCCA1C2E999300F98E80 /* loginViewController.xib */; };
+		CF608EE71C589C2900DC10CA /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = CF608EE61C589C2900DC10CA /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CF608EEC1C58A12E00DC10CA /* CMNavBarNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF608EEB1C58A12E00DC10CA /* CMNavBarNotificationView.m */; };
+		CF608EEF1C58A13900DC10CA /* OBGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF608EEE1C58A13900DC10CA /* OBGradientView.m */; };
+		CF608EF31C58A16500DC10CA /* EGOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CF608EF21C58A16500DC10CA /* EGOCache.m */; };
+		CF608EF91C58A43D00DC10CA /* KGStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CF608EF81C58A43D00DC10CA /* KGStatusBar.m */; };
 		E9335367AF4BBFA55372CBCC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03AB914CAC81E099C3474FBB /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -830,13 +831,6 @@
 		86A5050B1C5285D60032A901 /* NJKWebViewProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgressView.m; sourceTree = "<group>"; };
 		86A5050D1C5285EE0032A901 /* NJKWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgress.m; sourceTree = "<group>"; };
 		86A5050E1C5285EE0032A901 /* NJKWebViewProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgressView.h; sourceTree = "<group>"; };
-		86A505111C56264D0032A901 /* KVNProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVNProgress.h; sourceTree = "<group>"; };
-		86A505121C56264D0032A901 /* KVNProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVNProgress.m; sourceTree = "<group>"; };
-		86A505131C56264D0032A901 /* KVNProgressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KVNProgressView.xib; sourceTree = "<group>"; };
-		86A505141C56264D0032A901 /* UIImage+KVNEmpty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+KVNEmpty.h"; sourceTree = "<group>"; };
-		86A505151C56264D0032A901 /* UIImage+KVNEmpty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+KVNEmpty.m"; sourceTree = "<group>"; };
-		86A505161C56264D0032A901 /* UIImage+KVNImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+KVNImageEffects.h"; sourceTree = "<group>"; };
-		86A505171C56264D0032A901 /* UIImage+KVNImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+KVNImageEffects.m"; sourceTree = "<group>"; };
 		86A5051F1C57588D0032A901 /* ZWIntroductionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWIntroductionViewController.h; sourceTree = "<group>"; };
 		86A505201C57588D0032A901 /* ZWIntroductionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWIntroductionViewController.m; sourceTree = "<group>"; };
 		86C3BB001C228D6F00F98E80 /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
@@ -1003,6 +997,16 @@
 		86C3BCC81C2E999300F98E80 /* loginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginViewController.h; sourceTree = "<group>"; };
 		86C3BCC91C2E999300F98E80 /* loginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
 		86C3BCCA1C2E999300F98E80 /* loginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = loginViewController.xib; sourceTree = "<group>"; };
+		CF608EE51C589C2900DC10CA /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Reachability/Reachability.h; sourceTree = "<group>"; };
+		CF608EE61C589C2900DC10CA /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Reachability/Reachability.m; sourceTree = "<group>"; };
+		CF608EEA1C58A12E00DC10CA /* CMNavBarNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMNavBarNotificationView.h; path = pushNotificationView/CMNavBarNotificationView/CMNavBarNotificationView.h; sourceTree = "<group>"; };
+		CF608EEB1C58A12E00DC10CA /* CMNavBarNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMNavBarNotificationView.m; path = pushNotificationView/CMNavBarNotificationView/CMNavBarNotificationView.m; sourceTree = "<group>"; };
+		CF608EED1C58A13900DC10CA /* OBGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OBGradientView.h; path = pushNotificationView/OBGradientView/OBGradientView.h; sourceTree = "<group>"; };
+		CF608EEE1C58A13900DC10CA /* OBGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OBGradientView.m; path = pushNotificationView/OBGradientView/OBGradientView.m; sourceTree = "<group>"; };
+		CF608EF11C58A16500DC10CA /* EGOCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGOCache.h; path = EGOCache/EGOCache.h; sourceTree = "<group>"; };
+		CF608EF21C58A16500DC10CA /* EGOCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EGOCache.m; path = EGOCache/EGOCache.m; sourceTree = "<group>"; };
+		CF608EF71C58A43D00DC10CA /* KGStatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KGStatusBar.h; path = KGStatusBar/KGStatusBar.h; sourceTree = "<group>"; };
+		CF608EF81C58A43D00DC10CA /* KGStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KGStatusBar.m; path = KGStatusBar/KGStatusBar.m; sourceTree = "<group>"; };
 		DFE808A7D7A93EC82240AE11 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1174,11 +1178,11 @@
 		865065B81C1EA2D900429EAE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				86C3BB241C22C3FC00F98E80 /* Global */,
 				86C3BB961C27F92200F98E80 /* Customer */,
 				86C3BB971C27F92200F98E80 /* UserCenter */,
 				86C3BB981C27F92200F98E80 /* Work */,
 				86C3BB3C1C23C19200F98E80 /* Main */,
-				86C3BB241C22C3FC00F98E80 /* Global */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1644,20 +1648,6 @@
 			path = EasyJSWebView;
 			sourceTree = "<group>";
 		};
-		86A505101C56264D0032A901 /* KVNProgress */ = {
-			isa = PBXGroup;
-			children = (
-				86A505111C56264D0032A901 /* KVNProgress.h */,
-				86A505121C56264D0032A901 /* KVNProgress.m */,
-				86A505131C56264D0032A901 /* KVNProgressView.xib */,
-				86A505141C56264D0032A901 /* UIImage+KVNEmpty.h */,
-				86A505151C56264D0032A901 /* UIImage+KVNEmpty.m */,
-				86A505161C56264D0032A901 /* UIImage+KVNImageEffects.h */,
-				86A505171C56264D0032A901 /* UIImage+KVNImageEffects.m */,
-			);
-			path = KVNProgress;
-			sourceTree = "<group>";
-		};
 		86C3BAFE1C228D6F00F98E80 /* EGOTableViewPullRefresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -1712,7 +1702,10 @@
 		86C3BB241C22C3FC00F98E80 /* Global */ = {
 			isa = PBXGroup;
 			children = (
-				86A505101C56264D0032A901 /* KVNProgress */,
+				CF608EFA1C58A44900DC10CA /* KGStatusBar */,
+				CF608EF41C58A16C00DC10CA /* EGOCache */,
+				CF608EF01C58A14500DC10CA /* pushNotificationView */,
+				CF608EE91C58A11500DC10CA /* Reachability */,
 				86A504F01C5257440032A901 /* EasyJSWebView */,
 				86A5044A1C4F27950032A901 /* QRCode */,
 				86A26F0B1C4A2C9F0073FFFC /* XYPieChart */,
@@ -2246,6 +2239,44 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		CF608EE91C58A11500DC10CA /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				CF608EE51C589C2900DC10CA /* Reachability.h */,
+				CF608EE61C589C2900DC10CA /* Reachability.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
+		CF608EF01C58A14500DC10CA /* pushNotificationView */ = {
+			isa = PBXGroup;
+			children = (
+				CF608EED1C58A13900DC10CA /* OBGradientView.h */,
+				CF608EEE1C58A13900DC10CA /* OBGradientView.m */,
+				CF608EEA1C58A12E00DC10CA /* CMNavBarNotificationView.h */,
+				CF608EEB1C58A12E00DC10CA /* CMNavBarNotificationView.m */,
+			);
+			name = pushNotificationView;
+			sourceTree = "<group>";
+		};
+		CF608EF41C58A16C00DC10CA /* EGOCache */ = {
+			isa = PBXGroup;
+			children = (
+				CF608EF11C58A16500DC10CA /* EGOCache.h */,
+				CF608EF21C58A16500DC10CA /* EGOCache.m */,
+			);
+			name = EGOCache;
+			sourceTree = "<group>";
+		};
+		CF608EFA1C58A44900DC10CA /* KGStatusBar */ = {
+			isa = PBXGroup;
+			children = (
+				CF608EF71C58A43D00DC10CA /* KGStatusBar.h */,
+				CF608EF81C58A43D00DC10CA /* KGStatusBar.m */,
+			);
+			name = KGStatusBar;
+			sourceTree = "<group>";
+		};
 		D1F40C377712D00EF47C11DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2334,14 +2365,16 @@
 				TargetAttributes = {
 					8650657C1C1E6BC800429EAE = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = 83V6JW3TGV;
+						DevelopmentTeam = 2Q2CM4XT64;
 					};
 					865065951C1E6BC800429EAE = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = 83V6JW3TGV;
 						TestTargetID = 8650657C1C1E6BC800429EAE;
 					};
 					865065A01C1E6BC800429EAE = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = 2Q2CM4XT64;
 						TestTargetID = 8650657C1C1E6BC800429EAE;
 					};
 				};
@@ -2401,7 +2434,6 @@
 				86C3BB1B1C228D6F00F98E80 /* whiteArrow.png in Resources */,
 				86A504F81C5257440032A901 /* easyjs-inject.js in Resources */,
 				86C3BBAF1C29073900F98E80 /* MyLuckyMoneyVC.xib in Resources */,
-				86A505191C56264E0032A901 /* KVNProgressView.xib in Resources */,
 				86A504401C4E37E30032A901 /* ShareSDKUI.bundle in Resources */,
 				8625AF831C321E5B00312B98 /* OrderManagerTableViewCell.xib in Resources */,
 				86C3BB191C228D6F00F98E80 /* grayArrow.png in Resources */,
@@ -2504,6 +2536,7 @@
 				8625AFC31C33FDB400312B98 /* GradientView.m in Sources */,
 				86A26EB31C47C18F0073FFFC /* PhotoBrowserScrollView.m in Sources */,
 				86C3BCBF1C2E933600F98E80 /* IQKeyboardManager.m in Sources */,
+				CF608EE71C589C2900DC10CA /* Reachability.m in Sources */,
 				86A26E5D1C43AF920073FFFC /* NetWorkHandler+queryForCustomerInsurPageList.m in Sources */,
 				86C3BCCB1C2E999300F98E80 /* loginViewController.m in Sources */,
 				86A5047A1C4F27950032A901 /* bitstream.c in Sources */,
@@ -2517,6 +2550,7 @@
 				86C3BBE01C2AA70600F98E80 /* TagButton.m in Sources */,
 				86A505211C57588D0032A901 /* ZWIntroductionViewController.m in Sources */,
 				8625AFEB1C37D3FF00312B98 /* UserNameEditButton.m in Sources */,
+				CF608EEC1C58A12E00DC10CA /* CMNavBarNotificationView.m in Sources */,
 				8625AFB11C33BAA800312B98 /* AreaSelectedVC.m in Sources */,
 				86C3BBA51C28F83100F98E80 /* TopImageButton.m in Sources */,
 				86C3BB4A1C24017E00F98E80 /* LeftImgButton.m in Sources */,
@@ -2533,7 +2567,6 @@
 				86A26E911C45F0970073FFFC /* NetWorkHandler+strategy.m in Sources */,
 				86A504441C4E57910032A901 /* PopView.m in Sources */,
 				86A5047E1C4F27950032A901 /* qrinput.c in Sources */,
-				86A505181C56264E0032A901 /* KVNProgress.m in Sources */,
 				86A26E941C4605700073FFFC /* BaseStrategyView.m in Sources */,
 				865066191C21343E00429EAE /* ViewFactory.m in Sources */,
 				8625AF8C1C3256FA00312B98 /* HSepView.m in Sources */,
@@ -2548,7 +2581,6 @@
 				86A504C31C509DE50032A901 /* TasksModel.m in Sources */,
 				8625B01E1C3BF75500312B98 /* CustomerDetailModel.m in Sources */,
 				86A504B41C4FBC440032A901 /* BankSelectVC.m in Sources */,
-				86A5051A1C56264E0032A901 /* UIImage+KVNEmpty.m in Sources */,
 				8654CD891C312CE100411C54 /* SBJsonWriter.m in Sources */,
 				86C3BB2F1C22C42D00F98E80 /* UIView+MGBadgeView.m in Sources */,
 				86A26E8E1C4531290073FFFC /* NewsModel.m in Sources */,
@@ -2615,6 +2647,7 @@
 				8625AFD31C34DB5600312B98 /* InviteFriendsVC.m in Sources */,
 				86A504801C4F27950032A901 /* rscode.c in Sources */,
 				86C3BCBC1C2E933600F98E80 /* IQNSArray+Sort.m in Sources */,
+				CF608EF91C58A43D00DC10CA /* KGStatusBar.m in Sources */,
 				8625B02D1C3D3C6C00312B98 /* NetWorkHandler+saveOrUpdateCustomerCar.m in Sources */,
 				86A26F041C4A29CB0073FFFC /* LegendView.m in Sources */,
 				8654CD831C312CE100411C54 /* SBJsonStreamParserState.m in Sources */,
@@ -2640,6 +2673,7 @@
 				86A26E351C4355220073FFFC /* NetWorkHandler+getProvinces.m in Sources */,
 				86C3BBB31C291CDE00F98E80 /* LucyMoneyTableCell.m in Sources */,
 				86A26EA81C4781F10073FFFC /* NetWorkHandler+updateCustomerBindStatus.m in Sources */,
+				CF608EF31C58A16500DC10CA /* EGOCache.m in Sources */,
 				86C3BBCE1C2A5F0D00F98E80 /* TagListViewController.m in Sources */,
 				86C3BBE91C2AD05700F98E80 /* TagObjectModel.m in Sources */,
 				86A504CF1C51CB870032A901 /* NetWorkHandler+queryStatistics.m in Sources */,
@@ -2694,7 +2728,6 @@
 				86C3BC411C2E37A700F98E80 /* AutoInsuranceInfoEditVC.m in Sources */,
 				86A504C61C50FEDD0032A901 /* NetWorkHandler+initOrderShare.m in Sources */,
 				8625AF901C32761A00312B98 /* UserEditTableViewCell.m in Sources */,
-				86A5051B1C56264E0032A901 /* UIImage+KVNImageEffects.m in Sources */,
 				86A504B11C4FB8870032A901 /* BankInfoModel.m in Sources */,
 				86A26F0E1C4A2C9F0073FFFC /* XYPieChart.m in Sources */,
 				86A26F071C4A29CB0073FFFC /* NSDate+Additions.m in Sources */,
@@ -2742,6 +2775,7 @@
 				86A26E381C4356540073FFFC /* ProviendeModel.m in Sources */,
 				86A26E8B1C452EF30073FFFC /* NetWorkHandler+news.m in Sources */,
 				86A504811C4F27950032A901 /* split.c in Sources */,
+				CF608EEF1C58A13900DC10CA /* OBGradientView.m in Sources */,
 				86C3BC151C2CE05000F98E80 /* InsuranceDetailView.m in Sources */,
 				8654CD841C312CE100411C54 /* SBJsonStreamWriter.m in Sources */,
 				86A504B71C4FC8360032A901 /* NetWorkHandler+queryRedPackList.m in Sources */,
@@ -2892,8 +2926,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: // / (XY5GVE4YYR)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: // / (XY5GVE4YYR)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Zhiqiang li (CH83K85T7A)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2911,7 +2945,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cmkj.cfph;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "feb9ac25-dab9-4cec-917b-4a067c146dee";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "\"${SRCROOT}\"/**";
 			};
 			name = Debug;
@@ -2922,8 +2956,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: // / (XY5GVE4YYR)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: // / (XY5GVE4YYR)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Zhiqiang li (CH83K85T7A)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2941,7 +2975,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cmkj.cfph;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "feb9ac25-dab9-4cec-917b-4a067c146dee";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "\"${SRCROOT}\"/**";
 			};
 			name = Release;
@@ -2950,10 +2984,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = InsuranceBrokerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = test.InsuranceBrokerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InsuranceBroker.app/InsuranceBroker";
 			};
 			name = Debug;
@@ -2962,10 +2999,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = InsuranceBrokerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = test.InsuranceBrokerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InsuranceBroker.app/InsuranceBroker";
 			};
 			name = Release;
@@ -2973,10 +3013,13 @@
 		865065B11C1E6BC800429EAE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = InsuranceBrokerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = test.InsuranceBrokerUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_TARGET_NAME = InsuranceBroker;
 				USES_XCTRUNNER = YES;
 			};
@@ -2985,10 +3028,13 @@
 		865065B21C1E6BC800429EAE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = InsuranceBrokerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = test.InsuranceBrokerUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_TARGET_NAME = InsuranceBroker;
 				USES_XCTRUNNER = YES;
 			};

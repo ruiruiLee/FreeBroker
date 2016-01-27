@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UINavigationBar+Awesome.h"
 #import "UserInfoModel.h"
-#import "KVNProgress.h"
+//#import "KVNProgress.h"
 
 @interface BaseViewController : UIViewController
 

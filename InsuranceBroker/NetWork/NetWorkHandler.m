@@ -10,7 +10,7 @@
 #import "SBJson.h"
 #import "ProjectDefine.h"
 #import "define.h"
-
+#import "EGOCache.h"
 static NetWorkHandler *networkmanager;
 
 @implementation NetWorkHandler

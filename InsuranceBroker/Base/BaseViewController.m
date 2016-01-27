@@ -12,14 +12,71 @@
 #import <ShareSDK/ShareSDK.h>
 #import "WXApi.h"
 #import "GMDCircleLoader.h"
-
+#import "Reachability.h"
+#import "KGStatusBar.h"
+//----------------- 定义网络变化单例参数
+static Reachability *_reachability = nil;
+static inline Reachability* defaultReachability () {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _reachability = [Reachability reachabilityForInternetConnection];
+#if !__has_feature(objc_arc)
+        [_reachability retain];
+#endif
+    });
+    
+    return _reachability;
+}
+//--------------------- 定义网络变化单例参数
 @implementation BaseViewController
 
 
+// 处理注册通知 kReachabilityChangedNotification
+- (void)reachabilityChanged
+{
+    NetworkStatus status = [defaultReachability() currentReachabilityStatus];
+    switch (status)
+    {
+        case NotReachable:
+        {
+              [KGStatusBar showErrorWithStatus:@"无法连接网络，请稍后再试！"];
+            break;
+        }
+        case ReachableViaWiFi:
+        {
+            [KGStatusBar showSuccessWithStatus:@"成功连接wifi，请刷新！"];
+            NSLog(@" NetworkStatus : ReachableViaWiFi");
+            
+               break;
+        }
+        case ReachableViaWWAN:
+        {
+            [KGStatusBar showSuccessWithStatus:@"当前网络为流量模式"];
+            NSLog(@" NetworkStatus : ReachableViaWWAN");
+           break;
+        }
+        default:
+            break;
+    }
+}
+
+
+
+// 注册网络连接状态的改变通知
+- (void)regitserSystemAsObserver{
+    // 注册网络连接状态的改变通知
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reachabilityChanged)
+                                                 name:kReachabilityChangedNotification
+                                               object:nil];
+    
+    [defaultReachability() startNotifier];     // 开始监听网络
+
+}
 - (void) viewDidLoad
 {
     [super viewDidLoad];
-    
+     [self regitserSystemAsObserver];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     [self.navigationController.navigationBar lt_setBackgroundColor:_COLOR(255, 255, 255)];
@@ -36,9 +93,7 @@
     [self setLeftBarButtonWithImage:ThemeImage(@"arrow_left")];
 }
 
-//- (UIStatusBarStyle) preferredStatusBarStyle {
-//    return UIStatusBarStyleDefault;
-//}
+
 
 
 - (void) setNavTitle:(NSString *) title
@@ -153,12 +208,12 @@
 {
     BOOL result = YES;
     if(code != 200){
-        if (code == 504){
+        if (code == 504){   // 需要重新登陆，服务器端过期失效
             UserInfoModel *user = [UserInfoModel shareUserInfoModel];
             user.isLogin = NO;
             [self login];
         }
-        [KVNProgress showErrorWithStatus:msg];
+       // [KVNProgress showErrorWithStatus:msg];
             result = NO;
     }
     return result;
