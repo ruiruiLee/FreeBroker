@@ -91,7 +91,7 @@
         [topBar removeFromSuperview];
         topBar = nil;
         
-        [overlayWindow removeFromSuperview];
+       [overlayWindow removeFromSuperview];
         overlayWindow = nil;
     }];
 }

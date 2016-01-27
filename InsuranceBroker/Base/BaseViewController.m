@@ -56,6 +56,8 @@ static inline Reachability* defaultReachability () {
            break;
         }
         default:
+            //[KGStatusBar showWithStatus:@"Loading..."];
+            [KGStatusBar dismiss];
             break;
     }
 }

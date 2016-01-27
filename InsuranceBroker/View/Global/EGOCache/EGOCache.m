@@ -71,14 +71,16 @@ static inline NSString* cachePathForKey(NSString* directory, NSString* key) {
 
 - (id)init {
     
-	NSString* cachesDirectory = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0];
-	NSString* oldCachesDirectory = [[[cachesDirectory stringByAppendingPathComponent:[[NSProcessInfo processInfo] processName]] stringByAppendingPathComponent:@"EGOCache"] copy];
-
-	if([[NSFileManager defaultManager] fileExistsAtPath:oldCachesDirectory]) {
-		[[NSFileManager defaultManager] removeItemAtPath:oldCachesDirectory error:NULL];
-	}
-	
-	cachesDirectory = [[[cachesDirectory stringByAppendingPathComponent:[[NSBundle mainBundle] bundleIdentifier]] stringByAppendingPathComponent:@"EGOCache"] copy];
+//	NSString* cachesDirectory = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0];
+//	NSString* oldCachesDirectory = [[[cachesDirectory stringByAppendingPathComponent:[[NSProcessInfo processInfo] processName]] stringByAppendingPathComponent:@"EGOCache"] copy];
+//
+//	if([[NSFileManager defaultManager] fileExistsAtPath:oldCachesDirectory]) {
+//		[[NSFileManager defaultManager] removeItemAtPath:oldCachesDirectory error:NULL];
+//	}
+//	
+//	cachesDirectory = [[[cachesDirectory stringByAppendingPathComponent:[[NSBundle mainBundle] bundleIdentifier]] stringByAppendingPathComponent:@"EGOCache"] copy];
+    
+    NSString* cachesDirectory = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)objectAtIndex:0]stringByAppendingPathComponent:@"EGOCache"];
 	return [self initWithCacheDirectory:cachesDirectory];
 }
 

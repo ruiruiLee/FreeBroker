@@ -96,6 +96,14 @@ static NetWorkHandler *networkmanager;
     }];
 }
 
+-(NSMutableString *) ConvertCachKeyString:(NSString*)strUrl{
+    NSMutableString *Strkey = [[NSMutableString alloc] initWithString:strUrl];
+
+    NSString *strReplace = [NSString stringWithFormat:@"userid=%@",  [UserInfoModel shareUserInfoModel].userId];
+    
+    [Strkey stringByAppendingString:strReplace];
+    return Strkey;
+}
 
 - (void) postWithMethod:(NSString *)method BaseUrl:(NSString *)url Params:(NSMutableDictionary *) params Completion:(Completion)completion
 {
@@ -140,7 +148,8 @@ static NetWorkHandler *networkmanager;
         }else{
             result = responseObject;
         }
-        
+        // 加缓存
+        [[EGOCache globalCache] setObject:result forKey: [Util md5Hash:[self ConvertCachKeyString:path]]];
         
         NSLog(@"请求URL：%@ \n请求方法:%@ \n请求参数：%@\n 请求结果：%@\n==================================", url, method, params, result);
 
@@ -150,16 +159,16 @@ static NetWorkHandler *networkmanager;
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [ProjectDefine removeRequestTag:Tag];
         NSLog(@"请求URL：%@ \n请求方法:%@ \n请求参数：%@\n 请求结果：%@\n==================================", url, method, params, error);
-//        if (error.code != -1001) {
-//            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:error.localizedDescription delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-//            [alertView show];
-//        }
-        
-        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-        [dic setObject:[NSNumber numberWithInteger:error.code] forKey:@"code"];
-        [dic setObject:error.localizedDescription forKey:@"msg"];
-        
-        [self handleResponse:dic Completion:completion];
+
+    //[self ConvertCachKeyString:path]
+        id cacheDatas =[[EGOCache globalCache] objectForKey:[Util md5Hash:[self ConvertCachKeyString:path]]];
+        [self handleResponse:cacheDatas Completion:completion];
+
+//        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+//        [dic setObject:[NSNumber numberWithInteger:error.code] forKey:@"code"];
+//        [dic setObject:error.localizedDescription forKey:@"msg"];
+//        
+//        [self handleResponse:dic Completion:completion];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     }];
 }
