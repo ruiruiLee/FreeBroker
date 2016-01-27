@@ -28,7 +28,7 @@
     self.photoImgV.layer.cornerRadius = 45;
     self.lbRedLogo.clipsToBounds = YES;
     self.lbRedLogo.layer.cornerRadius = 3;
-    self.redFlagConstraint.constant = -((ScreenWidth - 320)/4 + 30);
+    self.redFlagConstraint.constant = -((ScreenWidth - 320)/2 + 50);
     
     
     self.headHConstraint.constant = ScreenWidth;

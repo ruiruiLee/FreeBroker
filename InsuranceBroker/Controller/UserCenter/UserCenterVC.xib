@@ -60,8 +60,8 @@
                                             <rect key="frame" x="544" y="26" width="24" height="24"/>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="24" id="eno-nj-6NC"/>
-                                                <constraint firstAttribute="width" constant="24" id="o5p-hD-kyK"/>
+                                                <constraint firstAttribute="height" constant="32" id="eno-nj-6NC"/>
+                                                <constraint firstAttribute="width" constant="32" id="o5p-hD-kyK"/>
                                             </constraints>
                                             <state key="normal" image="setting"/>
                                             <connections>
@@ -95,7 +95,7 @@
                                         <constraint firstItem="ggM-nS-vmh" firstAttribute="top" secondItem="LXV-Wz-yex" secondAttribute="top" constant="70" id="PxW-t5-lwa"/>
                                         <constraint firstItem="Rsn-QE-tbL" firstAttribute="centerY" secondItem="oRq-rh-239" secondAttribute="centerY" id="QvT-ex-GAj"/>
                                         <constraint firstAttribute="height" constant="225" id="Szf-BU-CPh"/>
-                                        <constraint firstAttribute="trailing" secondItem="KM3-fg-Gjp" secondAttribute="trailing" constant="10" id="Wac-B8-iZY"/>
+                                        <constraint firstAttribute="trailing" secondItem="KM3-fg-Gjp" secondAttribute="trailing" constant="15" id="Wac-B8-iZY"/>
                                         <constraint firstItem="oRq-rh-239" firstAttribute="bottom" secondItem="ggM-nS-vmh" secondAttribute="bottom" constant="-10" id="YHV-f3-fcv"/>
                                         <constraint firstItem="T2v-PH-1Ge" firstAttribute="top" secondItem="ggM-nS-vmh" secondAttribute="bottom" constant="10" id="eNq-hg-xb3"/>
                                         <constraint firstItem="oRq-rh-239" firstAttribute="trailing" secondItem="ggM-nS-vmh" secondAttribute="trailing" constant="-4" id="jfY-Px-gkC"/>
@@ -173,7 +173,7 @@
                                 <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nf6-Zs-G3O" customClass="GridView">
                                     <rect key="frame" x="0.0" y="410" width="600" height="154"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eLR-o3-orz" customClass="LeftImgButton">
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eLR-o3-orz" customClass="LeftMargenButton">
                                             <rect key="frame" x="416" y="30" width="72" height="22"/>
                                             <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -185,7 +185,7 @@
                                                 <action selector="withdraw:" destination="-1" eventType="touchUpInside" id="itt-c6-qki"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6U-ce-4nD" customClass="LeftImgButton">
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6U-ce-4nD" customClass="LeftMargenButton">
                                             <rect key="frame" x="112" y="109" width="72" height="22"/>
                                             <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -197,7 +197,7 @@
                                                 <action selector="invite:" destination="-1" eventType="touchUpInside" id="Ucx-Tl-A9k"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPc-y1-oIW" customClass="LeftImgButton">
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPc-y1-oIW" customClass="LeftMargenButton">
                                             <rect key="frame" x="416" y="110" width="72" height="22"/>
                                             <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -223,7 +223,7 @@
                                             <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NDg-Vc-vMY" customClass="LeftImgButton">
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NDg-Vc-vMY" customClass="LeftMargenButton">
                                             <rect key="frame" x="110" y="35" width="72" height="22"/>
                                             <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -341,7 +341,7 @@
                                                 <constraint firstItem="bPf-8l-4oE" firstAttribute="leading" secondItem="HPA-Y3-WkX" secondAttribute="leading" id="U2o-Xq-R15"/>
                                                 <constraint firstAttribute="trailing" secondItem="zLq-4h-RIQ" secondAttribute="trailing" id="a5F-Du-hrw"/>
                                                 <constraint firstItem="aVT-xb-kDO" firstAttribute="top" secondItem="QFG-Ug-yu1" secondAttribute="top" id="ldF-GK-5JZ"/>
-                                                <constraint firstItem="HPA-Y3-WkX" firstAttribute="leading" secondItem="QFG-Ug-yu1" secondAttribute="leading" constant="22" id="rib-y3-0op"/>
+                                                <constraint firstItem="HPA-Y3-WkX" firstAttribute="leading" secondItem="QFG-Ug-yu1" secondAttribute="leading" constant="20" id="rib-y3-0op"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d7E-rh-rXJ">
@@ -386,7 +386,7 @@
                                                 <constraint firstItem="j8J-iw-k8x" firstAttribute="top" secondItem="d7E-rh-rXJ" secondAttribute="top" id="IJt-TU-6x8"/>
                                                 <constraint firstAttribute="trailing" secondItem="E1E-4r-Dt7" secondAttribute="trailing" id="LME-v3-vjp"/>
                                                 <constraint firstAttribute="trailing" secondItem="j8J-iw-k8x" secondAttribute="trailing" id="Oin-Ww-v8i"/>
-                                                <constraint firstItem="zCo-up-LQN" firstAttribute="leading" secondItem="d7E-rh-rXJ" secondAttribute="leading" constant="22" id="RGZ-9Z-Cw0"/>
+                                                <constraint firstItem="zCo-up-LQN" firstAttribute="leading" secondItem="d7E-rh-rXJ" secondAttribute="leading" constant="20" id="RGZ-9Z-Cw0"/>
                                                 <constraint firstAttribute="bottom" secondItem="j8J-iw-k8x" secondAttribute="bottom" id="SuU-bC-8AF"/>
                                                 <constraint firstItem="UBF-ec-czD" firstAttribute="top" secondItem="zCo-up-LQN" secondAttribute="bottom" constant="5" id="hL2-K9-HX5"/>
                                                 <constraint firstItem="j8J-iw-k8x" firstAttribute="leading" secondItem="d7E-rh-rXJ" secondAttribute="leading" id="jbi-Q7-wgP"/>

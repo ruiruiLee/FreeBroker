@@ -172,7 +172,7 @@
             [arr addObject:@(j)];
             NSString *lp = [NSString stringWithFormat:@"%d", model.totalIn];
             [arr2 addObject:lp];
-            [arr3 addObject:[model.month substringFromIndex:5]];
+            [arr3 addObject:model.month];
             
             NSAttributedString *attstring = [[NSAttributedString alloc] initWithString:@""];//[self getAttStringWithSBP:model.lp DBP:model.hp rate:model.pulse];
             [arr4 addObject:attstring];
