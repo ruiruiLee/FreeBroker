@@ -9,8 +9,11 @@
 #import "UserSettingVC.h"
 #import "define.h"
 #import "RootViewController.h"
+#import "ZWIntroductionViewController.h"
 
 @interface UserSettingVC ()
+
+@property (nonatomic, strong) ZWIntroductionViewController *introductionView;
 
 @end
 
@@ -157,6 +160,16 @@
             case 0:
             {
 //                cell.textLabel.text = @"功能介绍";
+                NSArray *coverImageNames = @[@"guide1",@"guide2",@"guide3",@"guide4"];
+                // Example 2 自定义登陆按钮
+                self.introductionView = [[ZWIntroductionViewController alloc] initWithCoverImageNames:coverImageNames backgroundImageNames:coverImageNames button:nil];
+                
+                [((AppDelegate*)([UIApplication sharedApplication].delegate)).window addSubview:self.introductionView.view];
+                __weak UserSettingVC *weakself = self;
+                self.introductionView.didSelectedEnter = ^() {
+                    [weakself.introductionView.view removeFromSuperview];
+                    weakself.introductionView = nil;
+                };
             }
                 break;
             case 1:
