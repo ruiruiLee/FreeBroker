@@ -30,6 +30,9 @@
 @property (nonatomic, assign) CGFloat jbxPrice;//基本险
 @property (nonatomic, assign) CGFloat jqxCcsPrice;//交强险＋车船税
 @property (nonatomic, assign) CGFloat planAbonusPrice;//
+@property (nonatomic, assign) CGFloat allotBonusRatio;
+@property (nonatomic, assign) CGFloat levelRatio;
+@property (nonatomic, assign) CGFloat planUserAllot;
 
 @property (nonatomic, assign) BOOL isRatioSubmit;
 

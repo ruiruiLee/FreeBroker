@@ -218,6 +218,7 @@ static inline Reachability* defaultReachability () {
             [self login];
         }
 //        [KVNProgress showErrorWithStatus:msg];
+        [Util showAlertMessage:msg];
             result = NO;
     }
     return result;

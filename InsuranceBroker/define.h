@@ -25,7 +25,8 @@
  */
 #define AVOSCloudAppID  @"0PyuKjNlBECHhEf3HxDB7NYX-gzGzoHsz"
 #define AVOSCloudAppKey @"mOmncwQfyeroy2jcDj0ch1Q1"
-#define SERVER_ADDRESS @"http://dev.ibroker.avosapps.com"
+//#define SERVER_ADDRESS @"http://dev.ibroker.avosapps.com"
+#define SERVER_ADDRESS @"http://dev.ibroker.leanapp.cn"
 #define Base_Uri @"http://118.123.249.87:8783/UKB.AgentNew"
 //#define Base_Uri @"http://shuaidehen.imwork.net/UKB.AgentNew/"
 

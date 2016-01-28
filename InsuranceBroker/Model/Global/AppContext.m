@@ -41,6 +41,10 @@ static AppContext *context = nil;
                 self.firstLaunch = [[dic objectForKey:@"firstLaunch"] boolValue];
                 self.redPackdate = [dic objectForKey:@"redPackdate"];
                 self.isRedPack = [[dic objectForKey:@"isRedPack"] boolValue];
+                self.isHasNotice = [[dic objectForKey:@"isHasNotice"] boolValue];
+                self.isHasNewPolicy = [[dic objectForKey:@"isHasNewPolicy"] boolValue];
+                self.isHasTradingMsg = [[dic objectForKey:@"isHasTradingMsg"] boolValue];
+                self.isHasIncentivePolicy = [[dic objectForKey:@"isHasIncentivePolicy"] boolValue];
             }
             else{
                 self.userInfoDic = [[NSMutableDictionary alloc] init];
@@ -48,6 +52,10 @@ static AppContext *context = nil;
                 self.firstLaunch = NO;
                 self.redPackdate = nil;
                 self.isRedPack = NO;
+                self.isHasNotice = NO;
+                self.isHasNewPolicy = NO;
+                self.isHasTradingMsg = NO;
+                self.isHasIncentivePolicy = NO;
             }
         }else{
             self.userInfoDic = [[NSMutableDictionary alloc] init];
@@ -55,6 +63,10 @@ static AppContext *context = nil;
             self.firstLaunch = NO;
             self.redPackdate = nil;
             self.isRedPack = NO;
+            self.isHasNotice = NO;
+            self.isHasNewPolicy = NO;
+            self.isHasTradingMsg = NO;
+            self.isHasIncentivePolicy = NO;
         }
     }
     
@@ -74,6 +86,11 @@ static AppContext *context = nil;
     [dic setObject:[NSNumber numberWithBool:self.firstLaunch] forKey:@"firstLaunch"];
     if(self.redPackdate)
         [dic setObject:self.redPackdate forKey:@"redPackdate"];
+    [dic setObject:[NSNumber numberWithBool:self.isRedPack] forKey:@"isRedPack"];
+    [dic setObject:[NSNumber numberWithBool:self.isHasNotice] forKey:@"isHasNotice"];
+    [dic setObject:[NSNumber numberWithBool:self.isHasNewPolicy] forKey:@"isHasNewPolicy"];
+    [dic setObject:[NSNumber numberWithBool:self.isHasTradingMsg] forKey:@"isHasTradingMsg"];
+    [dic setObject:[NSNumber numberWithBool:self.isHasIncentivePolicy] forKey:@"isHasIncentivePolicy"];
     
     [dic writeToFile:file atomically:YES];
 }
@@ -85,7 +102,11 @@ static AppContext *context = nil;
     [dic setObject:@{} forKey:@"userInfoDic"];
     [dic setObject:[NSNumber numberWithBool:NO] forKey:@"isLogin"];
     [dic setObject:[NSNumber numberWithBool:self.firstLaunch] forKey:@"firstLaunch"];
-    [dic setObject:[NSNumber numberWithBool:self.isRedPack] forKey:@"isRedPack"];
+    [dic setObject:[NSNumber numberWithBool:NO] forKey:@"isRedPack"];
+    [dic setObject:[NSNumber numberWithBool:NO] forKey:@"isHasNotice"];
+    [dic setObject:[NSNumber numberWithBool:NO] forKey:@"isHasNewPolicy"];
+    [dic setObject:[NSNumber numberWithBool:NO] forKey:@"isHasTradingMsg"];
+    [dic setObject:[NSNumber numberWithBool:NO] forKey:@"isHasIncentivePolicy"];
     
     [dic writeToFile:file atomically:YES];
 }
@@ -102,6 +123,10 @@ static AppContext *context = nil;
             self.firstLaunch = [[dic objectForKey:@"firstLaunch"] boolValue];
             self.redPackdate = [dic objectForKey:@"redPackdate"];
             self.isRedPack = [[dic objectForKey:@"isRedPack"] boolValue];
+            self.isHasNotice = [[dic objectForKey:@"isHasNotice"] boolValue];
+            self.isHasNewPolicy = [[dic objectForKey:@"isHasNewPolicy"] boolValue];
+            self.isHasTradingMsg = [[dic objectForKey:@"isHasTradingMsg"] boolValue];
+            self.isHasIncentivePolicy = [[dic objectForKey:@"isHasIncentivePolicy"] boolValue];
         }
         else{
             self.userInfoDic = [[NSMutableDictionary alloc] init];
@@ -109,6 +134,10 @@ static AppContext *context = nil;
             self.firstLaunch = NO;
             self.redPackdate = nil;
             self.isRedPack = NO;
+            self.isHasNotice = NO;
+            self.isHasNewPolicy = NO;
+            self.isHasTradingMsg = NO;
+            self.isHasIncentivePolicy = NO;
         }
     }else{
         self.userInfoDic = [[NSMutableDictionary alloc] init];
@@ -116,6 +145,10 @@ static AppContext *context = nil;
         self.firstLaunch = NO;
         self.redPackdate = nil;
         self.isRedPack = NO;
+        self.isHasNotice = NO;
+        self.isHasNewPolicy = NO;
+        self.isHasTradingMsg = NO;
+        self.isHasIncentivePolicy = NO;
     }
 }
 

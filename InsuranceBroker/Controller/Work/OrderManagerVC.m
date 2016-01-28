@@ -105,18 +105,18 @@
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
+    if([insurArray count] == 0){
+        [self showNoDatasImage:ThemeImage(@"no_data")];
+    }
+    else{
+        [self hidNoDatasImage];
+    }
     return [insurArray count];
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSArray *array = [insurArray objectAtIndex:section];
-    if([array count] == 0){
-        [self showNoDatasImage:ThemeImage(@"no_data")];
-    }
-    else{
-        [self hidNoDatasImage];
-    }
     return [array count];
 }
 

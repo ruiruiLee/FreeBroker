@@ -56,6 +56,9 @@
     model.jbxPrice = [[dictionary objectForKey:@"jbxPrice"] floatValue];
     model.jqxCcsPrice = [[dictionary objectForKey:@"jqxCcsPrice"] floatValue];
     model.planAbonusPrice = [[dictionary objectForKey:@"planAbonusPrice"] floatValue];
+    model.levelRatio = [[dictionary objectForKey:@"levelRatio"] floatValue];
+    model.allotBonusRatio = [[dictionary objectForKey:@"allotBonusRatio"] floatValue];
+    model.planUserAllot = [[dictionary objectForKey:@"planUserAllot"] floatValue];
     
     return model;
 }
