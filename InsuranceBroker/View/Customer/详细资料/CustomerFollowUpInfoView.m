@@ -62,6 +62,28 @@
     cell.lbSchedule.text = [NSString stringWithFormat:@"%@-%@", model.visitType, model.visitProgress];
     cell.lbTime.text = [Util getShowingTime:model.visitTime];
     
+    if([model.visitTypeId isEqualToString:@"1"]){
+        cell.logoImgV.image = ThemeImage(@"phone_talk");
+    }
+    else if ([model.visitTypeId isEqualToString:@"2"]){
+        cell.logoImgV.image = ThemeImage(@"face_talk");
+    }
+    else if ([model.visitTypeId isEqualToString:@"3"]){
+        cell.logoImgV.image = ThemeImage(@"wechat_talk");
+    }
+    else if ([model.visitTypeId isEqualToString:@"4"]){
+        cell.logoImgV.image = ThemeImage(@"qq_talk");
+    }
+    else if ([model.visitTypeId isEqualToString:@"5"]){
+        cell.logoImgV.image = ThemeImage(@"message_talk");
+    }
+    else if ([model.visitTypeId isEqualToString:@"6"]){
+        cell.logoImgV.image = ThemeImage(@"mail_talk");
+    }
+    else if ([model.visitTypeId isEqualToString:@"7"]){
+        cell.logoImgV.image = ThemeImage(@"others_talk");
+    }
+    
     
     return cell;
 }

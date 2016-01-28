@@ -23,6 +23,8 @@
     [model removeObserver:self forKeyPath:@"cardVerifiy"];
     [model removeObserver:self forKeyPath:@"sex"];
     [model removeObserver:self forKeyPath:@"nickname"];
+    AppContext *context = [AppContext sharedAppContext];
+    [context removeObserver:self forKeyPath:@"isRedPack"];
 }
 
 - (void)viewDidLoad
@@ -36,17 +38,19 @@
     self.photoImgV.clipsToBounds = YES;
     self.photoImgV.layer.cornerRadius = 45;
     self.lbRedLogo.clipsToBounds = YES;
-    self.lbRedLogo.layer.cornerRadius = 3;
+    self.lbRedLogo.layer.cornerRadius = 4;
     self.redFlagConstraint.constant = -((ScreenWidth - 320)/2 + 50);
     
     
     self.headHConstraint.constant = ScreenWidth;
     
     UserInfoModel *model = [UserInfoModel shareUserInfoModel];
+    AppContext *context = [AppContext sharedAppContext];
     [model addObserver:self forKeyPath:@"headerImg" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
     [model addObserver:self forKeyPath:@"cardVerifiy" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
     [model addObserver:self forKeyPath:@"sex" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
     [model addObserver:self forKeyPath:@"nickname" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
+    [context addObserver:self forKeyPath:@"isRedPack" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
     
     [self updateUserInfo];
 }
@@ -90,6 +94,12 @@
         self.lbCertificate.textColor = _COLOR(53, 202, 100);
     }else{
         self.lbCertificate.text = @"未认证";
+    }
+    
+    if([AppContext sharedAppContext].isRedPack){
+        self.lbRedLogo.hidden = NO;
+    }else{
+        self.lbRedLogo.hidden = YES;
     }
 }
 

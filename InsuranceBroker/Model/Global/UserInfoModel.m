@@ -173,12 +173,14 @@
     AppContext *context = [AppContext sharedAppContext];
     context.userInfoDic = dictionary;
     context.isLogin = self.isLogin;
+    if([context.redBagId intValue] < [self.redBagId integerValue])
+        context.isRedPack = YES;
+    context.redBagId = self.redBagId;
     [context saveData];
 }
 
 - (void) queryUserInfo
 {
-    NSLog(@"queryUserInfo");
     if(self.userId == nil || [self.userId length] == 0)
         return;
     [NetWorkHandler requestToQueryUserInfo:self.userId Completion:^(int code, id content) {

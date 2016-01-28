@@ -33,9 +33,8 @@
 
 - (void) initSubViews
 {
+    self.tableview = [[UITableView alloc] initWithFrame:CGRectZero];
     UITableView *tableview = self.tableview;
-    
-    tableview = [[UITableView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:tableview];
     tableview.delegate = self;
     tableview.dataSource = self;
@@ -44,6 +43,7 @@
     tableview.backgroundColor = [UIColor clearColor];//_COLOR(242, 242, 242);//TableBackGroundColor;
     tableview.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     tableview.separatorColor = _COLOR(0xe6, 0xe6, 0xe6);
+    tableview.scrollEnabled = NO;
     
     UIEdgeInsets insets = UIEdgeInsetsMake(0, 0, 0, 0);
     self.tableview.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
@@ -73,10 +73,10 @@
     
     self.hConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[tableview]-0-|" options:0 metrics:nil views:views];
     [self.view addConstraints:self.hConstraints];
-    self.vConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[tableview(280)]->=0-[btnLogout(45)]-10-[lbVersion]-20-|" options:0 metrics:nil views:views];
+    self.vConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[tableview(330)]->=0-[btnLogout(45)]-6-[lbVersion]-10-|" options:0 metrics:nil views:views];
     [self.view addConstraints:self.vConstraints];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-10-[lbVersion]-10-|" options:0 metrics:nil views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-10-[btnLogout]-10-|" options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-12-[lbVersion]-12-|" options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-12-[btnLogout]-12-|" options:0 metrics:nil views:views]];
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -97,7 +97,7 @@
     if(section == 0)
         return 1;
     else
-        return 4;
+        return 5;
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -136,6 +136,11 @@
             }
                 break;
             case 3:
+            {
+                cell.textLabel.text = @"清空缓存";
+            }
+                break;
+            case 4:
             {
                 cell.textLabel.text = @"关于";
             }
@@ -191,7 +196,11 @@
                 [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
             }
                 break;
-            case 3:
+            case 3:{
+                
+            }
+                break;
+            case 4:
             {
 //                cell.textLabel.text = @"关于";
                 WebViewController *web = [IBUIFactory CreateWebViewController];

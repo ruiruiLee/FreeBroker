@@ -39,7 +39,7 @@ static AppContext *context = nil;
                 self.userInfoDic = [[NSMutableDictionary alloc] initWithDictionary:[dic objectForKey:@"userInfoDic"]];
                 self.isLogin = [[dic objectForKey:@"isLogin"] boolValue];
                 self.firstLaunch = [[dic objectForKey:@"firstLaunch"] boolValue];
-                self.redPackdate = [dic objectForKey:@"redPackdate"];
+                self.redBagId = [dic objectForKey:@"redBagId"];
                 self.isRedPack = [[dic objectForKey:@"isRedPack"] boolValue];
                 self.isHasNotice = [[dic objectForKey:@"isHasNotice"] boolValue];
                 self.isHasNewPolicy = [[dic objectForKey:@"isHasNewPolicy"] boolValue];
@@ -50,7 +50,7 @@ static AppContext *context = nil;
                 self.userInfoDic = [[NSMutableDictionary alloc] init];
                 self.isLogin = NO;
                 self.firstLaunch = NO;
-                self.redPackdate = nil;
+                self.redBagId = nil;
                 self.isRedPack = NO;
                 self.isHasNotice = NO;
                 self.isHasNewPolicy = NO;
@@ -61,7 +61,7 @@ static AppContext *context = nil;
             self.userInfoDic = [[NSMutableDictionary alloc] init];
             self.isLogin = NO;
             self.firstLaunch = NO;
-            self.redPackdate = nil;
+            self.redBagId = nil;
             self.isRedPack = NO;
             self.isHasNotice = NO;
             self.isHasNewPolicy = NO;
@@ -84,8 +84,8 @@ static AppContext *context = nil;
     
     [dic setObject:[NSNumber numberWithBool:self.isLogin] forKey:@"isLogin"];
     [dic setObject:[NSNumber numberWithBool:self.firstLaunch] forKey:@"firstLaunch"];
-    if(self.redPackdate)
-        [dic setObject:self.redPackdate forKey:@"redPackdate"];
+    if(self.redBagId)
+        [dic setObject:self.redBagId forKey:@"redPackdate"];
     [dic setObject:[NSNumber numberWithBool:self.isRedPack] forKey:@"isRedPack"];
     [dic setObject:[NSNumber numberWithBool:self.isHasNotice] forKey:@"isHasNotice"];
     [dic setObject:[NSNumber numberWithBool:self.isHasNewPolicy] forKey:@"isHasNewPolicy"];
@@ -121,7 +121,7 @@ static AppContext *context = nil;
             self.userInfoDic = [[NSMutableDictionary alloc] initWithDictionary:[dic objectForKey:@"userInfoDic"]];
             self.isLogin = [[dic objectForKey:@"isLogin"] boolValue];
             self.firstLaunch = [[dic objectForKey:@"firstLaunch"] boolValue];
-            self.redPackdate = [dic objectForKey:@"redPackdate"];
+            self.redBagId = [dic objectForKey:@"redBagId"];
             self.isRedPack = [[dic objectForKey:@"isRedPack"] boolValue];
             self.isHasNotice = [[dic objectForKey:@"isHasNotice"] boolValue];
             self.isHasNewPolicy = [[dic objectForKey:@"isHasNewPolicy"] boolValue];
@@ -132,7 +132,7 @@ static AppContext *context = nil;
             self.userInfoDic = [[NSMutableDictionary alloc] init];
             self.isLogin = NO;
             self.firstLaunch = NO;
-            self.redPackdate = nil;
+            self.redBagId = nil;
             self.isRedPack = NO;
             self.isHasNotice = NO;
             self.isHasNewPolicy = NO;
@@ -143,7 +143,7 @@ static AppContext *context = nil;
         self.userInfoDic = [[NSMutableDictionary alloc] init];
         self.isLogin = NO;
         self.firstLaunch = NO;
-        self.redPackdate = nil;
+        self.redBagId = nil;
         self.isRedPack = NO;
         self.isHasNotice = NO;
         self.isHasNewPolicy = NO;
@@ -154,9 +154,6 @@ static AppContext *context = nil;
 
 - (void)resetData
 {
-    
-//    NSString *file = [docDir stringByAppendingPathComponent:@"data.plist"];
-//    [[NSFileManager defaultManager] removeItemAtPath:file error:nil];
     [self saveData];
 }
 
