@@ -153,6 +153,12 @@
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if(tableView == self.pulltable){
+        if([self.data count] == 0){
+            [self showNoDatasImage:ThemeImage(@"no_data")];
+        }
+        else{
+            [self hidNoDatasImage];
+        }
         return [self.data count];
     }else
         return [_searchedArray count];
@@ -400,6 +406,19 @@
     }
     
     return NO;
+}
+
+- (void) showNoDatasImage:(UIImage *) image
+{
+    if(!self.explainBgView){
+        self.explainBgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 280, 80)];
+        self.imgWithNoData = [[UIImageView alloc] initWithImage:image];
+        [self.explainBgView addSubview:self.imgWithNoData];
+        [self.pulltable addSubview:self.explainBgView];
+        self.explainBgView.center = CGPointMake(ScreenWidth/2, self.pulltable.frame.size.height/2 + 42);
+    }else{
+        self.explainBgView.center = CGPointMake(ScreenWidth/2, self.pulltable.frame.size.height/2 + 42);
+    }
 }
 
 @end

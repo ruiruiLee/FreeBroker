@@ -143,9 +143,18 @@
     CustomerInfoModel *model = [self.data objectAtIndex:indexPath.row];
     
     cell.lbName.text = model.customerName;
-    cell.lbStatus.text = @"寿险";
+    
+    NSMutableString *label = [[NSMutableString alloc] init];
+    for (int i = 0; i < [model.customerLabel count]; i++) {
+        [label appendString:[model.customerLabel objectAtIndex:i]];
+        if(i < [model.customerLabel count] - 1){
+            [label appendString:@","];
+        }
+    }
+    
+    cell.lbStatus.text = label;
     cell.lbTimr.text = [Util getShowingTime:model.createdAt];
-//        cell.photoImage.image = ThemeImage(@"home");
+
     return cell;
 }
 
@@ -157,6 +166,7 @@
     [NetWorkHandler requestToUpdateCustomerBindStatus:model.customerId userId:[UserInfoModel shareUserInfoModel].userId Completion:^(int code, id content) {
         [self handleResponseWithCode:code msg:[content objectForKey:@"msg"]];
         if(code == 200){
+            [[NSNotificationCenter defaultCenter] postNotificationName:Notify_Insert_Customer object:model];
             [self.data removeObject:model];
             [self.pulltable reloadData];
         }

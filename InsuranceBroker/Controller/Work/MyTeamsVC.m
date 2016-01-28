@@ -359,4 +359,17 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+- (void) showNoDatasImage:(UIImage *) image
+{
+    if(!self.explainBgView){
+        self.explainBgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 280, 80)];
+        self.imgWithNoData = [[UIImageView alloc] initWithImage:image];
+        [self.explainBgView addSubview:self.imgWithNoData];
+        [self.pulltable addSubview:self.explainBgView];
+        self.explainBgView.center = CGPointMake(ScreenWidth/2, self.pulltable.frame.size.height*5/7);
+    }else{
+        self.explainBgView.center = CGPointMake(ScreenWidth/2, self.pulltable.frame.size.height*5/7);
+    }
+}
+
 @end

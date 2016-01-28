@@ -25,7 +25,8 @@
  */
 #define AVOSCloudAppID  @"0PyuKjNlBECHhEf3HxDB7NYX-gzGzoHsz"
 #define AVOSCloudAppKey @"mOmncwQfyeroy2jcDj0ch1Q1"
-#define SERVER_ADDRESS @"http://dev.ibroker.avosapps.com"
+//#define SERVER_ADDRESS @"http://dev.ibroker.avosapps.com"
+#define SERVER_ADDRESS @"http://dev.ibroker.leanapp.cn"
 #define Base_Uri @"http://118.123.249.87:8783/UKB.AgentNew"
 //#define Base_Uri @"http://shuaidehen.imwork.net/UKB.AgentNew/"
 
@@ -67,5 +68,6 @@
 #define Notify_Reload_CustomerDetail @"Notify_Reload_CustomerDetail"
 #define Notify_Add_NewCustomer  @"Notify_Add_NewCustomer"
 #define Notify_Add_BankCard @"Notify_Add_BankCard"
+#define Notify_Insert_Customer @"Notify_Insert_Customer"
 
 #endif /* define_h */

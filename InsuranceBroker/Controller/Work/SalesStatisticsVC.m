@@ -20,8 +20,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"销售统计";
-    
-    [self showNoDatasImage:ThemeImage(@"no_data")];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,6 +33,12 @@
     [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self showNoDatasImage:ThemeImage(@"no_data")];
+}
+
 - (void) showNoDatasImage:(UIImage *) image
 {
     if(!self.explainBgView){
@@ -42,7 +46,7 @@
         imgWithNoData = [[UIImageView alloc] initWithImage:image];
         [self.explainBgView addSubview:imgWithNoData];
         [self.view addSubview:self.explainBgView];
-        self.explainBgView.center = CGPointMake(ScreenWidth/2, self.view.frame.size.height/2 + 30);
+        self.explainBgView.center = CGPointMake(ScreenWidth/2, self.view.frame.size.height/2);
     }
 }
 

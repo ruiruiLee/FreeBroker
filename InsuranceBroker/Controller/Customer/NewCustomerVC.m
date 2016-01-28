@@ -158,6 +158,7 @@
                                                       AutoInsuranceInfoEditVC *vc = [IBUIFactory CreateAutoInsuranceInfoEditViewController];
                                                       [self.presentvc.navigationController pushViewController:vc animated:YES];
                                                       vc.customerModel = self.data;
+                                                      vc.customerId = self.data.customerId;
 //                                                      [detail performSelector:@selector(loadDetailWithCustomerId:) withObject:[content objectForKey:@"data"] afterDelay:0.2];
                                                   }
                                               }];

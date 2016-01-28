@@ -171,7 +171,9 @@
         imgWithNoData = [[UIImageView alloc] initWithImage:image];
         [self.explainBgView addSubview:imgWithNoData];
         [self.pulltable addSubview:self.explainBgView];
-        self.explainBgView.center = CGPointMake(ScreenWidth/2, self.pulltable.frame.size.height/2 + 30);
+        self.explainBgView.center = CGPointMake(ScreenWidth/2, self.pulltable.frame.size.height/2);
+    }else{
+        self.explainBgView.center = CGPointMake(ScreenWidth/2, self.pulltable.frame.size.height/2);
     }
 }
 

@@ -103,6 +103,7 @@
     cell.lbTitle.text = model.title;
     cell.lbContent.text = model.lastNewsContent;
     cell.lbTime.text = [Util getShowingTime:model.lastNewsDt];
+    cell.photoLogo.badgeView.badgeValue = 1;
     
     return cell;
 }

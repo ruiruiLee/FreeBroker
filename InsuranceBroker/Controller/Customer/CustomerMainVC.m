@@ -51,6 +51,7 @@
     [self setLeftBarButtonWithImage:nil];
     [self setRightBarButtonWithImage:ThemeImage(@"add")];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifyCustomerAdd:) name:Notify_Add_NewCustomer object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifyToInsertPushCustomer:) name:Notify_Insert_Customer object:nil];
     
     searchbar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 40)];
     searchbar.placeholder = @"搜索";
@@ -63,6 +64,13 @@
     [self.pulltable registerNib:[UINib nibWithNibName:@"CustomerTagTableCell" bundle:nil] forCellReuseIdentifier:@"cell2"];
     [self.pulltable setSeparatorColor:_COLOR(0xe6, 0xe6, 0xe6)];
     self.pulltable.backgroundColor = [UIColor clearColor];
+}
+
+- (void) notifyToInsertPushCustomer:(NSNotification *)notify
+{
+    id model = (CustomerInfoModel*)notify.object;
+    [self.data insertObject:model atIndex:0];
+    [self.pulltable reloadData];
 }
 
 - (void) notifyCustomerAdd:(NSNotification *) notify

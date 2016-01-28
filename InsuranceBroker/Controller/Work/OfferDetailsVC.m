@@ -123,7 +123,7 @@
     
     OffersModel *model = [self.data.offersVoList objectAtIndex:indexPath.row];
     
-    cell.lbGain.attributedText = [self getPlanUkbSavePriceAttbuteString:[NSString stringWithFormat:@"赚：¥%.2f", model.planAbonusPrice] sub:@".00"];
+    cell.lbGain.attributedText = [self getPlanUkbSavePriceAttbuteString:[NSString stringWithFormat:@"赚：¥%.2f", model.planUserAllot] sub:@".00"];
     cell.lbName.text = model.productName;
     cell.lbPrice.attributedText = [self getPlanInsuranceCompanyPriceAttbuteString:[NSString stringWithFormat:@"保单价：%.2f", model.planInsuranceCompanyPrice] sub:[NSString stringWithFormat:@"%.2f", model.planInsuranceCompanyPrice]];
     cell.lbRebate.text = [NSString stringWithFormat:@"%d%@", (int)model.planUkbRatio, @"%"];
@@ -177,16 +177,16 @@
 //    [self.tableview reloadData];
     
     OffersModel *model = [self.data.offersVoList objectAtIndex:sender.tag];
-    if (!_datePicker) {
-        NSMutableArray *array = [[NSMutableArray alloc] init];
-        for (int i = (int)model.productMinRatio; i <= (int)model.productMaxRatio; i++) {
-            [array addObject:[NSString stringWithFormat:@"%d%@", i, @"%"]];
-        }
-        
-        _datePicker = [[LCPickView alloc] initPickviewWithArray:array isHaveNavControler:NO];
-        _datePicker.delegate = self;
-        _datePicker.lbTitle.text = [NSString stringWithFormat:@"%@ (%d%@－%d%@)", model.productName, (int)model.productMinRatio, @"%", (int)model.productMaxRatio, @"%"];
+//    if (!_datePicker) {
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    for (int i = (int)model.productMinRatio; i <= (int)model.productMaxRatio; i++) {
+        [array addObject:[NSString stringWithFormat:@"%d%@", i, @"%"]];
     }
+    
+    _datePicker = [[LCPickView alloc] initPickviewWithArray:array isHaveNavControler:NO];
+    _datePicker.delegate = self;
+    _datePicker.lbTitle.text = [NSString stringWithFormat:@"%@ (%d%@－%d%@)", model.productName, (int)model.productMinRatio, @"%", (int)model.productMaxRatio, @"%"];
+//    }
     [_datePicker show];
     _datePicker.tag = sender.tag;
     [_datePicker setCurrentSelectIdx:model.planUkbRatio - model.productMinRatio];
@@ -228,7 +228,7 @@
         OrderDetailWebVC *web = [IBUIFactory CreateOrderDetailWebVC];
         web.type = enumShareTypeToCustomer;
         web.title = @"保单详情";
-        UserInfoModel *user = [UserInfoModel shareUserInfoModel];
+//        UserInfoModel *user = [UserInfoModel shareUserInfoModel];
         if(model.productLogo)
             web.shareImgArray = [NSArray arrayWithObject:model.productLogo];
 //        web.shareTitle = [NSString stringWithFormat:@"我是%@，我是优快保自由经纪人。这是为您定制的投保方案报价，请查阅。电话%@", user.realName, user.phone];
@@ -316,13 +316,19 @@
         planUkbRatio = min;
     
     CGFloat planUkbPrice = model.businessPrice * (100 - planUkbRatio) / 100.0 + model.jqxCcsPrice;
-    CGFloat planAbonusPrice = model.businessPrice * (model.productMaxRatio - planUkbRatio) / 100.0;
+    CGFloat planAbonusPrice = model.businessPrice * (model.productMaxRatio - planUkbRatio) / 100.0 + model.businessPrice * model.allotBonusRatio * model.levelRatio/10000;
     
-    model.planAbonusPrice = planAbonusPrice;
+    model.planUserAllot = planAbonusPrice;
     model.planUkbPrice = planUkbPrice;
     model.planUkbRatio = planUkbRatio;
     
     [self.tableview reloadData];
+    _datePicker = nil;
+}
+
+- (void) toobarDonBtnCancel:(LCPickView *)pickView
+{
+    _datePicker = nil;
 }
 
 

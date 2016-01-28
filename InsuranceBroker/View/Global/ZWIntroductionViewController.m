@@ -54,6 +54,7 @@
     self.pagingScrollView.delegate = self;
     self.pagingScrollView.pagingEnabled = YES;
     self.pagingScrollView.showsHorizontalScrollIndicator = NO;
+    self.pagingScrollView.backgroundColor = _COLOR(250, 250, 250);
     
     [self.view addSubview:self.pagingScrollView];
     

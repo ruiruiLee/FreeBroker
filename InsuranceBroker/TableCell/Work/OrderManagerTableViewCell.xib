@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="554" height="188"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="554" height="188"/>
+                <rect key="frame" x="0.0" y="0.0" width="554" height="187.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G6I-aU-t68">
@@ -121,7 +121,7 @@
                                         <rect key="frame" x="479" y="6" width="55" height="22"/>
                                         <animations/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="120" id="LQ7-9F-Qdw"/>
+                                            <constraint firstAttribute="width" id="LQ7-9F-Qdw"/>
                                             <constraint firstAttribute="height" constant="22" id="Oac-ei-ktq"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>

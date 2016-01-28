@@ -37,7 +37,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"经纪人攻略";
-//    [self.pulltable registerNib:[UINib nibWithNibName:@"AgentStrategyTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     _btnArray = [[NSMutableArray alloc] init];
     _contentViewArray = [[NSMutableArray alloc] init];
     [self loadData];
@@ -60,7 +59,6 @@
     [_contentViewArray removeAllObjects];
     
     _adview = [[UIButton alloc] initWithFrame:CGRectMake(0, 50, ScreenWidth, [Util getHeightByWidth:3 height:1 nwidth:ScreenWidth])];
-    [self.view addSubview:_adview];
     [_adview addTarget:self action:@selector(doButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     CGFloat width = ScreenWidth / [_strategyArray count];
@@ -75,11 +73,13 @@
         
         [_btnArray addObject:btn];
         
-        BaseStrategyView *view = [[BaseStrategyView alloc] initWithFrame:CGRectMake(0, 66 + _adview.frame.size.height, ScreenWidth, self.view.frame.size.height - 66 - _adview.frame.size.height) Strategy:model.category];
+        BaseStrategyView *view = [[BaseStrategyView alloc] initWithFrame:CGRectMake(0, 66 + [Util getHeightByWidth:3 height:1 nwidth:ScreenWidth], ScreenWidth, self.view.frame.size.height - 66 - _adview.frame.size.height) Strategy:model.category];
         [self.view addSubview:view];
         view.parentvc = self;
         [_contentViewArray addObject:view];
     }
+    
+    [self.view addSubview:_adview];
     
     lbSelectline = [[UILabel alloc] initWithFrame:CGRectMake(0, 48, width, 2)];
     lbSelectline.backgroundColor = _COLOR(0xff, 0x66, 0x19);
