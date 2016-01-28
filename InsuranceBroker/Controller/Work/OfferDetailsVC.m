@@ -323,6 +323,7 @@
     model.planUkbRatio = planUkbRatio;
     
     [self.tableview reloadData];
+    _datePicker = nil;
 }
 
 - (void) toobarDonBtnCancel:(LCPickView *)pickView

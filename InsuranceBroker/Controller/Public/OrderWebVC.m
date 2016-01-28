@@ -91,22 +91,4 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-//- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-//    
-//    NSString *requestString = [[request URL] absoluteString];
-//    NSArray *components = [requestString componentsSeparatedByString:@":"];
-//    if ([components count] > 1 && [(NSString *)[components objectAtIndex:0] isEqualToString:@"testapp"]) {
-//        if([(NSString *)[components objectAtIndex:1] isEqualToString:@"alert"])
-//        {
-//            UIAlertView *alert = [[UIAlertView alloc]
-//                                  initWithTitle:@"Alert from Cocoa Touch" message:[components objectAtIndex:2]
-//                                  delegate:self cancelButtonTitle:nil
-//                                  otherButtonTitles:@"OK", nil];
-//            [alert show];
-//        }
-//        return NO;
-//    }
-//    return YES;
-//}
-
 @end

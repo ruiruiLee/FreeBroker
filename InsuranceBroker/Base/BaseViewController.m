@@ -95,9 +95,6 @@ static inline Reachability* defaultReachability () {
     [self setLeftBarButtonWithImage:ThemeImage(@"arrow_left")];
 }
 
-
-
-
 - (void) setNavTitle:(NSString *) title
 {
     self.navigationController.title = title;
@@ -105,7 +102,7 @@ static inline Reachability* defaultReachability () {
 
 - (void) setBackBarButton
 {
-    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:self action:@selector(handleLeftBarButtonClicked:)];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:nil style:UIBarButtonItemStyleBordered target:self action:@selector(handleLeftBarButtonClicked:)];
     UIImage *image = [ThemeImage(@"arrow_left") imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     backItem.image = image;
     [backItem setTarget:self];
@@ -116,14 +113,14 @@ static inline Reachability* defaultReachability () {
 
 - (void) setLeftBarButtonWithNil
 {
-    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:nil style:UIBarButtonItemStyleBordered target:nil action:nil];
     
     [[self navigationItem] setLeftBarButtonItem:backItem];
 }
 
 - (void) setLeftBarButtonWithImage:(UIImage *) image
 {
-    UIBarButtonItem *barButtonItemLeft=[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:self action:@selector(handleLeftBarButtonClicked:)];
+    UIBarButtonItem *barButtonItemLeft=[[UIBarButtonItem alloc] initWithTitle:nil style:UIBarButtonItemStyleBordered target:self action:@selector(handleLeftBarButtonClicked:)];
     image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     barButtonItemLeft.image = image;
     [[self navigationItem] setLeftBarButtonItem:barButtonItemLeft];
@@ -139,7 +136,7 @@ static inline Reachability* defaultReachability () {
 
 - (void) setRightBarButtonWithImage:(UIImage *) image
 {
-    UIBarButtonItem *barButtonItemRight=[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:self action:@selector(handleRightBarButtonClicked:)];
+    UIBarButtonItem *barButtonItemRight=[[UIBarButtonItem alloc] initWithTitle:nil style:UIBarButtonItemStyleBordered target:self action:@selector(handleRightBarButtonClicked:)];
     image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     barButtonItemRight.image = image;
     [[self navigationItem] setRightBarButtonItem:barButtonItemRight];

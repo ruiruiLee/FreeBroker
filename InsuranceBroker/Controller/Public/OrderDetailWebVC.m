@@ -36,7 +36,11 @@
     [NetWorkHandler requestToInitOrderShare:_orderId insuranceType:_insuranceType planOfferId:_planOfferId Completion:^(int code, id content) {
         [self handleResponseWithCode:code msg:[content objectForKey:@"msg"]];
         if(code == 200){
-            _urlPath = [content objectForKey:@"data"];
+            _urlPath = [[content objectForKey:@"data"] objectForKey:@"url"];
+            self.shareContent = [[content objectForKey:@"data"] objectForKey:@"content"];
+            self.shareTitle = [[content objectForKey:@"data"] objectForKey:@"title"];
+            if([[content objectForKey:@"data"] objectForKey:@"imgUrl"])
+                self.shareImgArray = [NSArray arrayWithObject:[[content objectForKey:@"data"] objectForKey:@"imgUrl"]];
             if(tagNum >= 0)
                 [self HandleItemSelect:nil withTag:tagNum];
         }

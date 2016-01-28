@@ -16,6 +16,15 @@
 
 @implementation UserCenterVC
 
+- (void) dealloc
+{
+    UserInfoModel *model = [UserInfoModel shareUserInfoModel];
+    [model removeObserver:self forKeyPath:@"headerImg"];
+    [model removeObserver:self forKeyPath:@"cardVerifiy"];
+    [model removeObserver:self forKeyPath:@"sex"];
+    [model removeObserver:self forKeyPath:@"nickname"];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -33,17 +42,18 @@
     
     self.headHConstraint.constant = ScreenWidth;
     
-    [self updateUserInfo];
-}
-
-- (void) updateUserInfo
-{
     UserInfoModel *model = [UserInfoModel shareUserInfoModel];
     [model addObserver:self forKeyPath:@"headerImg" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
     [model addObserver:self forKeyPath:@"cardVerifiy" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
     [model addObserver:self forKeyPath:@"sex" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
     [model addObserver:self forKeyPath:@"nickname" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
     
+    [self updateUserInfo];
+}
+
+- (void) updateUserInfo
+{
+    UserInfoModel *model = [UserInfoModel shareUserInfoModel];
     
     self.lbMonthOrderSuccessNums.text = [NSString stringWithFormat:@"%d", model.monthOrderSuccessNums];
     self.lbTotalOrderSuccessNums.text = [NSString stringWithFormat:@"累计订单：%d单", model.orderSuccessNums];
@@ -85,43 +95,19 @@
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    UserInfoModel *model = [UserInfoModel shareUserInfoModel];
-    if([keyPath isEqualToString:@"headerImg"]){
-        UIImage *placeholderImage = ThemeImage(@"user_male");
-        if(model.sex == 2)
-            placeholderImage = ThemeImage(@"user_famale");
-        [self.photoImgV sd_setImageWithURL:[NSURL URLWithString:model.headerImg] placeholderImage:placeholderImage];
-    }
-    else if ([keyPath isEqualToString:@"cardVerifiy"]){
-        if(model.cardVerifiy == 1){
-            self.lbCertificate.text = @"认证中";
-            self.lbCertificate.textColor = _COLOR(53, 202, 100);
-        }
-        else if (model.cardVerifiy == 2){
-            self.lbCertificate.text = @"认证失败";
-        }
-        else if (model.cardVerifiy == 3){
-            self.lbCertificate.text = @"已认证";
-            self.lbCertificate.textColor = _COLOR(53, 202, 100);
-        }else{
-            self.lbCertificate.text = @"未认证";
-        }
-    }
-    else if ([keyPath isEqualToString:@"sex"]){
-        UIImage *placeholderImage = ThemeImage(@"user_male");
-        if(model.sex == 2)
-            placeholderImage = ThemeImage(@"user_famale");
-        [self.photoImgV sd_setImageWithURL:[NSURL URLWithString:model.headerImg] placeholderImage:placeholderImage];
-    }
-    else if ([keyPath isEqualToString:@"nickname"]){
-        [self.btNameEdit setTitle:model.nickname forState:UIControlStateNormal];
-    }
+    [self updateUserInfo];
 }
 
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
+    UserInfoModel *model = [UserInfoModel shareUserInfoModel];
+    if(model.cardVerifiy == 1)
+    {
+        [model queryUserInfo];
+    }
+    
 }
 - (void) viewDidDisappear:(BOOL)animated
 {
