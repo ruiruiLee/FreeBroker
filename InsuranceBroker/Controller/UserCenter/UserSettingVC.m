@@ -10,6 +10,8 @@
 #import "define.h"
 #import "RootViewController.h"
 #import "ZWIntroductionViewController.h"
+#import <AVOSCloud/AVOSCloud.h>
+#import <AVOSCloudSNS/AVOSCloudSNS.h>
 
 @interface UserSettingVC ()
 
@@ -258,6 +260,11 @@
     root.selectedIndex = 0;
     root.selectVC = root.homevc;
     [self.navigationController popViewControllerAnimated:NO];
+    
+    AVInstallation *currentInstallation = [AVInstallation currentInstallation];
+    [currentInstallation removeObject:@"ykbbrokerLoginUser" forKey:@"channels"];
+    [currentInstallation removeObject:[UserInfoModel shareUserInfoModel].userId forKey:@"channels"];
+    [currentInstallation saveInBackground];
 }
 
 @end

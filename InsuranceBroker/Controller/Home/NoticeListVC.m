@@ -20,6 +20,15 @@
 
 @implementation NoticeListVC
 
+- (void) dealloc
+{
+    AppContext *context = [AppContext sharedAppContext];
+    [context removeObserver:self forKeyPath:@"isHasNotice"];
+    [context removeObserver:self forKeyPath:@"isHasNewPolicy"];
+    [context removeObserver:self forKeyPath:@"isHasTradingMsg"];
+    [context removeObserver:self forKeyPath:@"isHasIncentivePolicy"];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -28,6 +37,12 @@
 
 - (void) initSubViews
 {
+    AppContext *context = [AppContext sharedAppContext];
+    [context addObserver:self forKeyPath:@"isHasNotice" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
+    [context addObserver:self forKeyPath:@"isHasNewPolicy" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
+    [context addObserver:self forKeyPath:@"isHasTradingMsg" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
+    [context addObserver:self forKeyPath:@"isHasIncentivePolicy" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
+    
     self.tableview = [[UITableView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:self.tableview];
     UITableView *tableview = self.tableview;
@@ -73,6 +88,11 @@
     }];
 }
 
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    [self.tableview reloadData];
+}
+
 #pragma UITableViewDataSource UITableViewDelegate
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
@@ -103,7 +123,43 @@
     cell.lbTitle.text = model.title;
     cell.lbContent.text = model.lastNewsContent;
     cell.lbTime.text = [Util getShowingTime:model.lastNewsDt];
-    cell.photoLogo.badgeView.badgeValue = 1;
+    AppContext *context = [AppContext sharedAppContext];
+    switch (indexPath.row) {
+        case 0:
+        {
+            if(context.isHasNotice){
+                cell.photoLogo.badgeView.badgeValue = 1;
+            }else
+                cell.photoLogo.badgeView.badgeValue = 0;
+        }
+            break;
+        case 1:
+        {
+            if(context.isHasNewPolicy){
+                cell.photoLogo.badgeView.badgeValue = 1;
+            }else
+                cell.photoLogo.badgeView.badgeValue = 0;
+        }
+            break;
+        case 2:
+        {
+            if(context.isHasTradingMsg){
+                cell.photoLogo.badgeView.badgeValue = 1;
+            }else
+                cell.photoLogo.badgeView.badgeValue = 0;
+        }
+            break;
+        case 3:
+        {
+            if(context.isHasIncentivePolicy){
+                cell.photoLogo.badgeView.badgeValue = 1;
+            }else
+                cell.photoLogo.badgeView.badgeValue = 0;
+        }
+            break;
+        default:
+            break;
+    }
     
     return cell;
 }
@@ -111,6 +167,35 @@
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    AppContext *context = [AppContext sharedAppContext];
+    switch (indexPath.row) {
+        case 0:
+        {
+            context.isHasNotice = 0;
+        }
+            break;
+        case 1:
+        {
+            context.isHasNewPolicy = 0;
+        }
+            break;
+        case 2:
+        {
+            context.isHasTradingMsg = 0;
+        }
+            break;
+        case 3:
+        {
+            context.isHasIncentivePolicy = 0;
+        }
+            break;
+        default:
+            break;
+    }
+    
+    [context saveData];
+    
     AnnouncementModel *model = [self.data objectAtIndex:indexPath.row];
     NoticeDetailListVC *vc = [[NoticeDetailListVC alloc] initWithNibName:nil bundle:nil];
     vc.title = model.title;

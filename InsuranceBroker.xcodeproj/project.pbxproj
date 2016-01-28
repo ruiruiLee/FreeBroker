@@ -247,6 +247,7 @@
 		86A5050C1C5285D60032A901 /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A5050B1C5285D60032A901 /* NJKWebViewProgressView.m */; };
 		86A5050F1C5285EE0032A901 /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A5050D1C5285EE0032A901 /* NJKWebViewProgress.m */; };
 		86A505211C57588D0032A901 /* ZWIntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A505201C57588D0032A901 /* ZWIntroductionViewController.m */; };
+		86A505271C58D92D0032A901 /* LeftMargenButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A505261C58D92D0032A901 /* LeftMargenButton.m */; };
 		86C3BB111C228D6F00F98E80 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C3BB011C228D6F00F98E80 /* EGORefreshTableHeaderView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		86C3BB121C228D6F00F98E80 /* LoadMoreTableFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C3BB031C228D6F00F98E80 /* LoadMoreTableFooterView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		86C3BB131C228D6F00F98E80 /* MessageInterceptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C3BB051C228D6F00F98E80 /* MessageInterceptor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -833,6 +834,8 @@
 		86A5050E1C5285EE0032A901 /* NJKWebViewProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgressView.h; sourceTree = "<group>"; };
 		86A5051F1C57588D0032A901 /* ZWIntroductionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWIntroductionViewController.h; sourceTree = "<group>"; };
 		86A505201C57588D0032A901 /* ZWIntroductionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWIntroductionViewController.m; sourceTree = "<group>"; };
+		86A505251C58D92D0032A901 /* LeftMargenButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMargenButton.h; sourceTree = "<group>"; };
+		86A505261C58D92D0032A901 /* LeftMargenButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMargenButton.m; sourceTree = "<group>"; };
 		86C3BB001C228D6F00F98E80 /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
 		86C3BB011C228D6F00F98E80 /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
 		86C3BB021C228D6F00F98E80 /* LoadMoreTableFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadMoreTableFooterView.h; sourceTree = "<group>"; };
@@ -2127,6 +2130,8 @@
 				86A504E31C5216340032A901 /* RedPackInfoTips.m */,
 				86A504E51C52165F0032A901 /* RedPackTasksInfoTips.h */,
 				86A504E61C52165F0032A901 /* RedPackTasksInfoTips.m */,
+				86A505251C58D92D0032A901 /* LeftMargenButton.h */,
+				86A505261C58D92D0032A901 /* LeftMargenButton.m */,
 			);
 			path = UserCenter;
 			sourceTree = "<group>";
@@ -2365,7 +2370,7 @@
 				TargetAttributes = {
 					8650657C1C1E6BC800429EAE = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = 2Q2CM4XT64;
+						DevelopmentTeam = 83V6JW3TGV;
 					};
 					865065951C1E6BC800429EAE = {
 						CreatedOnToolsVersion = 7.1;
@@ -2557,6 +2562,7 @@
 				86C3BB881C279C8200F98E80 /* CustomerTableViewCell.m in Sources */,
 				8625AFD71C34F4DB00312B98 /* IncomeStatisticsVC.m in Sources */,
 				86C3BC1F1C2CE1B700F98E80 /* CustomerFollowUpTableCell.m in Sources */,
+				86A505271C58D92D0032A901 /* LeftMargenButton.m in Sources */,
 				86A5047C1C4F27950032A901 /* QRCodeGenerator.m in Sources */,
 				86A26EC11C47D1620073FFFC /* InsurCompanySelectVC.m in Sources */,
 				86C3BBBD1C294B7600F98E80 /* UserServicePushVC.m in Sources */,
@@ -2926,8 +2932,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Zhiqiang li (CH83K85T7A)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: // / (XY5GVE4YYR)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: // / (XY5GVE4YYR)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2945,7 +2951,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cmkj.cfph;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "feb9ac25-dab9-4cec-917b-4a067c146dee";
 				USER_HEADER_SEARCH_PATHS = "\"${SRCROOT}\"/**";
 			};
 			name = Debug;
@@ -2956,8 +2962,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Zhiqiang li (CH83K85T7A)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: // / (XY5GVE4YYR)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: // / (XY5GVE4YYR)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2975,7 +2981,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cmkj.cfph;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "feb9ac25-dab9-4cec-917b-4a067c146dee";
 				USER_HEADER_SEARCH_PATHS = "\"${SRCROOT}\"/**";
 			};
 			name = Release;

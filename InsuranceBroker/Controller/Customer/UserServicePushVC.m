@@ -92,6 +92,9 @@
             NSError *error = nil;
             NSArray *array = [MTLJSONAdapter modelsOfClass:CustomerInfoModel.class fromJSONArray:[[content objectForKey:@"data"] objectForKey:@"rows"] error:&error];
             [self.data addObjectsFromArray:array];
+            self.total = [[[content objectForKey:@"data"] objectForKey:@"total"] integerValue];
+            [AppContext sharedAppContext].pushCustomerNum = self.total;
+            [[AppContext sharedAppContext] saveData];
             [self.pulltable reloadData];
         }
     }];
@@ -167,6 +170,8 @@
         [self handleResponseWithCode:code msg:[content objectForKey:@"msg"]];
         if(code == 200){
             [[NSNotificationCenter defaultCenter] postNotificationName:Notify_Insert_Customer object:model];
+            [AppContext sharedAppContext].pushCustomerNum --;
+            [[AppContext sharedAppContext] saveData];
             [self.data removeObject:model];
             [self.pulltable reloadData];
         }

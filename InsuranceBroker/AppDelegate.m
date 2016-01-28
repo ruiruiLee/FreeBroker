@@ -190,7 +190,7 @@
 //    [UserModel sharedUserInfo].userId = nil;
     AVInstallation *currentInstallation = [AVInstallation currentInstallation];
     [currentInstallation setDeviceTokenFromData:deviceToken];
-    //    [currentInstallation addUniqueObject:@"deviceProfile" forKey:@"deviceProfile"];
+    [currentInstallation addUniqueObject:@"ykbbrokerAllUser" forKey:@"channels"];
     [currentInstallation saveInBackground];
 }
 
@@ -208,16 +208,70 @@
     // 程序在运行中接收到推送
     if (application.applicationState == UIApplicationStateActive)
     {
-        //        [(RootViewController*)[SliderViewController sharedSliderController].MainVC pushtoController:userInfo];
+        [self remoteNotificationDistributionCenter:userInfo];
     }
     else  //程序在后台中接收到推送
     {
         // The application was just brought from the background to the foreground,
         // so we consider the app as having been "opened by a push notification."
         [AVAnalytics trackAppOpenedWithRemoteNotificationPayload:userInfo];
-        [self pushDetailPage:userInfo];
+//        [self pushDetailPage:userInfo];
+        [self remoteNotificationDistributionCenter:userInfo];
     }
 }
+
+//推送消息分发中心
+- (void) remoteNotificationDistributionCenter:(NSDictionary *) userInfo
+{
+    AppContext *context = [AppContext sharedAppContext];
+    int mt = [[userInfo objectForKey:@"mt"] intValue];
+    NSInteger ct = [[userInfo objectForKey:@"ct"] integerValue];
+    if(mt == 1){
+        switch (ct) {
+            case 10:
+            {
+                context.isHasNotice = YES;
+            }
+                break;
+            case 11:
+            {
+                context.isHasNewPolicy = YES;
+            }
+                break;
+            case 12:
+            {
+                context.isHasTradingMsg = YES;
+            }
+                break;
+            case 13:
+            {
+                context.isHasIncentivePolicy = YES;
+            }
+                break;
+            default:
+                break;
+        }
+    }
+    else if (mt == 3){
+        context.pushCustomerNum = ct + [AppContext sharedAppContext].pushCustomerNum;
+    }
+    [context saveData];
+    
+    [root pushtoController:mt];
+}
+//category：10|12, //消息类别 10代表为“通知消息”12代表为”交易消息”，
+//title: "消息标题"，如体现通知、收益通知等
+//content: "消息内容"，如“您申请体现的￥300，已转入到你的帐号，请查收”
+//userId:44，//经纪人userIds，有则传，没有则不传
+//ct:消息子类别，
+//
+//当mt=1时，ct 可为10，11，12，13，系统通知消息类ct=10,交易通知类ct=12
+//具体情况为
+//ct=10 表示实名认证通过 ,提现申请审核通过  需要userId//通知类消息
+//ct=12 表示保单交易成功   ，需要userId
+//Ct=11,表示销售政策
+//Ct=13,表示激励政策
+//objectId:具体业务表主键，如报价完成时需要传入报价单id,提现申请需要传入申请单id,保单交易完成需要传入保单id,
 
 -(void) pushDetailPage: (id)dic
 {
@@ -228,6 +282,7 @@
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
     [self performSelector:@selector(openlocation) withObject:nil afterDelay:1.0f];
+    [[UserInfoModel shareUserInfoModel] queryUserInfo];
 }
 - (void)openlocation{
     [LcationInstance startUpdateLocation];

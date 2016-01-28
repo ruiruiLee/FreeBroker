@@ -14,6 +14,9 @@
 #import "GMDCircleLoader.h"
 #import "Reachability.h"
 #import "KGStatusBar.h"
+#import <AVOSCloud/AVOSCloud.h>
+#import <AVOSCloudSNS/AVOSCloudSNS.h>
+
 //----------------- 定义网络变化单例参数
 static Reachability *_reachability = nil;
 static inline Reachability* defaultReachability () {
@@ -212,6 +215,10 @@ static inline Reachability* defaultReachability () {
         if (code == 504){   // 需要重新登陆，服务器端过期失效
             UserInfoModel *user = [UserInfoModel shareUserInfoModel];
             user.isLogin = NO;
+            AVInstallation *currentInstallation = [AVInstallation currentInstallation];
+            [currentInstallation removeObject:@"ykbbrokerLoginUser" forKey:@"channels"];
+            [currentInstallation removeObject:[UserInfoModel shareUserInfoModel].userId forKey:@"channels"];
+            [currentInstallation saveInBackground];
             [self login];
         }
 //        [KVNProgress showErrorWithStatus:msg];

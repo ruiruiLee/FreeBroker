@@ -30,6 +30,8 @@
 - (void) dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    AppContext *context = [AppContext sharedAppContext];
+    [context removeObserver:self forKeyPath:@"pushCustomerNum"];
 }
 
 - (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -45,6 +47,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    AppContext *context = [AppContext sharedAppContext];
+    [context addObserver:self forKeyPath:@"pushCustomerNum" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
     
     self.title = @"客户";
     
@@ -64,6 +68,11 @@
     [self.pulltable registerNib:[UINib nibWithNibName:@"CustomerTagTableCell" bundle:nil] forCellReuseIdentifier:@"cell2"];
     [self.pulltable setSeparatorColor:_COLOR(0xe6, 0xe6, 0xe6)];
     self.pulltable.backgroundColor = [UIColor clearColor];
+}
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    [self.pulltable reloadData];
 }
 
 - (void) notifyToInsertPushCustomer:(NSNotification *)notify
@@ -203,8 +212,12 @@
             image = ThemeImage(@"push_style_customer");
             cell.lbTitle.text = @"系统推送客户";
             cell.lbCount.hidden = NO;
-            cell.lbCount.text = @"0";
-            cell.lbCount.hidden = YES;
+            AppContext *context = [AppContext sharedAppContext];
+            cell.lbCount.text = [NSString stringWithFormat:@"%d", context.pushCustomerNum];
+            if(context.pushCustomerNum == 0)
+                cell.lbCount.hidden = YES;
+            else
+                cell.lbCount.hidden = NO;
         }
         else{
             image = ThemeImage(@"tag");

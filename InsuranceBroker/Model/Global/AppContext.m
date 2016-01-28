@@ -45,6 +45,7 @@ static AppContext *context = nil;
                 self.isHasNewPolicy = [[dic objectForKey:@"isHasNewPolicy"] boolValue];
                 self.isHasTradingMsg = [[dic objectForKey:@"isHasTradingMsg"] boolValue];
                 self.isHasIncentivePolicy = [[dic objectForKey:@"isHasIncentivePolicy"] boolValue];
+                self.pushCustomerNum = [[dic objectForKey:@"pushCustomerNum"] integerValue];
             }
             else{
                 self.userInfoDic = [[NSMutableDictionary alloc] init];
@@ -56,6 +57,7 @@ static AppContext *context = nil;
                 self.isHasNewPolicy = NO;
                 self.isHasTradingMsg = NO;
                 self.isHasIncentivePolicy = NO;
+                self.pushCustomerNum = 0;
             }
         }else{
             self.userInfoDic = [[NSMutableDictionary alloc] init];
@@ -67,6 +69,7 @@ static AppContext *context = nil;
             self.isHasNewPolicy = NO;
             self.isHasTradingMsg = NO;
             self.isHasIncentivePolicy = NO;
+            self.pushCustomerNum = 0;
         }
     }
     
@@ -91,6 +94,7 @@ static AppContext *context = nil;
     [dic setObject:[NSNumber numberWithBool:self.isHasNewPolicy] forKey:@"isHasNewPolicy"];
     [dic setObject:[NSNumber numberWithBool:self.isHasTradingMsg] forKey:@"isHasTradingMsg"];
     [dic setObject:[NSNumber numberWithBool:self.isHasIncentivePolicy] forKey:@"isHasIncentivePolicy"];
+    [dic setObject:[NSNumber numberWithInt:self.pushCustomerNum] forKey:@"pushCustomerNum"];
     
     [dic writeToFile:file atomically:YES];
 }
@@ -107,6 +111,7 @@ static AppContext *context = nil;
     [dic setObject:[NSNumber numberWithBool:NO] forKey:@"isHasNewPolicy"];
     [dic setObject:[NSNumber numberWithBool:NO] forKey:@"isHasTradingMsg"];
     [dic setObject:[NSNumber numberWithBool:NO] forKey:@"isHasIncentivePolicy"];
+    [dic setObject:[NSNumber numberWithInt:self.pushCustomerNum] forKey:@"pushCustomerNum"];
     
     [dic writeToFile:file atomically:YES];
 }
@@ -127,6 +132,7 @@ static AppContext *context = nil;
             self.isHasNewPolicy = [[dic objectForKey:@"isHasNewPolicy"] boolValue];
             self.isHasTradingMsg = [[dic objectForKey:@"isHasTradingMsg"] boolValue];
             self.isHasIncentivePolicy = [[dic objectForKey:@"isHasIncentivePolicy"] boolValue];
+            self.pushCustomerNum = [[dic objectForKey:@"pushCustomerNum"] integerValue];
         }
         else{
             self.userInfoDic = [[NSMutableDictionary alloc] init];
@@ -138,6 +144,7 @@ static AppContext *context = nil;
             self.isHasNewPolicy = NO;
             self.isHasTradingMsg = NO;
             self.isHasIncentivePolicy = NO;
+            self.pushCustomerNum = 0;
         }
     }else{
         self.userInfoDic = [[NSMutableDictionary alloc] init];
@@ -149,6 +156,7 @@ static AppContext *context = nil;
         self.isHasNewPolicy = NO;
         self.isHasTradingMsg = NO;
         self.isHasIncentivePolicy = NO;
+        self.pushCustomerNum = 0;
     }
 }
 

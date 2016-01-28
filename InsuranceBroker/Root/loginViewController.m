@@ -58,6 +58,11 @@
             [userinfo setContentWithDictionary:data];
             [userinfo queryUserInfo];
             [self handleLeftBarButtonClicked:nil];
+            
+            AVInstallation *currentInstallation = [AVInstallation currentInstallation];
+            [currentInstallation addUniqueObject:@"ykbbrokerLoginUser" forKey:@"channels"];
+            [currentInstallation addUniqueObject:[UserInfoModel shareUserInfoModel].userId forKey:@"channels"];
+            [currentInstallation saveInBackground];
         }
     }];
 }
