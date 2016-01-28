@@ -173,7 +173,7 @@
     AppContext *context = [AppContext sharedAppContext];
     context.userInfoDic = dictionary;
     context.isLogin = self.isLogin;
-    if([context.redBagId intValue] < [self.redBagId integerValue])
+    if([context.redBagId longLongValue] < [self.redBagId longLongValue])
         context.isRedPack = YES;
     context.redBagId = self.redBagId;
     [context saveData];

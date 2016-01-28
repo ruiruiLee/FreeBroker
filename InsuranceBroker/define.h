@@ -68,5 +68,6 @@
 #define Notify_Reload_CustomerDetail @"Notify_Reload_CustomerDetail"
 #define Notify_Add_NewCustomer  @"Notify_Add_NewCustomer"
 #define Notify_Add_BankCard @"Notify_Add_BankCard"
+#define Notify_Insert_Customer @"Notify_Insert_Customer"
 
 #endif /* define_h */
