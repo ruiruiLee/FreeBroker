@@ -349,6 +349,7 @@
 		CF608EEF1C58A13900DC10CA /* OBGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF608EEE1C58A13900DC10CA /* OBGradientView.m */; };
 		CF608EF31C58A16500DC10CA /* EGOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CF608EF21C58A16500DC10CA /* EGOCache.m */; };
 		CF608EF91C58A43D00DC10CA /* KGStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CF608EF81C58A43D00DC10CA /* KGStatusBar.m */; };
+		CF608EFD1C5A330F00DC10CA /* NetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CF608EFB1C5A330F00DC10CA /* NetManager.m */; };
 		E9335367AF4BBFA55372CBCC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03AB914CAC81E099C3474FBB /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -1010,6 +1011,8 @@
 		CF608EF21C58A16500DC10CA /* EGOCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EGOCache.m; path = EGOCache/EGOCache.m; sourceTree = "<group>"; };
 		CF608EF71C58A43D00DC10CA /* KGStatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KGStatusBar.h; path = KGStatusBar/KGStatusBar.h; sourceTree = "<group>"; };
 		CF608EF81C58A43D00DC10CA /* KGStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KGStatusBar.m; path = KGStatusBar/KGStatusBar.m; sourceTree = "<group>"; };
+		CF608EFB1C5A330F00DC10CA /* NetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetManager.m; path = Reachability/NetManager.m; sourceTree = "<group>"; };
+		CF608EFC1C5A330F00DC10CA /* NetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetManager.h; path = Reachability/NetManager.h; sourceTree = "<group>"; };
 		DFE808A7D7A93EC82240AE11 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -2247,6 +2250,8 @@
 		CF608EE91C58A11500DC10CA /* Reachability */ = {
 			isa = PBXGroup;
 			children = (
+				CF608EFC1C5A330F00DC10CA /* NetManager.h */,
+				CF608EFB1C5A330F00DC10CA /* NetManager.m */,
 				CF608EE51C589C2900DC10CA /* Reachability.h */,
 				CF608EE61C589C2900DC10CA /* Reachability.m */,
 			);
@@ -2629,6 +2634,7 @@
 				8625B0271C3D1E4000312B98 /* NetWorkHandler+queryForCustomerCarInfo.m in Sources */,
 				86C3BBBA1C29364100F98E80 /* UINavigationBar+statusBarColor.m in Sources */,
 				86A26F011C4A29CB0073FFFC /* FPTuple.m in Sources */,
+				CF608EFD1C5A330F00DC10CA /* NetManager.m in Sources */,
 				8625AF861C32319300312B98 /* UserSettingVC.m in Sources */,
 				86C3BB711C242E2B00F98E80 /* WorkMainVC.m in Sources */,
 				8625AF941C32862C00312B98 /* QRCodeVC.m in Sources */,

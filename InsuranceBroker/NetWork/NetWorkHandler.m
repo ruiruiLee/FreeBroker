@@ -11,6 +11,7 @@
 #import "ProjectDefine.h"
 #import "define.h"
 #import "EGOCache.h"
+
 static NetWorkHandler *networkmanager;
 
 @implementation NetWorkHandler
@@ -105,6 +106,40 @@ static NetWorkHandler *networkmanager;
     return Strkey;
 }
 
+-(NSString *)getUrlAbsoluteString:(NSURLRequest *) request{
+    NSString *url;
+    if ([request.HTTPMethod isEqualToString:@"GET"]) {
+        url = request.URL.absoluteString;
+    }else {
+        NSMutableString * string = [[NSMutableString alloc] initWithData:request.HTTPBody encoding:NSMacOSRomanStringEncoding];
+        
+        NSString    *regextString = @"JsonID=\\d+&";
+        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regextString
+                                                                               options:NSRegularExpressionCaseInsensitive
+                                                                                 error:nil];
+        NSTextCheckingResult *match = [regex firstMatchInString:string
+                                                        options:NSMatchingReportProgress
+                                                          range:NSMakeRange(0, string.length)];
+        
+        if (NSEqualRanges(match.range, NSMakeRange(0, 0))) {
+            regextString = @"&JsonID=\\d+";
+            regex = [NSRegularExpression regularExpressionWithPattern:regextString
+                                                              options:NSRegularExpressionCaseInsensitive
+                                                                error:nil];
+            match = [regex firstMatchInString:string
+                                      options:NSMatchingReportProgress
+                                        range:NSMakeRange(0, string.length)];
+        }
+        [string replaceCharactersInRange:match.range withString:@""];
+        
+        
+        url = [request.URL.absoluteString stringByAppendingFormat:@"?%@",string];
+        
+    }
+    return url;
+}
+
+
 - (void) postWithMethod:(NSString *)method BaseUrl:(NSString *)url Params:(NSMutableDictionary *) params Completion:(Completion)completion
 {
     NSString *path = url;
@@ -128,17 +163,14 @@ static NetWorkHandler *networkmanager;
         [Tag appendFormat:@"%@=%@", key, [params objectForKey:key]];
     }
     
-    if([ProjectDefine searchRequestTag:Tag])
-    {
-//        return;
-    }
     [ProjectDefine addRequestTag:Tag];
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
-//    self.manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-//    self.manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+
+   NSMutableURLRequest *request = [self.manager.requestSerializer requestWithMethod:@"POST" URLString:path parameters:params error:nil];
     
+     //[self.manager POST:path parameters:params   self.manager HTTPRequestOperationWithRequest
     [self.manager POST:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [ProjectDefine removeRequestTag:Tag];
         NSDictionary *result = nil;
@@ -148,8 +180,9 @@ static NetWorkHandler *networkmanager;
         }else{
             result = responseObject;
         }
+         _urlstring= [self ConvertCachKeyString:[self getUrlAbsoluteString:request]];
         // 加缓存
-        [[EGOCache globalCache] setObject:result forKey: [Util md5Hash:[self ConvertCachKeyString:path]]];
+        [[EGOCache globalCache] setObject:result forKey: [Util md5Hash:_urlstring]];
         
         NSLog(@"请求URL：%@ \n请求方法:%@ \n请求参数：%@\n 请求结果：%@\n==================================", url, method, params, result);
 
@@ -160,8 +193,8 @@ static NetWorkHandler *networkmanager;
         [ProjectDefine removeRequestTag:Tag];
         NSLog(@"请求URL：%@ \n请求方法:%@ \n请求参数：%@\n 请求结果：%@\n==================================", url, method, params, error);
 
-    //[self ConvertCachKeyString:path]
-        id cacheDatas =[[EGOCache globalCache] objectForKey:[Util md5Hash:[self ConvertCachKeyString:path]]];
+        _urlstring= [self ConvertCachKeyString:[self getUrlAbsoluteString:request]];
+    id cacheDatas =[[EGOCache globalCache] objectForKey:[Util md5Hash:_urlstring]];
         [self handleResponse:cacheDatas Completion:completion];
 
 //        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
