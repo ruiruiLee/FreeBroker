@@ -47,6 +47,7 @@
 
 - (NSData*)dataForKey:(NSString*)key;
 - (void)setData:(NSData*)data forKey:(NSString*)key;
+- (void)setOneYearData:(NSData*)data forKey:(NSString*)key; // 设置过期时间为1年 相当于基本不过期
 - (void)setData:(NSData*)data forKey:(NSString*)key withTimeoutInterval:(NSTimeInterval)timeoutInterval;
 
 - (NSString*)stringForKey:(NSString*)key;

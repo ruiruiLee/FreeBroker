@@ -12,29 +12,16 @@
 #import <ShareSDK/ShareSDK.h>
 #import "WXApi.h"
 #import "GMDCircleLoader.h"
-#import "Reachability.h"
+#import "NetManager.h"
 #import "KGStatusBar.h"
-//----------------- 定义网络变化单例参数
-static Reachability *_reachability = nil;
-static inline Reachability* defaultReachability () {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _reachability = [Reachability reachabilityForInternetConnection];
-#if !__has_feature(objc_arc)
-        [_reachability retain];
-#endif
-    });
-    
-    return _reachability;
-}
-//--------------------- 定义网络变化单例参数
+
 @implementation BaseViewController
 
 
 // 处理注册通知 kReachabilityChangedNotification
 - (void)reachabilityChanged
 {
-    NetworkStatus status = [defaultReachability() currentReachabilityStatus];
+    NetworkStatus status = [[NetManager defaultReachability] currentReachabilityStatus];
     switch (status)
     {
         case NotReachable:
@@ -67,18 +54,22 @@ static inline Reachability* defaultReachability () {
 // 注册网络连接状态的改变通知
 - (void)regitserSystemAsObserver{
     // 注册网络连接状态的改变通知
+  
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reachabilityChanged)
                                                  name:kReachabilityChangedNotification
                                                object:nil];
     
-    [defaultReachability() startNotifier];     // 开始监听网络
+    [[NetManager defaultReachability] startNotifier];     // 开始监听网络
 
 }
 - (void) viewDidLoad
 {
     [super viewDidLoad];
-     [self regitserSystemAsObserver];
+    if ([[NetManager defaultReachability] currentReachabilityStatus]==NotReachable) {
+        [KGStatusBar showErrorWithStatus:@"无法连接网络，请稍后再试！"];
+    }
+    [self performSelector:@selector(regitserSystemAsObserver) withObject:nil afterDelay:0.5f];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     [self.navigationController.navigationBar lt_setBackgroundColor:_COLOR(255, 255, 255)];

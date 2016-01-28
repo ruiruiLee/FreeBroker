@@ -240,7 +240,10 @@ static inline NSString* cachePathForKey(NSString* directory, NSString* key) {
 - (void)setData:(NSData*)data forKey:(NSString*)key {
 	[self setData:data forKey:key withTimeoutInterval:self.defaultTimeoutInterval];
 }
-
+- (void)setOneYearData:(NSData*)data forKey:(NSString*)key; // 设置过期时间为1年 相当于基本不过期
+{
+      [self setData:data forKey:key withTimeoutInterval:24*60*60*400];
+}
 - (void)setData:(NSData*)data forKey:(NSString*)key withTimeoutInterval:(NSTimeInterval)timeoutInterval {
 	CHECK_FOR_EGOCACHE_PLIST();
 	

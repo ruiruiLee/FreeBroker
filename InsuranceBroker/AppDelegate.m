@@ -20,8 +20,6 @@
 #import "ZWIntroductionViewController.h"
 #import "RootViewController.h"
 #import "AppContext.h"
-
-
 @interface AppDelegate ()
 
 @property (nonatomic, strong) ZWIntroductionViewController *introductionView;
@@ -133,13 +131,6 @@
     
     [self.window makeKeyAndVisible];
     
-    //判断是否登录然后根据情况确定是否弹出登录框
-//    loginViewController *loginVC = [[loginViewController alloc] initWithNibName:@"loginViewController" bundle:nil];
-//    UINavigationController *naVC = [[UINavigationController alloc] initWithRootViewController:loginVC];
-//    [nav presentViewController:naVC animated:NO completion:^{
-//        
-//    }];
-    
     // Added Introduction View Controller
     BOOL firsetLaunch = [AppContext sharedAppContext].firstLaunch;
     if(!firsetLaunch){
@@ -159,7 +150,7 @@
             weakSelf.introductionView = nil;
         };
     }
-    
+
     return YES;
 }
 
