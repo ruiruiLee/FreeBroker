@@ -12,6 +12,7 @@
 @protocol MyJSInterfaceDelegate <NSObject>
 
 - (void) NotifyCloseWindow;
+- (void) NotifyShareWindow;
 
 @end
 
@@ -29,5 +30,7 @@
 - (NSString*) testWithRet;
 
 - (void) close;
+
+- (void) share;
 
 @end

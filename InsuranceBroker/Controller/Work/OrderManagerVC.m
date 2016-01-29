@@ -141,7 +141,7 @@
     cell.lbPlate.text = model.carNo;
     cell.lbContent.text = model.planTypeName;//[Util getStringByPlanType:model.planType];
     [cell.phoneNum setTitle:model.customerPhone forState:UIControlStateNormal];
-    cell.lbStatus.attributedText = [self getAttributedString:model.orderOfferStatusDescr orderOfferNums:model.orderOfferNums orderOfferStatus:model.orderOfferStatus orderOfferPayPrice:model.orderOfferPayPrice orderOfferStatusStr:(NSString *) model.orderOfferStatusMsg];
+    cell.lbStatus.attributedText = [self getAttributedString:model.orderOfferStatusMsg orderOfferNums:model.orderOfferNums orderOfferStatus:model.orderOfferStatus orderOfferPayPrice:model.orderOfferPayPrice orderOfferStatusStr:(NSString *) model.orderOfferStatusMsg];
     [self setPolicyStatusWithCell:cell orderOfferStatus:model.orderOfferStatus orderOfferStatusStr:model.orderOfferStatusStr];
     
     return cell;

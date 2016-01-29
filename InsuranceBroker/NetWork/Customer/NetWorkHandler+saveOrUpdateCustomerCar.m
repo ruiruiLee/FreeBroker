@@ -62,6 +62,7 @@
     [Util setValueForKeyWithDic:pramas value:carTradeTime key:@"carTradeTime"];
     [Util setValueForKeyWithDic:pramas value:carInsurStatus1 key:@"carInsurStatus1"];
     [Util setValueForKeyWithDic:pramas value:carInsurCompId1 key:@"carInsurCompId1"];
+    [Util setValueForKeyWithDic:pramas value:@"1" key:@"status"];
     
     [handle postWithMethod:@"/web/customer/saveOrUpdateCustomerCar.xhtml" BaseUrl:Base_Uri Params:pramas Completion:completion];
 }
