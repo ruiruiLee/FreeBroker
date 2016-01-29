@@ -20,13 +20,16 @@
 #import "NJKWebViewProgress.h"
 #import "NJKWebViewProgressView.h"
 
+#import "EasyJSWebView.h"
+#import "EasyJSWebView+JavaScriptAlert.h"
+
 @interface WebViewController : BaseViewController <PopViewDelegate, NJKWebViewProgressDelegate, UIWebViewDelegate>
 {
     NJKWebViewProgressView *_progressView;
     NJKWebViewProgress *_progressProxy;
 }
 
-@property (nonatomic, strong) IBOutlet UIWebView *webview;
+@property (nonatomic, strong) IBOutlet EasyJSWebView *webview;
 @property (nonatomic, strong) PopView *popview;
 @property (nonatomic, strong) NSString *urlpath;
 @property (nonatomic, assign) enumShareType type;

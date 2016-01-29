@@ -52,4 +52,12 @@
     }
 }
 
+- (void) share
+{
+    if(self.delegate && [self.delegate respondsToSelector:@selector(NotifyShareWindow)])
+    {
+        [self.delegate NotifyShareWindow];
+    }
+}
+
 @end

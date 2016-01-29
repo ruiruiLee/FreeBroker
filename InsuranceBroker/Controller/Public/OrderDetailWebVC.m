@@ -9,6 +9,11 @@
 #import "OrderDetailWebVC.h"
 #import "NetWorkHandler+initOrderShare.h"
 #import "SBJson.h"
+#import "MyJSInterface.h"
+
+@interface OrderDetailWebVC ()<MyJSInterfaceDelegate, UIWebViewDelegate>
+
+@end
 
 @implementation OrderDetailWebVC
 
@@ -22,6 +27,20 @@
     }
     
     return self;
+}
+
+- (void) viewDidLoad
+{
+    [super viewDidLoad];
+    
+    MyJSInterface* interface = [MyJSInterface new];
+    interface.delegate = self;
+    [self.webview addJavascriptInterfaces:interface WithName:@"appClient"];
+}
+
+- (void) NotifyShareWindow
+{
+    [self handleRightBarButtonClicked:nil];
 }
 
 - (void) initShareUrl:(NSString *) orderId insuranceType:(NSString *) insuranceType planOfferId:(NSString *) planOfferId

@@ -101,7 +101,7 @@
     }
     else{
         cell.logo.image = ThemeImage(@"logo_outcome");
-        cell.lbAccount.text = [NSString stringWithFormat:@"-%@",model.billMoney];
+        cell.lbAccount.text = [NSString stringWithFormat:@"%@",model.billMoney];
     }
     
     cell.lbTypeName.text = model.billTypeName;

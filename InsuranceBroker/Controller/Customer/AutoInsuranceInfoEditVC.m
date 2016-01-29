@@ -119,6 +119,12 @@
     lbAttribute.userInteractionEnabled = YES;
     
     self.tfDate.delegate = self;
+    self.tfCert.delegate = self;
+    self.tfIdenCode.delegate = self;
+    self.tfModel.delegate = self;
+    self.tfMotorCode.delegate = self;
+    self.tfName.delegate = self;
+    self.tfNo.delegate = self;
     
     [self.tableview registerNib:[UINib nibWithNibName:@"CarAddInfoTableCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
@@ -813,9 +819,13 @@
 #pragma UITextFieldDelegate
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
-    [self addDatePicker:nil];
-    [self.tfDate resignFirstResponder];
-    [self isModify];
+    if(textField == self.tfDate){
+        [self addDatePicker:nil];
+        [self resignFirstResponder];
+        [self isModify];
+    }else{
+        [_datePicker remove];
+    }
     return YES;
 }
 

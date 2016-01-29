@@ -61,7 +61,7 @@
     cell.lbPlate.text = @"";
     cell.lbContent.text = model.planTypeName;//[Util getStringByPlanType:model.planType];
     cell.lbUpdateTime.text = [Util getTimeString:model.createdAt];
-    cell.lbStatus.attributedText = [self getAttributedString:model.orderOfferStatusDescr orderOfferNums:model.orderOfferNums orderOfferStatus:model.orderOfferStatus orderOfferPayPrice:model.orderOfferPayPrice orderOfferStatusStr:model.orderOfferStatusStr];
+    cell.lbStatus.attributedText = [self getAttributedString:model.orderOfferStatusMsg orderOfferNums:model.orderOfferNums orderOfferStatus:model.orderOfferStatus orderOfferPayPrice:model.orderOfferPayPrice orderOfferStatusStr:model.orderOfferStatusStr];
     [self setPolicyStatusWithCell:cell orderOfferStatus:model.orderOfferStatus orderOfferStatusStr:model.orderOfferStatusMsg];
     
     return cell;
