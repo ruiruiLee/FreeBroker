@@ -12,7 +12,7 @@
 #import "ZWIntroductionViewController.h"
 #import <AVOSCloud/AVOSCloud.h>
 #import <AVOSCloudSNS/AVOSCloudSNS.h>
-
+#import "EGOCache.h"
 @interface UserSettingVC ()
 
 @property (nonatomic, strong) ZWIntroductionViewController *introductionView;
@@ -199,7 +199,14 @@
             }
                 break;
             case 3:{
-                
+                [[EGOCache globalCache] clearCache];
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"缓存清除成功！"
+                                                                    message:nil
+                                                                   delegate:nil
+                                                          cancelButtonTitle:@"确定"
+                                                          otherButtonTitles:nil];
+                [alertView show];
+
             }
                 break;
             case 4:
