@@ -73,12 +73,12 @@
                        _COLOR(0xfc, 0xc1, 0x38),
                        _COLOR(0x3d, 0xbe, 0xff),nil];
     
-    NSMutableArray *array = [[NSMutableArray alloc] init];
-    for(int i = 0; i < 4; i ++)
-    {
-        [array addObject:[NSNumber numberWithInt:rand()%60+20]];
-    }
-    self.slices = array;
+//    NSMutableArray *array = [[NSMutableArray alloc] init];
+//    for(int i = 0; i < 4; i ++)
+//    {
+//        [array addObject:[NSNumber numberWithInt:rand()%60+20]];
+//    }
+//    self.slices = array;
     
     [self.piechat reloadData];
     

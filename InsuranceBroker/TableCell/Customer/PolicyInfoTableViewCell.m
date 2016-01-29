@@ -17,6 +17,8 @@
     self.logoImgV.image = ThemeImage(@"chexian");
     self.contentBg.layer.borderWidth = 0.5;
     self.contentBg.layer.borderColor = _COLOR(0xe6, 0xe6, 0xe6).CGColor;
+    self.logoImgV.layer.borderWidth = 0.5;
+    self.logoImgV.layer.borderColor = _COLOR(0xe6, 0xe6, 0xe6).CGColor;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

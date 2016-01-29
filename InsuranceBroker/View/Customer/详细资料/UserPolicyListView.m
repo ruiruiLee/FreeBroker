@@ -11,6 +11,7 @@
 #import "define.h"
 #import "FooterView.h"
 #import "InsurInfoModel.h"
+#import "UIImageView+WebCache.h"
 
 @implementation UserPolicyListView
 @synthesize footer;
@@ -63,6 +64,7 @@
     cell.lbUpdateTime.text = [Util getTimeString:model.createdAt];
     cell.lbStatus.attributedText = [self getAttributedString:model.orderOfferStatusMsg orderOfferNums:model.orderOfferNums orderOfferStatus:model.orderOfferStatus orderOfferPayPrice:model.orderOfferPayPrice orderOfferStatusStr:model.orderOfferStatusStr];
     [self setPolicyStatusWithCell:cell orderOfferStatus:model.orderOfferStatus orderOfferStatusStr:model.orderOfferStatusMsg];
+    [cell.logoImgV sd_setImageWithURL:[NSURL URLWithString:model.productLogo] placeholderImage:ThemeImage(@"chexian")];
     
     return cell;
 }

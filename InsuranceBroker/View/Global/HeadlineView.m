@@ -189,7 +189,8 @@
     
     [self reset];
     scrollview.contentSize = CGSizeMake(scrollview.frame.size.width, 40 * default_Item_count);
-    [self performSelector:@selector(startTimer) withObject:nil afterDelay:2.0];
+    if([cellArray count] > 1)
+        [self performSelector:@selector(startTimer) withObject:nil afterDelay:2.0];
 }
 
 - (void) startTimer
