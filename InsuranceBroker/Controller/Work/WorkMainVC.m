@@ -115,7 +115,7 @@
     }
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     if(indexPath.section == 0){
-        [self setCellContent:cell imgPath:@"auto" title:@"车险经纪" detail:@"非职业？西装？考勤？NO,NO,NO——还你自由！"];
+        [self setCellContent:cell imgPath:@"auto" title:@"车险经纪" detail:@"西装？考勤？NO,NO,NO——还你自由！"];
     }
     else if (indexPath.section == 1){
         switch (indexPath.row) {
