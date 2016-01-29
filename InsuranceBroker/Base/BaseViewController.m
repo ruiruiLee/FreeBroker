@@ -226,8 +226,10 @@ static inline Reachability* defaultReachability () {
             [currentInstallation saveInBackground];
             [self login];
         }
-//        [KVNProgress showErrorWithStatus:msg];
-        [Util showAlertMessage:msg];
+        else if(code<0)
+         [KGStatusBar showErrorWithStatus:@"似乎已断开网络连接，请检查网络设置！"];
+        else
+          [KGStatusBar showErrorWithStatus:msg];
             result = NO;
     }
     return result;
