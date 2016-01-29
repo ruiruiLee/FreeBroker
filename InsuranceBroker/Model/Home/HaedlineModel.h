@@ -13,5 +13,6 @@
 @property (nonatomic, strong) NSString *hid;//": "569370e800b0bca077f50781",
 @property (nonatomic, strong) NSString *title;//": "光棍光棍个",
 @property (nonatomic, assign) BOOL isRedirect;//": 1
+@property (nonatomic, strong) NSString *url;
 
 @end

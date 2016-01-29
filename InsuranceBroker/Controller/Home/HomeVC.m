@@ -148,10 +148,10 @@
             web.shareTitle = model.title;
             [self.navigationController pushViewController:web animated:YES];
             
-            if(_newUserModel.url == nil){
+            if(model.url == nil){
                 [web loadHtmlFromUrlWithUserId:[NSString stringWithFormat:@"%@%@%@", SERVER_ADDRESS, @"/news/view/", model.hid]];
             }else{
-                [web loadHtmlFromUrlWithUserId:_newUserModel.url];
+                [web loadHtmlFromUrlWithUserId:model.url];
             }
         }
     }

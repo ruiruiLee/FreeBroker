@@ -29,6 +29,7 @@
     model.hid = [dictionary objectForKey:@"id"];
     model.title = [dictionary objectForKey:@"title"];
     model.isRedirect = [[dictionary objectForKey:@"isRedirect"] boolValue];
+    model.url = [dictionary objectForKey:@"url"];
     
     return model;
 }
