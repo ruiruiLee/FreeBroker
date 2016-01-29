@@ -68,6 +68,8 @@
     self.lbTime.text = [NSString stringWithFormat:@"发起时间：%@", [Util getTimeString:self.data.createdAt]];
     [self.btnName setTitle:self.data.customerName forState:UIControlStateNormal];
     [self.btnNo setTitle:self.data.carNo forState:UIControlStateNormal];
+    self.btnNameHConstraint.constant = [self.data.customerName sizeWithFont:self.btnName.titleLabel.font].width + 6 + 16;
+    self.btnNoHConstraint.constant = [self.data.carNo sizeWithFont:self.btnNo.titleLabel.font].width + 6 + 16;
     
     [self.tableview reloadData];
 }

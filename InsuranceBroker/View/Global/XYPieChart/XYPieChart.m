@@ -400,11 +400,12 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
             double startFromAngle = _startPieAngle + startToAngle;
             double endFromAngle = _startPieAngle + endToAngle;
 
+            NSLog(@"%f-%f", startFromAngle, endFromAngle);
             if( index >= [slicelayers count] )
             {
                 layer = [self createSliceLayer];
-                if (isOnStart)
-                    startFromAngle = endFromAngle = _startPieAngle;
+//                if (isOnStart)
+//                    startFromAngle = endFromAngle = _startPieAngle;
                 [parentLayer addSublayer:layer];
                 diff--;
             }
@@ -454,7 +455,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
             }
 
             [layer setFillColor:color.CGColor];
-            [self updateLabelForLayer:layer value:values[index]];
+//            [self updateLabelForLayer:layer value:values[index]];
             [layer createArcAnimationForKey:@"startAngle"
                                   fromValue:[NSNumber numberWithDouble:startFromAngle]
                                     toValue:[NSNumber numberWithDouble:startToAngle+_startPieAngle]
