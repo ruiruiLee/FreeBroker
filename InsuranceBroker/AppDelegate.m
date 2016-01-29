@@ -177,11 +177,12 @@
     //推送功能打开时, 注册当前的设备, 同时记录用户活跃, 方便进行有针对的推送
     self.deviceToken = [[NSString alloc] initWithData:deviceToken encoding:NSUTF8StringEncoding];
     
-//    [AVUser logOut];  //清除缓存用户对象
-//    [UserModel sharedUserInfo].userId = nil;
+    [AVUser logOut];  //清除缓存用户对象
+    [UserInfoModel shareUserInfoModel].userId = nil;
     AVInstallation *currentInstallation = [AVInstallation currentInstallation];
     [currentInstallation setDeviceTokenFromData:deviceToken];
     [currentInstallation addUniqueObject:@"ykbbrokerAllUser" forKey:@"channels"];
+    [currentInstallation addUniqueObject:@"registerUser" forKey:@"channels"];
     [currentInstallation saveInBackground];
 }
 

@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "NewUserModel.h"
-
 @class RootViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>

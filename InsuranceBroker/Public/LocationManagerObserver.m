@@ -60,21 +60,10 @@
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
     NSLog(@"didChangeAuthorizationStatus----%@",error);
-    [self displayCity];
+  
 }
 
--(void)displayCity{
-//    if ([Util GetStoreCity]==nil) { // 没有存储
-//        CityDataModel *model  = [CityDataModel modelWithName:_currentCity];
-//        if (model==nil) {
-//            [cfAppDelegate setCurrentCityModel:[CityDataModel modelWithName:CityName]] ;
-//        }
-//        else{
-//           [cfAppDelegate setCurrentCityModel:model] ;
-//        }
-//    
-//    }
-  }
+
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
     _lat = newLocation.coordinate.latitude;
@@ -82,19 +71,19 @@
         [geocoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray *placemarks, NSError *error) {
             if([placemarks count] > 0){
                 CLPlacemark *placemark = [placemarks objectAtIndex:0];
-//                NSLog(@"name:%@\n country:%@\n postalCode:%@\n ISOcountryCode:%@\n ocean:%@\n inlandWater:%@\n administrativeArea:%@\n subAdministrativeArea:%@\n locality:%@\n subLocality:%@\n thoroughfare:%@\n subThoroughfare:%@\n",
-//                                                 placemark.name,
-//                                                    placemark.country,
-//                                                   placemark.postalCode,
-//                                                  placemark.ISOcountryCode,
-//                                                   placemark.ocean,
-//                                                 placemark.inlandWater,
-//                                                 placemark.administrativeArea,
-//                                                   placemark.subAdministrativeArea,
-//                                                  placemark.locality,
-//                                                 placemark.subLocality,
-//                                                   placemark.thoroughfare,
-//                                                   placemark.subThoroughfare);
+                NSLog(@"name:%@\n country:%@\n postalCode:%@\n ISOcountryCode:%@\n ocean:%@\n inlandWater:%@\n administrativeArea:%@\n subAdministrativeArea:%@\n locality:%@\n subLocality:%@\n thoroughfare:%@\n subThoroughfare:%@\n",
+                                                 placemark.name,
+                                                    placemark.country,
+                                                   placemark.postalCode,
+                                                  placemark.ISOcountryCode,
+                                                   placemark.ocean,
+                                                 placemark.inlandWater,
+                                                 placemark.administrativeArea,
+                                                   placemark.subAdministrativeArea,
+                                                  placemark.locality,
+                                                 placemark.subLocality,
+                                                   placemark.thoroughfare,
+                                                   placemark.subThoroughfare);
                 
                  _currentCity= !placemark.locality?placemark.administrativeArea:placemark.locality;
                  _currentDetailAdrress =[NSString stringWithFormat:@"%@%@%@%@%@%@", placemark.administrativeArea,
@@ -119,7 +108,6 @@
             }
         }];
     [manager stopUpdatingLocation];
-    [self  displayCity];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
