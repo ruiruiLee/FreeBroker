@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface GradientView : UIView
+{
+    UIColor *beginColor;
+    UIColor *endColor;
+}
 
 
 - (void) setGradientColor:(UIColor *) begin end:(UIColor *)end;

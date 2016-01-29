@@ -39,7 +39,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RGR-VS-4V4" customClass="GradientView">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="215"/>
+                                    <rect key="frame" x="0.0" y="-200" width="600" height="415"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="上月收益（元）" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rY9-ag-Z5s">
                                             <rect key="frame" x="197" y="8" width="119" height="21"/>
@@ -85,9 +85,9 @@
                                         <constraint firstAttribute="trailing" secondItem="1iI-Yg-J61" secondAttribute="trailing" id="jLu-KY-ozJ"/>
                                         <constraint firstItem="yYE-kU-zvb" firstAttribute="leading" secondItem="RGR-VS-4V4" secondAttribute="leading" id="mc5-0r-U6U"/>
                                         <constraint firstItem="iIL-XX-azc" firstAttribute="leading" secondItem="RGR-VS-4V4" secondAttribute="leading" id="mld-Pu-rS7"/>
-                                        <constraint firstAttribute="height" constant="215" id="ojZ-5m-Tak"/>
+                                        <constraint firstAttribute="height" constant="415" id="ojZ-5m-Tak"/>
                                         <constraint firstAttribute="bottom" secondItem="yYE-kU-zvb" secondAttribute="bottom" constant="20" id="otu-Lg-28A"/>
-                                        <constraint firstItem="rY9-ag-Z5s" firstAttribute="top" secondItem="RGR-VS-4V4" secondAttribute="top" constant="20" id="zJK-yF-4sE"/>
+                                        <constraint firstItem="rY9-ag-Z5s" firstAttribute="top" secondItem="RGR-VS-4V4" secondAttribute="top" constant="220" id="zJK-yF-4sE"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0nf-OU-B5h">
@@ -336,7 +336,7 @@
                                 <constraint firstAttribute="bottom" secondItem="zwJ-NS-JEh" secondAttribute="bottom" id="AlV-Mc-wyI"/>
                                 <constraint firstAttribute="width" constant="600" id="D7k-Fg-qWU"/>
                                 <constraint firstItem="Ycn-Gk-uWp" firstAttribute="top" secondItem="0nf-OU-B5h" secondAttribute="bottom" id="F8Y-Vq-laT"/>
-                                <constraint firstItem="RGR-VS-4V4" firstAttribute="top" secondItem="LNc-EI-bKY" secondAttribute="top" id="PyO-eu-axR"/>
+                                <constraint firstItem="RGR-VS-4V4" firstAttribute="top" secondItem="LNc-EI-bKY" secondAttribute="top" constant="-200" id="PyO-eu-axR"/>
                                 <constraint firstItem="YLb-kP-sM9" firstAttribute="leading" secondItem="LNc-EI-bKY" secondAttribute="leading" id="SaJ-VR-eBr"/>
                                 <constraint firstAttribute="trailing" secondItem="RGR-VS-4V4" secondAttribute="trailing" id="Tzr-R4-5U5"/>
                                 <constraint firstItem="RGR-VS-4V4" firstAttribute="leading" secondItem="LNc-EI-bKY" secondAttribute="leading" id="UOj-mv-fHp"/>
