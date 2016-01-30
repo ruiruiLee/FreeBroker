@@ -442,7 +442,7 @@
             UserInfoModel *user = [UserInfoModel shareUserInfoModel];
             web.shareTitle = [NSString stringWithFormat:@"我是%@，我是优快保自由经纪人。这是为您定制的投保方案报价，请查阅。电话%@", user.realName, user.phone];
             [self.navigationController pushViewController:web animated:YES];
-            [web initShareUrl:model.insuranceOrderUuid insuranceType:@"1" planOfferId:model.planId];
+            [web initShareUrl:model.insuranceOrderUuid insuranceType:@"1" planOfferId:model.planOfferId];
             if(model.planOfferId){
                 NSString *url = [NSString stringWithFormat:@"%@/car_insur/car_insur_detail.html?insuranceType=%@&orderId=%@&planOfferId=%@", Base_Uri, @"1", model.insuranceOrderUuid, model.planOfferId];
                 [web loadHtmlFromUrl:url];
