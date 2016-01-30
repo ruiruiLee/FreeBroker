@@ -20,6 +20,7 @@ typedef void (^CMNotificationSimpleAction)(id);
 @property (nonatomic, strong) UILabel *textLabel;
 @property (nonatomic, strong) UILabel *detailTextLabel;
 @property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic,strong) NSDictionary *msgInfo;
 @property (nonatomic, assign) id<CMNavBarNotificationViewDelegate> delegate;
 @property (nonatomic, strong) OBGradientView * contentView;
 
@@ -28,11 +29,14 @@ typedef void (^CMNotificationSimpleAction)(id);
 + (CMNavBarNotificationView *) notifyWithText:(NSString*)text
                                  detail:(NSString*)detail
                                   image:(UIImage*)image
-                            andDuration:(NSTimeInterval)duration;
+                            andDuration:(NSTimeInterval)duration
+                             msgparams:(NSDictionary *)msginfo;
+
 
 + (CMNavBarNotificationView *) notifyWithText:(NSString*)text
                                  detail:(NSString*)detail
                             andDuration:(NSTimeInterval)duration;
+
 
 + (CMNavBarNotificationView *) notifyWithText:(NSString*)text
                               andDetail:(NSString*)detail;
@@ -41,7 +45,8 @@ typedef void (^CMNotificationSimpleAction)(id);
                                  detail:(NSString*)detail
                                   image:(UIImage*)image
                                duration:(NSTimeInterval)duration
-                          andTouchBlock:(CMNotificationSimpleAction)block;
+                          andTouchBlock:(CMNotificationSimpleAction)block
+                              msgparams:(NSDictionary *)msginfo;
 
 + (CMNavBarNotificationView *) notifyWithText:(NSString*)text
                                  detail:(NSString*)detail

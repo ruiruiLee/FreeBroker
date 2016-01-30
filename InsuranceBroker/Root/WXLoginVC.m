@@ -10,6 +10,8 @@
 #import <ShareSDKExtension/SSEThirdPartyLoginHelper.h>
 #import "define.h"
 #import "NetWorkHandler+login.h"
+#import <AVOSCloud/AVOSCloud.h>
+#import <AVOSCloudSNS/AVOSCloudSNS.h>
 
 @interface WXLoginVC ()
 
@@ -85,6 +87,11 @@
             [userinfo setContentWithDictionary:data];
             [userinfo queryUserInfo];
             [self handleLeftBarButtonClicked:nil];
+            
+            AVInstallation *currentInstallation = [AVInstallation currentInstallation];
+            [currentInstallation addUniqueObject:@"ykbbrokerLoginUser" forKey:@"channels"];
+            [currentInstallation addUniqueObject:[UserInfoModel shareUserInfoModel].userId forKey:@"channels"];
+            [currentInstallation saveInBackground];
         }
     }];
 }

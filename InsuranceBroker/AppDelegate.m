@@ -112,10 +112,10 @@
     //判断程序是不是由推送服务完成的
     if (launchOptions)
     {
-        
         NSDictionary* notificationPayload = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
         if (notificationPayload)
         {
+            [self remoteNotificationDistributionCenter:notificationPayload];
             [self performSelector:@selector(pushDetailPage:) withObject:notificationPayload afterDelay:1.0];
             [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
         }
@@ -182,7 +182,6 @@
     AVInstallation *currentInstallation = [AVInstallation currentInstallation];
     [currentInstallation setDeviceTokenFromData:deviceToken];
     [currentInstallation addUniqueObject:@"ykbbrokerAllUser" forKey:@"channels"];
-    [currentInstallation addUniqueObject:@"registerUser" forKey:@"channels"];
     [currentInstallation saveInBackground];
 }
 
@@ -197,22 +196,22 @@
     //这儿你可以加入自己的代码 根据推送的数据进行相应处理
     
     [UIApplication sharedApplication].applicationIconBadgeNumber=0;
+     [self remoteNotificationDistributionCenter:userInfo];
     // 程序在运行中接收到推送
     if (application.applicationState == UIApplicationStateActive)
     {
-        [self remoteNotificationDistributionCenter:userInfo];
+        [root pushActivetoController:userInfo];
     }
     else  //程序在后台中接收到推送
     {
         // The application was just brought from the background to the foreground,
         // so we consider the app as having been "opened by a push notification."
         [AVAnalytics trackAppOpenedWithRemoteNotificationPayload:userInfo];
-//        [self pushDetailPage:userInfo];
-        [self remoteNotificationDistributionCenter:userInfo];
+        [root pushtoController:[[userInfo objectForKey:@"ct"] integerValue]];
     }
 }
 
-//推送消息分发中心
+//推送消息提示原点
 - (void) remoteNotificationDistributionCenter:(NSDictionary *) userInfo
 {
     AppContext *context = [AppContext sharedAppContext];
@@ -248,9 +247,7 @@
         context.pushCustomerNum = ct + [AppContext sharedAppContext].pushCustomerNum;
     }
     [context saveData];
-    
-    [root pushtoController:mt];
-}
+    }
 //category：10|12, //消息类别 10代表为“通知消息”12代表为”交易消息”，
 //title: "消息标题"，如体现通知、收益通知等
 //content: "消息内容"，如“您申请体现的￥300，已转入到你的帐号，请查收”
@@ -267,7 +264,7 @@
 
 -(void) pushDetailPage: (id)dic
 {
-//    [rootVC pushtoController:[[dic objectForKey:@"mt"] intValue] PushType:myPushtype];
+     [root pushtoController:[[dic objectForKey:@"mt"] intValue]];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {

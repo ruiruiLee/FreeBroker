@@ -37,7 +37,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.title = @"绑定手机号";
+    self.title = @"修改绑定手机号";
     [self setLeftBarButtonWithNil];
     
     self.btnGetCaptcha.layer.cornerRadius = 5;
@@ -47,8 +47,8 @@
     
     self.viewHConstraint.constant = ScreenWidth;
     
-    self.tfCaptcha.placeholder = @"验证码";
-    self.tfMobile.placeholder = @"手机号";
+    self.tfCaptcha.placeholder = @"请输入验证码";
+    self.tfMobile.placeholder = @"请输入手机号";
     self.tfCaptcha.keyboardType = UIKeyboardTypeNumberPad;
     self.tfMobile.keyboardType = UIKeyboardTypeNumberPad;
 }

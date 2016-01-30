@@ -271,19 +271,22 @@ static CGFloat const __imagePadding = 8.0f;
     return [self notifyWithText:text
                          detail:detail
                           image:nil
-                    andDuration:duration];
+                    andDuration:duration
+             msgparams:nil];
 }
 
 + (CMNavBarNotificationView *) notifyWithText:(NSString*)text
                                  detail:(NSString*)detail
                                   image:(UIImage*)image
                             andDuration:(NSTimeInterval)duration
+                              msgparams:(NSDictionary *)msginfo
 {
     return [self notifyWithText:text
                          detail:detail
                           image:image
                        duration:duration
-                  andTouchBlock:nil];
+                  andTouchBlock:nil
+                      msgparams:msginfo];
 }
 
 + (CMNavBarNotificationView *) notifyWithText:(NSString*)text
@@ -295,7 +298,8 @@ static CGFloat const __imagePadding = 8.0f;
                          detail:detail
                           image:nil
                        duration:duration
-                  andTouchBlock:block];
+                  andTouchBlock:block
+                   msgparams:nil];
 }
 
 + (CMNavBarNotificationView *) notifyWithText:(NSString*)text
@@ -306,7 +310,8 @@ static CGFloat const __imagePadding = 8.0f;
                          detail:detail
                           image:nil
                        duration:2.0
-                  andTouchBlock:block];
+                  andTouchBlock:block
+                      msgparams:nil];
 }
 
 + (CMNavBarNotificationView *) notifyWithText:(NSString*)text
@@ -314,6 +319,7 @@ static CGFloat const __imagePadding = 8.0f;
                                   image:(UIImage*)image
                                duration:(NSTimeInterval)duration
                           andTouchBlock:(CMNotificationSimpleAction)block
+                              msgparams:(NSDictionary *)msginfo
 {
     if (__notificationWindow == nil)
     {
@@ -330,7 +336,7 @@ static CGFloat const __imagePadding = 8.0f;
     notification.imageView.image = image;
     notification.duration = duration;
     notification.tapBlock = block;
-    
+    notification.msgInfo = msginfo;
     UITapGestureRecognizer *gr = [[UITapGestureRecognizer alloc] initWithTarget:notification
                                                                          action:@selector(handleTap:)];
     notification.tapGestureRecognizer = gr;
