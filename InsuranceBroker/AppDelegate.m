@@ -186,7 +186,7 @@
 }
 
 -(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
-    
+
     //可选 通过统计功能追踪打开提醒失败, 或者用户不授权本应用推送
     [AVAnalytics event:@"开启推送失败" label:[error description]];
 }

@@ -2375,7 +2375,7 @@
 				TargetAttributes = {
 					8650657C1C1E6BC800429EAE = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = 2Q2CM4XT64;
+						DevelopmentTeam = 83V6JW3TGV;
 					};
 					865065951C1E6BC800429EAE = {
 						CreatedOnToolsVersion = 7.1;
@@ -2863,8 +2863,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: // / (XY5GVE4YYR)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: // / (XY5GVE4YYR)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: springcare@163.com (72LP7U2GAG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Chengdu Spring Breeze High Quality Nursing Network Technology Co., Ltd. (83V6JW3TGV)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_BITCODE = NO;
@@ -2887,7 +2887,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "feb9ac25-dab9-4cec-917b-4a067c146dee";
+				PROVISIONING_PROFILE = "c367b2e3-5df2-49de-b7fb-c532b455921d";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2909,8 +2909,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: // / (XY5GVE4YYR)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: // / (XY5GVE4YYR)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: springcare@163.com (72LP7U2GAG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Chengdu Spring Breeze High Quality Nursing Network Technology Co., Ltd. (83V6JW3TGV)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
@@ -2926,7 +2926,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "feb9ac25-dab9-4cec-917b-4a067c146dee";
+				PROVISIONING_PROFILE = "c367b2e3-5df2-49de-b7fb-c532b455921d";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2938,8 +2938,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Zhiqiang li (CH83K85T7A)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Zhiqiang li (CH83K85T7A)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2955,9 +2955,9 @@
 					"$(PROJECT_DIR)/InsuranceBroker/Vendor/ShareSDK/libraries/extends/WeChatSDK",
 					"$(PROJECT_DIR)/InsuranceBroker/View/Global/QRCode/ZBarSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cmkj.cfph;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cmkj.broker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "c367b2e3-5df2-49de-b7fb-c532b455921d";
 				USER_HEADER_SEARCH_PATHS = "\"${SRCROOT}\"/**";
 			};
 			name = Debug;
@@ -2968,8 +2968,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Zhiqiang li (CH83K85T7A)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Zhiqiang li (CH83K85T7A)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2985,9 +2985,9 @@
 					"$(PROJECT_DIR)/InsuranceBroker/Vendor/ShareSDK/libraries/extends/WeChatSDK",
 					"$(PROJECT_DIR)/InsuranceBroker/View/Global/QRCode/ZBarSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cmkj.cfph;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cmkj.broker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "c367b2e3-5df2-49de-b7fb-c532b455921d";
 				USER_HEADER_SEARCH_PATHS = "\"${SRCROOT}\"/**";
 			};
 			name = Release;
