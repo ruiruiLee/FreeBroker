@@ -52,7 +52,7 @@
     }
 }
 
-- (void) share
+- (void) shareUrl
 {
     if(self.delegate && [self.delegate respondsToSelector:@selector(NotifyShareWindow)])
     {

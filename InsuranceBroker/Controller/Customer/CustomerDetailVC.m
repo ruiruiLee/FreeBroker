@@ -590,7 +590,16 @@
         NSString *url = [NSString stringWithFormat:@"%@/car_insur/car_insur_plan.html?clientKey=%@&userId=%@&customerId=%@&customerCarId=%@", Base_Uri, [UserInfoModel shareUserInfoModel].clientKey, [UserInfoModel shareUserInfoModel].userId, self.data.customerId, self.data.carInfo.customerCarId];
         [web loadHtmlFromUrl:url];
     }else{
-        [Util showAlertMessage:@"请先填写投保资料"];
+//        [Util showAlertMessage:@"请先填写投保资料"];
+        UIAlertView * mAlert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请先填写投保资料" delegate:self cancelButtonTitle:@"确定"  otherButtonTitles:nil, nil];
+        [mAlert show];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0){
+        [self addAutoInsuranceInfo];
     }
 }
 

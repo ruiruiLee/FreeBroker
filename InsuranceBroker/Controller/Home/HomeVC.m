@@ -78,7 +78,7 @@
     //新用户福利
     //iphone6下为72
 //    self.userNewHConstraint.constant = ScreenWidth;
-    self.userNewVConstraint.constant = [Util getHeightByWidth:375 height:80 nwidth:ScreenWidth];
+    self.userNewVConstraint.constant = [Util getHeightByWidth:375 height:90 nwidth:ScreenWidth];
     
     self.scVConstraint.constant = self.headVConstraint.constant + self.adVConstraint.constant + 30 + ScreenWidth/2 + self.additionBgVConstraint.constant + self.userNewVConstraint.constant;
     

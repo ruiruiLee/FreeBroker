@@ -18,13 +18,15 @@
 {
     NSArray *insurArray;
     
-    UISearchBar *searchbar;
-    NSString *filterString;
+//    UISearchBar *searchbar;
+//    NSString *filterString;
 }
 
 @end
 
 @implementation OrderManagerVC
+@synthesize searchbar;
+@synthesize filterString;
 
 - (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -71,6 +73,7 @@
     self.pulltable.tableHeaderView = searchbar;
     searchbar.returnKeyType = UIReturnKeySearch;
     searchbar.delegate = self;
+    searchbar.text = filterString;
     
     NSDictionary *views = NSDictionaryOfVariableBindings(pulltable);
     
