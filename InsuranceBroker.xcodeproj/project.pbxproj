@@ -75,6 +75,8 @@
 		8625B0511C3F8E7A00312B98 /* ObjectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8625B0501C3F8E7A00312B98 /* ObjectButton.m */; };
 		8625B0541C3F9B2D00312B98 /* NetWorkHandler+saveOrUpdateLabelCustomer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8625B0531C3F9B2D00312B98 /* NetWorkHandler+saveOrUpdateLabelCustomer.m */; };
 		8625B0571C41020D00312B98 /* NetWorkHandler+saveOrUpdateUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8625B0561C41020D00312B98 /* NetWorkHandler+saveOrUpdateUser.m */; };
+		862CD3411C5C8CFE0056D2EA /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 862CD33E1C5C8CFE0056D2EA /* ProgressHUD.bundle */; };
+		862CD3421C5C8CFE0056D2EA /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 862CD3401C5C8CFE0056D2EA /* ProgressHUD.m */; };
 		865065821C1E6BC800429EAE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 865065811C1E6BC800429EAE /* main.m */; };
 		865065851C1E6BC800429EAE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 865065841C1E6BC800429EAE /* AppDelegate.m */; };
 		8650658D1C1E6BC800429EAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8650658C1C1E6BC800429EAE /* Assets.xcassets */; };
@@ -498,6 +500,9 @@
 		8625B0531C3F9B2D00312B98 /* NetWorkHandler+saveOrUpdateLabelCustomer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetWorkHandler+saveOrUpdateLabelCustomer.m"; sourceTree = "<group>"; };
 		8625B0551C41020D00312B98 /* NetWorkHandler+saveOrUpdateUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetWorkHandler+saveOrUpdateUser.h"; sourceTree = "<group>"; };
 		8625B0561C41020D00312B98 /* NetWorkHandler+saveOrUpdateUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetWorkHandler+saveOrUpdateUser.m"; sourceTree = "<group>"; };
+		862CD33E1C5C8CFE0056D2EA /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
+		862CD33F1C5C8CFE0056D2EA /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
+		862CD3401C5C8CFE0056D2EA /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
 		8650657D1C1E6BC800429EAE /* InsuranceBroker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InsuranceBroker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		865065811C1E6BC800429EAE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		865065831C1E6BC800429EAE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1064,6 +1069,16 @@
 				DFE808A7D7A93EC82240AE11 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		862CD33D1C5C8CFE0056D2EA /* ProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				862CD33E1C5C8CFE0056D2EA /* ProgressHUD.bundle */,
+				862CD33F1C5C8CFE0056D2EA /* ProgressHUD.h */,
+				862CD3401C5C8CFE0056D2EA /* ProgressHUD.m */,
+			);
+			path = ProgressHUD;
 			sourceTree = "<group>";
 		};
 		865065741C1E6BC800429EAE = {
@@ -1708,6 +1723,7 @@
 		86C3BB241C22C3FC00F98E80 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				862CD33D1C5C8CFE0056D2EA /* ProgressHUD */,
 				CF608EFA1C58A44900DC10CA /* KGStatusBar */,
 				CF608EF41C58A16C00DC10CA /* EGOCache */,
 				CF608EF01C58A14500DC10CA /* pushNotificationView */,
@@ -2463,6 +2479,7 @@
 				86A504861C4F27950032A901 /* zbar-samples.png in Resources */,
 				86A504841C4F27950032A901 /* zbar-help.html in Resources */,
 				86C3BBAA1C28FD4600F98E80 /* UserInfoEditVC.xib in Resources */,
+				862CD3411C5C8CFE0056D2EA /* ProgressHUD.bundle in Resources */,
 				86C3BB1C1C228D6F00F98E80 /* whiteArrow@2x.png in Resources */,
 				8625AFFD1C3A19ED00312B98 /* WXLoginVC.xib in Resources */,
 				86A505001C5258820032A901 /* OrderWebVC.xib in Resources */,
@@ -2651,6 +2668,7 @@
 				86A26E851C4528A40073FFFC /* NetWorkHandler+announcement.m in Sources */,
 				86A26E881C452A5B0073FFFC /* AnnouncementModel.m in Sources */,
 				86C3BB2C1C22C42D00F98E80 /* AnimationButton.m in Sources */,
+				862CD3421C5C8CFE0056D2EA /* ProgressHUD.m in Sources */,
 				8625B0541C3F9B2D00312B98 /* NetWorkHandler+saveOrUpdateLabelCustomer.m in Sources */,
 				8625B04D1C3F7B0E00312B98 /* EditButton.m in Sources */,
 				86A504EA1C524E8F0032A901 /* OrderDetailWebVC.m in Sources */,

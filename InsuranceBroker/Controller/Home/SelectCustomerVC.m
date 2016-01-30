@@ -147,10 +147,10 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-    [self startCircleLoader];
+    [ProgressHUD show:nil];
     CustomerInfoModel *model = [self.data objectAtIndex:indexPath.row];
     [self loadCarInfo:model.customerId Completion:^(int code, id content) {
-        [self stopCircleLoader];
+        [ProgressHUD dismiss];
         [self handleResponseWithCode:code msg:[content objectForKey:@"msg"]];
         if(code == 200){
             NSArray *array = [CarInfoModel modelArrayFromArray:[[content objectForKey:@"data"] objectForKey:@"rows"]];

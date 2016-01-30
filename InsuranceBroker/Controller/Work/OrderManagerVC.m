@@ -14,14 +14,27 @@
 #import "WebViewController.h"
 #import "UIImageView+WebCache.h"
 
-@interface OrderManagerVC ()
+@interface OrderManagerVC () <UISearchBarDelegate>
 {
     NSArray *insurArray;
+    
+    UISearchBar *searchbar;
+    NSString *filterString;
 }
 
 @end
 
 @implementation OrderManagerVC
+
+- (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if(self){
+        filterString = @"";
+    }
+    
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -52,6 +65,13 @@
     
     PullTableView *pulltable = self.pulltable;
     
+    searchbar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 40)];
+    searchbar.placeholder = @"搜索";
+    searchbar.showsCancelButton = YES;
+    self.pulltable.tableHeaderView = searchbar;
+    searchbar.returnKeyType = UIReturnKeySearch;
+    searchbar.delegate = self;
+    
     NSDictionary *views = NSDictionaryOfVariableBindings(pulltable);
     
     self.vConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[pulltable]-0-|" options:0 metrics:nil views:views];
@@ -70,6 +90,10 @@
     UserInfoModel *user = [UserInfoModel shareUserInfoModel];
     [rules addObject:[self getRulesByField:@"insuranceType" op:@"eq" data:@"1"]];
     [rules addObject:[self getRulesByField:@"userId" op:@"eq" data:user.userId]];
+    [rules addObject:[self getRulesByField:@"customerName" op:@"cn" data:filterString]];
+    [rules addObject:[self getRulesByField:@"customerPhone" op:@"cn" data:filterString]];
+    [rules addObject:[self getRulesByField:@"carNo" op:@"cn" data:filterString]];
+    [rules addObject:[self getRulesByField:@"insuranceOrderNo" op:@"cn" data:filterString]];
     [Util setValueForKeyWithDic:filters value:rules key:@"rules"];
     
     [NetWorkHandler requestToQueryForCustomerInsurPageList:@"1"
@@ -359,6 +383,25 @@
     [attributedString addAttribute:NSFontAttributeName value:font range:range];
     
     return attributedString;
+}
+
+#pragma UISearchBarDelegate
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [searchbar resignFirstResponder];
+    filterString = searchbar.text;
+    self.pageNum = 0;
+    [self loadDataInPages:self.pageNum];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [searchbar resignFirstResponder];
+    searchbar.text = @"";
+    filterString = @"";
+    self.pageNum = 0;
+    [self loadDataInPages:self.pageNum];
 }
 
 @end

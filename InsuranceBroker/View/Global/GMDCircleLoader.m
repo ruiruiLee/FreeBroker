@@ -38,20 +38,6 @@
 + (GMDCircleLoader *)setOnView:(UIView *)view withTitle:(NSString *)title animated:(BOOL)animated {
     GMDCircleLoader *hud = [[GMDCircleLoader alloc] initWithFrame:GMD_SPINNER_FRAME];
     
-    //You can add an image to the center of the spinner view
-    //    UIImageView *img = [[UIImageView alloc] initWithFrame:GMD_SPINNER_IMAGE];
-    //    img.image = GMD_IMAGE;
-    //    hud.center = img.center;
-    //    [hud addSubview:img];
-
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(-70.0f, 40.0f, 200.0f, 42.0f)];
-    label.font = [UIFont boldSystemFontOfSize:18.0f];
-    label.textColor = GMD_SPINNER_COLOR;
-    label.textAlignment = NSTextAlignmentCenter;
-    label.text = title;
-    [hud addSubview:label];
-    
-    
     [hud start];
     [view addSubview:hud];
     float height = [[UIScreen mainScreen] bounds].size.height;
