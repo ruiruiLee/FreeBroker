@@ -272,6 +272,7 @@
     [currentInstallation removeObject:@"ykbbrokerLoginUser" forKey:@"channels"];
     [currentInstallation removeObject:[UserInfoModel shareUserInfoModel].userId forKey:@"channels"];
     [currentInstallation saveInBackground];
+    [AVUser logOut];  //清除缓存用户对象
 }
 
 @end

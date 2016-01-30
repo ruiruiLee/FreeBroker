@@ -12,8 +12,9 @@
 #import "CustomerMainVC.h"
 #import "WorkMainVC.h"
 #import "UserCenterVC.h"
+#import "CMNavBarNotificationView.h"
 
-@interface RootViewController : UITabBarController<UITabBarControllerDelegate>
+@interface RootViewController : UITabBarController<UITabBarControllerDelegate,CMNavBarNotificationViewDelegate>
 {
 //    BaseViewController *selectVC;
 }
@@ -25,5 +26,5 @@
 @property (nonatomic, strong) BaseViewController *selectVC;
 
 -(void) pushtoController:(NSInteger)mt;
-
+-(void) pushActivetoController:(id)dic;
 @end

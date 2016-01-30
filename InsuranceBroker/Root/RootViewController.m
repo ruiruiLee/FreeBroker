@@ -35,10 +35,28 @@
     [tabBarItem setTitleTextAttributes:selDict forState:UIControlStateSelected];
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)tapReceivedNotificationHandler:(NSNotification *)notice
+{
+    CMNavBarNotificationView *notificationView = (CMNavBarNotificationView *)notice.object;
+    if ([notificationView isKindOfClass:[CMNavBarNotificationView class]])
+    {
+        NSLog( @"Received touch for notification with text: %@", ((CMNavBarNotificationView *)notice.object).textLabel.text );
+    }
+    [self pushtoController:[[notificationView.msgInfo objectForKey:@"mt"] intValue]];
+}
+
 - (void) viewDidLoad
 {
     [super viewDidLoad];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(tapReceivedNotificationHandler:)
+                                                 name:kCMNavBarNotificationViewTapReceivedNotification
+                                               object:nil];
     self.delegate = self;
     
     homevc = [[HomeVC alloc] initWithNibName:@"HomeVC" bundle:nil];
@@ -109,6 +127,16 @@
  * 手动跳转页面
  * mt 跳转到的页面ID
  */
+
+
+-(void) pushActivetoController:(id)dic{
+    [CMNavBarNotificationView notifyWithText:@"消息通知:"
+                                      detail:[[dic objectForKey:@"aps"] objectForKey:@"alert"]
+                                       image:[UIImage imageNamed:@"icon"]
+                                 andDuration:4.0
+                                  msgparams:dic];
+}
+
 -(void) pushtoController:(NSInteger)mt
 {
     if(mt == 1){
