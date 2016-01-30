@@ -18,16 +18,18 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WMz-hr-fTG" customClass="LeftImgButton">
-                    <rect key="frame" x="264" y="383" width="72" height="22"/>
+                    <rect key="frame" x="261" y="331" width="78" height="18"/>
                     <animations/>
                     <constraints>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="41G-M2-qj6"/>
-                        <constraint firstAttribute="width" constant="120" id="h1a-i7-XZg"/>
+                        <constraint firstAttribute="width" constant="150" id="41G-M2-qj6"/>
+                        <constraint firstAttribute="width" constant="150" id="h1a-i7-XZg"/>
                         <constraint firstAttribute="height" constant="36" id="j2X-pE-xeZ"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="nX9-zT-ZYD"/>
+                        <constraint firstAttribute="height" constant="36" id="nX9-zT-ZYD"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="微信登录" image="wechat_logo"/>
+                    <state key="normal" title="微信登录" image="wechat_logo">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="点击“登录”，即表示您同意用户协议" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBc-5Z-ofO" userLabel="点击“微信登录”，即表示您同意用户协议">
                     <rect key="frame" x="60" y="413" width="463" height="21"/>
@@ -81,7 +83,6 @@
                 <constraint firstAttribute="trailing" secondItem="cil-dc-wNz" secondAttribute="trailing" id="h0W-PC-J0e"/>
                 <constraint firstItem="EWE-ax-dSN" firstAttribute="top" secondItem="sBc-5Z-ofO" secondAttribute="top" id="ksC-x9-Dqp"/>
                 <constraint firstItem="G7X-XE-egZ" firstAttribute="leading" secondItem="sBc-5Z-ofO" secondAttribute="trailing" id="lhz-C5-yAK"/>
-                <constraint firstItem="WMz-hr-fTG" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ojy-Eh-wYB"/>
                 <constraint firstAttribute="trailing" secondItem="G7X-XE-egZ" secondAttribute="trailing" id="r6T-xY-UAD"/>
                 <constraint firstItem="cil-dc-wNz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="sVL-RE-0ra"/>
                 <constraint firstItem="WMz-hr-fTG" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="40" id="wFP-uv-sNX"/>
@@ -89,7 +90,7 @@
         </view>
     </objects>
     <resources>
-        <image name="LaunchImage" width="1" height="15"/>
+        <image name="LaunchImage" width="40" height="40"/>
         <image name="wechat_logo" width="18" height="18"/>
     </resources>
 </document>

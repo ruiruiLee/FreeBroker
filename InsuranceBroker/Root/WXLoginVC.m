@@ -30,9 +30,12 @@
 //    self.btnWechat.layer.borderWidth = 0.5;
 //    self.btnWechat.layer.borderColor = borderColor.CGColor;
     self.btnWechat.backgroundColor = borderColor;
-    [self.btnWechat setTitleColor:borderColor forState:UIControlStateNormal];
+//    [self.btnWechat setTitleColor:borderColor forState:UIControlStateNormal];
     [self.btnWechat setImage:ThemeImage(@"wechat_logo") forState:UIControlStateNormal];
     [self.btnWechat addTarget:self action:@selector(addAccountClickHandler:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view bringSubviewToFront:self.btnWechat];
+    [self.view bringSubviewToFront:self.lbAgreement];
     
     self.lbAgreement.attributedText = [Util getAttributeString:@"点击“登录”，即表示您同意用户协议" substr:@"用户协议"];
 }
