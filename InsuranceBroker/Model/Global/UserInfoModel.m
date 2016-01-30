@@ -138,6 +138,7 @@
     self.leader = [[dic objectForKey:@"leader"] integerValue];
     self.cardVerifiy = [[dic objectForKey:@"cardVerifiy"] integerValue];
     self.userType = [[dic objectForKey:@"userType"] integerValue];
+    self.sex = [[dic objectForKey:@"userSex"] integerValue];
     
     self.cardNumber = [dic objectForKey:@"cardNumber"];
     self.cardNumberImg1 = [dic objectForKey:@"cardNumberImg1"];
