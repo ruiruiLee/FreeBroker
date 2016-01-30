@@ -63,11 +63,14 @@
     cell.lbContent.text = model.planTypeName;//[Util getStringByPlanType:model.planType];
     cell.lbUpdateTime.text = [Util getTimeString:model.createdAt];
     cell.lbStatus.attributedText = [self getAttributedString:model.orderOfferStatusMsg orderOfferNums:model.orderOfferNums orderOfferStatus:model.orderOfferStatus orderOfferPayPrice:model.orderOfferPayPrice orderOfferStatusStr:model.orderOfferStatusStr];
-    [self setPolicyStatusWithCell:cell orderOfferStatus:model.orderOfferStatus orderOfferStatusStr:model.orderOfferStatusMsg];
+    [self setPolicyStatusWithCell:cell orderOfferStatus:model.orderOfferStatus orderOfferStatusStr:model.orderOfferStatusStr];
     [cell.logoImgV sd_setImageWithURL:[NSURL URLWithString:model.productLogo] placeholderImage:ThemeImage(@"chexian")];
     
     return cell;
 }
+
+//orderOfferStatusMsg = "\U8bc1\U4ef6\U4fe1\U606f\U6709\U8bef";
+//orderOfferStatusStr = "\U62a5\U4ef7\U5931\U8d25";
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -179,7 +182,7 @@
         string = @"保单过期";
          return [self attstringWithString:string range:NSMakeRange(0, [string length]) font:_FONT(12) color:_COLOR(0xf4, 0x43, 0x36)];
     }else{
-        string = orderOfferStatusStr;
+        string = desc;
         if(string == nil)
             string = @"";
         return [self attstringWithString:string range:NSMakeRange(0, [string length]) font:_FONT(12) color:_COLOR(0xf4, 0x43, 0x36)];

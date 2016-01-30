@@ -91,6 +91,8 @@
         case 0:
         {
             UIImage *image = ThemeImage(@"head_male_edit");
+            if(model.sex == 2)
+                image = ThemeImage(@"head_famale_edit");
             [self setCellData:cell title:@"头像" image:image content:@""];
             [cell.imgv sd_setImageWithURL:[NSURL URLWithString:model.headerImg] placeholderImage:image];
             cell.imgv.layer.cornerRadius = 25;
