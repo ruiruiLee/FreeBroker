@@ -178,11 +178,11 @@
         [self.navigationController pushViewController:web animated:YES];
         if(model.planOfferId != nil){
             NSString *url = [NSString stringWithFormat:@"%@/car_insur/car_insur_detail.html?insuranceType=%@&orderId=%@&planOfferId=%@", Base_Uri, @"1", model.insuranceOrderUuid, model.planOfferId];
-            [web initShareUrl:model.insuranceOrderUuid insuranceType:@"1" planOfferId:model.planId];
+            [web initShareUrl:model.insuranceOrderUuid insuranceType:@"1" planOfferId:model.planOfferId];
             [web loadHtmlFromUrl:url];
         }else{
             NSString *url = [NSString stringWithFormat:@"%@/car_insur/car_insur_detail.html?insuranceType=%@&orderId=%@", Base_Uri, @"1", model.insuranceOrderUuid];
-            [web initShareUrl:model.insuranceOrderUuid insuranceType:@"1" planOfferId:model.planId];
+            [web initShareUrl:model.insuranceOrderUuid insuranceType:@"1" planOfferId:model.planOfferId];
             [web loadHtmlFromUrl:url];
         }
         
