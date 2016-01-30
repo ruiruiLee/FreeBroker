@@ -25,10 +25,11 @@
     self.title = @"微信登录";
     [self setLeftBarButtonWithImage:ThemeImage(@"shut")];
     
-    UIColor *borderColor = _COLOR(0xff, 0x66, 0x19);
-    self.btnWechat.layer.cornerRadius = 18;
-    self.btnWechat.layer.borderWidth = 0.5;
-    self.btnWechat.layer.borderColor = borderColor.CGColor;
+    UIColor *borderColor = _COLOR(0x27, 0xcf, 0x00);
+    self.btnWechat.layer.cornerRadius = 3;
+//    self.btnWechat.layer.borderWidth = 0.5;
+//    self.btnWechat.layer.borderColor = borderColor.CGColor;
+    self.btnWechat.backgroundColor = borderColor;
     [self.btnWechat setTitleColor:borderColor forState:UIControlStateNormal];
     [self.btnWechat setImage:ThemeImage(@"wechat_logo") forState:UIControlStateNormal];
     [self.btnWechat addTarget:self action:@selector(addAccountClickHandler:) forControlEvents:UIControlEventTouchUpInside];
