@@ -12,11 +12,11 @@
             <rect key="frame" x="0.0" y="0.0" width="367" height="70"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="367" height="70"/>
+                <rect key="frame" x="0.0" y="0.0" width="367" height="69.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="customer_head" translatesAutoresizingMaskIntoConstraints="NO" id="mKk-9c-fjY">
-                        <rect key="frame" x="14" y="8" width="40" height="40"/>
+                        <rect key="frame" x="14" y="8" width="43" height="40"/>
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -29,14 +29,14 @@
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="10" id="13b-gJ-0da"/>
-                            <constraint firstAttribute="width" constant="10" id="JT6-Ks-cPQ"/>
+                            <constraint firstAttribute="height" constant="12" id="13b-gJ-0da"/>
+                            <constraint firstAttribute="width" constant="12" id="JT6-Ks-cPQ"/>
                         </constraints>
                     </imageView>
                     <view clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="97g-E7-tR1">
                         <rect key="frame" x="73" y="8" width="170" height="40"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbn-1L-Fcs">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbn-1L-Fcs">
                                 <rect key="frame" x="0.0" y="0.0" width="170" height="21"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -47,7 +47,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tjX-Ho-TAP">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tjX-Ho-TAP">
                                 <rect key="frame" x="0.0" y="26" width="170" height="14"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -102,14 +102,14 @@
                     <constraint firstItem="1hZ-KC-djp" firstAttribute="top" secondItem="2IT-pt-0Nn" secondAttribute="bottom" constant="4" id="Lw5-dr-0cY"/>
                     <constraint firstAttribute="bottomMargin" secondItem="mKk-9c-fjY" secondAttribute="bottom" constant="6" id="SeB-5I-826"/>
                     <constraint firstItem="97g-E7-tR1" firstAttribute="top" secondItem="mKk-9c-fjY" secondAttribute="top" id="V2k-vx-6FN"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="OT2-Kc-hMz" secondAttribute="bottom" constant="3" id="dl3-WV-Dpy"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="OT2-Kc-hMz" secondAttribute="bottom" constant="2" id="dl3-WV-Dpy"/>
                     <constraint firstItem="2IT-pt-0Nn" firstAttribute="leading" secondItem="97g-E7-tR1" secondAttribute="trailing" constant="10" id="g3N-eS-SJV"/>
                     <constraint firstItem="97g-E7-tR1" firstAttribute="bottom" secondItem="mKk-9c-fjY" secondAttribute="bottom" id="g4E-rN-quK"/>
                     <constraint firstItem="1hZ-KC-djp" firstAttribute="trailing" secondItem="2IT-pt-0Nn" secondAttribute="trailing" id="i0B-Gt-I7z"/>
                     <constraint firstItem="2IT-pt-0Nn" firstAttribute="top" secondItem="mKk-9c-fjY" secondAttribute="top" id="jks-da-KvC"/>
                     <constraint firstItem="mKk-9c-fjY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="6" id="srZ-c8-cF5"/>
                     <constraint firstItem="2IT-pt-0Nn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="tp6-d8-Lic"/>
-                    <constraint firstItem="OT2-Kc-hMz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="39" id="zaG-sJ-I6x"/>
+                    <constraint firstItem="OT2-Kc-hMz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="38" id="zaG-sJ-I6x"/>
                 </constraints>
             </tableViewCellContentView>
             <animations/>
@@ -125,7 +125,7 @@
                 <outlet property="timerWidth" destination="mEY-Xu-wYZ" id="9EW-TK-ITW"/>
                 <outlet property="width" destination="JT6-Ks-cPQ" id="1E6-yx-5Mi"/>
             </connections>
-            <point key="canvasLocation" x="497.5" y="338.5"/>
+            <point key="canvasLocation" x="497.5" y="338"/>
         </tableViewCell>
     </objects>
     <resources>
