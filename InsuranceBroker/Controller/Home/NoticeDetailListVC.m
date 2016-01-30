@@ -12,6 +12,7 @@
 #import "NetWorkHandler+news.h"
 #import "NewsModel.h"
 #import "UIImageView+WebCache.h"
+#import "OrderManagerVC.h"
 
 @interface NoticeDetailListVC ()
 {
@@ -124,19 +125,26 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     NewsModel *model = [[_newsArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-    if(model.isRedirect){
-        WebViewController *web = [IBUIFactory CreateWebViewController];
-        web.title = model.title;
-        web.type = enumShareTypeShare;
-        web.shareTitle = model.title;
-        web.shareContent = model.content;
-        if(model.imgUrl != nil)
-            web.shareImgArray = [NSArray arrayWithObject:model.imgUrl];
-        [self.navigationController pushViewController:web animated:YES];
-        if(model.url == nil){
-            [web loadHtmlFromUrlWithUserId:[NSString stringWithFormat:@"%@%@%@", SERVER_ADDRESS, @"/news/view/", model.nid]];
-        }else{
-            [web loadHtmlFromUrlWithUserId:model.url];
+    if(model.keyType == 1){
+        OrderManagerVC *vc = [[OrderManagerVC alloc] initWithNibName:nil bundle:nil];
+        vc.filterString = model.keyId;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else{
+        if(model.isRedirect){
+            WebViewController *web = [IBUIFactory CreateWebViewController];
+            web.title = model.title;
+            web.type = enumShareTypeShare;
+            web.shareTitle = model.title;
+            web.shareContent = model.content;
+            if(model.imgUrl != nil)
+                web.shareImgArray = [NSArray arrayWithObject:model.imgUrl];
+            [self.navigationController pushViewController:web animated:YES];
+            if(model.url == nil){
+                [web loadHtmlFromUrlWithUserId:[NSString stringWithFormat:@"%@%@%@", SERVER_ADDRESS, @"/news/view/", model.nid]];
+            }else{
+                [web loadHtmlFromUrlWithUserId:model.url];
+            }
         }
     }
 }
@@ -181,7 +189,7 @@
     h += 12;
     h += [self getHeightWithFont:_FONT(12) text:model.content];
     h += 8;
-    if(model.isRedirect){
+    if(model.isRedirect || model.keyType == 1){
         h += 3;
         h += 48;
     }

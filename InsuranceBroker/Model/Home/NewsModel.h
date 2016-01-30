@@ -18,4 +18,7 @@
 @property (nonatomic, assign) BOOL isRedirect;//": 1,
 @property (nonatomic, strong) NSDate *createdAt;//": 1452581914804
 
+@property (nonatomic, assign) NSInteger keyType;
+@property (nonatomic, strong) NSString *keyId;
+
 @end

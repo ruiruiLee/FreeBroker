@@ -10,4 +10,7 @@
 
 @interface OrderManagerVC : BasePullTableVC
 
+@property (nonatomic, strong) UISearchBar *searchbar;
+@property (nonatomic, strong) NSString *filterString;
+
 @end
