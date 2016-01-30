@@ -165,8 +165,8 @@
 
 - (IBAction) doBtnNoticeList:(id) sender
 {
-    BOOL result = [self login];
-    if(result){
+//    BOOL result = [self login];
+    if(1){
         NoticeListVC *vc = [[NoticeListVC alloc] initWithNibName:nil bundle:nil];
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
