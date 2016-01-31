@@ -17,9 +17,9 @@
 {
 //    NSArray *data;
     
-    LeftImgButton *_btnRaider;//攻略
-    LeftImgButton *_btnService;//客服
-    LeftImgButton *_btnMessage;//消息
+//    LeftImgButton *_btnRaider;//攻略
+//    LeftImgButton *_btnService;//客服
+//    LeftImgButton *_btnMessage;//消息
     
     //ad
     NSArray *_adArray;
@@ -62,6 +62,8 @@
 //新用户
 @property (nonatomic, strong) IBOutlet NSLayoutConstraint *userNewVConstraint;
 //@property (nonatomic, strong) IBOutlet NSLayoutConstraint *userNewHConstraint;//
+
+@property (nonatomic, strong) IBOutlet LeftImgButton *_btnMessage;//消息
 
 //我的消息
 - (IBAction) doBtnNoticeList:(id) sender;

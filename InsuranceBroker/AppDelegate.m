@@ -218,6 +218,7 @@
     int mt = [[userInfo objectForKey:@"mt"] intValue];
     NSInteger ct = [[userInfo objectForKey:@"ct"] integerValue];
     if(mt == 1){
+        context.isHasNotice = YES;
         switch (ct) {
             case 10:
             {
@@ -244,7 +245,7 @@
         }
     }
     else if (mt == 3){
-        context.pushCustomerNum = ct + [AppContext sharedAppContext].pushCustomerNum;
+        context.pushCustomerNum = [AppContext sharedAppContext].pushCustomerNum;
     }
     [context saveData];
     }
