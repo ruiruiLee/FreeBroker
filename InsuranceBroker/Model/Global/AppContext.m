@@ -46,6 +46,7 @@ static AppContext *context = nil;
                 self.isHasTradingMsg = [[dic objectForKey:@"isHasTradingMsg"] boolValue];
                 self.isHasIncentivePolicy = [[dic objectForKey:@"isHasIncentivePolicy"] boolValue];
                 self.pushCustomerNum = [[dic objectForKey:@"pushCustomerNum"] integerValue];
+                self.isNewMessage = [[dic objectForKey:@"isNewMessage"] boolValue];
             }
             else{
                 self.userInfoDic = [[NSMutableDictionary alloc] init];
@@ -58,6 +59,7 @@ static AppContext *context = nil;
                 self.isHasTradingMsg = NO;
                 self.isHasIncentivePolicy = NO;
                 self.pushCustomerNum = 0;
+                self.isNewMessage = NO;
             }
         }else{
             self.userInfoDic = [[NSMutableDictionary alloc] init];
@@ -70,6 +72,7 @@ static AppContext *context = nil;
             self.isHasTradingMsg = NO;
             self.isHasIncentivePolicy = NO;
             self.pushCustomerNum = 0;
+            self.isNewMessage = NO;
         }
     }
     
@@ -95,6 +98,7 @@ static AppContext *context = nil;
     [dic setObject:[NSNumber numberWithBool:self.isHasTradingMsg] forKey:@"isHasTradingMsg"];
     [dic setObject:[NSNumber numberWithBool:self.isHasIncentivePolicy] forKey:@"isHasIncentivePolicy"];
     [dic setObject:[NSNumber numberWithInt:self.pushCustomerNum] forKey:@"pushCustomerNum"];
+    [dic setObject:[NSNumber numberWithBool:self.isNewMessage ] forKey:@"isNewMessage"];
     
     [dic writeToFile:file atomically:YES];
 }
@@ -111,6 +115,7 @@ static AppContext *context = nil;
     [dic setObject:[NSNumber numberWithBool:NO] forKey:@"isHasNewPolicy"];
     [dic setObject:[NSNumber numberWithBool:NO] forKey:@"isHasTradingMsg"];
     [dic setObject:[NSNumber numberWithBool:NO] forKey:@"isHasIncentivePolicy"];
+    [dic setObject:[NSNumber numberWithBool:NO] forKey:@"isNewMessage"];
     [dic setObject:[NSNumber numberWithInt:self.pushCustomerNum] forKey:@"pushCustomerNum"];
     
     [dic writeToFile:file atomically:YES];
@@ -132,6 +137,7 @@ static AppContext *context = nil;
             self.isHasNewPolicy = [[dic objectForKey:@"isHasNewPolicy"] boolValue];
             self.isHasTradingMsg = [[dic objectForKey:@"isHasTradingMsg"] boolValue];
             self.isHasIncentivePolicy = [[dic objectForKey:@"isHasIncentivePolicy"] boolValue];
+            self.isNewMessage = [[dic objectForKey:@"isNewMessage"] boolValue];
             self.pushCustomerNum = [[dic objectForKey:@"pushCustomerNum"] integerValue];
         }
         else{
@@ -144,6 +150,7 @@ static AppContext *context = nil;
             self.isHasNewPolicy = NO;
             self.isHasTradingMsg = NO;
             self.isHasIncentivePolicy = NO;
+            self.isNewMessage = NO;
             self.pushCustomerNum = 0;
         }
     }else{
@@ -156,6 +163,7 @@ static AppContext *context = nil;
         self.isHasNewPolicy = NO;
         self.isHasTradingMsg = NO;
         self.isHasIncentivePolicy = NO;
+        self.isNewMessage = NO;
         self.pushCustomerNum = 0;
     }
 }

@@ -30,11 +30,19 @@
 
 @implementation HomeVC
 
+- (void) dealloc
+{
+    AppContext *context = [AppContext sharedAppContext];
+    [context removeObserver:self forKeyPath:@"isNewMessage"];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     appdelegate = [UIApplication sharedApplication].delegate;
+    AppContext *context = [AppContext sharedAppContext];
+    [context addObserver:self forKeyPath:@"isNewMessage" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
     
     UIImageView *logoView = [[UIImageView alloc] initWithImage:ThemeImage(@"logo")];
     self.navigationItem.titleView = logoView;
@@ -52,7 +60,7 @@
     self.btnInvit.layer.borderWidth = 0.5;
     
 //    [self.btnAutoInsu setImage:ThemeImage(@"car") forState:UIControlStateNormal];
-    [self.btnAutoInsu setTitle:@"车险经纪" forState:UIControlStateNormal];
+    [self.btnAutoInsu setTitle:@"车险算价" forState:UIControlStateNormal];
     self.btnAutoInsu.titleLabel.font = _FONT_B(18);
     self.btnAutoInsu.lbExplain.text = @"快速下单，掌握便捷比价";
 //    [self.btnInvit setImage:ThemeImage(@"share") forState:UIControlStateNormal];
@@ -82,8 +90,21 @@
     
     self.scVConstraint.constant = self.headVConstraint.constant + self.adVConstraint.constant + 30 + ScreenWidth/2 + self.additionBgVConstraint.constant + self.userNewVConstraint.constant;
     
+    self._btnMessage.imageView.clipsToBounds = NO;
+    
     [self loadDatas];
 
+}
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    AppContext *con= [AppContext sharedAppContext];
+    if(con.isNewMessage)
+    {
+        self._btnMessage.imageView.badgeView.badgeValue = 1;
+    }else{
+        self._btnMessage.imageView.badgeView.badgeValue = 0;
+    }
 }
 
 - (void) loadDatas
@@ -167,6 +188,10 @@
 {
 //    BOOL result = [self login];
     if(1){
+        self._btnMessage.imageView.badgeView.badgeValue = 0;
+        AppContext *context = [AppContext sharedAppContext];
+        context.isNewMessage = NO;
+        [context saveData];
         NoticeListVC *vc = [[NoticeListVC alloc] initWithNibName:nil bundle:nil];
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];

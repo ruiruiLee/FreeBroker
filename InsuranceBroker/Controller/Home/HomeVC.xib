@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeVC">
             <connections>
+                <outlet property="_btnMessage" destination="8Z1-w8-XEt" id="cEF-rJ-8kT"/>
                 <outlet property="adVConstraint" destination="5ZG-fM-xJE" id="tn4-kv-4Dp"/>
                 <outlet property="adView" destination="cT6-Ys-XfL" id="zzv-oe-Yoj"/>
                 <outlet property="additionBgVConstraint" destination="Gaf-Of-4iv" id="FF1-Jc-E7i"/>

@@ -59,6 +59,13 @@
     [self.tfDate resignFirstResponder];
     [self.tfCert resignFirstResponder];
     
+    if(_datePicker){
+        [_datePicker remove];
+    }
+    if(_datePicker1){
+        [_datePicker1 remove];
+    }
+    
     BOOL flag = [self isModify];
     if(flag){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"警告" message:@"确认放弃保存修改资料吗？" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
@@ -134,6 +141,14 @@
     self.tfMotorCode.delegate = self;
     self.tfName.delegate = self;
     self.tfNo.delegate = self;
+    
+    _lbProvience = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 16, 36)];
+    _lbProvience.backgroundColor = [UIColor clearColor];
+    _lbProvience.font = _FONT(15);
+    _lbProvience.textColor = _COLOR(0x21, 0x21, 0x21);
+    _lbProvience.text = @"川";
+    self.tfNo.leftView = _lbProvience;
+    self.tfNo.leftViewMode = UITextFieldViewModeAlways;
     
     [self.tableview registerNib:[UINib nibWithNibName:@"CarAddInfoTableCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
@@ -311,7 +326,7 @@
         [self.tfModel becomeFirstResponder];
         return;
     }
-    NSString *carNo = self.tfNo.text;
+    NSString *carNo = [self getCarCertString];//self.tfNo.text;
     
     NSString *newCarNoStatus = @"1";
     if(self.btnNoNo.selected){
@@ -607,7 +622,7 @@
     self.tfName.text = self.customerModel.customerName;
     if(model){
         self.tfName.text = model.carOwnerName;
-        self.tfNo.text = model.carNo;
+        self.tfNo.text = [self getCarCertNum:model.carNo];//model.carNo;
         if(model.newCarNoStatus == 0){
             self.btnNoNo.selected = YES;
             self.tfNo.enabled = NO;
@@ -853,7 +868,7 @@
     flag = [self checkValueChange:cert text:model.carOwnerCard];
     if(flag)
         result = flag;
-    NSString *no = self.tfNo.text;
+    NSString *no = [self getCarCertString];//self.tfNo.text;
     flag = [self checkValueChange:no text:model.carNo];
     if(flag)
         result = flag;
@@ -930,6 +945,23 @@
     }
     
     return flag;
+}
+
+- (NSString *) getCarCertLocation:(NSString *) cert
+{
+    return [cert substringToIndex:1];
+}
+
+- (NSString *) getCarCertNum:(NSString *) cert
+{
+    return [cert substringFromIndex:1];
+}
+
+- (NSString *) getCarCertString
+{
+    NSString *location = _lbProvience.text;
+    NSString *num = _tfNo.text;
+    return [NSString stringWithFormat:@"%@%@", location, num];
 }
 
 @end

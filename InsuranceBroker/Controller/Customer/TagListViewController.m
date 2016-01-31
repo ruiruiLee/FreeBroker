@@ -183,8 +183,8 @@
 - (void) setData:(NSArray *)array
 {
     _data = [array copy];
-    self.myArray = [self getUserLabel:_data];
-    self.serviceArray = [self getServiceStaticLabel:_data];
+    self.myArray = [self getUserLabel:array];
+    self.serviceArray = [self getServiceStaticLabel:array];
     
 }
 

@@ -30,6 +30,7 @@
 @property (nonatomic, assign) BOOL isHasNewPolicy;//新政策
 @property (nonatomic, assign) BOOL isHasTradingMsg;//交易消息
 @property (nonatomic, assign) BOOL isHasIncentivePolicy;//激励政策
+@property (nonatomic, assign) BOOL isNewMessage;
 
 //推送客户
 @property (nonatomic, assign) NSInteger pushCustomerNum;//推送客户

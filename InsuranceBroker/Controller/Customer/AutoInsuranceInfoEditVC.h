@@ -12,6 +12,9 @@
 #import "LeftImgButton.h"
 
 @interface AutoInsuranceInfoEditVC : BaseViewController<UITableViewDataSource, UITableViewDelegate>
+{
+    UILabel *_lbProvience;
+}
 
 
 @property (nonatomic, strong) IBOutlet NSLayoutConstraint *viewHConstraint;

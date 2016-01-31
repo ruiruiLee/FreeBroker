@@ -159,9 +159,9 @@
     if([delarray count] == 0)
         delarray = nil;
     
-    UserInfoModel *model = [UserInfoModel shareUserInfoModel];
+    UserInfoModel *user = [UserInfoModel shareUserInfoModel];
     
-    [NetWorkHandler requestToSaveOrUpdateLabelCustomer:[self getIdArrayWithArray:addarray] deleteCustomerId:[self getIdArrayWithArray:delarray] labelId:labelId labelName:labelName userId:model.userId Completion:^(int code, id content) {
+    [NetWorkHandler requestToSaveOrUpdateLabelCustomer:[self getIdArrayWithArray:addarray] deleteCustomerId:[self getIdArrayWithArray:delarray] labelId:labelId labelName:labelName userId:user.userId Completion:^(int code, id content) {
         [self handleResponseWithCode:code msg:[content objectForKey:@"msg"]];
         if(code == 200){
             if(self.labelModel != nil){
@@ -172,6 +172,7 @@
                 model.labelId = [content objectForKey:@"data"];
                 model.labelName = labelName;
                 model.labelType = 2;
+                model.userId = [UserInfoModel shareUserInfoModel].userId;
                 model.labelCustomerNums = [NSString stringWithFormat:@"%lu", (unsigned long)[self.modifyArray count]];
                 [[TagObjectModel shareTagList] addObject:model];
                 _labelModel = model;

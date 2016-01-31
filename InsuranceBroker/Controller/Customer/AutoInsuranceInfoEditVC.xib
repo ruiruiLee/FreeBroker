@@ -205,7 +205,7 @@
                                                     <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="16" id="HDz-9z-MGK"/>
-                                                        <constraint firstAttribute="width" constant="102" id="riU-R1-lJp"/>
+                                                        <constraint firstAttribute="width" constant="100" id="riU-R1-lJp"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <state key="normal" title="新车未上牌" image="unselect">
@@ -237,7 +237,7 @@
                                                 <constraint firstItem="PA7-9O-2X7" firstAttribute="leading" secondItem="uUf-Uh-yph" secondAttribute="trailing" constant="10" id="gTp-oU-tUm"/>
                                                 <constraint firstItem="uUf-Uh-yph" firstAttribute="leading" secondItem="dhY-0r-WMR" secondAttribute="leading" constant="20" id="oGF-df-QrR"/>
                                                 <constraint firstItem="aaP-v3-eDo" firstAttribute="leading" secondItem="PVy-Mo-j5E" secondAttribute="trailing" constant="4" id="r5K-XP-nA7"/>
-                                                <constraint firstAttribute="trailing" secondItem="aaP-v3-eDo" secondAttribute="trailing" constant="15" id="u6S-qk-ghz"/>
+                                                <constraint firstAttribute="trailing" secondItem="aaP-v3-eDo" secondAttribute="trailing" constant="10" id="u6S-qk-ghz"/>
                                                 <constraint firstItem="PVy-Mo-j5E" firstAttribute="leading" secondItem="PA7-9O-2X7" secondAttribute="trailing" constant="4" id="uyR-0B-vnz"/>
                                                 <constraint firstItem="PVy-Mo-j5E" firstAttribute="centerY" secondItem="uUf-Uh-yph" secondAttribute="centerY" id="xzd-ij-oyg"/>
                                             </constraints>
