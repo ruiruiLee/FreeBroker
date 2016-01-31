@@ -14,7 +14,8 @@
 #import "WXApi.h"
 #import "NewsModel.h"
 #import "UIImageView+WebCache.h"
-
+#import <AVOSCloud/AVOSCloud.h>
+#import "KGStatusBar.h"
 @implementation BaseStrategyView
 @synthesize pulltable;
 
@@ -230,9 +231,16 @@
         if (code == 504){
             UserInfoModel *user = [UserInfoModel shareUserInfoModel];
             user.isLogin = NO;
+            AVInstallation *currentInstallation = [AVInstallation currentInstallation];
+            [currentInstallation removeObject:@"ykbbrokerLoginUser" forKey:@"channels"];
+            [currentInstallation removeObject:[UserInfoModel shareUserInfoModel].userId forKey:@"channels"];
+            [currentInstallation saveInBackground];
             [self login];
         }
-        [Util showAlertMessage:msg];
+        else if(code<0)
+            [KGStatusBar showErrorWithStatus:@"无法连接网络，请稍后再试！"];
+        else
+            [KGStatusBar showErrorWithStatus:msg];
         result = NO;
     }
     return result;

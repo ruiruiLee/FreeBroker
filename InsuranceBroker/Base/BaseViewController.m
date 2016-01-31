@@ -15,7 +15,7 @@
 #import "NetManager.h"
 #import "KGStatusBar.h"
 #import <AVOSCloud/AVOSCloud.h>
-#import <AVOSCloudSNS/AVOSCloudSNS.h>
+
 
 //----------------- 定义网络变化单例参数
 static Reachability *_reachability = nil;
@@ -227,7 +227,7 @@ static inline Reachability* defaultReachability () {
             [self login];
         }
         else if(code<0)
-         [KGStatusBar showErrorWithStatus:@"似乎已断开网络连接，请检查网络设置！"];
+         [KGStatusBar showErrorWithStatus:@"无法连接网络，请稍后再试！"];
         else
           [KGStatusBar showErrorWithStatus:msg];
             result = NO;
