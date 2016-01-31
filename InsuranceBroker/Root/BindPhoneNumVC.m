@@ -11,7 +11,7 @@
 #import "NetWorkHandler+login.h"
 #import <AVOSCloud/AVOSCloud.h>
 #import <AVOSCloudSNS/AVOSCloudSNS.h>
-
+#import "KGStatusBar.h"
 @interface BindPhoneNumVC ()
 
 @end
@@ -120,9 +120,10 @@
     [AVOSCloud requestSmsCodeWithPhoneNumber:phone callback:^(BOOL succeeded, NSError *error) {
         if(succeeded){
             [self TimerOutTimer];
-            [Util showAlertMessage:@"验证码已发送!" ];
+            [KGStatusBar showSuccessWithStatus:@"验证码已发送!"];
         }else{
-            [Util showAlertMessage:@"服务器错误，稍后再试!" ];
+            [KGStatusBar showErrorWithStatus:@"无法连接网络，请稍后再试！"];
+            //[Util showAlertMessage:@"服务器错误，稍后再试!" ];
             [_btnGetCaptcha setTitle:@"重取验证码" forState:UIControlStateNormal];
             _btnGetCaptcha.backgroundColor = _COLORa(0xff, 0x66, 0x19, 1);
             _btnGetCaptcha.enabled = YES;

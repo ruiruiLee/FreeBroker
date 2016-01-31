@@ -14,6 +14,7 @@
     
     UIAlertView* customAlert = [[UIAlertView alloc] initWithTitle:@"提示信息" message:message delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
     [customAlert show];
+    
 }
 
 @end

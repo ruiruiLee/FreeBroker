@@ -10,7 +10,7 @@
 #import "NetWorkHandler+initOrderShare.h"
 #import "SBJson.h"
 #import "MyJSInterface.h"
-
+#import "define.h"
 @interface OrderDetailWebVC ()<MyJSInterfaceDelegate, UIWebViewDelegate>
 
 @end
@@ -153,32 +153,18 @@
              switch (state) {
                  case SSDKResponseStateSuccess:
                  {
-                     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享成功"
-                                                                         message:nil
-                                                                        delegate:nil
-                                                               cancelButtonTitle:@"确定"
-                                                               otherButtonTitles:nil];
-                     [alertView show];
+                    [Util showAlertMessage:@"分享成功"];
                      break;
                  }
                  case SSDKResponseStateFail:
                  {
-                     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享失败"
-                                                                         message:[NSString stringWithFormat:@"%@", error]
-                                                                        delegate:nil
-                                                               cancelButtonTitle:@"确定"
-                                                               otherButtonTitles:nil];
-                     [alertView show];
+                      [Util showAlertMessage:@"分享失败"];
                      break;
                  }
                  case SSDKResponseStateCancel:
                  {
-                     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享已取消"
-                                                                         message:nil
-                                                                        delegate:nil
-                                                               cancelButtonTitle:@"确定"
-                                                               otherButtonTitles:nil];
-                     [alertView show];
+                    
+                     [Util showAlertMessage:@"分享已取消"];
                      break;
                  }
                  default:

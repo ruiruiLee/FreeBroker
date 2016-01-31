@@ -130,10 +130,10 @@
 
 
 -(void) pushActivetoController:(id)dic{
-    [CMNavBarNotificationView notifyWithText:@"消息通知:"
+    [CMNavBarNotificationView notifyWithText:[dic objectForKey:@"title"]
                                       detail:[[dic objectForKey:@"aps"] objectForKey:@"alert"]
                                        image:[UIImage imageNamed:@"icon"]
-                                 andDuration:4.0
+                                 andDuration:5.0
                                   msgparams:dic];
 }
 

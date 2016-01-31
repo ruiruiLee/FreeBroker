@@ -571,12 +571,7 @@
     }
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示信息"
-                                                        message:@"该设备不支持短信功能"
-                                                       delegate:nil
-                                              cancelButtonTitle:@"确定"
-                                              otherButtonTitles:nil, nil];
-        [alert show];
+          [Util showAlertMessage:@"该设备不支持短信功能"];
     }
 }
 
