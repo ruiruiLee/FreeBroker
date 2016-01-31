@@ -52,7 +52,7 @@
     [self setRightBarButtonWithButton:btnDetail];
     
     UserInfoModel *user = [UserInfoModel shareUserInfoModel];
-     CGFloat h = [Util getHeightByWidth:375 height:115 nwidth:ScreenWidth];
+     CGFloat h = [Util getHeightByWidth:3 height:1 nwidth:ScreenWidth];
     UIView *headerview = nil;
     UIImageView *footview = nil;
     if(!user.leader){

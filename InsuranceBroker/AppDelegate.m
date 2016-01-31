@@ -207,7 +207,7 @@
         // The application was just brought from the background to the foreground,
         // so we consider the app as having been "opened by a push notification."
         [AVAnalytics trackAppOpenedWithRemoteNotificationPayload:userInfo];
-        [root pushtoController:[[userInfo objectForKey:@"ct"] integerValue]];
+        [root pushtoController:userInfo];
     }
 }
 
@@ -218,7 +218,7 @@
     int mt = [[userInfo objectForKey:@"mt"] intValue];
     NSInteger ct = [[userInfo objectForKey:@"ct"] integerValue];
     if(mt == 1){
-        context.isHasNotice = YES;
+        context.isNewMessage = YES;
         switch (ct) {
             case 10:
             {
@@ -246,6 +246,8 @@
     }
     else if (mt == 3){
         context.pushCustomerNum = [AppContext sharedAppContext].pushCustomerNum;
+    }else if (mt == 4){
+        
     }
     [context saveData];
     }
@@ -265,7 +267,7 @@
 
 -(void) pushDetailPage: (id)dic
 {
-     [root pushtoController:[[dic objectForKey:@"mt"] intValue]];
+     [root pushtoController:dic];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {

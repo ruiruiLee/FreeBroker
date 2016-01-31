@@ -25,6 +25,6 @@
 @property (nonatomic, copy) UserCenterVC *usercentervc;
 @property (nonatomic, strong) BaseViewController *selectVC;
 
--(void) pushtoController:(NSInteger)mt;
+-(void) pushtoController:(NSDictionary *)info;
 -(void) pushActivetoController:(id)dic;
 @end

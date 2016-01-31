@@ -47,7 +47,7 @@
     {
         NSLog( @"Received touch for notification with text: %@", ((CMNavBarNotificationView *)notice.object).textLabel.text );
     }
-    [self pushtoController:[[notificationView.msgInfo objectForKey:@"mt"] intValue]];
+    [self pushtoController:notificationView.msgInfo];
 }
 
 - (void) viewDidLoad
@@ -137,22 +137,33 @@
                                   msgparams:dic];
 }
 
--(void) pushtoController:(NSInteger)mt
+-(void) pushtoController:(NSDictionary *)info
 {
+    NSInteger mt = [[info objectForKey:@"mt"] integerValue];
     if(mt == 1){
         if([homevc login]){
-            self.tabBarController.selectedIndex = 0;
+            self.selectedIndex = 0;
             selectVC = homevc;
             [selectVC.navigationController popToRootViewControllerAnimated:NO];
             NoticeListVC *vc = [[NoticeListVC alloc] initWithNibName:nil bundle:nil];
+            vc.hidesBottomBarWhenPushed = YES;
             [homevc.navigationController pushViewController:vc animated:YES];
         }
     }
     else if (mt == 3){
         if([customervc login]){
-            self.tabBarController.selectedIndex = 1;
+            self.selectedIndex = 1;
             selectVC = customervc;
         }
+    }else if (mt == 4){
+        WebViewController *web = [IBUIFactory CreateWebViewController];
+        web.hidesBottomBarWhenPushed = YES;
+        web.title = [info objectForKey:@"title"];
+        web.type = enumShareTypeShare;
+        web.shareTitle = web.title;
+        [selectVC.navigationController pushViewController:web animated:YES];
+        
+        [web loadHtmlFromUrlWithUserId:[NSString stringWithFormat:@"%@%@%@", SERVER_ADDRESS, @"/news/view/", [info objectForKey:@"p"]]];
     }
 }
 
