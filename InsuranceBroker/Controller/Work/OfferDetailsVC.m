@@ -49,6 +49,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) handleLeftBarButtonClicked:(id)sender
+{
+    [super handleLeftBarButtonClicked:sender];
+    if(_datePicker){
+        [_datePicker remove];
+    }
+}
+
 - (void) loadData
 {
     [NetWorkHandler requestToQueryForInsuranceOffersList:self.orderId insuranceType:@"1" Completion:^(int code, id content) {
@@ -65,7 +73,7 @@
 {
     self.lbIdenCode.text = self.data.insuranceOrderNo;
     self.lbPlan.text = [NSString stringWithFormat:@"车险方案：%@", self.data.planTypeName];
-    self.lbTime.text = [NSString stringWithFormat:@"发起时间：%@", [Util getTimeString:self.data.createdAt]];
+    self.lbTime.text = [NSString stringWithFormat:@"创建时间：%@", [Util getTimeString:self.data.createdAt]];
     [self.btnName setTitle:self.data.customerName forState:UIControlStateNormal];
     [self.btnNo setTitle:self.data.carNo forState:UIControlStateNormal];
     self.btnNameHConstraint.constant = [self.data.customerName sizeWithFont:self.btnName.titleLabel.font].width + 6 + 16;
@@ -89,14 +97,6 @@
 {
     UIImage *image = ThemeImage(@"car_id");
     self.btnNoHConstraint.constant = 6 + image.size.width + [string sizeWithFont:self.btnNo.titleLabel.font constrainedToSize:CGSizeMake(200, 30)].width;
-}
-
-- (void) handleLeftBarButtonClicked:(id)sender
-{
-    [super handleLeftBarButtonClicked:sender];
-    if(_datePicker){
-        [_datePicker remove];
-    }
 }
 
 #pragma UITableViewDataSource UITableViewDelegate
@@ -333,12 +333,10 @@
     model.planUkbRatio = planUkbRatio;
     
     [self.tableview reloadData];
-    _datePicker = nil;
 }
 
 - (void) toobarDonBtnCancel:(LCPickView *)pickView
 {
-    _datePicker = nil;
 }
 
 

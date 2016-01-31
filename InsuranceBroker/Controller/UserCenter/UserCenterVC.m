@@ -139,6 +139,11 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+- (IBAction)btnUserSetting:(id)sender
+{
+    [self doBtnUserSetting:sender];
+}
+
 - (IBAction)doBtnUserSetting:(id)sender
 {
     UserSettingVC *vc = [[UserSettingVC alloc] initWithNibName:nil bundle:nil];
