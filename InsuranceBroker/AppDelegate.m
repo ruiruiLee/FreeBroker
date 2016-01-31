@@ -42,11 +42,6 @@
                 [ShareSDKConnector connectWeChat:[WXApi class]];
             }
                 break;
-//            case SSDKPlatformSubTypeQZone:
-//            {
-//                [ShareSDKConnector connectQQ:[QQApiInterface class] tencentOAuthClass:[TencentOAuth class]];
-//            }
-//                break;
                 case SSDKPlatformTypeQQ:
             {
                 [ShareSDKConnector connectQQ:[QQApiInterface class] tencentOAuthClass:[TencentOAuth class]];
@@ -69,9 +64,6 @@
                                      appKey:@"zLTZRV6XCnnHLGwb"
                                    authType:SSDKAuthTypeBoth];
                 break;
-//            case SSDKPlatformSubTypeQZone:
-//                [appInfo SSDKSetupWeChatByAppId:@"1105028809" appSecret:@"zLTZRV6XCnnHLGwb"];
-//                break;
             default:
                 break;
         }
@@ -270,8 +262,9 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
-    [self performSelector:@selector(openlocation) withObject:nil afterDelay:1.0f];
+    //[self performSelector:@selector(openlocation) withObject:nil afterDelay:1.0f];
     [[UserInfoModel shareUserInfoModel] queryUserInfo];
+      [LcationInstance startUpdateLocation];
 }
 - (void)openlocation{
     [LcationInstance startUpdateLocation];
