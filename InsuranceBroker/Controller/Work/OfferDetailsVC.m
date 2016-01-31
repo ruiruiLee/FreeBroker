@@ -91,6 +91,14 @@
     self.btnNoHConstraint.constant = 6 + image.size.width + [string sizeWithFont:self.btnNo.titleLabel.font constrainedToSize:CGSizeMake(200, 30)].width;
 }
 
+- (void) handleLeftBarButtonClicked:(id)sender
+{
+    [super handleLeftBarButtonClicked:sender];
+    if(_datePicker){
+        [_datePicker remove];
+    }
+}
+
 #pragma UITableViewDataSource UITableViewDelegate
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView

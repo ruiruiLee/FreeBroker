@@ -59,6 +59,13 @@
     [self.tfDate resignFirstResponder];
     [self.tfCert resignFirstResponder];
     
+    if(_datePicker){
+        [_datePicker remove];
+    }
+    if(_datePicker1){
+        [_datePicker1 remove];
+    }
+    
     BOOL flag = [self isModify];
     if(flag){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"警告" message:@"确认放弃保存修改资料吗？" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
