@@ -18,7 +18,8 @@
 @property (nonatomic, strong) IBOutlet UITextField *tfStatus;
 @property (nonatomic, strong) IBOutlet UITextField *tfWay;
 @property (nonatomic, strong) IBOutlet UITextField *tfTIme;
-@property (nonatomic, strong) IBOutlet UITextField *tfAdd;
+@property (nonatomic, strong) IBOutlet PlaceholderTextView *tfAdd;
+@property (nonatomic, strong) IBOutlet NSLayoutConstraint *addVConstraint;
 
 @property (nonatomic, strong) IBOutlet NSLayoutConstraint *viewHConstraint;
 @property (nonatomic, strong) CustomerInfoModel *customerModel;
