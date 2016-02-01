@@ -42,14 +42,14 @@
     NSMutableDictionary *pramas = [[NSMutableDictionary alloc] init];
     [Util setValueForKeyWithDic:pramas value:customerCarId key:@"customerCarId"];
     [Util setValueForKeyWithDic:pramas value:customerId key:@"customerId"];
-    [Util setValueForKeyWithDic:pramas value:carNo key:@"carNo"];
+    [Util setValueForKeyWithDic:pramas value:[carNo uppercaseString] key:@"carNo"];
     [Util setValueForKeyWithDic:pramas value:carProvinceId key:@"carProvinceId"];
     [Util setValueForKeyWithDic:pramas value:carCityId key:@"carCityId"];
     [Util setValueForKeyWithDic:pramas value:driveProvinceId key:@"driveProvinceId"];
     [Util setValueForKeyWithDic:pramas value:driveCityId key:@"driveCityId"];
-    [Util setValueForKeyWithDic:pramas value:carTypeNo key:@"carTypeNo"];
-    [Util setValueForKeyWithDic:pramas value:carShelfNo key:@"carShelfNo"];
-    [Util setValueForKeyWithDic:pramas value:carEngineNo key:@"carEngineNo"];
+    [Util setValueForKeyWithDic:pramas value:[carTypeNo uppercaseString] key:@"carTypeNo"];
+    [Util setValueForKeyWithDic:pramas value:[carShelfNo uppercaseString] key:@"carShelfNo"];
+    [Util setValueForKeyWithDic:pramas value:[carEngineNo uppercaseString] key:@"carEngineNo"];
     [Util setValueForKeyWithDic:pramas value:carOwnerName key:@"carOwnerName"];
     [Util setValueForKeyWithDic:pramas value:carOwnerCard key:@"carOwnerCard"];
     [Util setValueForKeyWithDic:pramas value:carOwnerPhone key:@"carOwnerPhone"];

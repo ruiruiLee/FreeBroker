@@ -16,6 +16,7 @@
 #import "TasksModel.h"
 #import "InviteFriendsVC.h"
 #import "SelectCustomerVC.h"
+#import "UIImageView+WebCache.h"
 
 @interface MyTeamsVC ()
 {
@@ -317,9 +318,14 @@
     cell.timerWidth.constant = 0;
     
     UIImage *image = ThemeImage(@"list_user_head");
+    if(model.userSex == 2)
+    {
+        image = ThemeImage(@"list_user_famale");
+    }
 //    if(model.sex == 2)
 //        image = ThemeImage(@"list_user_famale");
-    cell.photoImage.image = image;
+//    cell.photoImage.image = image;
+    [cell.photoImage sd_setImageWithURL:[NSURL URLWithString:model.headerImg] placeholderImage:image];
     cell.logoImage.hidden = NO;
     if(indexPath.row == 0)
         cell.logoImage.image = ThemeImage(@"award_1");
@@ -330,8 +336,8 @@
     else
         cell.logoImage.hidden = YES;
     cell.lbTimr.hidden = YES;
-    cell.lbName.text = model.realName;
-//    cell.lbStatus.text = [NSString stringWithFormat:@"上月收益：%@元", model.];
+    cell.lbName.text = model.userName;
+    cell.lbStatus.text = [NSString stringWithFormat:@"上月收益：%@元", model.monthOrderEarn];
     cell.lbStatus.textColor = _COLOR(0xcc, 0xcc, 0xcc);
     cell.lbStatus.font = _FONT(12);
     cell.width.constant = 16;

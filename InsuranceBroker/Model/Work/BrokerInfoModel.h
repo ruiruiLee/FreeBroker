@@ -15,5 +15,9 @@
 @property (nonatomic, strong) NSString *cardNumber;
 @property (nonatomic, assign) NSInteger userType;
 @property (nonatomic, assign) NSInteger status;
+@property (nonatomic, strong) NSString *headerImg;
+@property (nonatomic, strong) NSString *userName;
+@property (nonatomic, strong) NSString *monthOrderEarn;
+@property (nonatomic, assign) NSInteger userSex;
 
 @end
