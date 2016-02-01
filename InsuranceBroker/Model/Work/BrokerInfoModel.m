@@ -31,6 +31,10 @@
     model.cardNumber = [dictionary objectForKey:@"cardNumber"];
     model.userType = [[dictionary objectForKey:@"userType"] integerValue];
     model.status = [[dictionary objectForKey:@"status"] integerValue];
+    model.headerImg = [dictionary objectForKey:@"headerImg"];
+    model.userName = [dictionary objectForKey:@"userName"];
+    model.monthOrderEarn = [dictionary objectForKey:@"monthOrderEarn"];
+    model.userSex = [[dictionary objectForKey:@"userSex"] integerValue];
     
     return model;
 }

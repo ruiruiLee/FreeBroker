@@ -105,7 +105,7 @@
 
 - (void) setLeftBarButtonWithNil
 {
-    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:nil style:UIBarButtonItemStyleBordered target:nil action:nil];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:nil action:nil];
     
     [[self navigationItem] setLeftBarButtonItem:backItem];
 }
