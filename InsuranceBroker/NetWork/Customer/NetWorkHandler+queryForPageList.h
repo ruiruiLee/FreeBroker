@@ -19,6 +19,7 @@
 + (void) requestUserQueryForPageList:(NSInteger) offset
                                limit:(NSInteger) limit
                                 sord:(NSString *) sord
+                                sidx:(NSString *) sidx
                              filters:(NSDictionary *) filters
                           Completion:(Completion)completion;
 

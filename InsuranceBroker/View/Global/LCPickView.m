@@ -199,7 +199,7 @@
     UIButton *btnRight = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 20)];
     [btnRight setTitle:@"确定" forState:UIControlStateNormal];
     [btnRight setTitleColor:_COLOR(0x21, 0x21, 0x21) forState:UIControlStateNormal];
-    [btnRight addTarget:self action:@selector(doneClick) forControlEvents:UIControlEventTouchUpInside];
+    [btnRight addTarget:self action:@selector(remove) forControlEvents:UIControlEventTouchUpInside];
     btnRight.titleLabel.font = _FONT(16);
     UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithCustomView:btnRight];
     

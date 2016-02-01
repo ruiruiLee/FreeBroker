@@ -98,10 +98,14 @@
 {
     
     //手机号以13， 15，18开头，八个 \d 数字字符  14,17
-    NSString *phoneRegex = @"^((13[0-9])|(15[^4,\\D])|(18[0,0-9])|(17[0,0-9])|(14[0,0-9]))\\d{8}$";
-    NSPredicate *phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",phoneRegex];
+//    NSString *phoneRegex = @"^((13[0-9])|(15[^4,\\D])|(18[0,0-9])|(17[0,0-9])|(14[0,0-9]))\\d{8}$";
+//    NSPredicate *phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",phoneRegex];
     //    NSLog(@"phoneTest is %@",phoneTest);
-    return [phoneTest evaluateWithObject:mobileNum];
+//    return [phoneTest evaluateWithObject:mobileNum];
+    if([mobileNum length] > 0)
+        return YES;
+    else
+        return NO;
 }
 
 + (void)showAlertMessage:(NSString*)msg

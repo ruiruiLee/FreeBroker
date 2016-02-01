@@ -17,6 +17,9 @@
 @property(copy,nonatomic) NSString *placeholder;
 @property(strong,nonatomic) UIColor *placeholderColor;
 @property(strong,nonatomic) UIFont * placeholderFont;
+@property (strong, nonatomic) UILabel *PlaceholderLabel;
+
+
 @end
 
 

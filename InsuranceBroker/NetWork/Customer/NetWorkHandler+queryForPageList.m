@@ -23,6 +23,7 @@
     [Util setValueForKeyWithDic:pramas value:[NSNumber numberWithInt:limit] key:@"limit"];
     [Util setValueForKeyWithDic:pramas value:sord key:@"sord"];
     [Util setValueForKeyWithDic:pramas value:@"updatedAt" key:@"sidx"];
+    [Util setValueForKeyWithDic:pramas value:@"1" key:@"status"];
     
     SBJsonWriter *writer = [[SBJsonWriter alloc] init];
     NSString *filtersStr = [writer stringWithObject:filters];
@@ -35,6 +36,7 @@
 + (void) requestUserQueryForPageList:(NSInteger) offset
                            limit:(NSInteger) limit
                             sord:(NSString *) sord
+                            sidx:(NSString *) sidx
                          filters:(NSDictionary *) filters
                       Completion:(Completion)completion
 {
@@ -43,6 +45,8 @@
     [Util setValueForKeyWithDic:pramas value:[NSNumber numberWithInt:offset] key:@"offset"];
     [Util setValueForKeyWithDic:pramas value:[NSNumber numberWithInt:limit] key:@"limit"];
     [Util setValueForKeyWithDic:pramas value:sord key:@"sord"];
+    [Util setValueForKeyWithDic:pramas value:@"1" key:@"status"];
+    [Util setValueForKeyWithDic:pramas value:sidx key:@"sidx"];
     
     SBJsonWriter *writer = [[SBJsonWriter alloc] init];
     NSString *filtersStr = [writer stringWithObject:filters];

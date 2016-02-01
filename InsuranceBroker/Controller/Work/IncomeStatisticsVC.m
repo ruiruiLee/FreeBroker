@@ -170,11 +170,11 @@
         for(int i = 0; i < [array count]; i++){
             CurveModel *model = [array objectAtIndex:i];
             [arr addObject:@(j)];
-            NSString *lp = [NSString stringWithFormat:@"%d", model.totalIn];
+            NSString *lp = [NSString stringWithFormat:@"%d", (int)model.totalIn];
             [arr2 addObject:lp];
-            [arr3 addObject:model.month];
+            [arr3 addObject:[NSString stringWithFormat:@"%@月", model.month]];
             
-            NSAttributedString *attstring = [[NSAttributedString alloc] initWithString:@""];//[self getAttStringWithSBP:model.lp DBP:model.hp rate:model.pulse];
+            NSAttributedString *attstring = [[NSAttributedString alloc] initWithString:@""];
             [arr4 addObject:attstring];
             
             [arr5 addObject:[NSString stringWithFormat:@""]];

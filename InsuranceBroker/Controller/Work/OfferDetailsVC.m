@@ -125,9 +125,10 @@
     if(!cell){
         cell = [[OfferDetailTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:deq];
     }
-    
+    cell.backgroundColor = [UIColor clearColor];
+    cell.contentView.backgroundColor = [UIColor clearColor];
     [cell.btnAdd addTarget:self action:@selector(doBtnAddPlanUBKRatio:) forControlEvents:UIControlEventTouchUpInside];
-    [cell.btnReduce addTarget:self action:@selector(doBtnReducePlanUBKRatio:) forControlEvents:UIControlEventTouchUpInside];
+//    [cell.btnReduce addTarget:self action:@selector(doBtnReducePlanUBKRatio:) forControlEvents:UIControlEventTouchUpInside];
     cell.btnAdd.tag = indexPath.row;
     cell.btnReduce.tag = indexPath.row;
     
@@ -185,7 +186,8 @@
 //    model.planUkbRatio = planUkbRatio;
 //    
 //    [self.tableview reloadData];
-    
+    self.tableview.backgroundColor = [UIColor redColor];
+    self.tableview.alpha = 0.4;
     OffersModel *model = [self.data.offersVoList objectAtIndex:sender.tag];
 //    if (!_datePicker) {
     NSMutableArray *array = [[NSMutableArray alloc] init];
@@ -200,6 +202,13 @@
     [_datePicker show];
     _datePicker.tag = sender.tag;
     [_datePicker setCurrentSelectIdx:model.planUkbRatio - model.productMinRatio];
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        CGFloat y = self.tableview.frame.origin.y + 50;//包含picker toolbar的50像素
+        y += (sender.tag + 1) * 130;
+        if(y - _datePicker.frame.origin.y > 0)
+            self.scrollview.contentOffset = CGPointMake(0, y - _datePicker.frame.origin.y );
+    }];
 
 }
 
@@ -337,6 +346,9 @@
 
 - (void) toobarDonBtnCancel:(LCPickView *)pickView
 {
+    [UIView animateWithDuration:0.25 animations:^{
+        self.scrollview.contentOffset = CGPointMake(0, 0);
+    }];
 }
 
 

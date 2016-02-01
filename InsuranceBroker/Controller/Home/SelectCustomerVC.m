@@ -14,6 +14,7 @@
 #import "CTPopOutMenu.h"
 #import "CarInfoModel.h"
 #import "BackGroundView.h"
+#import "OrderWebVC.h"
 
 @interface SelectCustomerVC () <CTPopoutMenuDelegate, BackGroundViewDelegate>
 {
@@ -160,7 +161,7 @@
 //                self.popMenu.menuStyle = MenuStyleList;
 //                [self.popMenu showMenuInParentViewController:self withCenter:self.view.center];
                 CarInfoModel *car = [array objectAtIndex:0];
-                WebViewController *web = [IBUIFactory CreateWebViewController];
+                OrderWebVC *web = [[OrderWebVC alloc] initWithNibName:@"OrderWebVC" bundle:nil];
                 web.title = @"报价";
                 [self.navigationController pushViewController:web animated:YES];
                 NSString *url = [NSString stringWithFormat:@"%@/car_insur/car_insur_plan.html?clientKey=%@&userId=%@&customerId=%@&customerCarId=%@", Base_Uri, [UserInfoModel shareUserInfoModel].clientKey, [UserInfoModel shareUserInfoModel].userId, model.customerId, car.customerCarId];

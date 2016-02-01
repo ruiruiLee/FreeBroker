@@ -25,6 +25,8 @@
 @property (nonatomic, strong) IBOutlet UITableView *tableview;
 @property (nonatomic, strong) IBOutlet UILabel *lbWarning;
 
+@property (nonatomic, strong) IBOutlet UIScrollView *scrollview;
+
 @property (nonatomic, strong) IBOutlet NSString *orderId;
 
 @end

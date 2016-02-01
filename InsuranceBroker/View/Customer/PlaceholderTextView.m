@@ -7,6 +7,7 @@
 //
 
 #import "PlaceholderTextView.h"
+#import "define.h"
 
 @interface PlaceholderTextView()<UITextViewDelegate>
 {
@@ -15,6 +16,7 @@
 
 @end
 @implementation PlaceholderTextView
+@synthesize PlaceholderLabel;
 
 - (id) initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
@@ -40,8 +42,9 @@
     [self addSubview:PlaceholderLabel];
     PlaceholderLabel.text=self.placeholder;
     PlaceholderLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[PlaceholderLabel]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(PlaceholderLabel)]];
+    int w = ScreenWidth - 20 - 10 - 128;
+    NSString *format = [NSString stringWithFormat:@"H:|->=0-[PlaceholderLabel(%d)]-0-|", w];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:format options:0 metrics:nil views:NSDictionaryOfVariableBindings(PlaceholderLabel)]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[PlaceholderLabel(30)]->=0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(PlaceholderLabel)]];
 
 }

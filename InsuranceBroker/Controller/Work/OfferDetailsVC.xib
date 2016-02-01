@@ -15,6 +15,7 @@
                 <outlet property="lbPlan" destination="DMi-2E-5ZM" id="gIq-Yz-aEI"/>
                 <outlet property="lbTime" destination="z4l-2X-kS0" id="44R-4c-i0A"/>
                 <outlet property="lbWarning" destination="FYU-7c-JYs" id="H5k-6G-XYV"/>
+                <outlet property="scrollview" destination="zAD-d5-V2u" id="nYU-ia-QSd"/>
                 <outlet property="tableVConstraint" destination="00H-si-Kdf" id="6ru-mK-IEr"/>
                 <outlet property="tableview" destination="9Gg-ts-GXz" id="A9X-BG-ekI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -29,8 +30,8 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zAD-d5-V2u">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <subviews>
-                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TkB-6n-xGX">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TkB-6n-xGX">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="528"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="NO." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wGd-SS-cZL">
                                     <rect key="frame" x="29" y="32" width="23" height="22"/>

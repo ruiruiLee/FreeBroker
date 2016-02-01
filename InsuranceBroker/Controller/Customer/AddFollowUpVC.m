@@ -80,11 +80,14 @@
     self.tfTIme.placeholder = @"请填写跟进时间";
     self.tfAdd.placeholder = @"请填写地点";
     self.tfview.placeholder = @"请填写跟进记录内容";
-    [self.tfAdd addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventEditingChanged];
+    self.tfAdd.PlaceholderLabel.textAlignment = NSTextAlignmentRight;
     self.tfview.delegate = self;
+    self.tfAdd.delegate = self;
     
     self.tfTIme.text = [Util getTimeString:[NSDate date]];
     self.tfAdd.text = LcationInstance.currentDetailAdrress;
+    
+    [self textViewDidChange:self.tfAdd];
     
     [self loadVisitDictionary];
     
@@ -146,10 +149,10 @@
     }];
 }
 
-- (void) viewDidLayoutSubviews
-{
-    [super viewDidLayoutSubviews];
-}
+//- (void) viewDidLayoutSubviews
+//{
+//    [super viewDidLayoutSubviews];
+//}
 
 
 - (IBAction)menuChange:(UIButton *)sender {
@@ -270,6 +273,7 @@
     self.tfWay.text = model.visitType;
     [self SetRightBarButtonWithTitle:@"保存" color:_COLORa(0xff, 0x66, 0x19, 0.5) action:NO];
     self.title = @"查看跟进记录";
+    [self textViewDidChange:self.tfAdd];
 }
 
 - (BOOL) isHasModify
@@ -302,6 +306,14 @@
 
 - (void)textViewDidChange:(UITextView *)textView
 {
+    if(self.tfAdd == textView){
+        CGSize size = [textView.text sizeWithFont:textView.font constrainedToSize:CGSizeMake(textView.frame.size.width, INT_MAX)];
+        if(size.height > 36)
+            size.height = 36;
+        if(size.height < 10)
+            size.height = 18;
+        self.addVConstraint.constant = size.height + 16;
+    }
     [self isHasModify];
 }
 
