@@ -112,17 +112,17 @@ static inline NSString* cachePathForKey(NSString* directory, NSString* key) {
 		[[NSFileManager defaultManager] createDirectoryAtPath:_directory withIntermediateDirectories:YES attributes:nil error:NULL];
 		
         //----------------------------判断缓存过期 ，移除所有过期的缓存数据-------------------------
-		NSTimeInterval now = [[NSDate date] timeIntervalSinceReferenceDate];
-		NSMutableArray* removedKeys = [[NSMutableArray alloc] init];
-		
-		for(NSString* key in _cacheInfo) {
-			if([_cacheInfo[key] timeIntervalSinceReferenceDate] <= now) {
-				[[NSFileManager defaultManager] removeItemAtPath:cachePathForKey(_directory, key) error:NULL];
-				[removedKeys addObject:key];
-			}
-		}
-		
-		[_cacheInfo removeObjectsForKeys:removedKeys];
+//		NSTimeInterval now = [[NSDate date] timeIntervalSinceReferenceDate];
+//		NSMutableArray* removedKeys = [[NSMutableArray alloc] init];
+//		
+//		for(NSString* key in _cacheInfo) {
+//			if([_cacheInfo[key] timeIntervalSinceReferenceDate] <= now) {
+//				[[NSFileManager defaultManager] removeItemAtPath:cachePathForKey(_directory, key) error:NULL];
+//				[removedKeys addObject:key];
+//			}
+//		}
+//		
+//		[_cacheInfo removeObjectsForKeys:removedKeys];
           //----------------------------判断缓存过期 ，移除所有过期的缓存数据-------------------------
 		self.frozenCacheInfo = _cacheInfo;
 		[self setDefaultTimeoutInterval:86400];
