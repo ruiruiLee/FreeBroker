@@ -163,6 +163,11 @@ static NetWorkHandler *networkmanager;
         [Tag appendFormat:@"%@=%@", key, [params objectForKey:key]];
     }
     
+    if([ProjectDefine searchRequestTag:Tag])
+    {
+        return;
+    }
+    
     [ProjectDefine addRequestTag:Tag];
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];

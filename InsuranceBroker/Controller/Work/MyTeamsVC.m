@@ -260,7 +260,7 @@
     [rules addObject:[self getRulesByField:@"parentUserId" op:@"eq" data:user.userId]];
     [Util setValueForKeyWithDic:filters value:rules key:@"rules"];
     
-    [NetWorkHandler requestUserQueryForPageList:page limit:LIMIT sord:@"desc" filters:filters Completion:^(int code, id content) {
+    [NetWorkHandler requestUserQueryForPageList:page limit:LIMIT sord:@"desc" sidx:@"S_StatisticsMonth.monthTotalIn" filters:filters Completion:^(int code, id content) {
         [self refreshTable];
         [self loadMoreDataToTable];
         [self handleResponseWithCode:code msg:[content objectForKey:@"msg"]];
