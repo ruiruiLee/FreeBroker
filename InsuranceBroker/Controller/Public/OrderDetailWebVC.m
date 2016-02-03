@@ -11,6 +11,7 @@
 #import "SBJson.h"
 #import "MyJSInterface.h"
 #import "define.h"
+#import "KGStatusBar.h"
 @interface OrderDetailWebVC ()<MyJSInterfaceDelegate, UIWebViewDelegate>
 
 @end
@@ -153,23 +154,24 @@
              switch (state) {
                  case SSDKResponseStateSuccess:
                  {
-                    [Util showAlertMessage:@"分享成功"];
+                     [KGStatusBar showSuccessWithStatus:@"分享成功"];
                      break;
                  }
                  case SSDKResponseStateFail:
                  {
-                      [Util showAlertMessage:@"分享失败"];
+                     [KGStatusBar showSuccessWithStatus:@"分享失败"];
                      break;
                  }
                  case SSDKResponseStateCancel:
                  {
-                    
-                     [Util showAlertMessage:@"分享已取消"];
+                     
+                     [KGStatusBar showSuccessWithStatus:@"分享已取消"];
                      break;
                  }
                  default:
                      break;
              }
+             
          }];
     }
 }
