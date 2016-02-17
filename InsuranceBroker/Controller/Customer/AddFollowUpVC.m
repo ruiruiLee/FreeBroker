@@ -144,7 +144,7 @@
             
             [self.customerModel.detailModel.visitAttay insertObject:model atIndex:0];
             self.customerModel.detailModel.visitTotal += 1;
-            self.customerModel.visitType = visitType;
+            self.customerModel.visitType = visitProgress;
         }
     }];
 }
