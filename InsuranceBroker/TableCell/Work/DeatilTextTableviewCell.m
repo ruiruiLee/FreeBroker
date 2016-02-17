@@ -7,11 +7,13 @@
 //
 
 #import "DeatilTextTableviewCell.h"
+#import "define.h"
 
 @implementation DeatilTextTableviewCell
 
 - (void)awakeFromNib {
     // Initialization code
+    self.lbDetailTitle.textColor = Subhead_Color;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

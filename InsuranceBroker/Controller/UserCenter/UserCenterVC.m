@@ -41,6 +41,10 @@
     self.lbRedLogo.layer.cornerRadius = 4;
     self.redFlagConstraint.constant = -((ScreenWidth - 320)/2 + 50);
     
+    self.lbOrderEarn.textColor = Subhead_Color;
+    self.lbTotalOrderSuccessNums.textColor = Subhead_Color;
+    self.lbUserInvite.textColor = Subhead_Color;
+    self.lbTeamTotal.textColor = Subhead_Color;
     
     self.headHConstraint.constant = ScreenWidth;
     
