@@ -186,8 +186,7 @@
 //    model.planUkbRatio = planUkbRatio;
 //    
 //    [self.tableview reloadData];
-    self.tableview.backgroundColor = [UIColor redColor];
-    self.tableview.alpha = 0.4;
+
     OffersModel *model = [self.data.offersVoList objectAtIndex:sender.tag];
 //    if (!_datePicker) {
     NSMutableArray *array = [[NSMutableArray alloc] init];
