@@ -77,6 +77,7 @@
 		8625B0571C41020D00312B98 /* NetWorkHandler+saveOrUpdateUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8625B0561C41020D00312B98 /* NetWorkHandler+saveOrUpdateUser.m */; };
 		862CD3411C5C8CFE0056D2EA /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 862CD33E1C5C8CFE0056D2EA /* ProgressHUD.bundle */; };
 		862CD3421C5C8CFE0056D2EA /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 862CD3401C5C8CFE0056D2EA /* ProgressHUD.m */; };
+		86493FFC1C745E1300121BD1 /* SJAvatarBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 86493FFB1C745E1300121BD1 /* SJAvatarBrowser.m */; };
 		865065821C1E6BC800429EAE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 865065811C1E6BC800429EAE /* main.m */; };
 		865065851C1E6BC800429EAE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 865065841C1E6BC800429EAE /* AppDelegate.m */; };
 		8650658D1C1E6BC800429EAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8650658C1C1E6BC800429EAE /* Assets.xcassets */; };
@@ -503,6 +504,8 @@
 		862CD33E1C5C8CFE0056D2EA /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
 		862CD33F1C5C8CFE0056D2EA /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
 		862CD3401C5C8CFE0056D2EA /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
+		86493FFA1C745E1300121BD1 /* SJAvatarBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJAvatarBrowser.h; sourceTree = "<group>"; };
+		86493FFB1C745E1300121BD1 /* SJAvatarBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJAvatarBrowser.m; sourceTree = "<group>"; };
 		8650657D1C1E6BC800429EAE /* InsuranceBroker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InsuranceBroker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		865065811C1E6BC800429EAE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		865065831C1E6BC800429EAE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1743,6 +1746,8 @@
 				86A26ED01C47D6840073FFFC /* InsurCompanySelectTableViewCell.m */,
 				86C3BB251C22C42D00F98E80 /* AnimationButton.h */,
 				86C3BB261C22C42D00F98E80 /* AnimationButton.m */,
+				86493FFA1C745E1300121BD1 /* SJAvatarBrowser.h */,
+				86493FFB1C745E1300121BD1 /* SJAvatarBrowser.m */,
 				86C3BB271C22C42D00F98E80 /* HeadlineCell.xib */,
 				86C3BB281C22C42D00F98E80 /* HeadlineView.h */,
 				86C3BB291C22C42D00F98E80 /* HeadlineView.m */,
@@ -2787,6 +2792,7 @@
 				86A26EEA1C4905210073FFFC /* CustomerTagTableCell.m in Sources */,
 				86C3BC1B1C2CE0EB00F98E80 /* CustomerFollowUpInfoView.m in Sources */,
 				86A26EA01C4666850073FFFC /* InsurOffersInfoModel.m in Sources */,
+				86493FFC1C745E1300121BD1 /* SJAvatarBrowser.m in Sources */,
 				86A5041F1C4CDCB30032A901 /* GMDCircleLoader.m in Sources */,
 				8654CA5A1C31243B00411C54 /* NSString+MD5.m in Sources */,
 				86C3BBAE1C29073900F98E80 /* MyLuckyMoneyVC.m in Sources */,

@@ -20,6 +20,7 @@
 #import "DictModel.h"
 #import "UIImageView+WebCache.h"
 #import "OrderWebVC.h"
+#import "SJAvatarBrowser.h"
 
 @interface AutoInsuranceInfoEditVC ()<MenuDelegate, ZHPickViewDelegate, UITextFieldDelegate>
 {
@@ -962,6 +963,13 @@
     NSString *location = _lbProvience.text;
     NSString *num = _tfNo.text;
     return [NSString stringWithFormat:@"%@%@", location, num];
+}
+
+- (IBAction)showLargerImage:(id)sender
+{
+    if (self.imgLicense.image != nil) {
+        [SJAvatarBrowser showImage:self.imgLicense];
+    }
 }
 
 @end

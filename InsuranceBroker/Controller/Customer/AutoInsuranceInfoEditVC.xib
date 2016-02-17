@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15C47a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AutoInsuranceInfoEditVC">
@@ -43,9 +43,11 @@
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="shadow" translatesAutoresizingMaskIntoConstraints="NO" id="hG3-zF-UaP">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="39"/>
+                                            <animations/>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="car_profile" translatesAutoresizingMaskIntoConstraints="NO" id="PZW-gA-cW3">
                                             <rect key="frame" x="25" y="4" width="35" height="31"/>
+                                            <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="18" id="6LL-jl-SfF"/>
                                                 <constraint firstAttribute="height" constant="18" id="hv2-vd-51C"/>
@@ -53,18 +55,21 @@
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="基本信息" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9NN-zS-x7n">
                                             <rect key="frame" x="68" y="10" width="105" height="21"/>
+                                            <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="填写信息获取车险报价" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1e1-9O-VSn">
                                             <rect key="frame" x="140" y="10" width="194" height="21"/>
+                                            <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVW-0B-whI">
                                             <rect key="frame" x="474" y="9" width="124" height="22"/>
+                                            <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="70" id="9lh-dg-CEF"/>
                                                 <constraint firstAttribute="height" constant="20" id="kyu-IC-t4M"/>
@@ -75,6 +80,7 @@
                                             </connections>
                                         </button>
                                     </subviews>
+                                    <animations/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstItem="hG3-zF-UaP" firstAttribute="top" secondItem="8Za-H7-mhZ" secondAttribute="top" id="1Xj-L0-Eam"/>
@@ -106,6 +112,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="车主姓名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOy-08-XoV">
                                                     <rect key="frame" x="1" y="12" width="68" height="21"/>
+                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="2oY-h5-ZPh"/>
                                                     </constraints>
@@ -115,6 +122,7 @@
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="snU-iC-GdQ" customClass="BaseLineTextField">
                                                     <rect key="frame" x="150" y="9" width="406" height="30"/>
+                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="36" id="6Wj-Xr-dbv"/>
                                                     </constraints>
@@ -123,6 +131,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
+                                            <animations/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="eOy-08-XoV" firstAttribute="leading" secondItem="Pec-k9-zdp" secondAttribute="leading" constant="20" id="AXH-DY-fs3"/>
@@ -138,6 +147,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="车主身份证号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xCZ-4B-V7L">
                                                     <rect key="frame" x="-31" y="10" width="102" height="21"/>
+                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="82N-9q-KPD"/>
                                                     </constraints>
@@ -147,6 +157,7 @@
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="车主身份证号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LuU-YZ-hbe" customClass="BaseLineTextField">
                                                     <rect key="frame" x="149" y="6" width="408" height="30"/>
+                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="36" id="gsf-Ih-lmR"/>
                                                     </constraints>
@@ -155,6 +166,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
+                                            <animations/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="LuU-YZ-hbe" firstAttribute="leading" secondItem="xCZ-4B-V7L" secondAttribute="trailing" constant="10" id="5dg-tg-lzE"/>
@@ -170,6 +182,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="车牌号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uUf-Uh-yph">
                                                     <rect key="frame" x="27" y="13" width="45" height="21"/>
+                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="DW5-Kc-LWt"/>
                                                     </constraints>
@@ -179,6 +192,7 @@
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PA7-9O-2X7" customClass="BaseLineTextField">
                                                     <rect key="frame" x="150" y="10" width="232" height="32"/>
+                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="36" id="3iG-lM-FFS"/>
                                                     </constraints>
@@ -188,6 +202,7 @@
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PVy-Mo-j5E" customClass="LeftImgButton">
                                                     <rect key="frame" x="411" y="14" width="70" height="22"/>
+                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="16" id="HDz-9z-MGK"/>
                                                         <constraint firstAttribute="width" constant="100" id="riU-R1-lJp"/>
@@ -202,6 +217,7 @@
                                                 </button>
                                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="新车未上牌" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aaP-v3-eDo">
                                                     <rect key="frame" x="482" y="14" width="104" height="21"/>
+                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" id="t4w-Rx-qbf"/>
                                                     </constraints>
@@ -210,6 +226,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <animations/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="PA7-9O-2X7" firstAttribute="centerY" secondItem="uUf-Uh-yph" secondAttribute="centerY" id="32O-8s-fdY"/>
@@ -230,6 +247,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="登记日期" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Cu-SR-vPJ">
                                                     <rect key="frame" x="16" y="20" width="60" height="21"/>
+                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="HLc-X1-VMg"/>
                                                     </constraints>
@@ -239,6 +257,7 @@
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4L6-qZ-40p" customClass="BaseLineTextField">
                                                     <rect key="frame" x="154" y="16" width="97" height="30"/>
+                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="36" id="Mxt-dz-zYL"/>
                                                     </constraints>
@@ -247,6 +266,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
+                                            <animations/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="4L6-qZ-40p" firstAttribute="centerY" secondItem="6Cu-SR-vPJ" secondAttribute="centerY" id="DNM-j7-s0t"/>
@@ -262,6 +282,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="品牌型号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPO-oW-EYu">
                                                     <rect key="frame" x="18" y="17" width="60" height="21"/>
+                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="5fu-wg-IL7"/>
                                                     </constraints>
@@ -271,6 +292,7 @@
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入英文或者数字" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gvP-SR-epg" customClass="BaseLineTextField">
                                                     <rect key="frame" x="159" y="13" width="97" height="30"/>
+                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="36" id="bfR-QF-hzy"/>
                                                     </constraints>
@@ -279,6 +301,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
+                                            <animations/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="kPO-oW-EYu" firstAttribute="leading" secondItem="yFz-p1-Z9p" secondAttribute="leading" constant="20" id="J9M-a9-FIb"/>
@@ -294,6 +317,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="车架号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eb5-qT-FDo">
                                                     <rect key="frame" x="-11" y="13" width="90" height="21"/>
+                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="213-l8-av8"/>
                                                     </constraints>
@@ -303,6 +327,7 @@
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="车辆识别代号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UgU-Vt-fwp" customClass="BaseLineTextField">
                                                     <rect key="frame" x="163" y="9" width="97" height="30"/>
+                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="36" id="bVT-4w-S98"/>
                                                     </constraints>
@@ -311,6 +336,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
+                                            <animations/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="UgU-Vt-fwp" firstAttribute="centerY" secondItem="eb5-qT-FDo" secondAttribute="centerY" id="0Ds-AS-y5B"/>
@@ -326,6 +352,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="发动机号码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmK-lL-Kk1">
                                                     <rect key="frame" x="6" y="15" width="75" height="21"/>
+                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="UcP-Vj-mwh"/>
                                                     </constraints>
@@ -335,6 +362,7 @@
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入英文或者数字" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kAd-aM-h2y" customClass="BaseLineTextField">
                                                     <rect key="frame" x="160" y="8" width="97" height="30"/>
+                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="36" id="qfw-vq-8zp"/>
                                                     </constraints>
@@ -343,6 +371,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
+                                            <animations/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="tmK-lL-Kk1" firstAttribute="leading" secondItem="GQS-3E-z6Y" secondAttribute="leading" constant="20" id="FuZ-8j-i2E"/>
@@ -358,6 +387,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="行驶证照片" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LxD-Ff-Gve">
                                                     <rect key="frame" x="6" y="15" width="75" height="21"/>
+                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="H0C-IQ-wmK"/>
                                                     </constraints>
@@ -367,14 +397,23 @@
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BoQ-Lp-kYd">
                                                     <rect key="frame" x="157" y="8" width="115" height="55"/>
+                                                    <animations/>
                                                     <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="KOi-Ln-Sa1"/>
                                                         <constraint firstAttribute="width" constant="100" id="eBC-4z-O8E"/>
                                                     </constraints>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="443-2d-duD">
+                                                    <rect key="frame" x="277" y="21" width="46" height="30"/>
+                                                    <animations/>
+                                                    <connections>
+                                                        <action selector="showLargerImage:" destination="-1" eventType="touchUpInside" id="mYG-LI-9Qo"/>
+                                                    </connections>
+                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xfi-OT-5Ae">
                                                     <rect key="frame" x="498" y="21" width="60" height="30"/>
+                                                    <animations/>
                                                     <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.098039215686274508" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="Jdf-lN-NY1"/>
@@ -386,18 +425,24 @@
                                                     </state>
                                                 </button>
                                             </subviews>
+                                            <animations/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="Xfi-OT-5Ae" firstAttribute="centerY" secondItem="BoQ-Lp-kYd" secondAttribute="centerY" id="11G-CS-dfq"/>
                                                 <constraint firstItem="LxD-Ff-Gve" firstAttribute="top" secondItem="T74-5m-Kdt" secondAttribute="top" constant="15" id="3JX-Hw-QAd"/>
+                                                <constraint firstItem="443-2d-duD" firstAttribute="trailing" secondItem="BoQ-Lp-kYd" secondAttribute="trailing" id="GDe-dg-ilA"/>
+                                                <constraint firstItem="443-2d-duD" firstAttribute="leading" secondItem="BoQ-Lp-kYd" secondAttribute="leading" id="KLz-Ai-H0O"/>
                                                 <constraint firstItem="BoQ-Lp-kYd" firstAttribute="leading" secondItem="LxD-Ff-Gve" secondAttribute="trailing" constant="10" id="OGH-rg-fba"/>
                                                 <constraint firstItem="Xfi-OT-5Ae" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BoQ-Lp-kYd" secondAttribute="trailing" constant="10" id="ZFO-GR-Ob4"/>
+                                                <constraint firstItem="443-2d-duD" firstAttribute="bottom" secondItem="BoQ-Lp-kYd" secondAttribute="bottom" id="d6w-jY-6bq"/>
                                                 <constraint firstAttribute="trailing" secondItem="Xfi-OT-5Ae" secondAttribute="trailing" constant="25" id="qW9-WD-ldp"/>
                                                 <constraint firstItem="LxD-Ff-Gve" firstAttribute="leading" secondItem="T74-5m-Kdt" secondAttribute="leading" constant="20" id="sQS-EK-jSR"/>
+                                                <constraint firstItem="443-2d-duD" firstAttribute="top" secondItem="BoQ-Lp-kYd" secondAttribute="top" id="tt8-bb-rlW"/>
                                                 <constraint firstItem="BoQ-Lp-kYd" firstAttribute="top" secondItem="LxD-Ff-Gve" secondAttribute="top" id="wny-bg-Vlj"/>
                                             </constraints>
                                         </view>
                                     </subviews>
+                                    <animations/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstItem="Pec-k9-zdp" firstAttribute="leading" secondItem="Ht5-MD-Gr8" secondAttribute="leading" id="17z-PK-lTo"/>
@@ -433,12 +478,14 @@
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="shadow" translatesAutoresizingMaskIntoConstraints="NO" id="XNr-VV-5bx">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="41"/>
+                                            <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="QXA-JN-7Px"/>
                                             </constraints>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="car_profile_additional" translatesAutoresizingMaskIntoConstraints="NO" id="HzK-hR-mnd">
                                             <rect key="frame" x="33" y="4" width="37" height="33"/>
+                                            <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="18" id="3dF-BK-FQJ"/>
                                                 <constraint firstAttribute="height" constant="18" id="mGY-KT-YT1"/>
@@ -446,11 +493,13 @@
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="车辆补充信息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7K4-aU-Qz5">
                                             <rect key="frame" x="44" y="11" width="90" height="18"/>
+                                            <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <animations/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="XNr-VV-5bx" secondAttribute="trailing" id="0em-Zq-XP3"/>
@@ -473,6 +522,7 @@
                                     <subviews>
                                         <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9lJ-FT-ah3">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="128"/>
+                                            <animations/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
                                                 <outlet property="dataSource" destination="-1" id="8S1-GG-7xd"/>
@@ -480,6 +530,7 @@
                                             </connections>
                                         </tableView>
                                     </subviews>
+                                    <animations/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="9lJ-FT-ah3" secondAttribute="bottom" id="8KZ-JQ-3r1"/>
@@ -491,12 +542,14 @@
                                 </view>
                                 <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nny-Gq-8OA" userLabel="View5">
                                     <rect key="frame" x="0.0" y="544" width="600" height="56"/>
+                                    <animations/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="62" id="2hs-3z-T7d"/>
                                     </constraints>
                                 </view>
                             </subviews>
+                            <animations/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="600" id="74E-rf-Je4"/>
@@ -519,6 +572,7 @@
                             </constraints>
                         </view>
                     </subviews>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="WYe-Mp-3jJ" secondAttribute="bottom" id="6eR-lm-mZi"/>
                         <constraint firstItem="WYe-Mp-3jJ" firstAttribute="top" secondItem="Ese-Kt-mPQ" secondAttribute="top" id="Oyt-3s-UJn"/>
@@ -527,6 +581,7 @@
                     </constraints>
                 </scrollView>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Ese-Kt-mPQ" secondAttribute="bottom" id="8PQ-qA-s4H"/>
