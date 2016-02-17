@@ -11,7 +11,7 @@
 //#import "UIWebView+AFNetworking.h"
 #import "NetWorkHandler+initOrderShare.h"
 #import "EGOCache.h"
-
+#import "KGStatusBar.h"
 @interface WebViewController ()
 
 @end
@@ -253,32 +253,18 @@
              switch (state) {
                  case SSDKResponseStateSuccess:
                  {
-                     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享成功"
-                                                                         message:nil
-                                                                        delegate:nil
-                                                               cancelButtonTitle:@"确定"
-                                                               otherButtonTitles:nil];
-                     [alertView show];
+                     [KGStatusBar showSuccessWithStatus:@"分享成功"];
                      break;
                  }
                  case SSDKResponseStateFail:
                  {
-                     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享失败"
-                                                                         message:[NSString stringWithFormat:@"%@", error]
-                                                                        delegate:nil
-                                                               cancelButtonTitle:@"确定"
-                                                               otherButtonTitles:nil];
-                     [alertView show];
+                     [KGStatusBar showSuccessWithStatus:@"分享失败"];
                      break;
                  }
                  case SSDKResponseStateCancel:
                  {
-                     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享已取消"
-                                                                         message:nil
-                                                                        delegate:nil
-                                                               cancelButtonTitle:@"确定"
-                                                               otherButtonTitles:nil];
-                     [alertView show];
+                     
+                     [KGStatusBar showSuccessWithStatus:@"分享已取消"];
                      break;
                  }
                  default:
