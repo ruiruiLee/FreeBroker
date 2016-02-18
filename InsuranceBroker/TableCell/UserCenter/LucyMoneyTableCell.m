@@ -7,6 +7,7 @@
 //
 
 #import "LucyMoneyTableCell.h"
+#import "define.h"
 
 @implementation LucyMoneyTableCell
 
@@ -14,6 +15,7 @@
     // Initialization code
 //    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     self.btnReceive.layer.cornerRadius = 3;
+    self.lbExplain.textColor = Subhead_Color;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
