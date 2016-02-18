@@ -408,6 +408,7 @@
 
 - (void) submitWithLicense:(Completion) completion
 {
+    [ProgressHUD show:nil];
     NSString *customerCarId = nil;
     NSString *customerId = self.customerId;
     
@@ -431,6 +432,7 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),^{
         NSString *filePahe = [self fileupMothed];
         [NetWorkHandler requestToSaveOrUpdateCustomerCar:customerCarId customerId:customerId carNo:nil carProvinceId:nil carCityId:nil driveProvinceId:nil driveCityId:nil carTypeNo:nil carShelfNo:nil carEngineNo:nil carOwnerName:nil carOwnerCard:nil carOwnerPhone:nil carOwnerTel:nil carOwnerAddr:nil travelCard1:filePahe carRegTime:nil newCarNoStatus:nil carTradeStatus:carTradeStatus carTradeTime:carTradeTime carInsurStatus1:carInsurStatus1 carInsurCompId1:carInsurCompId1 Completion:^(int code, id content) {
+            [ProgressHUD dismiss];
             [self handleResponseWithCode:code msg:[content objectForKey:@"msg"]];
             if(code == 200){
                 CarInfoModel *model = self.customerModel.carInfo;

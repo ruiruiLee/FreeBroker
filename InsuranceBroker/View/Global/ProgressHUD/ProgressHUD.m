@@ -71,12 +71,15 @@
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 {
 	self = [super initWithFrame:[[UIScreen mainScreen] bounds]];
+
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	id<UIApplicationDelegate> delegate = [[UIApplication sharedApplication] delegate];
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	if ([delegate respondsToSelector:@selector(window)])
 		window = [delegate performSelector:@selector(window)];
 	else window = [[UIApplication sharedApplication] keyWindow];
+    
+    [window addSubview:self];
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	hud = nil; spinner = nil; image = nil; label = nil;
 	//---------------------------------------------------------------------------------------------------------------------------------------------
@@ -121,7 +124,7 @@
 		//-----------------------------------------------------------------------------------------------------------------------------------------
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(rotate:) name:UIDeviceOrientationDidChangeNotification object:nil];
 	}
-	if (hud.superview == nil) [window addSubview:hud];
+	if (hud.superview == nil) [self addSubview:hud];
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	if (spinner == nil)
 	{
