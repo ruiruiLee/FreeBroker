@@ -28,7 +28,7 @@
 @property (nonatomic, strong) NSString *liveCity;
 @property (nonatomic, assign) BOOL leader;//0个人 1 团长
 @property (nonatomic, assign) NSInteger cardVerifiy;//实名验证状态，1未认证 ，2认证成功 3，认证失败
-@property (nonatomic, assign) NSInteger userType;////经纪人类型，1自由经纪人、2坐席经纪人、3平台管理人
+@property (nonatomic, assign) NSInteger userType;////经纪人类型，1自由经纪人、2坐席经纪人、3平台管理人 4,专业经纪人
 
 @property (nonatomic, assign) BOOL isLogin;//0:未登录 1:登录
 

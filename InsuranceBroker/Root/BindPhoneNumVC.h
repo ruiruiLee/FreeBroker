@@ -7,6 +7,7 @@
 //
 
 #import "BaseViewController.h"
+#import "KGStatusBar.h"
 
 @interface BindPhoneNumVC : BaseViewController<UITextFieldDelegate>
 {

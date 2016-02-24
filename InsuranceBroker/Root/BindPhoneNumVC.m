@@ -11,7 +11,7 @@
 #import "NetWorkHandler+login.h"
 #import <AVOSCloud/AVOSCloud.h>
 #import <AVOSCloudSNS/AVOSCloudSNS.h>
-#import "KGStatusBar.h"
+//#import "KGStatusBar.h"
 @interface BindPhoneNumVC ()
 
 @end
@@ -122,7 +122,8 @@
             [self TimerOutTimer];
             [KGStatusBar showSuccessWithStatus:@"验证码已发送!"];
         }else{
-            [KGStatusBar showErrorWithStatus:@"无法连接网络，请稍后再试！"];
+//            [KGStatusBar showErrorWithStatus:@"无法连接网络，请稍后再试！"];
+            [KGStatusBar showErrorWithStatus:[error localizedDescription]];
             //[Util showAlertMessage:@"服务器错误，稍后再试!" ];
             [_btnGetCaptcha setTitle:@"重取验证码" forState:UIControlStateNormal];
             _btnGetCaptcha.backgroundColor = _COLORa(0xff, 0x66, 0x19, 1);
@@ -138,12 +139,7 @@
     
     NSString *verifyCode = _tfCaptcha.text;
     NSString *phone = _tfMobile.text;
-    if ([phone isEqual:@"13880417776"]) {
-        [self loginWithDictionary:self.wxDic phone:phone smCode:verifyCode];
-    }
-    else{
-        [self loginWithDictionary:self.wxDic phone:phone smCode:verifyCode];
-    }
+    [self loginWithDictionary:self.wxDic phone:phone smCode:verifyCode];
 }
 
 #pragma timer

@@ -102,6 +102,7 @@
     
     for (int i = 0; i < [viewArray count]; i++) {
         TagButton *btn = [viewArray objectAtIndex:i];
+        btn.tag = 100 + i;
         NSString *title = btn.titleLabel.text;
         CGSize size = [title sizeWithFont:btn.titleLabel.font constrainedToSize:CGSizeMake(INT_MAX, 26)];
         
@@ -164,6 +165,7 @@
     for (int i = 0; i < [viewArray count]; i++) {
         TagButton *btn = [viewArray objectAtIndex:i];
         CGSize size = btn.frame.size;
+        btn.tag = 100 + i;
         
         CGFloat nx = ox + size.width;
         if(nx > frame.size.width){

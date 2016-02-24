@@ -40,6 +40,7 @@
     [Util setValueForKeyWithDic:params value:city key:@"city"];
     [Util setValueForKeyWithDic:params value:country key:@"country"];
     [Util setValueForKeyWithDic:params value:smCode key:@"smsCode"];
+    [Util setValueForKeyWithDic:params value:@"1" key:@"userType"];
     
     [handle postWithMethod:@"/api/user/login" BaseUrl:SERVER_ADDRESS Params:params Completion:completion];
 }

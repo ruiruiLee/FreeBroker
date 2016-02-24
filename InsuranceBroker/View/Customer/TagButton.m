@@ -42,7 +42,9 @@
     
     UIImage *image = ThemeImage(@"tag_del");
     CGRect titleFrame = self.titleLabel.frame;
-    delImag.frame = CGRectMake(titleFrame.origin.x + titleFrame.size.width + 2, titleFrame.origin.y + titleFrame.size.height / 2 - image.size.height/2 , image.size.width, image.size.height);
+    self.titleLabel.frame = CGRectMake(10, titleFrame.origin.y, titleFrame.size.width, titleFrame.size.height);
+    delImag.frame = CGRectMake(10 + titleFrame.size.width + 6, titleFrame.origin.y + titleFrame.size.height / 2 - image.size.height/2 , image.size.width, image.size.height);
+//    delImag.frame = CGRectMake(titleFrame.origin.x + titleFrame.size.width + 2, titleFrame.origin.y + titleFrame.size.height / 2 - image.size.height/2 , image.size.width, image.size.height);
 }
 
 - (void) initSubViews
