@@ -71,5 +71,6 @@
 #define Notify_Add_NewCustomer  @"Notify_Add_NewCustomer"
 #define Notify_Add_BankCard @"Notify_Add_BankCard"
 #define Notify_Insert_Customer @"Notify_Insert_Customer"
+#define Notify_Refrush_TagList @"Notify_Refrush_TagList"
 
 #endif /* define_h */

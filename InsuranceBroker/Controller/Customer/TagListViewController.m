@@ -22,6 +22,11 @@
 
 @implementation TagListViewController
 
+- (void) dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -29,14 +34,21 @@
     self.title = @"所有标签";
     [self SetRightBarButtonWithTitle:@"新建" color:_COLOR(0xff, 0x66, 0x19) action:YES];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refrushTagList:) name:Notify_Refrush_TagList object:nil];
+    
     [self.tableview registerNib:[UINib nibWithNibName:@"TagListViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     [self.tableview setSeparatorColor:_COLOR(0xe6, 0xe6, 0xe6)];
     self.tableview.backgroundColor = [UIColor clearColor];
-    if([[TagObjectModel shareTagList] count] == 0){
+//    if([[TagObjectModel shareTagList] count] == 0){
         [self loadData];
-    }else{
-        self.data = [TagObjectModel shareTagList];
-    }
+//    }else{
+//        self.data = [TagObjectModel shareTagList];
+//    }
+}
+
+- (void) refrushTagList:(NSNotification *) notify
+{
+    [self loadData];
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -65,6 +77,7 @@
         if(code == 200){
             NSError *error = nil;
             self.data = [MTLJSONAdapter modelsOfClass:TagObjectModel.class fromJSONArray:[[content objectForKey:@"data"] objectForKey:@"rows"] error:&error];
+            [[TagObjectModel shareTagList] removeAllObjects];
             [[TagObjectModel shareTagList] addObjectsFromArray:self.data];
             [self.tableview reloadData];
         }

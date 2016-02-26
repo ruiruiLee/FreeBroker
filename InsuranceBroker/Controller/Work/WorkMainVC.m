@@ -38,13 +38,14 @@
     AppDelegate *appdelegate = [UIApplication sharedApplication].delegate;
     NewUserModel *model = appdelegate.workBanner;
     btnBanner = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, [Util getHeightByWidth:375 height:90 nwidth:ScreenWidth])];
+    [btnBanner addTarget:self action:@selector(doBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    btnBanner.userInteractionEnabled = NO;
     if(model.imgUrl == nil) {
-        btnBanner.frame = CGRectMake(0, 0, 0, 0);
+        btnBanner.frame = CGRectMake(0, 0, ScreenWidth, 0.01);
     }else{
-        [btnBanner addTarget:self action:@selector(doBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
         [btnBanner sd_setImageWithURL:[NSURL URLWithString:model.imgUrl] forState:UIControlStateNormal placeholderImage:Normal_Image];
-        if(!model.isRedirect){
-            btnBanner.userInteractionEnabled = NO;
+        if(model.isRedirect){
+            btnBanner.userInteractionEnabled = YES;
         }
     }
     self.tableview.tableHeaderView = btnBanner;
@@ -62,6 +63,25 @@
 - (void) viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    AppDelegate *appdelegate = [UIApplication sharedApplication].delegate;
+    NewUserModel *model = appdelegate.workBanner;
+    btnBanner.userInteractionEnabled = NO;
+    if(model.imgUrl == nil) {
+        btnBanner.frame = CGRectMake(0, 0, ScreenWidth, 0.01);
+    }else{
+        btnBanner.frame = CGRectMake(0, 0, ScreenWidth, [Util getHeightByWidth:375 height:90 nwidth:ScreenWidth]);
+        [btnBanner sd_setImageWithURL:[NSURL URLWithString:model.imgUrl] forState:UIControlStateNormal placeholderImage:Normal_Image];
+        if(model.isRedirect){
+            btnBanner.userInteractionEnabled = YES;
+        }
+    }
+    self.tableview.tableHeaderView = btnBanner;
 }
 
 - (void) doBtnClicked:(UIButton *)sender

@@ -118,6 +118,7 @@
         [Util showAlertMessage:@"请上传身份证背面照片验证"];
         return;
     }
+    [ProgressHUD show:nil];
             //添加文件名
     @autoreleasepool {
         dispatch_group_t group = dispatch_group_create();
@@ -146,6 +147,7 @@
             // 汇总结果
             UserInfoModel *model = [UserInfoModel shareUserInfoModel];
             [NetWorkHandler requestToModifyuserInfo:model.userId realName:realName userName:nil phone:nil cardNumber:cardNumber cardNumberImg1:cert1path cardNumberImg2:cert2path liveProvinceId:nil liveCityId:nil liveAreaId:nil liveAddr:nil userSex:nil headerImg:nil Completion:^(int code, id content) {
+                [ProgressHUD dismiss];
                 [self handleResponseWithCode:code msg:[content objectForKey:@"msg"]];
                 if(code == 200){
                     [Util showAlertMessage:@"资料上传成功，等客服人员处理"];

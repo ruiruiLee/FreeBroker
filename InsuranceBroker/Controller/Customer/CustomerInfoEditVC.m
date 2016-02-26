@@ -322,6 +322,7 @@
                                                           self.data.customerPhone = mobile;
                                                           
                                                           [[NSNotificationCenter defaultCenter] postNotificationName:Notify_Reload_CustomerDetail object:nil];
+                                                          [[NSNotificationCenter defaultCenter] postNotificationName:Notify_Refrush_TagList object:nil];
                                                       }
                                                       [self.navigationController popViewControllerAnimated:YES];
                                                   }

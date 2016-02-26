@@ -44,7 +44,7 @@
     [self.btnMore addTarget:self action:@selector(doBtnMore:) forControlEvents:UIControlEventTouchUpInside];
     
     self.chatview.yMin = 0;
-    self.chatview.yMax = 6;
+    self.chatview.yMax = 5;
     self.chatview.ySteps = @[@"0",@"200", @"400", @"600", @"800", @"2000000"];
     self.chatview.backgroundColor = [UIColor clearColor];
     
@@ -151,6 +151,27 @@
 
 - (void)initDataWithArray:(NSArray*)array
 {
+    CGFloat max = 0;
+    for (int i = 0; i < [array count]; i++) {
+        CurveModel *model = [array objectAtIndex:i];
+        int o = (int)model.totalIn;
+        if(o > max)
+            max = o;
+    }
+    
+    if(max > 0){
+        NSMutableArray *array = [[NSMutableArray alloc] init];
+        int i = 0;
+        while ([array count] < 6) {
+            [array addObject:[NSString stringWithFormat:@"%d", i]];
+            i += max / 5 + 1;
+        }
+        
+        self.chatview.ySteps = array;
+    }else{
+        self.chatview.ySteps = @[@"0",@"500", @"1000", @"1500", @"2000", @"2500"];
+    }
+    
     LineChartData *d1x = [LineChartData new];
     {
         LineChartData *d1 = d1x;
