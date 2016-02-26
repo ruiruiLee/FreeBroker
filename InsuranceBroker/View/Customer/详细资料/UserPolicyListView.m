@@ -50,7 +50,8 @@
     NSString *deq = @"cell";
     PolicyInfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:deq];
     if(!cell){
-        cell = [[PolicyInfoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:deq];
+        NSArray *nibs = [[NSBundle mainBundle]loadNibNamed:@"PolicyInfoTableViewCell" owner:nil options:nil];
+        cell = [nibs lastObject];
     }
     
     InsurInfoModel *model = [self.data objectAtIndex:indexPath.row];

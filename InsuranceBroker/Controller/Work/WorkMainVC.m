@@ -126,7 +126,8 @@
     NSString *deq = @"cell";
     DeatilTextTableviewCell *cell = [tableView dequeueReusableCellWithIdentifier:deq];
     if(!cell){
-        cell = [[DeatilTextTableviewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:deq];
+        NSArray *nibs = [[NSBundle mainBundle]loadNibNamed:@"DeatilTextTableviewCell" owner:nil options:nil];
+        cell = [nibs lastObject];
 //        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 //        cell.textLabel.font = _FONT(15);
 //        cell.textLabel.textColor = _COLOR(0x21, 0x21, 0x21);

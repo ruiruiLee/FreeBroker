@@ -494,7 +494,8 @@
     NSString *deq = @"cell";
     CarAddInfoTableCell *cell = [tableView dequeueReusableCellWithIdentifier:deq];
     if(!cell){
-        cell = [[CarAddInfoTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:deq];
+        NSArray *nibs = [[NSBundle mainBundle]loadNibNamed:@"CarAddInfoTableCell" owner:nil options:nil];
+        cell = [nibs lastObject];
         cell.textLabel.font = _FONT(15);
         cell.textLabel.textColor = _COLOR(0x21, 0x21, 0x21);
     }

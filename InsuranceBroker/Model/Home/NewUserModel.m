@@ -13,7 +13,7 @@
 + (BaseModel *) modelFromDictionary:(NSDictionary *)dictionary
 {
     NewUserModel *model = [[NewUserModel alloc] init];
-    model.nid = [dictionary objectForKey:@"nid"];
+    model.nid = [dictionary objectForKey:@"id"];
     model.title = [dictionary objectForKey:@"title"];
     model.isRedirect = [[dictionary objectForKey:@"isRedirect"] boolValue];
     model.imgUrl = [dictionary objectForKey:@"imgUrl"];

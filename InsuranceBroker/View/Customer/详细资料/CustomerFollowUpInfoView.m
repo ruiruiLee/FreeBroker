@@ -54,7 +54,8 @@
     NSString *deq = @"cell";
     CustomerFollowUpTableCell *cell = [tableView dequeueReusableCellWithIdentifier:deq];
     if(!cell){
-        cell = [[CustomerFollowUpTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:deq];
+        NSArray *nibs = [[NSBundle mainBundle]loadNibNamed:@"CustomerFollowUpTableCell" owner:nil options:nil];
+        cell = [nibs lastObject];
     }
     VisitInfoModel *model = [self.data objectAtIndex:indexPath.row];
     cell.lbAddress.text = model.visitAddr;

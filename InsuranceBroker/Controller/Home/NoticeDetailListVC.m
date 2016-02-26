@@ -84,6 +84,12 @@
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
+    if([_newsArray count] == 0){
+        [self showNoDatasImage:ThemeImage(@"no_data")];
+    }
+    else{
+        [self hidNoDatasImage];
+    }
     return [_newsArray count];
 }
 
@@ -103,7 +109,8 @@
     NSString *deq = @"cell";
     NoticeDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:deq];
     if(!cell){
-        cell = [[NoticeDetailTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:deq];
+        NSArray *nibs = [[NSBundle mainBundle]loadNibNamed:@"NoticeDetailTableViewCell" owner:nil options:nil];
+        cell = [nibs lastObject];
     }
     
      NewsModel *model = [[_newsArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];

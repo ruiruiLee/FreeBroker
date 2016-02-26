@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#import "InfoTipsView.h"
-
 @interface ViewFactory : NSObject
 
 /**

@@ -268,10 +268,6 @@
 		86C3BB2D1C22C42D00F98E80 /* HeadlineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C3BB271C22C42D00F98E80 /* HeadlineCell.xib */; };
 		86C3BB2E1C22C42D00F98E80 /* HeadlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C3BB291C22C42D00F98E80 /* HeadlineView.m */; };
 		86C3BB2F1C22C42D00F98E80 /* UIView+MGBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C3BB2B1C22C42D00F98E80 /* UIView+MGBadgeView.m */; };
-		86C3BB321C22C45E00F98E80 /* InfoTipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C3BB311C22C45E00F98E80 /* InfoTipsView.m */; };
-		86C3BB341C22C47400F98E80 /* InfoTipsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C3BB331C22C47400F98E80 /* InfoTipsView.xib */; };
-		86C3BB3A1C23AE9A00F98E80 /* InfoTipsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C3BB381C23AE9A00F98E80 /* InfoTipsCell.m */; };
-		86C3BB3B1C23AE9A00F98E80 /* InfoTipsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C3BB391C23AE9A00F98E80 /* InfoTipsCell.xib */; };
 		86C3BB3F1C23C27700F98E80 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C3BB3E1C23C27700F98E80 /* Util.m */; };
 		86C3BB4A1C24017E00F98E80 /* LeftImgButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C3BB491C24017E00F98E80 /* LeftImgButton.m */; };
 		86C3BB4F1C24049400F98E80 /* MainFunctionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C3BB4E1C24049400F98E80 /* MainFunctionButton.m */; };
@@ -870,12 +866,6 @@
 		86C3BB291C22C42D00F98E80 /* HeadlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeadlineView.m; sourceTree = "<group>"; };
 		86C3BB2A1C22C42D00F98E80 /* UIView+MGBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MGBadgeView.h"; sourceTree = "<group>"; };
 		86C3BB2B1C22C42D00F98E80 /* UIView+MGBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MGBadgeView.m"; sourceTree = "<group>"; };
-		86C3BB301C22C45E00F98E80 /* InfoTipsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTipsView.h; sourceTree = "<group>"; };
-		86C3BB311C22C45E00F98E80 /* InfoTipsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoTipsView.m; sourceTree = "<group>"; };
-		86C3BB331C22C47400F98E80 /* InfoTipsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoTipsView.xib; sourceTree = "<group>"; };
-		86C3BB371C23AE9A00F98E80 /* InfoTipsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTipsCell.h; sourceTree = "<group>"; };
-		86C3BB381C23AE9A00F98E80 /* InfoTipsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoTipsCell.m; sourceTree = "<group>"; };
-		86C3BB391C23AE9A00F98E80 /* InfoTipsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoTipsCell.xib; sourceTree = "<group>"; };
 		86C3BB3D1C23C27700F98E80 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		86C3BB3E1C23C27700F98E80 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
 		86C3BB481C24017E00F98E80 /* LeftImgButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftImgButton.h; sourceTree = "<group>"; };
@@ -1755,12 +1745,6 @@
 				86A5041E1C4CDCB30032A901 /* GMDCircleLoader.m */,
 				86C3BB2A1C22C42D00F98E80 /* UIView+MGBadgeView.h */,
 				86C3BB2B1C22C42D00F98E80 /* UIView+MGBadgeView.m */,
-				86C3BB301C22C45E00F98E80 /* InfoTipsView.h */,
-				86C3BB311C22C45E00F98E80 /* InfoTipsView.m */,
-				86C3BB331C22C47400F98E80 /* InfoTipsView.xib */,
-				86C3BB371C23AE9A00F98E80 /* InfoTipsCell.h */,
-				86C3BB381C23AE9A00F98E80 /* InfoTipsCell.m */,
-				86C3BB391C23AE9A00F98E80 /* InfoTipsCell.xib */,
 				86C3BB9E1C28E02F00F98E80 /* SubView.h */,
 				86C3BB9F1C28E02F00F98E80 /* SubView.m */,
 				86C3BC431C2E747E00F98E80 /* BaseLineTextField.h */,
@@ -2447,7 +2431,6 @@
 				8625AFF01C38FF9E00312B98 /* IncomeWithdrawVC.xib in Resources */,
 				8625AFE81C37C8D500312B98 /* OfferDetailTableViewCell.xib in Resources */,
 				86C3BBA21C28EDCA00F98E80 /* UserCenterVC.xib in Resources */,
-				86C3BB341C22C47400F98E80 /* InfoTipsView.xib in Resources */,
 				86A26EE61C48FB010073FFFC /* CustomTagTableCell.xib in Resources */,
 				86A504921C4F62830032A901 /* NewCustomerVC.xib in Resources */,
 				86A26E541C43A8FF0073FFFC /* Localizable.strings in Resources */,
@@ -2461,7 +2444,6 @@
 				86C3BB1A1C228D6F00F98E80 /* grayArrow@2x.png in Resources */,
 				86A26E761C44F7BB0073FFFC /* AgentStrategyTableViewCell.xib in Resources */,
 				8625AFD81C34F4DB00312B98 /* IncomeStatisticsVC.xib in Resources */,
-				86C3BB3B1C23AE9A00F98E80 /* InfoTipsCell.xib in Resources */,
 				86C3BB1B1C228D6F00F98E80 /* whiteArrow.png in Resources */,
 				86A504F81C5257440032A901 /* easyjs-inject.js in Resources */,
 				86C3BBAF1C29073900F98E80 /* MyLuckyMoneyVC.xib in Resources */,
@@ -2746,7 +2728,6 @@
 				8654CA521C30CFEB00411C54 /* BindPhoneNumVC.m in Sources */,
 				86A26E711C44F5E10073FFFC /* AgentStrategyViewController.m in Sources */,
 				86A504BD1C50820B0032A901 /* NetWorkHandler+getRedPack.m in Sources */,
-				86C3BB321C22C45E00F98E80 /* InfoTipsView.m in Sources */,
 				86A26E751C44F7BB0073FFFC /* AgentStrategyTableViewCell.m in Sources */,
 				86A26F171C4B5E900073FFFC /* SalesStatisticsVC.m in Sources */,
 				86C3BB111C228D6F00F98E80 /* EGORefreshTableHeaderView.m in Sources */,
@@ -2768,7 +2749,6 @@
 				86A26F071C4A29CB0073FFFC /* NSDate+Additions.m in Sources */,
 				86A26EAB1C4796700073FFFC /* PlaceholderTextView.m in Sources */,
 				86C3BBC81C2A370A00F98E80 /* CustomerPanEditView.m in Sources */,
-				86C3BB3A1C23AE9A00F98E80 /* InfoTipsCell.m in Sources */,
 				8625B0031C3A998D00312B98 /* NetWorkHandler+queryForPageList.m in Sources */,
 				86A26E3E1C437DD00073FFFC /* NetWorkHandler+getCitys.m in Sources */,
 				86C3BB6B1C242D8D00F98E80 /* HomeVC.m in Sources */,

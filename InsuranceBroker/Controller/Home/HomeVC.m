@@ -48,6 +48,10 @@
     self.navigationItem.titleView = logoView;
     [self setLeftBarButtonWithImage:nil];
     
+    self.adView = [[AdScrollView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, [Util getHeightByWidth:750 height:330 nwidth:ScreenWidth])];
+    self.adView.parentController=self;
+    self.adView.pageControl.pageIndicatorTintColor = [UIColor whiteColor];
+    [self.scrollview addSubview:self.adView];
     self.adView.PageControlShowStyle = UIPageControlShowStyleRight;
     self.adView.parentController = self;
     

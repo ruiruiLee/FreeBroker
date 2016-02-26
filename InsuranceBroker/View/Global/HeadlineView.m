@@ -189,7 +189,9 @@
     
     [self reset];
     scrollview.contentSize = CGSizeMake(scrollview.frame.size.width, 40 * default_Item_count);
-    if([cellArray count] > 1)
+    NSInteger count = [delegate numberOfRows:self];
+    
+    if(count > 1)
         [self performSelector:@selector(startTimer) withObject:nil afterDelay:2.0];
 }
 
@@ -200,7 +202,7 @@
         timer = nil;
     }
     
-    timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(timerAfterTimer) userInfo:nil repeats:YES];
+    timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(timerAfterTimer) userInfo:nil repeats:YES];
     [timer fire];
 }
 

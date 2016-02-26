@@ -125,7 +125,8 @@
     NSString *deq = @"cell";
     LucyMoneyTableCell *cell = [tableView dequeueReusableCellWithIdentifier:deq];
     if(!cell){
-        cell = [[LucyMoneyTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:deq];
+        NSArray *nibs = [[NSBundle mainBundle]loadNibNamed:@"LucyMoneyTableCell" owner:nil options:nil];
+        cell = [nibs lastObject];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     

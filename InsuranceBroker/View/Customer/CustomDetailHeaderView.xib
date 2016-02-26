@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15C47a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15E39d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
@@ -32,8 +32,8 @@
                     <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="24" id="HVf-qh-hJc"/>
-                        <constraint firstAttribute="width" constant="24" id="Oca-y6-spr"/>
+                        <constraint firstAttribute="height" constant="40" id="HVf-qh-hJc"/>
+                        <constraint firstAttribute="width" constant="40" id="Oca-y6-spr"/>
                     </constraints>
                     <state key="normal" image="edit_profile"/>
                 </button>
@@ -67,8 +67,8 @@
                     <rect key="frame" x="416" y="140" width="122" height="68"/>
                     <animations/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="24" id="N9O-A8-7Oq"/>
-                        <constraint firstAttribute="width" constant="24" id="qzx-gz-Tcz"/>
+                        <constraint firstAttribute="height" constant="40" id="N9O-A8-7Oq"/>
+                        <constraint firstAttribute="width" constant="40" id="qzx-gz-Tcz"/>
                     </constraints>
                     <state key="normal" title="Button" image="call"/>
                 </button>
@@ -76,8 +76,8 @@
                     <rect key="frame" x="534" y="163" width="18" height="22"/>
                     <animations/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="24" id="4pm-Uf-H8a"/>
-                        <constraint firstAttribute="height" constant="24" id="DC5-8n-2C2"/>
+                        <constraint firstAttribute="width" constant="40" id="4pm-Uf-H8a"/>
+                        <constraint firstAttribute="height" constant="40" id="DC5-8n-2C2"/>
                     </constraints>
                     <state key="normal" image="user_message"/>
                 </button>
@@ -111,19 +111,19 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="q7V-Wm-0JR" firstAttribute="top" secondItem="84v-q2-Sg8" secondAttribute="top" id="0ep-HT-uVn"/>
-                <constraint firstAttribute="trailing" secondItem="wvZ-Kn-9Rb" secondAttribute="trailing" constant="22" id="20J-Wt-Mug"/>
+                <constraint firstAttribute="trailing" secondItem="wvZ-Kn-9Rb" secondAttribute="trailing" constant="14" id="20J-Wt-Mug"/>
                 <constraint firstItem="0zm-5y-Uki" firstAttribute="top" secondItem="84v-q2-Sg8" secondAttribute="bottom" constant="20" id="409-BT-bbu"/>
                 <constraint firstItem="wvZ-Kn-9Rb" firstAttribute="centerY" secondItem="q7V-Wm-0JR" secondAttribute="centerY" id="56R-dT-H1h"/>
                 <constraint firstItem="0zm-5y-Uki" firstAttribute="top" secondItem="84v-q2-Sg8" secondAttribute="bottom" constant="20" id="68v-xI-gt5"/>
                 <constraint firstItem="mmE-3G-oiI" firstAttribute="top" secondItem="hel-0P-BB1" secondAttribute="bottom" constant="20" id="8Hm-VG-VFs"/>
                 <constraint firstItem="6oE-oD-kXc" firstAttribute="leading" secondItem="84v-q2-Sg8" secondAttribute="leading" id="8yQ-Ac-YlU"/>
-                <constraint firstAttribute="trailing" secondItem="hel-0P-BB1" secondAttribute="trailing" constant="32" id="GXd-EA-FYj"/>
+                <constraint firstAttribute="trailing" secondItem="hel-0P-BB1" secondAttribute="trailing" constant="24" id="GXd-EA-FYj"/>
                 <constraint firstItem="q7V-Wm-0JR" firstAttribute="leading" secondItem="84v-q2-Sg8" secondAttribute="trailing" constant="20" id="KUc-Tk-GNZ"/>
                 <constraint firstItem="wvZ-Kn-9Rb" firstAttribute="trailing" secondItem="mmE-3G-oiI" secondAttribute="trailing" id="Kjf-hL-ERm"/>
                 <constraint firstItem="oK0-JR-GHF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="TTN-VN-5Va" secondAttribute="trailing" constant="10" id="MQK-dX-oaR"/>
                 <constraint firstItem="7tD-fA-FnH" firstAttribute="leading" secondItem="q7V-Wm-0JR" secondAttribute="leading" id="NeX-xI-XZb"/>
                 <constraint firstItem="sqT-7d-EkQ" firstAttribute="leading" secondItem="84v-q2-Sg8" secondAttribute="leading" id="Qic-cE-jHT"/>
-                <constraint firstItem="hel-0P-BB1" firstAttribute="leading" secondItem="oK0-JR-GHF" secondAttribute="trailing" constant="25" id="SNa-IR-raf"/>
+                <constraint firstItem="hel-0P-BB1" firstAttribute="leading" secondItem="oK0-JR-GHF" secondAttribute="trailing" constant="4" id="SNa-IR-raf"/>
                 <constraint firstItem="TTN-VN-5Va" firstAttribute="leading" secondItem="q7V-Wm-0JR" secondAttribute="leading" id="TIV-U8-cHq"/>
                 <constraint firstItem="mmE-3G-oiI" firstAttribute="top" secondItem="hel-0P-BB1" secondAttribute="bottom" constant="20" id="XHa-2b-hyD"/>
                 <constraint firstItem="TTN-VN-5Va" firstAttribute="centerY" secondItem="6oE-oD-kXc" secondAttribute="centerY" id="anS-RY-nNl"/>

@@ -121,7 +121,8 @@
         NSString *deq = @"cell";
         UserEditTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:deq];
         if(!cell){
-            cell = [[UserEditTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:deq];
+            NSArray *nibs = [[NSBundle mainBundle]loadNibNamed:@"UserEditTableViewCell" owner:nil options:nil];
+            cell = [nibs lastObject];
         }
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         UserInfoModel *model  = [UserInfoModel shareUserInfoModel];

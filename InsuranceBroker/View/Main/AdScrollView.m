@@ -37,7 +37,7 @@ static CGFloat const chageImageTime = 5.0;
         self.showsHorizontalScrollIndicator = NO;
         self.showsVerticalScrollIndicator = NO;
         self.pagingEnabled = YES;
-        self.contentOffset = CGPointMake(UISCREENWIDTH, 0);
+        self.contentOffset = CGPointMake(0, 0);
         self.contentSize = CGSizeMake(UISCREENWIDTH * 3, UISCREENHEIGHT);
         self.delegate = self;
         
@@ -57,7 +57,7 @@ static CGFloat const chageImageTime = 5.0;
         self.showsHorizontalScrollIndicator = NO;
         self.showsVerticalScrollIndicator = NO;
         self.pagingEnabled = YES;
-        self.contentOffset = CGPointMake(UISCREENWIDTH, 0);
+        self.contentOffset = CGPointMake(0, 0);
         self.contentSize = CGSizeMake(UISCREENWIDTH * 3, UISCREENHEIGHT);
         self.delegate = self;
         
@@ -70,7 +70,6 @@ static CGFloat const chageImageTime = 5.0;
 - (void) layoutSubviews
 {
     [super layoutSubviews];
-    
     [self setPageControlShowStyle:_PageControlShowStyle];
 }
 
@@ -93,7 +92,7 @@ static CGFloat const chageImageTime = 5.0;
         [imageView setContentMode:UIViewContentModeScaleAspectFill];
         [imageView setFrame:CGRectMake(i * self.frame.size.width, 0, self.frame.size.width, self.frame.size.height)];
         [imageView sd_setImageWithURL:[NSURL URLWithString:item.imgUrl] forState:UIControlStateNormal placeholderImage:Normal_Image];
-          imageView.tag = i;
+        imageView.tag = i;
         //添加点击事件
         [imageView addTarget:self action:@selector(clickPageImage:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:imageView];
@@ -111,19 +110,13 @@ static CGFloat const chageImageTime = 5.0;
              if (!_autoScrollTimer) {
               _autoScrollTimer =[NSTimer scheduledTimerWithTimeInterval:chageImageTime target:self selector:@selector(switchFocusImageItems) userInfo:nil repeats:YES];
              }
-        [self performSelector:@selector(switchFocusImageItems) withObject:nil afterDelay:chageImageTime];
+//        [self performSelector:@selector(switchFocusImageItems) withObject:nil afterDelay:chageImageTime];
         }
-       
-
     }
-
 }
 
 - (void) clickPageImage:(UIButton*)sender
 {
-        NSLog(@"%ld",(long)sender.tag);
-
-    
     PosterModel *model = [self.NewsmodelArray objectAtIndex:sender.tag];
     if(model.isRedirect == 1){
         WebViewController *vc = [IBUIFactory CreateWebViewController];
@@ -172,9 +165,13 @@ static CGFloat const chageImageTime = 5.0;
     if (PageControlShowStyle == UIPageControlShowStyleNone) {
         return;
     }
-    if(!_pageControl)
-        _pageControl = [[UIPageControl alloc]init];
-    _pageControl.numberOfPages = _NewsmodelArray.count;
+    if(!_pageControl){
+        _pageControl = [[UIPageControl alloc] init];
+        _pageControl.numberOfPages = _NewsmodelArray.count;
+        _pageControl.currentPage = 0;
+    }else{
+        _pageControl.numberOfPages = _NewsmodelArray.count;
+    }
     
     if (PageControlShowStyle == UIPageControlShowStyleLeft)
     {
@@ -189,7 +186,6 @@ static CGFloat const chageImageTime = 5.0;
     {
         _pageControl.frame = CGRectMake( UISCREENWIDTH - 20*_pageControl.numberOfPages, HIGHT+UISCREENHEIGHT - 20, 20*_pageControl.numberOfPages, 20);
     }
-    _pageControl.currentPage = 0;
     
     _pageControl.enabled = NO;
     
@@ -210,14 +206,13 @@ static CGFloat const chageImageTime = 5.0;
     //手动滑动时候暂停自动替换
     [_autoScrollTimer invalidate];
     _autoScrollTimer = nil;
-      _autoScrollTimer =[NSTimer scheduledTimerWithTimeInterval:chageImageTime target:self selector:@selector(switchFocusImageItems) userInfo:nil repeats:YES];
+    _autoScrollTimer =[NSTimer scheduledTimerWithTimeInterval:chageImageTime target:self selector:@selector(switchFocusImageItems) userInfo:nil repeats:YES];
 }
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     _pageControl.currentPage = (int)(scrollView.contentOffset.x / scrollView.frame.size.width);
-    
 }
 
 @end

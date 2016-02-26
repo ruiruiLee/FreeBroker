@@ -145,7 +145,10 @@
 
 - (IBAction)btnUserSetting:(id)sender
 {
-    [self doBtnUserSetting:sender];
+//    [self doBtnUserSetting:sender];
+    UserInfoEditVC *vc = [IBUIFactory CreateUserInfoEditViewController];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)doBtnUserSetting:(id)sender

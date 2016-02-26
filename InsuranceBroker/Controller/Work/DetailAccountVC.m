@@ -94,6 +94,10 @@
 {
     NSString *deq = @"cell";
     DetailAccountTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:deq];
+    if(!cell){
+        NSArray *nibs = [[NSBundle mainBundle]loadNibNamed:@"DetailAccountTableViewCell" owner:nil options:nil];
+        cell = [nibs lastObject];
+    }
     BillInfoModel *model = [self.data objectAtIndex:indexPath.row];
     if(model.billDoType == 1){
         cell.logo.image = ThemeImage(@"logo_income");

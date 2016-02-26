@@ -32,7 +32,7 @@
 @property (nonatomic, strong) IBOutlet UIScrollView *scrollview;
 
 @property (nonatomic, strong) IBOutlet HeadlineView *headline;
-@property (nonatomic, strong) IBOutlet AdScrollView *adView;
+@property (nonatomic, strong) AdScrollView *adView;
 
 @property (nonatomic, strong) IBOutlet MainFunctionButton *btnAutoInsu;//车险
 @property (nonatomic, strong) IBOutlet MainFunctionButton *btnInvit;//邀请

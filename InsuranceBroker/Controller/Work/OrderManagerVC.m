@@ -158,7 +158,8 @@
     NSString *deq = @"cell";
     OrderManagerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:deq];
     if(!cell){
-        cell = [[OrderManagerTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:deq];
+        NSArray *nibs = [[NSBundle mainBundle]loadNibNamed:@"OrderManagerTableViewCell" owner:nil options:nil];
+        cell = [nibs lastObject];
     }
     
     NSArray *array = [insurArray objectAtIndex:indexPath.section];

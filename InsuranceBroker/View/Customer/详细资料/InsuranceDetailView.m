@@ -52,7 +52,8 @@
     NSString *deq = @"cell";
     InsuranceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:deq];
     if(!cell){
-        cell = [[InsuranceTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:deq];
+        NSArray *nibs = [[NSBundle mainBundle]loadNibNamed:@"InsuranceTableViewCell" owner:nil options:nil];
+        cell = [nibs lastObject];
     }
     
     NSInteger row = indexPath.row;

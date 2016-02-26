@@ -123,7 +123,8 @@
     NSString *deq = @"cell";
     OfferDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:deq];
     if(!cell){
-        cell = [[OfferDetailTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:deq];
+        NSArray *nibs = [[NSBundle mainBundle]loadNibNamed:@"OfferDetailTableViewCell" owner:nil options:nil];
+        cell = [nibs lastObject];
     }
     cell.backgroundColor = [UIColor clearColor];
     cell.contentView.backgroundColor = [UIColor clearColor];

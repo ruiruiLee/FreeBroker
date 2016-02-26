@@ -309,7 +309,8 @@
     NSString *deq = @"cell";
     CustomerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:deq];
     if(!cell){
-        cell = [[CustomerTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:deq];
+        NSArray *nibs = [[NSBundle mainBundle]loadNibNamed:@"CustomerTableViewCell" owner:nil options:nil];
+        cell = [nibs lastObject];
     }
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     

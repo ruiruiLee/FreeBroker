@@ -124,7 +124,8 @@
         NSString *deq = @"cell";
         UserEditTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:deq];
         if(!cell){
-            cell = [[UserEditTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:deq];
+            NSArray *nibs = [[NSBundle mainBundle]loadNibNamed:@"UserEditTableViewCell" owner:nil options:nil];
+            cell = [nibs lastObject];
         }
 //        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
@@ -145,7 +146,6 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:deq];
             cell.textLabel.font = _FONT(15);
             cell.textLabel.textColor = _COLOR(0x21, 0x21, 0x21);
-//            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
         
         CityModel *model = [data objectAtIndex:indexPath.row];
