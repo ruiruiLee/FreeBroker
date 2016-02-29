@@ -33,6 +33,7 @@
     model.createdAt = [NewsModel dateFromInteger:[[dictionary objectForKey:@"createdAt"] longLongValue]];
     model.keyId = [dictionary objectForKey:@"keyId"];
     model.keyType = [[dictionary objectForKey:@"keyType"] integerValue];
+    model.url = [dictionary objectForKey:@"url"];
     
     return model;
 }

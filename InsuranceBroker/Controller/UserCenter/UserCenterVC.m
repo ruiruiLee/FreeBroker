@@ -47,6 +47,7 @@
     self.lbTeamTotal.textColor = Subhead_Color;
     
     self.headHConstraint.constant = ScreenWidth;
+    self.footVConstraint.constant = SCREEN_HEIGHT - 525 - 100 - 44 + 1;
     
     UserInfoModel *model = [UserInfoModel shareUserInfoModel];
     AppContext *context = [AppContext sharedAppContext];
@@ -55,6 +56,8 @@
     [model addObserver:self forKeyPath:@"sex" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
     [model addObserver:self forKeyPath:@"nickname" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
     [context addObserver:self forKeyPath:@"isRedPack" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
+    
+    [self config];
     
     [self updateUserInfo];
 }
@@ -69,6 +72,7 @@
     self.lbOrderEarn.text = [NSString stringWithFormat:@"累计收益：%.2f元", model.orderEarn];
     self.lbUserInvite.text = [NSString stringWithFormat:@"%d人", model.userInviteNums];
     self.lbTeamTotal.text = [NSString stringWithFormat:@"%d人", model.userTeamInviteNums];
+    self.lbNowMonthOrderCount.text = [NSString stringWithFormat:@"%d", model.nowMonthOrderSuccessNums];
     
     [self.btNameEdit setTitle:model.nickname forState:UIControlStateNormal];
     UIImage *placeholderImage = ThemeImage(@"head_male");
@@ -133,6 +137,17 @@
 {
     [super viewDidLayoutSubviews];
     [self.gradientView setGradientColor:_COLOR(0xff, 0x8c, 0x19) end:_COLOR(0xff, 0x66, 0x19)];
+}
+
+# pragma mark - Custom view configuration
+
+- (void) config
+{
+    /* Refresh View */
+    refreshView = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0, -self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height)];
+    refreshView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
+    refreshView.delegate = self;
+    [self.scrollview addSubview:refreshView];
 }
 
 //修改用户资料
@@ -218,5 +233,46 @@
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
+
+#pragma mark - EGORefreshTableHeaderDelegate
+
+- (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView*)view
+{
+    //    [pullDelegate pullTableViewDidTriggerRefresh:self];
+    [[UserInfoModel shareUserInfoModel] loadDetail:^(int code, id content) {
+        [self handleResponseWithCode:code msg:[content objectForKey:@"msg"]];
+        [refreshView egoRefreshScrollViewDataSourceDidFinishedLoading:self.scrollview];
+        [self updateUserInfo];
+    }];
+}
+
+//- (NSDate*)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView*)view {
+//    return self.pullLastRefreshDate;
+//}
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    
+    [refreshView egoRefreshScrollViewDidScroll:scrollView];
+    
+    // Also forward the message to the real delegate
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    
+    [refreshView egoRefreshScrollViewDidEndDragging:scrollView];
+    
+    // Also forward the message to the real delegate
+}
+
+- (void) scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [refreshView egoRefreshScrollViewWillBeginDragging:scrollView];
+    
+    // Also forward the message to the real delegate
+}
+
 
 @end

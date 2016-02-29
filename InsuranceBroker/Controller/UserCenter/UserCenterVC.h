@@ -10,9 +10,14 @@
 #import "TopImageButton.h"
 #import "GradientView.h"
 #import "UserNameEditButton.h"
+#import "EGORefreshTableHeaderView.h"
 
-@interface UserCenterVC : BaseViewController
+@interface UserCenterVC : BaseViewController <UIScrollViewDelegate, EGORefreshTableHeaderDelegate>
+{
+    EGORefreshTableHeaderView *refreshView;
+}
 
+@property (nonatomic, strong) IBOutlet UIScrollView *scrollview;
 @property (nonatomic, strong) IBOutlet UIImageView *photoImgV;
 @property (nonatomic, strong) IBOutlet UIImageView *logoImgv;
 @property (nonatomic, strong) IBOutlet UILabel *lbRole;
@@ -30,6 +35,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *lbOrderEarn;//总订单收益;
 @property (nonatomic, strong) IBOutlet UILabel *lbUserInvite;
 @property (nonatomic, strong) IBOutlet UILabel *lbTeamTotal;
+@property (nonatomic, strong) IBOutlet UILabel *lbNowMonthOrderCount;
 
 @property (nonatomic, strong) IBOutlet UILabel *lbRedLogo;
 @property (nonatomic, strong) IBOutlet NSLayoutConstraint *redFlagConstraint;
@@ -37,6 +43,7 @@
 //约束
 //@property (nonatomic, strong) IBOutlet NSLayoutConstraint *headVConstraint;
 @property (nonatomic, strong) IBOutlet NSLayoutConstraint *headHConstraint;
+@property (nonatomic, strong) IBOutlet NSLayoutConstraint *footVConstraint;
 
 //修改用户资料
 - (IBAction)EditUserInfo:(id)sender;

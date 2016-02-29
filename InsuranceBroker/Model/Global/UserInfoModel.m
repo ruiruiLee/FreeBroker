@@ -169,6 +169,7 @@
     self.userTeamInviteNums = [[dic objectForKey:@"userTeamInviteNums"] integerValue];
     
     self.cardVerifiyMsg = [dic objectForKey:@"cardVerifiyMsg"];
+    self.nowMonthOrderSuccessNums = [[dic objectForKey:@"nowMonthOrderSuccessNums"] integerValue];
     
     NSMutableDictionary *dictionary = [self dictionaryWithObject:self];
     AppContext *context = [AppContext sharedAppContext];
@@ -196,6 +197,19 @@
     if([keyPath isEqualToString:@"userId"]){
         [self performSelector:@selector(queryUserInfo) withObject:nil afterDelay:0.1];
     }
+}
+
+- (void) loadDetail:(Completion) completion
+{
+    if(self.userId == nil || [self.userId length] == 0)
+        return;
+    [NetWorkHandler requestToQueryUserInfo:self.userId Completion:^(int code, id content) {
+        if(code == 200){
+            [self setDetailContentWithDictionary:[content objectForKey:@"data"]];
+        }
+        if(completion)
+            completion(code, content);
+    }];
 }
 
 @end

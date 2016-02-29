@@ -262,6 +262,7 @@
     UserInfoModel *model = [UserInfoModel shareUserInfoModel];
     model.isLogin = NO;
     [[AppContext sharedAppContext] removeData];
+    [[NSNotificationCenter defaultCenter] postNotificationName:Notify_Logout object:nil];
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     RootViewController *root = delegate.root;
     root.selectedIndex = 0;

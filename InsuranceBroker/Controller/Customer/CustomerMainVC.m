@@ -56,6 +56,8 @@
     [self setRightBarButtonWithImage:ThemeImage(@"add")];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifyCustomerAdd:) name:Notify_Add_NewCustomer object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifyToInsertPushCustomer:) name:Notify_Insert_Customer object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifyToRemoveCustomer:) name:Notify_Logout object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifyToRefreshCustomer:) name:Notify_Login object:nil];
     
     searchbar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 40)];
     searchbar.placeholder = @"搜索";
@@ -85,6 +87,17 @@
 - (void) notifyCustomerAdd:(NSNotification *) notify
 {
     [self pullTableViewDidTriggerRefresh:self.pulltable];
+}
+
+- (void) notifyToRemoveCustomer:(NSNotification *) notify
+{
+    [self.data removeAllObjects];
+    self.total = 0;
+}
+
+- (void) notifyToRefreshCustomer:(NSNotification *) notify
+{
+    [self refresh2Loaddata];
 }
 
 - (void) initSubViews

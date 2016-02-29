@@ -91,6 +91,7 @@
             [userinfo setContentWithDictionary:data];
             [userinfo queryUserInfo];
             [self handleLeftBarButtonClicked:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:Notify_Login object:nil];
             
             AVInstallation *currentInstallation = [AVInstallation currentInstallation];
             [currentInstallation addUniqueObject:@"ykbbrokerLoginUser" forKey:@"channels"];

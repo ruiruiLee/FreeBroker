@@ -275,6 +275,7 @@
     [Util setValueForKeyWithDic:filters value:@"and" key:@"groupOp"];
     NSMutableArray *rules = [[NSMutableArray alloc] init];
     [rules addObject:[self getRulesByField:@"labelId" op:@"eq" data:self.labelModel.labelId]];
+    [rules addObject:[self getRulesByField:@"userId" op:@"eq" data:[UserInfoModel shareUserInfoModel].userId]];
     [Util setValueForKeyWithDic:filters value:rules key:@"rules"];
     
     [NetWorkHandler requestQueryForPageList:0 limit:[self.labelModel.labelCustomerNums integerValue] sord:@"desc" filters:filters Completion:^(int code, id content) {

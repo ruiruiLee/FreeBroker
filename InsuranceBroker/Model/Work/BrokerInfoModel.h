@@ -19,5 +19,6 @@
 @property (nonatomic, strong) NSString *userName;
 @property (nonatomic, strong) NSString *monthOrderEarn;
 @property (nonatomic, assign) NSInteger userSex;
+@property (nonatomic, assign) NSInteger nowMonthOrderSuccessNums;
 
 @end

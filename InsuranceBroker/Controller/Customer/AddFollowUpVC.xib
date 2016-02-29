@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15C47a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15E39d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
@@ -22,10 +22,10 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MhG-xp-lBR">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MhG-xp-lBR">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <subviews>
-                        <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1yw-NE-YCE">
+                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1yw-NE-YCE">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="shadow" translatesAutoresizingMaskIntoConstraints="NO" id="Laf-BU-dlr">
@@ -321,6 +321,7 @@
                                 <constraint firstItem="rgN-Jv-ABp" firstAttribute="leading" secondItem="1yw-NE-YCE" secondAttribute="leading" id="h3t-L6-34b"/>
                                 <constraint firstItem="zry-hI-CaB" firstAttribute="top" secondItem="3Br-Qa-Xz7" secondAttribute="bottom" id="haF-bS-hfh"/>
                                 <constraint firstItem="252-UO-Wrm" firstAttribute="leading" secondItem="1yw-NE-YCE" secondAttribute="leading" id="i0S-fM-HLj"/>
+                                <constraint firstAttribute="bottom" secondItem="rgN-Jv-ABp" secondAttribute="bottom" id="j2O-XL-pg5"/>
                                 <constraint firstAttribute="trailing" secondItem="252-UO-Wrm" secondAttribute="trailing" id="mEh-1L-yNo"/>
                                 <constraint firstAttribute="trailing" secondItem="2Y7-cG-oF3" secondAttribute="trailing" id="ndd-V7-oGu"/>
                                 <constraint firstItem="3Br-Qa-Xz7" firstAttribute="leading" secondItem="1yw-NE-YCE" secondAttribute="leading" id="qbS-3y-IKW"/>
