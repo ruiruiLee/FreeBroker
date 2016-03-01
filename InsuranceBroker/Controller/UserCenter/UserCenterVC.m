@@ -207,6 +207,7 @@
 - (IBAction)scale:(id)sender
 {
     DetailAccountVC *vc = [[DetailAccountVC alloc] initWithNibName:nil bundle:nil];
+    vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
