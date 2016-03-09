@@ -119,6 +119,7 @@
 {
     WebViewController *web = [IBUIFactory CreateWebViewController];
     web.title = @"提现说明";
+    [self.tfAmount resignFirstResponder];
     [self.navigationController pushViewController:web animated:YES];
     NSString *url = [NSString stringWithFormat:@"%@%@%@", SERVER_ADDRESS, @"/news/view/", Withdrawal_Instructions];
     [web loadHtmlFromUrl:url];
@@ -151,6 +152,7 @@
             self.tfAmount.text = @"";
             [self.tfAmount resignFirstResponder];
             [self.tableview reloadData];
+            [self.navigationController popViewControllerAnimated:YES];
         }
     }];
 }
@@ -306,11 +308,13 @@
     
     if([self.data count] == 0){
         BindBankCardVC *vc = [IBUIFactory CreateBindBankCardViewController];
+        [self.tfAmount resignFirstResponder];
         [self.navigationController pushViewController:vc animated:YES];
     }
     else{
         if(indexPath.section == 1){
             BindBankCardVC *vc = [IBUIFactory CreateBindBankCardViewController];
+            [self.tfAmount resignFirstResponder];
             [self.navigationController pushViewController:vc animated:YES];
         }else if (indexPath.section == 0){
             _selectbank = indexPath.row;

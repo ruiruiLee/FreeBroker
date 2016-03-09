@@ -27,8 +27,20 @@
     
     BOOL flag = [self isHasModify];
     if(flag){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"警告" message:@"确认放弃保存填写资料吗？" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
-        [alert show];
+        if([self getIOSVersion] < 8.0){
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"警告" message:@"确认放弃保存填写资料吗？" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
+            [alert show];
+        }
+        else{
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"警告" message:@"确认放弃保存填写资料吗？" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [self.navigationController popViewControllerAnimated:YES];
+            }];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+            [alertController addAction:okAction];
+            [alertController addAction:cancelAction];
+            [self presentViewController:alertController animated:YES completion:nil];
+        }
     }
     else{
         [self.navigationController popViewControllerAnimated:YES];
@@ -154,7 +166,6 @@
     }else{
         [self SetRightBarButtonWithTitle:@"保存" color:_COLORa(0xff, 0x66, 0x19, 0.5) action:NO];
     }
-    
     return back;
 }
 
@@ -220,7 +231,8 @@
     }
 
     NSString *mobile = self.tfMobile.text;
-    if(![Util isMobileNumber:mobile]){
+    mobile = [self formatPhoneNum:mobile];
+    if(![Util isMobilePhoeNumber:mobile] && ![Util checkPhoneNumInput:mobile]){
         [Util showAlertMessage:@"客户联系电话格式不正确"];
         return;
     }
@@ -331,6 +343,17 @@
 
 - (void) textChangeAction:(id) sender {
     [self isHasModify];
+}
+
+- (NSString *) formatPhoneNum:(NSString *) phoneNum
+{
+    NSString *mobile = [phoneNum stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    mobile = [mobile stringByReplacingOccurrencesOfString:@"(" withString:@""];
+    mobile = [mobile stringByReplacingOccurrencesOfString:@")" withString:@""];
+    mobile = [mobile stringByReplacingOccurrencesOfString:@" " withString:@""];
+    mobile = [Util formatPhoneNum:mobile];
+    
+    return mobile;
 }
 
 @end

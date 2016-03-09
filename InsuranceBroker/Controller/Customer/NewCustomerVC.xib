@@ -28,14 +28,14 @@
                         <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qhU-FE-qr1">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="shadow" translatesAutoresizingMaskIntoConstraints="NO" id="EsV-CA-Iqc">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="shadow" translatesAutoresizingMaskIntoConstraints="NO" id="EsV-CA-Iqc">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="21"/>
                                     <animations/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="15" id="Dtl-Qq-ajS"/>
                                     </constraints>
                                 </imageView>
-                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PB8-sE-Ghw">
+                                <view clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PB8-sE-Ghw">
                                     <rect key="frame" x="0.0" y="21" width="600" height="55"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="contacts" translatesAutoresizingMaskIntoConstraints="NO" id="s11-yZ-faa">
@@ -86,7 +86,7 @@
                                         <constraint firstAttribute="trailing" secondItem="uTy-Sj-8Yk" secondAttribute="trailing" constant="6" id="vnf-7W-RnD"/>
                                     </constraints>
                                 </view>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="shadow" translatesAutoresizingMaskIntoConstraints="NO" id="bHO-Jh-mYq">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="shadow" translatesAutoresizingMaskIntoConstraints="NO" id="bHO-Jh-mYq">
                                     <rect key="frame" x="0.0" y="77" width="600" height="21"/>
                                     <animations/>
                                     <constraints>
@@ -171,7 +171,7 @@
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UV3-Mc-gHf">
+                                <view clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UV3-Mc-gHf">
                                     <rect key="frame" x="0.0" y="238" width="600" height="90"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v39-hc-yNi" customClass="OnwerTagView">
@@ -202,7 +202,7 @@
                                         <constraint firstItem="EP1-bW-loV" firstAttribute="top" secondItem="UV3-Mc-gHf" secondAttribute="top" constant="20" id="naE-Ns-mlv"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fqp-Ya-NVO">
+                                <view clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fqp-Ya-NVO">
                                     <rect key="frame" x="0.0" y="179" width="600" height="42"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="联系电话" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Dx-oV-fPn">
@@ -238,7 +238,7 @@
                                         <constraint firstItem="2Dx-oV-fPn" firstAttribute="centerY" secondItem="Fqp-Ya-NVO" secondAttribute="centerY" id="kmY-BB-Mxa"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bcs-no-jKx">
+                                <view clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bcs-no-jKx">
                                     <rect key="frame" x="0.0" y="373" width="600" height="119"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mg4-BR-hSq" customClass="TagListView">
@@ -257,7 +257,7 @@
                                         <constraint firstItem="Mg4-BR-hSq" firstAttribute="leading" secondItem="Bcs-no-jKx" secondAttribute="leading" constant="20" id="rU8-YG-MDl"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AT2-Md-cUK">
+                                <view clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AT2-Md-cUK">
                                     <rect key="frame" x="0.0" y="331" width="600" height="39"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEH-qV-LSW">

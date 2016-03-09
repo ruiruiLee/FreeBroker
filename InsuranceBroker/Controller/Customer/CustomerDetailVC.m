@@ -38,11 +38,18 @@
     [self loadDetailWithCustomerId:self.data.customerId];
 }
 
+- (void) refreshOrderList:(NSNotification *) notify
+{
+    [self startRefresh];
+    [self loadInsurPageList:0];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadCustomerDetail:) name:Notify_Reload_CustomerDetail object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshOrderList:) name:Notify_Refresh_OrderList object:nil];
     
     self.title = @"详细资料";
     
@@ -231,12 +238,11 @@
 }
 
 //获取保单信息列表
-- (void) loadInsurPageList
+- (void) loadInsurPageList:(NSInteger) offset
 {
     if(self.data.carInfo == nil)
         return;
     
-    NSInteger offset = [self.data.insurArray count];
     NSMutableDictionary *filters = [[NSMutableDictionary alloc] init];
     [Util setValueForKeyWithDic:filters value:@"and" key:@"groupOp"];
     NSMutableArray *rules = [[NSMutableArray alloc] init];
@@ -253,9 +259,14 @@
                                                       sord:@"desc"
                                                    filters:filters
                                                 Completion:^(int code, id content) {
+        [_policyListView endAnimation];
+        [_insuranceView endAnimation];
         [self handleResponseWithCode:code msg:[content objectForKey:@"msg"]];
         if(code == 200){
             NSArray *array = [[content objectForKey:@"data"] objectForKey:@"rows"];
+            if(offset == 0){
+                [self.data.insurArray removeAllObjects];
+            }
             [self.data.insurArray addObjectsFromArray:[InsurInfoModel modelArrayFromArray:array]];
             self.data.insurTotal = [[[content objectForKey:@"data"] objectForKey:@"total"] integerValue];
             self.data.isLoadInsur = YES;
@@ -310,9 +321,10 @@
     sender.selected = YES;
     
     _policyListView.hidden = YES;
+    _insuranceView.btnAdd.hidden = NO;
+    [_insuranceView.btnAdd setTitle:@"立即添加" forState:UIControlStateNormal];
     _followUpView.hidden = YES;
     _insuranceDetailView.hidden = YES;
-    
     _insuranceView.hidden = YES;
     
     CGRect frame = self.lbFocusLine.frame;
@@ -331,6 +343,7 @@
             self.scrollOffsetConstraint.constant = 0;
             [self resetContetHeight:_insuranceDetailView];
             btnQuote.hidden = NO;
+            _insuranceView.indicatorView.hidden = YES;
         }
             break;
         case 102:
@@ -338,12 +351,20 @@
             [self focusLineMovieTo:CGRectMake(frame.size.width * 2, frame.origin.y, ScreenWidth /3, 3)];
             _insuranceView.lbTitle.text = @"客户保单信息";
             _insuranceView.lbExplain.text = @"暂无保单信息";
-            _insuranceView.btnAdd.hidden = NO;
+            [_insuranceView.btnAdd setTitle:@"刷新" forState:UIControlStateNormal];
+            if(_insuranceView.indicatorView.isAnimating){
+                _insuranceView.indicatorView.hidden = NO;
+            }else{
+                _insuranceView.indicatorView.hidden = YES;
+            }
             _insuranceView.type = enumInsuranceInfoViewTypePolicy;
+            if(self.data.carInfo == nil)
+                _insuranceView.btnAdd.hidden = YES;
             _policyListView.hidden = NO;
             [self resetContetHeight:_policyListView];
             if(!self.data.isLoadInsur){
-                [self loadInsurPageList];
+                [self startRefresh];
+                [self loadInsurPageList:0];
             }
         }
             break;
@@ -356,6 +377,7 @@
             _followUpView.hidden = NO;
             _insuranceView.type = enumInsuranceInfoViewTypeFollowUp;
             [self resetContetHeight:_followUpView];
+            _insuranceView.indicatorView.hidden = YES;
             
             if(!self.data.isLoadVisit){
                 [self loadVisitList];
@@ -395,6 +417,8 @@
         view.hidden = YES;
         _insuranceView.hidden = NO;
     }
+    
+    [self.view setNeedsLayout];
 }
 
 #pragma BaseInsuranceInfoDelegate
@@ -470,14 +494,29 @@
 - (void) NotifyToLoadMorePloicy:(BaseInsuranceInfo *)sender
 {
     if(sender == _policyListView){
-        [self loadInsurPageList];
+        NSInteger offset = [self.data.insurArray count];
+        [self loadInsurPageList:offset];
         
     }
 }
 
 - (void) NotifyHandleItemDelegateClicked:(BaseInsuranceInfo *)sender model:(id) model
 {
-    if(sender == _policyListView){}
+    if(sender == _policyListView){
+        InsurInfoModel *policy = (InsurInfoModel*) model;
+        [_policyListView deleteItemWithOrderId:policy.insuranceOrderUuid Completion:^(int code, id content) {
+            [self handleResponseWithCode:code msg:[content objectForKey:@"msg"]];
+            if(code == 200){
+                [self.customerinfoModel.detailModel.insurArray removeObject:model];
+                self.customerinfoModel.detailModel.insurTotal --;
+                if(self.customerinfoModel.detailModel.insurTotal < 0){
+                    self.customerinfoModel.detailModel.insurTotal = 0;
+                }
+                [self resetContetHeight:_selectedView];
+                [_policyListView.tableview reloadData];
+            }
+        }];
+    }
     else if (sender == _insuranceDetailView){}
     else{
         VisitInfoModel *visit = (VisitInfoModel *) model;
@@ -507,8 +546,23 @@
     }
     else if(type == enumInsuranceInfoViewTypeInsurance){
         [self addAutoInsuranceInfo];
+    }else{
+        [self startRefresh];
+        [self loadInsurPageList:0];
     }
     
+}
+
+- (void) startRefresh
+{
+    _insuranceView.indicatorView.hidden = NO;
+    [_insuranceView startAnimation];
+}
+
+- (void) NotifyToRefresh:(BaseInsuranceInfo *)sender;//刷新保单列表
+{
+    [self startRefresh];
+    [self loadInsurPageList:0];
 }
 
 - (void) addFollowUp

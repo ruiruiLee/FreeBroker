@@ -130,4 +130,21 @@
     }
 }
 
+- (void) startAnimation
+{
+    CABasicAnimation* rotationAnimation;
+    rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    rotationAnimation.toValue = [NSNumber numberWithFloat: M_PI * 2.0 ];
+    rotationAnimation.duration = 0.5;
+    rotationAnimation.cumulative = YES;
+    rotationAnimation.repeatCount = INT_MAX;
+    
+    [self.btnEdit.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
+}
+
+- (void) endAnimation
+{
+    [self.btnEdit.layer removeAnimationForKey:@"rotationAnimation"];
+}
+
 @end

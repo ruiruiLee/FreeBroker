@@ -196,7 +196,7 @@
 - (void)drawRect:(CGRect)rect {
     [super drawRect:rect];
     
-    UIColor *color = _COLOR(0xe6, 0xe6, 0xe6);
+    UIColor *color = _COLOR(0xb5, 0xb5, 0xb5);
     
     CGContextRef c = UIGraphicsGetCurrentContext();
     
@@ -238,7 +238,9 @@
         i++;
     }
     CGContextRestoreGState(c);
-    xStart += self.xDisplacement;
+    
+    //不支持滑动，屏蔽了
+//    xStart += self.xDisplacement;
     
     CGRect availableRect = CGRectMake( PADDING + self.yAxisLabelsWidth - 4, 0, self.bounds.size.width - 2 * PADDING - self.yAxisLabelsWidth + 8, availableHeight + PADDING *2 + X_AXIS_SPACE);
     CGContextAddRect(c, availableRect);

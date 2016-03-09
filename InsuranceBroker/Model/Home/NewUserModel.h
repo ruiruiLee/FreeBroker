@@ -15,5 +15,6 @@
 @property (nonatomic, strong) NSString *imgUrl;
 @property (nonatomic, strong) NSString *url;
 @property (nonatomic, assign) BOOL isRedirect;//": 1
+@property (nonatomic, strong) NSString *content;
 
 @end

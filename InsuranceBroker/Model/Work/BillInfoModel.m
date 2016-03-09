@@ -25,21 +25,56 @@
 + (BaseModel *) modelFromDictionary:(NSDictionary *)dictionary
 {
     BillInfoModel *model = [[BillInfoModel alloc] init];
-    
-    model.billId = [dictionary objectForKey:@"billId"];
-    model.billType = [[dictionary objectForKey:@"billType"] integerValue];
-    model.billTypeName = [dictionary objectForKey:@"billTypeName"];
-    model.createdAt = [BaseModel dateFromString:[dictionary objectForKey:@"createdAt"]];
-    model.userId = [dictionary objectForKey:@"userId"];
-    model.memo = [dictionary objectForKey:@"memo"];
-    model.advanceId = [dictionary objectForKey:@"advanceId"];
-    model.insuranceOrderEarnId = [dictionary objectForKey:@"insuranceOrderEarnId"];
-    model.redPackUserId = [dictionary objectForKey:@"redPackUserId"];
-    model.billStatus = [[dictionary objectForKey:@"billStatus"] integerValue];
-    model.billDoType = [[dictionary objectForKey:@"billDoType"] integerValue];
-    model.billMoney = [dictionary objectForKey:@"billMoney"];
-    
+    [model setContentFromDictionary:dictionary];
     return model;
+}
+
+- (id) init
+{
+    self = [super init];
+    if(self){
+        self.isLoadDetail = NO;
+    }
+    
+    return self;
+}
+
+- (void) setContentFromDictionary:(NSDictionary *)dictionary
+{
+    if([dictionary objectForKey:@"billId"])
+        self.billId = [dictionary objectForKey:@"billId"];
+    if([dictionary objectForKey:@"billType"])
+        self.billType = [[dictionary objectForKey:@"billType"] integerValue];
+    if([dictionary objectForKey:@"billTypeName"])
+        self.billTypeName = [dictionary objectForKey:@"billTypeName"];
+    if([dictionary objectForKey:@"createdAt"])
+        self.createdAt = [BaseModel dateFromString:[dictionary objectForKey:@"createdAt"]];
+    if([dictionary objectForKey:@"userId"])
+        self.userId = [dictionary objectForKey:@"userId"];
+    if([dictionary objectForKey:@"memo"])
+        self.memo = [dictionary objectForKey:@"memo"];
+    if([dictionary objectForKey:@"advanceId"])
+        self.advanceId = [dictionary objectForKey:@"advanceId"];
+    if([dictionary objectForKey:@"insuranceOrderEarnId"])
+        self.insuranceOrderEarnId = [dictionary objectForKey:@"insuranceOrderEarnId"];
+    if([dictionary objectForKey:@"redPackUserId"])
+        self.redPackUserId = [dictionary objectForKey:@"redPackUserId"];
+    if([dictionary objectForKey:@"billStatus"])
+        self.billStatus = [[dictionary objectForKey:@"billStatus"] integerValue];
+    if([dictionary objectForKey:@"billDoType"])
+        self.billDoType = [[dictionary objectForKey:@"billDoType"] integerValue];
+    if([dictionary objectForKey:@"billMoney"])
+        self.billMoney = [dictionary objectForKey:@"billMoney"];
+    if([dictionary objectForKey:@"auditStatus"])
+        self.auditStatus = [dictionary objectForKey:@"auditStatus"];
+    if([dictionary objectForKey:@"planUkbRatio"])
+        self.planUkbRatio = [[dictionary objectForKey:@"planUkbRatio"] floatValue];
+    if([dictionary objectForKey:@"productMaxRatio"])
+        self.productMaxRatio = [[dictionary objectForKey:@"productMaxRatio"] floatValue];
+    if([dictionary objectForKey:@"insuranceOrderNo"])
+        self.insuranceOrderNo = [dictionary objectForKey:@"insuranceOrderNo"];
+    if([dictionary objectForKey:@"insuranceOrderUuid"])
+        self.insuranceOrderUuid = [dictionary objectForKey:@"insuranceOrderUuid"];
 }
 
 @end

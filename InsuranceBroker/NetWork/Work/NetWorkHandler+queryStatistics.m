@@ -21,4 +21,15 @@
     [handle postWithMethod:@"/web/statistics/queryStatistics.xhtml" BaseUrl:Base_Uri Params:pramas Completion:completion];
 }
 
++ (void) requestToQueryStatistics:(NSString *)userId staticsType:(NSString *) staticsType Completion:(Completion)completion
+{
+    NetWorkHandler *handle = [NetWorkHandler shareNetWorkHandler];
+    
+    NSMutableDictionary *pramas = [[NSMutableDictionary alloc] init];
+    [Util setValueForKeyWithDic:pramas value:userId key:@"userId"];
+    [Util setValueForKeyWithDic:pramas value:staticsType key:@"statisticsType"];
+    
+    [handle postWithMethod:@"/web/statistics/queryStatistics.xhtml" BaseUrl:Base_Uri Params:pramas Completion:completion];
+}
+
 @end

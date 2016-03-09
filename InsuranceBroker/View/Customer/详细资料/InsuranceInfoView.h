@@ -28,6 +28,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) IBOutlet UILabel *lbExplain;
 @property (nonatomic, strong) IBOutlet UILabel *lbTitle;
 @property (nonatomic, strong) IBOutlet UILabel *lbSepLine;
+@property (nonatomic, strong) IBOutlet UIActivityIndicatorView *indicatorView;
 
 @property (nonatomic, weak) id<InsuranceInfoViewDelegate> delegate;
 
@@ -37,5 +38,8 @@ typedef enum : NSUInteger {
 //+ (id) loadFromNib;
 
 - (IBAction) handleAddButtonClicked:(UIButton *)sender;
+
+- (void) startAnimation;
+- (void) endAnimation;
 
 @end

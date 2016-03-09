@@ -23,4 +23,18 @@
 @property (nonatomic, assign) NSInteger billDoType;//":"1"; //操作类型；1收入，2提现
 @property (nonatomic, strong) NSString *billMoney;
 
+//详情
+//用于提现申请 - billType = 2
+@property (nonatomic, strong) NSString *auditStatus;//": "等待审核",//提现申请
+
+//用于订单收益 - billType = 1
+@property (nonatomic, assign) CGFloat planUkbRatio;//": "10.00",
+@property (nonatomic, assign) CGFloat productMaxRatio;//": "24.00",
+@property (nonatomic, strong) NSString *insuranceOrderNo;//": "201602011445245910"
+@property (nonatomic, strong) NSString *insuranceOrderUuid;
+
+@property (nonatomic, assign) BOOL isLoadDetail;
+
+- (void) setContentFromDictionary:(NSDictionary *)dictionary;
+
 @end

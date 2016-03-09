@@ -12,6 +12,7 @@
 #import "NetWorkHandler+getBacks.h"
 #import "BankInfoModel.h"
 #import "BankSelectVC.h"
+#import "ProgressHUD.h"
 
 @interface BindBankCardVC ()<MenuDelegate>
 {
@@ -115,7 +116,9 @@
 
 - (void) loadData
 {
+    [ProgressHUD show:nil];
     [NetWorkHandler requestTogetBanks:^(int code, id content) {
+        [ProgressHUD dismiss];
         [self handleResponseWithCode:code msg:[content objectForKey:@"msg"]];
         if(code == 200){
             self.data = [BankInfoModel modelArrayFromArray:[[content objectForKey:@"data"] objectForKey:@"rows"]];
@@ -125,10 +128,24 @@
 
 - (void) handleLeftBarButtonClicked:(id)sender
 {
+    [_tfCardNum resignFirstResponder];
+    [_tfName resignFirstResponder];
     BOOL result = [self isModify];
     if(result){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"警告" message:@"确认放弃保存数据吗？" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
-        [alert show];
+        if([self getIOSVersion] < 8.0){
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"警告" message:@"确认放弃保存填写资料吗？" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
+            [alert show];
+        }
+        else{
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"警告" message:@"确认放弃保存填写资料吗？" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [self.navigationController popViewControllerAnimated:YES];
+            }];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+            [alertController addAction:okAction];
+            [alertController addAction:cancelAction];
+            [self presentViewController:alertController animated:YES completion:nil];
+        }
     }
     else{
         [super handleLeftBarButtonClicked:sender];

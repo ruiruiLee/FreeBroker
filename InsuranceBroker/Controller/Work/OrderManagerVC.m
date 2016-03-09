@@ -13,6 +13,7 @@
 #import "InsurInfoModel.h"
 #import "WebViewController.h"
 #import "UIImageView+WebCache.h"
+#import "NetWorkHandler+deleteInsuranceOrder.h"
 
 @interface OrderManagerVC () <UISearchBarDelegate>
 {
@@ -158,6 +159,7 @@
     NSString *deq = @"cell";
     OrderManagerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:deq];
     if(!cell){
+//        cell = [[OrderManagerTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:deq];
         NSArray *nibs = [[NSBundle mainBundle]loadNibNamed:@"OrderManagerTableViewCell" owner:nil options:nil];
         cell = [nibs lastObject];
     }
@@ -171,7 +173,7 @@
     cell.lbContent.text = model.planTypeName;//[Util getStringByPlanType:model.planType];
     [cell.phoneNum setTitle:model.customerPhone forState:UIControlStateNormal];
     cell.lbStatus.attributedText = [self getAttributedString:model.orderOfferStatusMsg orderOfferNums:model.orderOfferNums orderOfferStatus:model.orderOfferStatus orderOfferPayPrice:model.orderOfferPayPrice orderOfferStatusStr:(NSString *) model.orderOfferStatusMsg];
-    [self setPolicyStatusWithCell:cell orderOfferStatus:model.orderOfferStatus orderOfferStatusStr:model.orderOfferStatusStr];
+    [self setPolicyStatusWithCell:cell orderOfferStatus:model.orderOfferStatus orderOfferStatusStr:model.orderOfferStatusStr orderOfferPrintStatus:model.orderOfferPrintStatus];
     [cell.logoImgV sd_setImageWithURL:[NSURL URLWithString:model.productLogo] placeholderImage:ThemeImage(@"chexian")];
     
     return cell;
@@ -250,6 +252,51 @@
     return view;
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"commitEditingStyle");
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        NSArray *array = [insurArray objectAtIndex:indexPath.section];
+        InsurInfoModel *model = [array objectAtIndex:indexPath.row];
+        [self deleteItemWithOrderId:model.insuranceOrderUuid Completion:^(int code, id content) {
+            [self handleResponseWithCode:code msg:[content objectForKey:@"msg"]];
+            if(code == 200){
+                [self.data removeObject:model];
+                [self initData];
+                [self.pulltable reloadData];
+                self.total--;
+                if(self.total <0)
+                    self.total = 0;
+            }
+        }];
+    }
+    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+    }
+}
+
+//编辑删除按钮的文字
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"删除";
+}
+
+//这个方法用来告诉表格 某一行是否可以移动
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete; //每行左边会出现红的删除按钮
+}
+
+
 - (void) initData
 {
     NSMutableArray *result = [[NSMutableArray alloc] init];
@@ -281,51 +328,61 @@
     [self.pulltable reloadData];
 }
 
-- (void) setPolicyStatusWithCell:(OrderManagerTableViewCell *) cell orderOfferStatus:(NSInteger) orderOfferStatus orderOfferStatusStr:(NSString *) orderOfferStatusStr
+- (void) setPolicyStatusWithCell:(OrderManagerTableViewCell *) cell orderOfferStatus:(NSInteger) orderOfferStatus orderOfferStatusStr:(NSString *) orderOfferStatusStr orderOfferPrintStatus:(NSInteger) orderOfferPrintStatus
 {
     LeftImgButton *btn = cell.btnStatus;
     NSString *title = @"";
     UIImage *image = nil;
     if(orderOfferStatus == 1){
-        title = @"报价中";
+//        title = @"报价中";
         image = ThemeImage(@"price_loading");
     }
     else if(orderOfferStatus == 2){
-        title = @"报价失败";
+//        title = @"报价失败";
         image = ThemeImage(@"error");
     }
     else if (orderOfferStatus == 3){
-        title = @"报价完成";
+//        title = @"报价完成";
         image = ThemeImage(@"price_done");
     }
     else if (orderOfferStatus == 4){
-        title = @"出单配送";
-        image = ThemeImage(@"deliver");
+        if(orderOfferPrintStatus == 2){
+//            title = @"出单配送";
+            image = ThemeImage(@"deliver");
+        }else{
+//            title = @"等待出单";
+            image = ThemeImage(@"Issuing");
+        }
     }
     else if (orderOfferStatus == 5){
-        title = @"出单配送";
+//        title = @"出单配送";
         image = ThemeImage(@"deliver");
     }
     else if (orderOfferStatus == 6){
-        title = @"出单配送";
-        image = ThemeImage(@"deliver");
+        if(orderOfferPrintStatus == 2){
+//            title = @"出单配送";
+            image = ThemeImage(@"deliver");
+        }else{
+//            title = @"等待出单";
+            image = ThemeImage(@"Issuing");
+        }
     }
     else if (orderOfferStatus == 7){
-        title = @"付款失败";
+//        title = @"付款失败";
         image = ThemeImage(@"error");
     }
     else if (orderOfferStatus == 8){
-        title = @"交易成功";
-        image = ThemeImage(@"Order_done");
+//        title = @"交易成功";
+        image = ThemeImage(@"order_done");
     }
     else if (orderOfferStatus == 9){
-        title = @"保单过期";
+//        title = @"保单过期";
         image = ThemeImage(@"error");
     }else{
-        title = orderOfferStatusStr;
         image = ThemeImage(@"error");
     }
     
+    title = orderOfferStatusStr;
     [btn setImage:image forState:UIControlStateNormal];
     [btn setTitle:title forState:UIControlStateNormal];
 }
@@ -406,6 +463,11 @@
     filterString = @"";
     self.pageNum = 0;
     [self loadDataInPages:self.pageNum];
+}
+
+- (void) deleteItemWithOrderId:(NSString *) orderId Completion:(Completion)completion
+{
+    [NetWorkHandler requestToDeleteInsuranceOrder:orderId userId:[UserInfoModel shareUserInfoModel].userId Completion:completion];
 }
 
 @end

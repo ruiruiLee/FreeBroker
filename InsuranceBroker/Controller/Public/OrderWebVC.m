@@ -8,6 +8,7 @@
 
 #import "OrderWebVC.h"
 #import "MyJSInterface.h"
+#import "define.h"
 
 @interface OrderWebVC ()<MyJSInterfaceDelegate, UIWebViewDelegate>
 
@@ -88,6 +89,7 @@
 
 - (void) NotifyCloseWindow
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName:Notify_Refresh_OrderList object:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

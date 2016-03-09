@@ -36,4 +36,6 @@
 @property(nonatomic, strong) NSMutableArray *slices;
 @property(nonatomic, strong) NSArray        *sliceColors;
 
+@property (nonatomic, strong) NSString *userId;
+
 @end

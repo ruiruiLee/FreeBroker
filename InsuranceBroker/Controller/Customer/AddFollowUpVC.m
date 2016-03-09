@@ -13,6 +13,7 @@
 #import "DictModel.h"
 #import "ZHPickView.h"
 #import "NetWorkHandler+saveOrUpdateCustomerVisits.h"
+#import "ProgressHUD.h"
 
 @interface AddFollowUpVC () <MenuDelegate, ZHPickViewDelegate, UITextViewDelegate>
 {
@@ -34,6 +35,13 @@
 
 @implementation AddFollowUpVC
 
+- (void) dealloc
+{
+    if(_datePicker){
+        [_datePicker remove];
+    }
+}
+
 - (void) handleLeftBarButtonClicked:(id)sender
 {
     [self.tfAdd resignFirstResponder];
@@ -48,8 +56,20 @@
     
     BOOL flag = [self isHasModify];
     if(flag){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"警告" message:@"确认放弃保存填写资料吗？" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
-        [alert show];
+        if([self getIOSVersion] < 8.0){
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"警告" message:@"确认放弃保存填写资料吗？" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
+            [alert show];
+        }
+        else{
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"警告" message:@"确认放弃保存填写资料吗？" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [self.navigationController popViewControllerAnimated:YES];
+            }];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+            [alertController addAction:okAction];
+            [alertController addAction:cancelAction];
+            [self presentViewController:alertController animated:YES completion:nil];
+        }
     }
     else{
         [self.navigationController popViewControllerAnimated:YES];
@@ -211,12 +231,14 @@
 
 - (void) loadVisitDictionary
 {
+    [ProgressHUD show:nil];
     NSArray *array = @[@"visitType", @"visitProgress"];
     NSString *method = @"/web/common/getDictCustom.xhtml?dictType=['visitType','visitProgress']";
     method = [NSString stringWithFormat:method, [NetWorkHandler objectToJson:array]];
     NetWorkHandler *handle = [NetWorkHandler shareNetWorkHandler];
     __weak AddFollowUpVC *weakself = self;
     [handle getWithMethod:method BaseUrl:Base_Uri Params:nil Completion:^(int code, id content) {
+        [ProgressHUD dismiss];
         [weakself handleResponseWithCode:code msg:[content objectForKey:@"msg"]];
         if(code == 200){
             NSArray *array = [DictModel modelArrayFromArray:[[content objectForKey:@"data"] objectForKey:@"rows"]];
@@ -307,7 +329,7 @@
 - (void)textViewDidChange:(UITextView *)textView
 {
     if(self.tfAdd == textView){
-        CGSize size = [textView.text sizeWithFont:textView.font constrainedToSize:CGSizeMake(textView.frame.size.width, INT_MAX)];
+        CGSize size = [textView.text sizeWithFont:textView.font constrainedToSize:CGSizeMake(ScreenWidth - 158, INT_MAX)];
         if(size.height > 36)
             size.height = 36;
         if(size.height < 10)

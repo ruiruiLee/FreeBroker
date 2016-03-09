@@ -20,7 +20,7 @@
 - (void) NotifyToLoadMorePloicy:(BaseInsuranceInfo *)sender;
 
 - (void) NotifyHandleItemDelegateClicked:(BaseInsuranceInfo *)sender model:(id) model;//处理保单列表点击
-
+- (void) NotifyToRefresh:(BaseInsuranceInfo *)sender;//刷新保单列表
 @end
 
 @interface BaseInsuranceInfo : UIView <UITableViewDataSource, UITableViewDelegate>
@@ -36,5 +36,9 @@
 - (CGFloat) resetSubviewsFrame;
 
 - (void) doEditButtonClicked:(UIButton *)sender;
+
+- (void) startAnimation;
+
+- (void) endAnimation;
 
 @end

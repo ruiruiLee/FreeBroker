@@ -26,21 +26,27 @@
 #define AVOSCloudAppID  @"0PyuKjNlBECHhEf3HxDB7NYX-gzGzoHsz"
 #define AVOSCloudAppKey @"mOmncwQfyeroy2jcDj0ch1Q1"
 //#define SERVER_ADDRESS @"http://dev.ibroker.avosapps.com"
-#define SERVER_ADDRESS @"http://dev.ibroker.leanapp.cn"
+#define SERVER_ADDRESS @"http://dev.ykbtest.leanapp.cn"
 #define Base_Uri @"http://118.123.249.87:8783/UKB.AgentNew"
 //#define Base_Uri @"http://shuaidehen.imwork.net/UKB.AgentNew/"
 
+
+//正式服地址
+//#define SERVER_ADDRESS @"http://ibroker.leanapp.cn"
+//#define Base_Uri @"http://broker.ukuaibao.com/"
 //location
 #define LcationInstance [LocationManagerObserver sharedInstance]
 
 //image
 #define ThemeImage(imageName)  [UIImage imageNamed:imageName]
+#define Share_Icon @""
 
 //rgb Color
 #define _COLOR(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
 #define _COLORa(r, g, b, a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 
 #define Subhead_Color _COLOR(0x75, 0x75, 0x75)
+#define SepLine_color _COLOR(0xf5, 0xf5, 0xf5)
 
 //Font
 #define _FONT(s) [UIFont fontWithName:@"Helvetica Neue" size:(s)]
@@ -74,5 +80,6 @@
 #define Notify_Refrush_TagList @"Notify_Refrush_TagList"
 #define Notify_Logout @"Notify_Logout"
 #define Notify_Login @"Notify_Login"
+#define Notify_Refresh_OrderList @"Notify_Refresh_OrderList"
 
 #endif /* define_h */

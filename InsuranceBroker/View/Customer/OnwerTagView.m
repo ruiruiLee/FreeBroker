@@ -145,12 +145,10 @@
         [sender removeFromSuperview];
         TagObjectModel *model = [dataArray objectAtIndex:sender.tag - 100];
         [modelArray removeObject:model];
-        
         if(delegate && [delegate respondsToSelector:@selector(NotifyOwnerTagSelectedChanged:)]){
             [delegate NotifyOwnerTagSelectedChanged:modelArray];
         }
     }
-    
     [self resetSubViews];
 }
 
@@ -166,7 +164,6 @@
         TagButton *btn = [viewArray objectAtIndex:i];
         CGSize size = btn.frame.size;
         btn.tag = 100 + i;
-        
         CGFloat nx = ox + size.width;
         if(nx > frame.size.width){
             oy += 36;

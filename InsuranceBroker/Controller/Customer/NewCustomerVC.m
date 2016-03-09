@@ -32,10 +32,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (float)getIOSVersion
-{
-    return [[[UIDevice currentDevice] systemVersion] floatValue];
-}
+//- (float)getIOSVersion
+//{
+//    return [[[UIDevice currentDevice] systemVersion] floatValue];
+//}
 
 - (void) updateOrAddLabelInfo
 {
@@ -47,7 +47,8 @@
     }
     
     NSString *mobile = self.tfMobile.text;
-    if(![Util isMobileNumber:mobile]){
+    mobile = [self formatPhoneNum:mobile];
+    if(![Util isMobilePhoeNumber:mobile] && ![Util checkPhoneNumInput:mobile]){
         [Util showAlertMessage:@"客户联系电话格式不正确"];
         return;
     }
@@ -219,8 +220,10 @@
     }
     
     self.tfName.text = name;
-    if([phones count] > 0)
-        self.tfMobile.text = [NSString stringWithFormat:@"%@", [[phones objectAtIndex:0] stringByReplacingOccurrencesOfString:@"-" withString:@""]];
+    if([phones count] > 0){
+        NSString *mobile = [self formatPhoneNum:[phones objectAtIndex:0]];//[[phones objectAtIndex:0] stringByReplacingOccurrencesOfString:@"-" withString:@""];
+        self.tfMobile.text = mobile;
+    }
     
     [peoplePicker dismissViewControllerAnimated:YES completion:nil];
     
@@ -247,11 +250,20 @@
     
     self.tfName.text = name;
     if([phones count] > 0)
-        self.tfMobile.text = [NSString stringWithFormat:@"%@", [[phones objectAtIndex:0] stringByReplacingOccurrencesOfString:@"-" withString:@""]];
+    {
+        NSString *mobile = [self formatPhoneNum:[phones objectAtIndex:0]];//[[phones objectAtIndex:0] stringByReplacingOccurrencesOfString:@"-" withString:@""];
+        self.tfMobile.text = mobile;
+    }
+//        self.tfMobile.text = [NSString stringWithFormat:@"%@", [[phones objectAtIndex:0] stringByReplacingOccurrencesOfString:@"-" withString:@""]];
     
     [peoplePicker dismissViewControllerAnimated:YES completion:nil];
     
     [self isHasModify];
+}
+
+- (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker
+{
+    [peoplePicker dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
@@ -284,7 +296,8 @@
     if([phoneNumbers count] > 0){
         CNLabeledValue *value = [phoneNumbers objectAtIndex:0];
         CNPhoneNumber *number = value.value;
-        self.tfMobile.text = [number.stringValue stringByReplacingOccurrencesOfString:@"-" withString:@""];
+        NSString *mobile = [self formatPhoneNum:number.stringValue];//[number.stringValue stringByReplacingOccurrencesOfString:@"-" withString:@""];
+        self.tfMobile.text =  mobile;
     }
     
     [self isHasModify];
@@ -292,7 +305,5 @@
 - (void)contactPicker:(CNContactPickerViewController *)picker didSelectContactProperty:(CNContactProperty *)contactProperty
 {
 }
-
-
 
 @end

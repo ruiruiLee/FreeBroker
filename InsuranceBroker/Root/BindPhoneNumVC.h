@@ -27,6 +27,6 @@
 - (void) btnGainVerifyCode:(id)sender;
 - (void) btnLoginUseVerifyCode:(id)sender;
 - (void) loginWithDictionary:(NSDictionary *)dic phone:(NSString *) phone smCode:(NSString *)smCode;
-- (void)TimerOutTimer;
+- (void) TimerOutTimer;
 
 @end

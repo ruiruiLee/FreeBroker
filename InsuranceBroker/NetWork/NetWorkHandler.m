@@ -66,8 +66,10 @@ static NetWorkHandler *networkmanager;
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
-//    self.manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-//    self.manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+    //    self.manager.requestSerializer.timeoutInterval = 20;
+    
+    //    self.manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    //    self.manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
     
     [self.manager GET:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *result = nil;
@@ -99,7 +101,7 @@ static NetWorkHandler *networkmanager;
 
 -(NSMutableString *) ConvertCachKeyString:(NSString*)strUrl{
     NSMutableString *Strkey = [[NSMutableString alloc] initWithString:strUrl];
-
+    
     NSString *strReplace = [NSString stringWithFormat:@"userid=%@",  [UserInfoModel shareUserInfoModel].userId];
     
     [Strkey stringByAppendingString:strReplace];
@@ -172,10 +174,11 @@ static NetWorkHandler *networkmanager;
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
-
-   NSMutableURLRequest *request = [self.manager.requestSerializer requestWithMethod:@"POST" URLString:path parameters:params error:nil];
+    NSTimeInterval begin = [[NSDate date] timeIntervalSince1970];
     
-     //[self.manager POST:path parameters:params   self.manager HTTPRequestOperationWithRequest
+    NSMutableURLRequest *request = [self.manager.requestSerializer requestWithMethod:@"POST" URLString:path parameters:params error:nil];
+    //    self.manager.requestSerializer.timeoutInterval = 20;
+    //[self.manager POST:path parameters:params   self.manager HTTPRequestOperationWithRequest
     [self.manager POST:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [ProjectDefine removeRequestTag:Tag];
         NSDictionary *result = nil;
@@ -185,28 +188,30 @@ static NetWorkHandler *networkmanager;
         }else{
             result = responseObject;
         }
-         _urlstring= [self ConvertCachKeyString:[self getUrlAbsoluteString:request]];
+        _urlstring= [self ConvertCachKeyString:[self getUrlAbsoluteString:request]];
         // 加缓存
         [[EGOCache globalCache] setObject:result forKey: [Util md5Hash:_urlstring]];
         
         NSLog(@"请求URL：%@ \n请求方法:%@ \n请求参数：%@\n 请求结果：%@\n==================================", url, method, params, result);
-
+        
         [self handleResponse:result Completion:completion];
         
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSTimeInterval end = [[NSDate date] timeIntervalSince1970];
+        NSTimeInterval result = end - begin;
         [ProjectDefine removeRequestTag:Tag];
         NSLog(@"请求URL：%@ \n请求方法:%@ \n请求参数：%@\n 请求结果：%@\n==================================", url, method, params, error);
-
+        
         _urlstring= [self ConvertCachKeyString:[self getUrlAbsoluteString:request]];
-    id cacheDatas =[[EGOCache globalCache] objectForKey:[Util md5Hash:_urlstring]];
+        id cacheDatas =[[EGOCache globalCache] objectForKey:[Util md5Hash:_urlstring]];
         [self handleResponse:cacheDatas Completion:completion];
-
-//        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-//        [dic setObject:[NSNumber numberWithInteger:error.code] forKey:@"code"];
-//        [dic setObject:error.localizedDescription forKey:@"msg"];
-//        
-//        [self handleResponse:dic Completion:completion];
+        
+        //        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+        //        [dic setObject:[NSNumber numberWithInteger:error.code] forKey:@"code"];
+        //        [dic setObject:error.localizedDescription forKey:@"msg"];
+        //
+        //        [self handleResponse:dic Completion:completion];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     }];
 }

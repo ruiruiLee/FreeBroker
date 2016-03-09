@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15C47a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15E39d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
@@ -55,15 +55,25 @@
                                 <action selector="handleAddButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="csb-ii-Bzr"/>
                             </connections>
                         </button>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="M4G-8R-z7O">
+                            <rect key="frame" x="149" y="115" width="20" height="20"/>
+                            <animations/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="20" id="8kk-gw-BaM"/>
+                                <constraint firstAttribute="height" constant="20" id="jkS-xz-g3N"/>
+                            </constraints>
+                        </activityIndicatorView>
                     </subviews>
                     <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="klj-gd-l6t" firstAttribute="top" secondItem="hdN-05-NRM" secondAttribute="bottom" constant="20" id="AaB-lX-g1X"/>
                         <constraint firstItem="hdN-05-NRM" firstAttribute="leading" secondItem="7op-AU-Vh7" secondAttribute="leading" id="Fbd-ct-Ncp"/>
+                        <constraint firstItem="M4G-8R-z7O" firstAttribute="centerY" secondItem="klj-gd-l6t" secondAttribute="centerY" id="Trw-0n-JOk"/>
                         <constraint firstAttribute="bottom" secondItem="klj-gd-l6t" secondAttribute="bottom" constant="20" id="Vet-pv-IWL"/>
                         <constraint firstItem="hdN-05-NRM" firstAttribute="top" secondItem="7op-AU-Vh7" secondAttribute="top" constant="10" id="bOu-9w-w5x"/>
                         <constraint firstAttribute="trailing" secondItem="klj-gd-l6t" secondAttribute="trailing" constant="80" id="fFT-YD-L1K"/>
+                        <constraint firstItem="M4G-8R-z7O" firstAttribute="leading" secondItem="7op-AU-Vh7" secondAttribute="leading" constant="40" id="hcv-Fe-fi3"/>
                         <constraint firstItem="klj-gd-l6t" firstAttribute="leading" secondItem="7op-AU-Vh7" secondAttribute="leading" constant="80" id="jfT-bl-8Jw"/>
                         <constraint firstAttribute="trailing" secondItem="hdN-05-NRM" secondAttribute="trailing" id="sQ7-8o-z4s"/>
                     </constraints>
@@ -80,7 +90,7 @@
                 </view>
             </subviews>
             <animations/>
-            <color key="backgroundColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="nBq-NB-jct" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="07R-8U-knx"/>
                 <constraint firstItem="dod-kH-Jvg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="0Ut-Zm-WCv"/>
@@ -100,6 +110,7 @@
             <connections>
                 <outlet property="addCarInfo" destination="7op-AU-Vh7" id="gs4-sI-dt2"/>
                 <outlet property="btnAdd" destination="klj-gd-l6t" id="58t-OJ-viv"/>
+                <outlet property="indicatorView" destination="M4G-8R-z7O" id="WVW-fx-7gW"/>
                 <outlet property="lbExplain" destination="hdN-05-NRM" id="5QS-lT-Bdn"/>
                 <outlet property="lbSepLine" destination="up9-aS-uws" id="pDQ-IR-DVa"/>
                 <outlet property="lbTitle" destination="nBq-NB-jct" id="9fj-Vm-JZF"/>

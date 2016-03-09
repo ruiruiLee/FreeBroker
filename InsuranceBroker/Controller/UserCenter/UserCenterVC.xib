@@ -259,7 +259,7 @@
                                                 <constraint firstAttribute="width" constant="8" id="r1u-g4-L37"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -309,7 +309,7 @@
                                         <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QFG-Ug-yu1">
                                             <rect key="frame" x="0.0" y="0.0" width="296" height="89"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="上月完成（单）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPA-Y3-WkX">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="本月完成（单）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPA-Y3-WkX">
                                                     <rect key="frame" x="23" y="8" width="135" height="21"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -363,7 +363,7 @@
                                         <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d7E-rh-rXJ">
                                             <rect key="frame" x="310" y="0.0" width="290" height="89"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="上月收益（元）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zCo-up-LQN">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="本月收益（元）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zCo-up-LQN">
                                                     <rect key="frame" x="16" y="8" width="120" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -427,7 +427,7 @@
                                         <constraint firstItem="QFG-Ug-yu1" firstAttribute="top" secondItem="71g-TU-snt" secondAttribute="top" id="quu-RM-aYb"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iYd-rd-r6P">
+                                <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iYd-rd-r6P">
                                     <rect key="frame" x="0.0" y="265" width="600" height="70"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGh-ul-d19">
@@ -438,7 +438,7 @@
                                                 <constraint firstAttribute="height" constant="1" id="NQO-IB-ivE"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="本月已完成订单" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IrQ-He-dZC">
@@ -488,7 +488,7 @@
                                 <constraint firstItem="LXV-Wz-yex" firstAttribute="leading" secondItem="nsy-DC-aPN" secondAttribute="leading" id="BZe-6u-ETs"/>
                                 <constraint firstAttribute="trailing" secondItem="yhp-dP-tUo" secondAttribute="trailing" id="BnA-Vj-DpW"/>
                                 <constraint firstItem="CzG-1L-pOk" firstAttribute="top" secondItem="LXV-Wz-yex" secondAttribute="bottom" constant="50" id="C4x-cA-V6Z"/>
-                                <constraint firstItem="71g-TU-snt" firstAttribute="top" secondItem="CzG-1L-pOk" secondAttribute="bottom" constant="50" id="GBt-Ql-6fe"/>
+                                <constraint firstItem="71g-TU-snt" firstAttribute="top" secondItem="CzG-1L-pOk" secondAttribute="bottom" id="GBt-Ql-6fe"/>
                                 <constraint firstItem="CzG-1L-pOk" firstAttribute="leading" secondItem="nsy-DC-aPN" secondAttribute="leading" id="GY4-Kc-46D"/>
                                 <constraint firstItem="8Ao-1E-9ZF" firstAttribute="top" secondItem="nsy-DC-aPN" secondAttribute="top" constant="225" id="ImP-6b-Zsx"/>
                                 <constraint firstAttribute="bottom" secondItem="Nf6-Zs-G3O" secondAttribute="bottom" constant="15" id="Kep-xV-0cO"/>
@@ -501,6 +501,7 @@
                                 <constraint firstAttribute="trailing" secondItem="LXV-Wz-yex" secondAttribute="trailing" id="bVJ-vG-IbG"/>
                                 <constraint firstItem="Nf6-Zs-G3O" firstAttribute="leading" secondItem="nsy-DC-aPN" secondAttribute="leading" id="baM-Ty-SEO"/>
                                 <constraint firstItem="Nf6-Zs-G3O" firstAttribute="top" secondItem="71g-TU-snt" secondAttribute="bottom" constant="15" id="e7B-oF-Yfh"/>
+                                <constraint firstAttribute="bottom" secondItem="Nf6-Zs-G3O" secondAttribute="bottom" id="mPa-YP-RB8"/>
                                 <constraint firstItem="LXV-Wz-yex" firstAttribute="top" secondItem="nsy-DC-aPN" secondAttribute="top" constant="-200" id="qiC-0j-3AJ"/>
                                 <constraint firstItem="71g-TU-snt" firstAttribute="leading" secondItem="nsy-DC-aPN" secondAttribute="leading" id="riy-x4-PjT"/>
                                 <constraint firstItem="yhp-dP-tUo" firstAttribute="leading" secondItem="nsy-DC-aPN" secondAttribute="leading" id="uML-Pq-Dnk"/>

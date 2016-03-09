@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15C47a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15E39d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
@@ -27,23 +27,24 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DIj-C0-IHx">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DIj-C0-IHx">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="560"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S4F-sh-jST">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XTC-NO-t8c" customClass="CustomDetailHeaderView">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="189"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="211"/>
                                     <animations/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="189" id="EyO-7D-sn9"/>
+                                        <constraint firstAttribute="height" constant="211" id="EyO-7D-sn9"/>
                                     </constraints>
                                 </view>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="shadow" translatesAutoresizingMaskIntoConstraints="NO" id="O4a-vb-c69">
-                                    <rect key="frame" x="0.0" y="197" width="600" height="26"/>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shadow" translatesAutoresizingMaskIntoConstraints="NO" id="O4a-vb-c69">
+                                    <rect key="frame" x="0.0" y="211" width="600" height="15"/>
                                     <animations/>
+                                    <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="15" id="QZr-VB-1l6"/>
                                     </constraints>
@@ -136,9 +137,9 @@
                                 <constraint firstAttribute="trailing" secondItem="fzg-tc-CWj" secondAttribute="trailing" id="DxB-Dw-Rrp"/>
                                 <constraint firstAttribute="trailing" secondItem="Lgn-aa-ATy" secondAttribute="trailing" id="Md5-Et-602"/>
                                 <constraint firstItem="O4a-vb-c69" firstAttribute="leading" secondItem="S4F-sh-jST" secondAttribute="leading" id="Mn0-pn-iAE"/>
-                                <constraint firstAttribute="bottom" secondItem="fzg-tc-CWj" secondAttribute="bottom" id="Qll-XG-hCd"/>
+                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="fzg-tc-CWj" secondAttribute="bottom" id="Qll-XG-hCd"/>
                                 <constraint firstItem="fzg-tc-CWj" firstAttribute="top" secondItem="Lgn-aa-ATy" secondAttribute="bottom" id="URu-QU-eFp"/>
-                                <constraint firstItem="O4a-vb-c69" firstAttribute="top" secondItem="XTC-NO-t8c" secondAttribute="bottom" constant="8" id="Uv4-Ja-s11"/>
+                                <constraint firstItem="O4a-vb-c69" firstAttribute="top" secondItem="XTC-NO-t8c" secondAttribute="bottom" id="Uv4-Ja-s11"/>
                                 <constraint firstItem="XTC-NO-t8c" firstAttribute="top" secondItem="S4F-sh-jST" secondAttribute="top" id="V70-0l-vZz"/>
                                 <constraint firstAttribute="height" constant="600" id="c5g-zg-7BU"/>
                                 <constraint firstAttribute="trailing" secondItem="XTC-NO-t8c" secondAttribute="trailing" id="eIz-Q8-KuZ"/>
@@ -166,6 +167,6 @@
         </view>
     </objects>
     <resources>
-        <image name="shadow" width="1" height="15"/>
+        <image name="shadow" width="1" height="1"/>
     </resources>
 </document>

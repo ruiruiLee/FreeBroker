@@ -36,6 +36,8 @@
 @property (nonatomic, strong) NSString *carNo;//":"川A11111"; //投保车牌号
 @property (nonatomic, strong) NSString *respAddr;//;":"/car_insur/car_insur_plan.html?orderId=0f5e240754e143bd97bb083041634987"; //点击地址，参数什么的都拼接好了，没有参数不跳转
 
+@property (nonatomic, assign) NSInteger orderOfferPrintStatus;//0:等待出单 1:等待出单 2:出单配送中
+
 @property (nonatomic, strong) NSString *planTypeName;
 @property (nonatomic, strong) NSString *planOfferId;
 

@@ -42,7 +42,7 @@
     
     pulltable.tableFooterView = [[UIView alloc] init];
     
-    UIEdgeInsets insets = UIEdgeInsetsMake(0, 20, 0, 20);
+    UIEdgeInsets insets = UIEdgeInsetsMake(0, 16, 0, 16);
     self.pulltable.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.pulltable.separatorColor = _COLOR(0xe6, 0xe6, 0xe6);
     if ([pulltable respondsToSelector:@selector(setSeparatorInset:)]) {
@@ -105,7 +105,7 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIEdgeInsets insets = UIEdgeInsetsMake(0, 20, 0, 20);
+    UIEdgeInsets insets = UIEdgeInsetsMake(0, 16, 0, 16);
     if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
         [cell setSeparatorInset:insets];
     }

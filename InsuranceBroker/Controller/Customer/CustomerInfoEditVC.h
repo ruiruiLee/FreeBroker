@@ -27,6 +27,6 @@
 - (BOOL) isHasModify;
 - (NSArray *) tagModelArrayFromIdAndName;
 - (void) updateOrAddLabelInfo;
-
+- (NSString *) formatPhoneNum:(NSString *) phoneNum;
 
 @end

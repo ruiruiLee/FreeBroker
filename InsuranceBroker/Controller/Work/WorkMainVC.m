@@ -91,12 +91,15 @@
     if(model.isRedirect){
         WebViewController *web = [IBUIFactory CreateWebViewController];
         web.title = model.title;
+        web.type = enumShareTypeShare;
+        web.shareTitle = model.title;
+        web.shareContent = model.content;
         [self.navigationController pushViewController:web animated:YES];
         if(model.url){
-            [web loadHtmlFromUrl:model.url];
+            [web loadHtmlFromUrl:[NSString stringWithFormat:@"%@?userId=%@&appShare=1", model.url, [UserInfoModel shareUserInfoModel].userId]];
         }else{
             NSString *url = [NSString stringWithFormat:@"%@%@%@", SERVER_ADDRESS, @"/news/view/", model.nid];
-            [web loadHtmlFromUrl:url];
+            [web loadHtmlFromUrl:[NSString stringWithFormat:@"%@?userId=%@&appShare=1",url, [UserInfoModel shareUserInfoModel].userId]];
         }
     }
 }
@@ -128,6 +131,7 @@
     if(!cell){
         NSArray *nibs = [[NSBundle mainBundle]loadNibNamed:@"DeatilTextTableviewCell" owner:nil options:nil];
         cell = [nibs lastObject];
+//        cell = [[DeatilTextTableviewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:deq];
 //        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 //        cell.textLabel.font = _FONT(15);
 //        cell.textLabel.textColor = _COLOR(0x21, 0x21, 0x21);
@@ -196,6 +200,11 @@
             {
                 MyTeamsVC *vc = [[MyTeamsVC alloc] initWithNibName:nil bundle:nil];
                 vc.hidesBottomBarWhenPushed = YES;
+//                vc.userid = [UserInfoModel shareUserInfoModel].userId;
+//                vc.title = @"我的团队";
+//                vc.toptitle = @"我的队员";
+//                vc.name = @"我";
+//                vc.need = enumNeedIndicator;
                 [self.navigationController pushViewController:vc animated:YES];
             }
                 break;
@@ -210,6 +219,7 @@
             {
                 IncomeStatisticsVC *vc = [IBUIFactory CreateIncomeStatisticsViewController];
                 vc.hidesBottomBarWhenPushed = YES;
+                vc.userId = [UserInfoModel shareUserInfoModel].userId;
                 [self.navigationController pushViewController:vc animated:YES];
             }
                 break;
@@ -217,6 +227,7 @@
             {
                 SalesStatisticsVC *vc = [IBUIFactory CreateSalesStatisticsViewController];
                 vc.hidesBottomBarWhenPushed = YES;
+                vc.userId = [UserInfoModel shareUserInfoModel].userId;
                 [self.navigationController pushViewController:vc animated:YES];
             }
                 break;
@@ -232,7 +243,6 @@
                 break;
         }
     }
-
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -259,7 +269,8 @@
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIImageView *view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 15)];
-    view.image = ThemeImage(@"shadow");
+//    view.image = ThemeImage(@"shadow");
+    view.backgroundColor = SepLine_color;
     return view;
 }
 

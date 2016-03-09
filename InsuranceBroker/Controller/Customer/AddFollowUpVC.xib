@@ -275,6 +275,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="52" id="9H1-rL-ygr"/>
                                             </constraints>
+                                            <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
@@ -301,6 +302,7 @@
                                 <constraint firstItem="2Y7-cG-oF3" firstAttribute="leading" secondItem="1yw-NE-YCE" secondAttribute="leading" id="2Kd-Fe-81f"/>
                                 <constraint firstItem="2FY-Pt-L4R" firstAttribute="leading" secondItem="1yw-NE-YCE" secondAttribute="leading" id="4zu-AS-Pyd"/>
                                 <constraint firstItem="t94-Un-Wa3" firstAttribute="leading" secondItem="1yw-NE-YCE" secondAttribute="leading" id="7IC-ID-A4J"/>
+                                <constraint firstAttribute="bottom" secondItem="rgN-Jv-ABp" secondAttribute="bottom" id="8AA-OU-Zj4"/>
                                 <constraint firstItem="c7r-yy-7mg" firstAttribute="top" secondItem="zry-hI-CaB" secondAttribute="bottom" id="ArH-Pi-3cv"/>
                                 <constraint firstItem="Laf-BU-dlr" firstAttribute="leading" secondItem="1yw-NE-YCE" secondAttribute="leading" id="BgP-bf-AKD"/>
                                 <constraint firstAttribute="trailing" secondItem="c7r-yy-7mg" secondAttribute="trailing" id="DBS-7n-cKO"/>
@@ -321,7 +323,6 @@
                                 <constraint firstItem="rgN-Jv-ABp" firstAttribute="leading" secondItem="1yw-NE-YCE" secondAttribute="leading" id="h3t-L6-34b"/>
                                 <constraint firstItem="zry-hI-CaB" firstAttribute="top" secondItem="3Br-Qa-Xz7" secondAttribute="bottom" id="haF-bS-hfh"/>
                                 <constraint firstItem="252-UO-Wrm" firstAttribute="leading" secondItem="1yw-NE-YCE" secondAttribute="leading" id="i0S-fM-HLj"/>
-                                <constraint firstAttribute="bottom" secondItem="rgN-Jv-ABp" secondAttribute="bottom" id="j2O-XL-pg5"/>
                                 <constraint firstAttribute="trailing" secondItem="252-UO-Wrm" secondAttribute="trailing" id="mEh-1L-yNo"/>
                                 <constraint firstAttribute="trailing" secondItem="2Y7-cG-oF3" secondAttribute="trailing" id="ndd-V7-oGu"/>
                                 <constraint firstItem="3Br-Qa-Xz7" firstAttribute="leading" secondItem="1yw-NE-YCE" secondAttribute="leading" id="qbS-3y-IKW"/>
@@ -355,6 +356,6 @@
         <image name="record _status" width="18" height="18"/>
         <image name="record _time" width="18" height="18"/>
         <image name="record _way" width="18" height="18"/>
-        <image name="shadow" width="1" height="15"/>
+        <image name="shadow" width="1" height="1"/>
     </resources>
 </document>

@@ -23,6 +23,7 @@
     [model removeObserver:self forKeyPath:@"cardVerifiy"];
     [model removeObserver:self forKeyPath:@"sex"];
     [model removeObserver:self forKeyPath:@"nickname"];
+    [model removeObserver:self forKeyPath:@"nowMonthOrderSuccessNums"];
     AppContext *context = [AppContext sharedAppContext];
     [context removeObserver:self forKeyPath:@"isRedPack"];
 }
@@ -47,7 +48,12 @@
     self.lbTeamTotal.textColor = Subhead_Color;
     
     self.headHConstraint.constant = ScreenWidth;
-    self.footVConstraint.constant = SCREEN_HEIGHT - 525 - 100 - 44 + 1;
+//    self.footVConstraint.constant = -(SCREEN_HEIGHT - 575 - 44 + 1);
+//    self.footVConstraint.constant = SCREEN_HEIGHT - 575 + 1;//575 - ( SCREEN_HEIGHT ) + 1;
+    CGFloat constant = SCREEN_HEIGHT - 575 + 1;
+    if(constant < 0)
+        constant = 0;
+    self.footVConstraint.constant = constant;
     
     UserInfoModel *model = [UserInfoModel shareUserInfoModel];
     AppContext *context = [AppContext sharedAppContext];
@@ -56,6 +62,7 @@
     [model addObserver:self forKeyPath:@"sex" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
     [model addObserver:self forKeyPath:@"nickname" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
     [context addObserver:self forKeyPath:@"isRedPack" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
+    [model addObserver:self forKeyPath:@"nowMonthOrderSuccessNums" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
     
     [self config];
     
@@ -66,9 +73,9 @@
 {
     UserInfoModel *model = [UserInfoModel shareUserInfoModel];
     
-    self.lbMonthOrderSuccessNums.text = [NSString stringWithFormat:@"%d", model.monthOrderSuccessNums];
+    self.lbMonthOrderSuccessNums.text = [NSString stringWithFormat:@"%d", model.nowMonthOrderSuccessNums];
     self.lbTotalOrderSuccessNums.text = [NSString stringWithFormat:@"累计订单：%d单", model.orderSuccessNums];
-    self.lbMonthOrderEarn.text = [NSString stringWithFormat:@"%.2f", model.monthOrderEarn];
+    self.lbMonthOrderEarn.text = [NSString stringWithFormat:@"%.2f", model.nowMonthOrderSuccessEarn];
     self.lbOrderEarn.text = [NSString stringWithFormat:@"累计收益：%.2f元", model.orderEarn];
     self.lbUserInvite.text = [NSString stringWithFormat:@"%d人", model.userInviteNums];
     self.lbTeamTotal.text = [NSString stringWithFormat:@"%d人", model.userTeamInviteNums];

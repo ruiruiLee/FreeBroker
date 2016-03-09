@@ -9,6 +9,7 @@
 #import "UserInfoModel.h"
 #import "define.h"
 #import "NetWorkHandler+queryUserInfo.h"
+#import "NetWorkHandler+announcement.h"
 
 @implementation UserInfoModel
 
@@ -170,6 +171,7 @@
     
     self.cardVerifiyMsg = [dic objectForKey:@"cardVerifiyMsg"];
     self.nowMonthOrderSuccessNums = [[dic objectForKey:@"nowMonthOrderSuccessNums"] integerValue];
+    self.nowMonthOrderSuccessEarn = [[dic objectForKey:@"nowMonthOrderSuccessEarn"] floatValue];
     
     NSMutableDictionary *dictionary = [self dictionaryWithObject:self];
     AppContext *context = [AppContext sharedAppContext];
@@ -196,6 +198,7 @@
 {
     if([keyPath isEqualToString:@"userId"]){
         [self performSelector:@selector(queryUserInfo) withObject:nil afterDelay:0.1];
+        [self performSelector:@selector(loadLastNewsTip) withObject:nil afterDelay:0.1];
     }
 }
 
@@ -210,6 +213,28 @@
         if(completion)
             completion(code, content);
     }];
+}
+
+-(void)queryLastNewsTip:(Completion) completion
+{
+    if(self.userId == nil || [self.userId length] == 0)
+        return;
+    
+    [NetWorkHandler requestToAnnouncementNum:self.userId completion:^(int code, id content) {
+        completion(code, content);
+    }];
+    
+}
+
+- (void) loadLastNewsTip
+{
+    [self queryLastNewsTip:^(int code, id content) {
+        if(code == 200){
+            AppContext *context = [AppContext sharedAppContext];
+            [context SaveNewsTip:[NSArray arrayWithArray:[[content objectForKey:@"data"] objectForKey:@"rows"]]];
+        }
+    }];
+    
 }
 
 @end

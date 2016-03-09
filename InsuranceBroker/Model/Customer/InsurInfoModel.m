@@ -44,6 +44,7 @@
     model.planOfferId = [dictionary objectForKey:@"planOfferId"];
     model.orderOfferStatusStr = [dictionary objectForKey:@"orderOfferStatusStr"];
     model.productLogo = [dictionary objectForKey:@"productLogo"];
+    model.orderOfferPrintStatus = [[dictionary objectForKey:@"orderOfferPrintStatus"] integerValue];
     
     return model;
 }

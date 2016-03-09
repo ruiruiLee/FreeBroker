@@ -12,6 +12,7 @@
 #import "FooterView.h"
 #import "InsurInfoModel.h"
 #import "UIImageView+WebCache.h"
+#import "NetWorkHandler+deleteInsuranceOrder.h"
 
 @implementation UserPolicyListView
 @synthesize footer;
@@ -23,7 +24,7 @@
         [self.tableview registerNib:[UINib nibWithNibName:@"PolicyInfoTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
         self.tableview.separatorStyle = UITableViewCellSeparatorStyleNone;
         self.lbTitle.text = @"客户保单信息";
-        self.btnEdit.hidden = YES;
+        [self.btnEdit setImage:ThemeImage(@"refresh") forState:UIControlStateNormal];
         
         footer = [[FooterView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 50)];
         self.tableview.tableFooterView = footer;
@@ -31,6 +32,14 @@
     }
     
     return self;
+}
+
+- (void) doEditButtonClicked:(UIButton *)sender
+{
+    if(self.delegate && [self.delegate respondsToSelector:@selector(NotifyToRefresh:)]){
+        [self startAnimation];
+        [self.delegate NotifyToRefresh:self];
+    }
 }
 
 #pragma UITableViewDataSource UITableViewDelegate
@@ -50,6 +59,7 @@
     NSString *deq = @"cell";
     PolicyInfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:deq];
     if(!cell){
+//        cell = [[PolicyInfoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:deq];
         NSArray *nibs = [[NSBundle mainBundle]loadNibNamed:@"PolicyInfoTableViewCell" owner:nil options:nil];
         cell = [nibs lastObject];
     }
@@ -64,7 +74,7 @@
     cell.lbContent.text = model.planTypeName;//[Util getStringByPlanType:model.planType];
     cell.lbUpdateTime.text = [Util getTimeString:model.createdAt];
     cell.lbStatus.attributedText = [self getAttributedString:model.orderOfferStatusMsg orderOfferNums:model.orderOfferNums orderOfferStatus:model.orderOfferStatus orderOfferPayPrice:model.orderOfferPayPrice orderOfferStatusStr:model.orderOfferStatusStr];
-    [self setPolicyStatusWithCell:cell orderOfferStatus:model.orderOfferStatus orderOfferStatusStr:model.orderOfferStatusStr];
+    [self setPolicyStatusWithCell:cell orderOfferStatus:model.orderOfferStatus orderOfferStatusStr:model.orderOfferStatusStr orderOfferPrintStatus:model.orderOfferPrintStatus];
     [cell.logoImgV sd_setImageWithURL:[NSURL URLWithString:model.productLogo] placeholderImage:ThemeImage(@"chexian")];
     
     return cell;
@@ -82,6 +92,47 @@
     }
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"commitEditingStyle");
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        InsurInfoModel *model = [self.data objectAtIndex:indexPath.row];
+        if(self.delegate && [self.delegate respondsToSelector:@selector(NotifyHandleItemDelegateClicked:model:)]){
+            [self.delegate NotifyHandleItemDelegateClicked:self model:model];
+        }
+            // Delete the row from the data source.
+    }
+    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+    }
+}
+
+//编辑删除按钮的文字
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"删除";
+}
+
+//这个方法用来告诉表格 某一行是否可以移动
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete; //每行左边会出现红的删除按钮
+}
+
+- (void) deleteItemWithOrderId:(NSString *) orderId Completion:(Completion)completion
+{
+    [NetWorkHandler requestToDeleteInsuranceOrder:orderId userId:[UserInfoModel shareUserInfoModel].userId Completion:completion];
+}
+
 - (void) NotifyToLoadMore:(FooterView *) view
 {
     if(self.delegate && [self.delegate respondsToSelector:@selector(NotifyToLoadMorePloicy:)])
@@ -94,50 +145,61 @@
     [view endLoading];
 }
 
-- (void) setPolicyStatusWithCell:(PolicyInfoTableViewCell *) cell orderOfferStatus:(NSInteger) orderOfferStatus orderOfferStatusStr:(NSString*) orderOfferStatusStr
+- (void) setPolicyStatusWithCell:(PolicyInfoTableViewCell *) cell orderOfferStatus:(NSInteger) orderOfferStatus orderOfferStatusStr:(NSString*) orderOfferStatusStr orderOfferPrintStatus:(NSInteger) orderOfferPrintStatus
 {
     LeftImgButton *btn = cell.btnStatus;
     NSString *title = @"";
     UIImage *image = nil;
     if(orderOfferStatus == 1){
-        title = @"报价中";
+//        title = @"报价中";
         image = ThemeImage(@"price_loading");
     }
     else if(orderOfferStatus == 2){
-        title = @"报价失败";
+//        title = @"报价失败";
         image = ThemeImage(@"error");
     }
     else if (orderOfferStatus == 3){
-        title = @"报价完成";
+//        title = @"报价完成";
         image = ThemeImage(@"price_done");
     }
     else if (orderOfferStatus == 4){
-        title = @"出单配送";
-        image = ThemeImage(@"deliver");
+        if(orderOfferPrintStatus == 2){
+//            title = @"出单配送";
+            image = ThemeImage(@"deliver");
+        }else{
+//            title = @"等待出单";
+            image = ThemeImage(@"Issuing");
+        }
     }
     else if (orderOfferStatus == 5){
-        title = @"出单配送";
+//        title = @"出单配送";
         image = ThemeImage(@"deliver");
     }
     else if (orderOfferStatus == 6){
-        title = @"出单配送";
-        image = ThemeImage(@"deliver");
+        if(orderOfferPrintStatus == 2){
+//            title = @"出单配送";
+            image = ThemeImage(@"deliver");
+        }else{
+//            title = @"等待出单";
+            image = ThemeImage(@"Issuing");
+        }
     }
     else if (orderOfferStatus == 7){
-        title = @"付款失败";
+//        title = @"付款失败";
         image = ThemeImage(@"error");
     }
     else if (orderOfferStatus == 8){
-        title = @"交易成功";
-        image = ThemeImage(@"Order_done");
+//        title = @"交易成功";
+        image = ThemeImage(@"order_done");
     }
     else if (orderOfferStatus == 9){
-        title = @"保单过期";
+//        title = @"保单过期";
         image = ThemeImage(@"error");
     }else{
-        title = orderOfferStatusStr;
         image = ThemeImage(@"error");
     }
+    
+    title = orderOfferStatusStr;
     
     [btn setImage:image forState:UIControlStateNormal];
     [btn setTitle:title forState:UIControlStateNormal];

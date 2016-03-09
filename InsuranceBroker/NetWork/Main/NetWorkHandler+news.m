@@ -23,6 +23,7 @@
     [Util setValueForKeyWithDic:pramas value:category key:@"category"];
     [Util setValueForKeyWithDic:pramas value:[NSNumber numberWithInt:offset] key:@"offset"];
     [Util setValueForKeyWithDic:pramas value:[NSNumber numberWithInt:limit] key:@"limit"];
+    [Util setValueForKeyWithDic:pramas value:[NSNumber numberWithInt:1] key:@"appType"];
     
     [handle postWithMethod:@"/api/news/category/news" BaseUrl:SERVER_ADDRESS Params:pramas Completion:completion];
 }

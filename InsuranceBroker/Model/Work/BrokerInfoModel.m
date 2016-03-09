@@ -26,6 +26,7 @@
 {
     BrokerInfoModel *model = [[BrokerInfoModel alloc] init];
     
+    model.userId = [dictionary objectForKey:@"userId"];
     model.realName = [dictionary objectForKey:@"realName"];
     model.phone = [dictionary objectForKey:@"phone"];
     model.cardNumber = [dictionary objectForKey:@"cardNumber"];
@@ -35,6 +36,7 @@
     model.userName = [dictionary objectForKey:@"userName"];
     model.monthOrderEarn = [dictionary objectForKey:@"monthOrderEarn"];
     model.userSex = [[dictionary objectForKey:@"userSex"] integerValue];
+    model.orderSuccessNums = [[dictionary objectForKey:@"orderSuccessNums"] integerValue];
     model.nowMonthOrderSuccessNums = [[dictionary objectForKey:@"nowMonthOrderSuccessNums"] integerValue];
     
     return model;

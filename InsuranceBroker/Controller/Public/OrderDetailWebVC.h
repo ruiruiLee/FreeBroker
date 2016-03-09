@@ -17,6 +17,8 @@
     NSInteger tagNum;
 }
 
+@property (nonatomic, strong) NSString *phone;
+
 - (void) initShareUrl:(NSString *) orderId insuranceType:(NSString *) insuranceType planOfferId:(NSString *) planOfferId;
 
 @end

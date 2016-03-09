@@ -15,7 +15,10 @@
 {
     NetWorkHandler *handle = [NetWorkHandler shareNetWorkHandler];
     
-    [handle postWithMethod:@"/api/news/index" BaseUrl:SERVER_ADDRESS Params:nil Completion:completion];
+    NSMutableDictionary *pramas = [[NSMutableDictionary alloc] init];
+    [Util setValueForKeyWithDic:pramas value:[NSNumber numberWithInt:1] key:@"appType"];
+    
+    [handle postWithMethod:@"/api/news/index" BaseUrl:SERVER_ADDRESS Params:pramas Completion:completion];
 }
 
 @end

@@ -21,6 +21,7 @@
 #import "UIImageView+WebCache.h"
 #import "OrderWebVC.h"
 #import "SJAvatarBrowser.h"
+#import "ProgressHUD.h"
 
 @interface AutoInsuranceInfoEditVC ()<MenuDelegate, ZHPickViewDelegate, UITextFieldDelegate>
 {
@@ -50,6 +51,16 @@
 @synthesize btnQuote;
 @synthesize lbAttribute;
 
+- (void) dealloc
+{
+    if(_datePicker){
+        [_datePicker remove];
+    }
+    if(_datePicker1){
+        [_datePicker1 remove];
+    }
+}
+
 - (void) handleLeftBarButtonClicked:(id)sender
 {
     [self.tfNo resignFirstResponder];
@@ -69,8 +80,20 @@
     
     BOOL flag = [self isModify];
     if(flag){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"警告" message:@"确认放弃保存修改资料吗？" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
-        [alert show];
+        if([self getIOSVersion] < 8.0){
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"警告" message:@"确认放弃保存填写资料吗？" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
+            [alert show];
+        }
+        else{
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"警告" message:@"确认放弃保存填写资料吗？" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [self.navigationController popViewControllerAnimated:YES];
+            }];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+            [alertController addAction:okAction];
+            [alertController addAction:cancelAction];
+            [self presentViewController:alertController animated:YES completion:nil];
+        }
     }
     else{
         [self.navigationController popViewControllerAnimated:YES];
@@ -143,13 +166,19 @@
     self.tfName.delegate = self;
     self.tfNo.delegate = self;
     
-    _lbProvience = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 16, 36)];
-    _lbProvience.backgroundColor = [UIColor clearColor];
-    _lbProvience.font = _FONT(15);
-    _lbProvience.textColor = _COLOR(0x21, 0x21, 0x21);
-    _lbProvience.text = @"川";
-    self.tfNo.leftView = _lbProvience;
-    self.tfNo.leftViewMode = UITextFieldViewModeAlways;
+    self.tfMotorCode.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
+    self.tfIdenCode.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
+    self.tfModel.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
+    self.tfNo.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
+    self.tfCert.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
+    
+//    _lbProvience = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 16, 36)];
+//    _lbProvience.backgroundColor = [UIColor clearColor];
+//    _lbProvience.font = _FONT(15);
+//    _lbProvience.textColor = _COLOR(0x21, 0x21, 0x21);
+//    _lbProvience.text = @"川";
+//    self.tfNo.leftView = _lbProvience;
+//    self.tfNo.leftViewMode = UITextFieldViewModeAlways;
     
     [self.tableview registerNib:[UINib nibWithNibName:@"CarAddInfoTableCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
@@ -298,11 +327,12 @@
 {
     NSString *carOwnerName = self.tfName.text;
     NSString *carOwnerCard = self.tfCert.text;
-//        flag = [self showMessage:@"车主身份证号不能为空" string:carOwnerCard];
-//        if(flag){
-//            [self.tfCert becomeFirstResponder];
-//            return;
-//        }
+    BOOL flag = [Util validateIdentityCard:carOwnerCard];//[self showMessage:@"车主身份证号不能为空" string:carOwnerCard];
+    if(!flag){
+        [Util showAlertMessage:@"车主身份证号不正确"];
+        [self.tfCert becomeFirstResponder];
+        return;
+    }
     NSString *carRegTime = self.tfDate.text;
 //        flag = [self showMessage:@"登记日期不能为空" string:carRegTime];
 //        if(flag){
@@ -310,7 +340,7 @@
 //            return;
 //        }
     NSString *carEngineNo = self.tfMotorCode.text;
-    BOOL flag = [self showMessage:@"发动机号不能为空" string:carEngineNo];
+    flag = [self showMessage:@"发动机号不能为空" string:carEngineNo];
     if(flag){
         [self.tfMotorCode becomeFirstResponder];
         return;
@@ -335,11 +365,17 @@
         newCarNoStatus = @"0";
     }
     else{
-        if(carNo == nil || [carNo length] != 7)
-        {
+//        if(carNo == nil || [carNo length] != 7)
+//        {
+//            [Util showAlertMessage:@"车牌号不正确"];
+//            [_tfNo becomeFirstResponder];
+//            return;
+//        }
+        if(![Util validateCarNo:carNo]){
             [Util showAlertMessage:@"车牌号不正确"];
             [_tfNo becomeFirstResponder];
             return;
+
         }
     }
     
@@ -363,8 +399,9 @@
         carInsurStatus1 = @"1";
         carInsurCompId1 = ((InsuranceCompanyModel*)[_insurCompanyArray objectAtIndex:_perInsurCompany]).insuranceCompanyId;
     }
-    
+    [ProgressHUD show:nil];
     [NetWorkHandler requestToSaveOrUpdateCustomerCar:customerCarId customerId:customerId carNo:carNo carProvinceId:nil carCityId:nil driveProvinceId:nil driveCityId:nil carTypeNo:carTypeNo carShelfNo:carShelfNo carEngineNo:carEngineNo carOwnerName:carOwnerName carOwnerCard:carOwnerCard carOwnerPhone:nil carOwnerTel:nil carOwnerAddr:nil travelCard1:travelCard1 carRegTime:carRegTime newCarNoStatus:newCarNoStatus carTradeStatus:carTradeStatus carTradeTime:carTradeTime carInsurStatus1:carInsurStatus1 carInsurCompId1:carInsurCompId1 Completion:^(int code, id content) {
+        [ProgressHUD dismiss];
         [self handleResponseWithCode:code msg:[content objectForKey:@"msg"]];
         if(code == 200){
             
@@ -408,9 +445,59 @@
 
 - (void) submitWithLicense:(Completion) completion
 {
-    [ProgressHUD show:nil];
-    NSString *customerCarId = nil;
+    NSString *customerCarId = self.customerModel.carInfo.customerCarId;
     NSString *customerId = self.customerId;
+    
+    NSString *carOwnerCard = self.tfCert.text;
+    BOOL flag = [Util validateIdentityCard:carOwnerCard];
+    if(!flag){
+        [Util showAlertMessage:@"车主身份证号不正确"];
+        [self.tfCert becomeFirstResponder];
+        return;
+    }
+    
+    NSString *carOwnerName = self.tfName.text;
+
+    NSString *carRegTime = self.tfDate.text;
+//        flag = [self showMessage:@"登记日期不能为空" string:carRegTime];
+//        if(flag){
+//            [self.tfDate becomeFirstResponder];
+//            return;
+//        }
+    NSString *carEngineNo = self.tfMotorCode.text;
+    flag = [self showMessage:@"发动机号不能为空" string:carEngineNo];
+    if(flag){
+        [self.tfMotorCode becomeFirstResponder];
+        return;
+    }
+    NSString *carShelfNo = self.tfIdenCode.text;
+    flag = [self showMessage:@"车辆识别代号不能为空" string:carShelfNo];
+    if(flag){
+        [self.tfIdenCode becomeFirstResponder];
+        return;
+    }
+    NSString *carTypeNo = self.tfModel.text;
+    flag = [self showMessage:@"品牌型号不能为空" string:carTypeNo];
+    if(flag){
+        [self.tfModel becomeFirstResponder];
+        return;
+    }
+    NSString *carNo = [self getCarCertString];//self.tfNo.text;
+    
+    NSString *newCarNoStatus = @"1";
+    if(self.btnNoNo.selected){
+        carNo = nil;
+        newCarNoStatus = @"0";
+    }
+    else{
+        if(![Util validateCarNo:carNo]){
+            [Util showAlertMessage:@"车牌号不正确"];
+            [_tfNo becomeFirstResponder];
+            return;
+            
+        }
+    }
+
     
     NSString *carTradeStatus = @"0";
     NSString *carTradeTime = nil;
@@ -428,10 +515,11 @@
         carInsurStatus1 = @"1";
         carInsurCompId1 = ((InsuranceCompanyModel*)[_insurCompanyArray objectAtIndex:_perInsurCompany]).insuranceCompanyId;
     }
-    
+    [ProgressHUD show:nil];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),^{
         NSString *filePahe = [self fileupMothed];
-        [NetWorkHandler requestToSaveOrUpdateCustomerCar:customerCarId customerId:customerId carNo:nil carProvinceId:nil carCityId:nil driveProvinceId:nil driveCityId:nil carTypeNo:nil carShelfNo:nil carEngineNo:nil carOwnerName:nil carOwnerCard:nil carOwnerPhone:nil carOwnerTel:nil carOwnerAddr:nil travelCard1:filePahe carRegTime:nil newCarNoStatus:nil carTradeStatus:carTradeStatus carTradeTime:carTradeTime carInsurStatus1:carInsurStatus1 carInsurCompId1:carInsurCompId1 Completion:^(int code, id content) {
+        
+        [NetWorkHandler requestToSaveOrUpdateCustomerCar:customerCarId customerId:customerId carNo:carNo carProvinceId:nil carCityId:nil driveProvinceId:nil driveCityId:nil carTypeNo:carTypeNo carShelfNo:carShelfNo carEngineNo:carEngineNo carOwnerName:carOwnerName carOwnerCard:carOwnerCard carOwnerPhone:nil carOwnerTel:nil carOwnerAddr:nil travelCard1:filePahe carRegTime:carRegTime newCarNoStatus:nil carTradeStatus:carTradeStatus carTradeTime:carTradeTime carInsurStatus1:carInsurStatus1 carInsurCompId1:carInsurCompId1 Completion:^(int code, id content) {
             [ProgressHUD dismiss];
             [self handleResponseWithCode:code msg:[content objectForKey:@"msg"]];
             if(code == 200){
@@ -442,6 +530,13 @@
                 }
                 model.customerCarId = [content objectForKey:@"data"];
                 model.customerId = customerId;
+                model.carOwnerName = carOwnerName;
+                model.carOwnerCard = carOwnerCard;
+                model.carRegTime = _signDate;
+                model.carEngineNo = carEngineNo;
+                model.carShelfNo = carShelfNo;
+                model.carTypeNo = carTypeNo;
+                model.carNo = carNo;
 
                 if(completion){
                     completion(code, content);
@@ -494,6 +589,7 @@
     NSString *deq = @"cell";
     CarAddInfoTableCell *cell = [tableView dequeueReusableCellWithIdentifier:deq];
     if(!cell){
+//        cell = [[CarAddInfoTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:deq];
         NSArray *nibs = [[NSBundle mainBundle]loadNibNamed:@"CarAddInfoTableCell" owner:nil options:nil];
         cell = [nibs lastObject];
         cell.textLabel.font = _FONT(15);
@@ -596,6 +692,7 @@
         isCertModify = YES;
         self.imgLicense.image = image;
         [self.btnReSubmit setTitle:@"重新上传" forState:UIControlStateNormal];
+        [self isModify];
     }];
     
 }
@@ -730,7 +827,9 @@
 
 - (void) loadInsurCompany
 {
+    [ProgressHUD show:nil];
     [NetWorkHandler requestToQueryForInsuranceCompanyList:nil insuranceType:@"1" Completion:^(int code, id content) {
+        [ProgressHUD dismiss];
         [self handleResponseWithCode:code msg:[content objectForKey:@"msg"]];
         if(code == 200){
             _insurCompanyArray = [InsuranceCompanyModel modelArrayFromArray:[[content objectForKey:@"data"] objectForKey:@"rows"]];
@@ -958,14 +1057,15 @@
 
 - (NSString *) getCarCertNum:(NSString *) cert
 {
-    return [cert substringFromIndex:1];
+//    return [cert substringFromIndex:1];
+    return cert;
 }
 
 - (NSString *) getCarCertString
 {
-    NSString *location = _lbProvience.text;
+//    NSString *location = _lbProvience.text;
     NSString *num = _tfNo.text;
-    return [NSString stringWithFormat:@"%@%@", location, num];
+    return [NSString stringWithFormat:@"%@%@", @"", num];
 }
 
 - (IBAction)showLargerImage:(id)sender

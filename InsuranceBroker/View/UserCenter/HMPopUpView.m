@@ -83,6 +83,7 @@
         txtField.textColor = _COLOR(0x21, 0x21, 0x21);
         txtField.font = _FONT(15);
         txtField.delegate = self;
+        txtField.clearButtonMode = UITextFieldViewModeAlways;
         [containerView addSubview:txtField];
         
         //Button view creation
@@ -94,7 +95,7 @@
 //        btnOk = [[UIButton alloc] initWithFrame:CGRectMake(cvFrame.origin.x , cvFrame.origin.y + 131, cvFrame.size.width / 2 - 1, 39)];
         btnOk = [[UIButton alloc] initWithFrame:CGRectMake(cvFrame.size.width - 58 - 20 , cvFrame.origin.y + 131, 58, 23)];
         [btnOk setTitle:okBtnTtl forState:UIControlStateNormal];
-        btnOk.backgroundColor = _COLOR(0x29, 0xcc, 0x5f);
+        btnOk.backgroundColor = _COLOR(0xff, 0x66, 0x19);
         btnOk.layer.cornerRadius = 3;
         btnOk.titleLabel.textColor = [UIColor whiteColor];
         btnOk.titleLabel.font = _FONT(14);

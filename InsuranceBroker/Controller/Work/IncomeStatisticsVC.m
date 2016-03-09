@@ -22,21 +22,33 @@
 
 @implementation IncomeStatisticsVC
 
+- (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if(self){
+        self.title = @"收益统计";
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.title = @"收益统计";
-    
-    UIButton *btnDetail = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 24)];
-    [btnDetail setTitle:@"账单明细" forState:UIControlStateNormal];
-    btnDetail.layer.cornerRadius = 12;
-    btnDetail.layer.borderWidth = 0.5;
-    btnDetail.layer.borderColor = _COLOR(0xff, 0x66, 0x19).CGColor;
-    [btnDetail setTitleColor:_COLOR(0xff, 0x66, 0x19) forState:UIControlStateNormal];
-    btnDetail.titleLabel.font = _FONT(10);
-    [self setRightBarButtonWithButton:btnDetail];
-    [btnDetail addTarget:self action:@selector(doBtnDetailAccount:) forControlEvents:UIControlEventTouchUpInside];
+    if([[UserInfoModel shareUserInfoModel].userId isEqualToString:self.userId]){
+        UIButton *btnDetail = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 24)];
+        [btnDetail setTitle:@"我的账单" forState:UIControlStateNormal];
+        btnDetail.layer.cornerRadius = 12;
+        btnDetail.layer.borderWidth = 0.5;
+        btnDetail.layer.borderColor = _COLOR(0xff, 0x66, 0x19).CGColor;
+        [btnDetail setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        btnDetail.titleLabel.font = _FONT(10);
+        btnDetail.backgroundColor = _COLOR(0xff, 0x66, 0x1a);
+        [self setRightBarButtonWithButton:btnDetail];
+        [btnDetail addTarget:self action:@selector(doBtnDetailAccount:) forControlEvents:UIControlEventTouchUpInside];
+    }else{
+        self.btnMore.hidden = YES;
+    }
     
     self.viewHConstraint.constant = ScreenWidth;
     
@@ -45,12 +57,12 @@
     
     self.chatview.yMin = 0;
     self.chatview.yMax = 5;
-    self.chatview.ySteps = @[@"0",@"200", @"400", @"600", @"800", @"2000000"];
+    self.chatview.ySteps = @[@"0",@"500", @"1000", @"1500", @"2000", @"2500"];
     self.chatview.backgroundColor = [UIColor clearColor];
     
-    UserInfoModel *model = [UserInfoModel shareUserInfoModel];
-    self.lbIncome.text = [Util getDecimalStyle:model.monthOrderEarn];
-    self.lbEarningsCount.text = [NSString stringWithFormat:@"累计收益：%@元", [Util getDecimalStyle:model.orderEarn]];
+//    UserInfoModel *model = [UserInfoModel shareUserInfoModel];
+//    self.lbIncome.text = [Util getDecimalStyle:model.monthOrderEarn];
+//    self.lbEarningsCount.text = [NSString stringWithFormat:@"累计收益：%@元", [Util getDecimalStyle:model.orderEarn]];
     
     self.lbMan.layer.cornerRadius = 3;
     self.lbRed.layer.cornerRadius = 3;
@@ -72,13 +84,6 @@
                        _COLOR(0x81, 0x8c, 0xf3),
                        _COLOR(0xfc, 0xc1, 0x38),
                        _COLOR(0x3d, 0xbe, 0xff),nil];
-    
-//    NSMutableArray *array = [[NSMutableArray alloc] init];
-//    for(int i = 0; i < 4; i ++)
-//    {
-//        [array addObject:[NSNumber numberWithInt:rand()%60+20]];
-//    }
-//    self.slices = array;
     
     [self.piechat reloadData];
     
@@ -107,7 +112,7 @@
 
 - (void) loadData
 {
-    [NetWorkHandler requestToQueryStatistics:[UserInfoModel shareUserInfoModel].userId Completion:^(int code, id content) {
+    [NetWorkHandler requestToQueryStatistics:self.userId Completion:^(int code, id content) {
         [self handleResponseWithCode:code msg:[content objectForKey:@"msg"]];
         if(code == 200){
             self.statmodel = (StatisticsModel*)[StatisticsModel modelFromDictionary:[[content objectForKey:@"data"] objectForKey:@"statistics"]];
@@ -117,11 +122,28 @@
     }];
 }
 
+- (NSMutableAttributedString *)getAttbuteString:(NSString *)string sub:(NSString *) sub
+{
+    NSMutableAttributedString *attstr = [[NSMutableAttributedString alloc] initWithString:string];
+    NSRange range = [string rangeOfString:sub];
+    
+    [attstr addAttribute:NSFontAttributeName value:_FONT(18) range:range];
+    [attstr addAttribute:NSForegroundColorAttributeName value:_COLOR(0xff, 0xee, 0x00) range:range];
+    //    [attstr addAttribute:NSFontAttributeName value:_FONT(13) range:NSMakeRange([string length] - 3, 3)];
+    
+    return attstr;
+}
+
 - (void) initData
 {
     self.lbEarningsCount.text = [NSString stringWithFormat:@"累计收益：%@元", [Util getDecimalStyle:self.statmodel.totalIn]];
     self.lbIncome.text = [NSString stringWithFormat:@"%@", [Util getDecimalStyle:self.statmodel.monthTotalIn]];
-    self.lbEarnings.text = [NSString stringWithFormat:@"你的收益已打败了%d%@的经纪人", (int)self.statmodel.monthTotalRatio, @"%"];
+//    self.lbEarnings.text = [NSString stringWithFormat:@"你的收益已打败了%d%@的经纪人", (int)self.statmodel.monthTotalRatio, @"%"];
+    if([[UserInfoModel shareUserInfoModel].userId isEqualToString:self.userId])
+        self.lbEarnings.attributedText = [self getAttbuteString:[NSString stringWithFormat:@"你的收益已打败了 %.2f%@ 的经纪人", self.statmodel.monthTotalRatio, @"%"] sub:[NSString stringWithFormat:@"%.2f%@", self.statmodel.monthTotalRatio, @"%"]];
+    else
+        self.lbEarnings.attributedText = [self getAttbuteString:[NSString stringWithFormat:@"他的收益已打败了 %.2f%@ 的经纪人", self.statmodel.monthTotalRatio, @"%"] sub:[NSString stringWithFormat:@"%.2f%@", self.statmodel.monthTotalRatio, @"%"]];
+    
     [self initDataWithArray:self.curveArray];
     
     NSMutableArray *array = [[NSMutableArray alloc] init];
@@ -137,7 +159,7 @@
     self.lbRedStr.text = [Util getDecimalStyle:self.statmodel.monthInRedPack];
     self.lbManStr.text = [Util getDecimalStyle:self.statmodel.monthInLeader];
     
-    self.piechat.lbAmount.text = [Util getDecimalStyle:self.statmodel.monthTotalIn];
+    self.piechat.lbAmount.text = [Util getDecimalStyle:self.statmodel.monthInInsurance + self.statmodel.monthInTeam + self.statmodel.monthInRedPack + self.statmodel.monthInLeader];
     
     [self.piechat reloadData];
     
@@ -159,19 +181,23 @@
             max = o;
     }
     
-    if(max > 0){
-        NSMutableArray *array = [[NSMutableArray alloc] init];
-        int i = 0;
-        while ([array count] < 6) {
-            [array addObject:[NSString stringWithFormat:@"%d", i]];
-            i += max / 5 + 1;
-        }
-        
-        self.chatview.ySteps = array;
-    }else{
-        self.chatview.ySteps = @[@"0",@"500", @"1000", @"1500", @"2000", @"2500"];
+    NSInteger ystep = 0;
+    if( ((int)max % 5) == 0 )
+        ystep = max / 5;
+    else
+        ystep = max / 5 + 1;
+    if(ystep == 0)
+        ystep = 1;
+    
+    NSMutableArray *sarray = [[NSMutableArray alloc] init];
+    int i = 0;
+    while ([sarray count] < 6) {
+        [sarray addObject:[NSString stringWithFormat:@"%d", i]];
+        i += ystep;
     }
     
+    self.chatview.ySteps = sarray;
+
     LineChartData *d1x = [LineChartData new];
     {
         LineChartData *d1 = d1x;
@@ -191,7 +217,7 @@
         for(int i = 0; i < [array count]; i++){
             CurveModel *model = [array objectAtIndex:i];
             [arr addObject:@(j)];
-            NSString *lp = [NSString stringWithFormat:@"%d", (int)model.totalIn];
+            NSString *lp = [NSString stringWithFormat:@"%f", model.totalIn];
             [arr2 addObject:lp];
             [arr3 addObject:[NSString stringWithFormat:@"%@月", model.month]];
             
@@ -206,7 +232,7 @@
         d1.getData = ^(NSUInteger item) {
             float x = [arr[item] floatValue];
             float y = [arr2[item] floatValue];
-            y = y / 200.0 * 5;
+            y = y / ystep ;
             NSString *label1 = arr3[item];
             NSString *label2 = arr4[item];
             NSString *label3 = arr5[item];

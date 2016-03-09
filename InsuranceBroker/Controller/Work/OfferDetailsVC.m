@@ -26,6 +26,11 @@
 
 @implementation OfferDetailsVC
 
+- (void) dealloc
+{
+    [_datePicker remove];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.

@@ -260,7 +260,7 @@
     [rules addObject:[self getRulesByField:@"parentUserId" op:@"eq" data:user.userId]];
     [Util setValueForKeyWithDic:filters value:rules key:@"rules"];
     
-    [NetWorkHandler requestUserQueryForPageList:page limit:LIMIT sord:@"desc" sidx:@"S_StatisticsMonth.monthTotalIn" filters:filters Completion:^(int code, id content) {
+    [NetWorkHandler requestUserQueryForPageList:page limit:LIMIT sord:@"desc" sidx:@"U_UserDataStatisticsNow.nowMonthOrderSuccessNums" filters:filters Completion:^(int code, id content) {
         [self refreshTable];
         [self loadMoreDataToTable];
         [self handleResponseWithCode:code msg:[content objectForKey:@"msg"]];
@@ -309,8 +309,7 @@
     NSString *deq = @"cell";
     CustomerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:deq];
     if(!cell){
-        NSArray *nibs = [[NSBundle mainBundle]loadNibNamed:@"CustomerTableViewCell" owner:nil options:nil];
-        cell = [nibs lastObject];
+        cell = [[CustomerTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:deq];
     }
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     

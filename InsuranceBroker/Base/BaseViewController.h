@@ -44,4 +44,6 @@
 
 - (void)stopCircleLoader;
 
+- (float)getIOSVersion;
+
 @end

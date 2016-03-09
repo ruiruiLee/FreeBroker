@@ -263,14 +263,15 @@
     model.isLogin = NO;
     [[AppContext sharedAppContext] removeData];
     [[NSNotificationCenter defaultCenter] postNotificationName:Notify_Logout object:nil];
-    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    RootViewController *root = delegate.root;
-    root.selectedIndex = 0;
-    root.selectVC = root.homevc;
-    [self.navigationController popViewControllerAnimated:NO];
+//    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+//    RootViewController *root = delegate.root;
+//    root.selectedIndex = 0;
+//    root.selectVC = root.homevc;
+//    [self.navigationController popViewControllerAnimated:NO];
+    [self login];
     
     AVInstallation *currentInstallation = [AVInstallation currentInstallation];
-    [currentInstallation removeObject:@"ykbbrokerLoginUser" forKey:@"channels"];
+    [currentInstallation removeObject:@"ykbbrokerLoginUser4" forKey:@"channels"];
     [currentInstallation removeObject:[UserInfoModel shareUserInfoModel].userId forKey:@"channels"];
     [currentInstallation saveInBackground];
     [AVUser logOut];  //清除缓存用户对象

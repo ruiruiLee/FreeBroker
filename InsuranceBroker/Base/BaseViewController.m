@@ -230,4 +230,9 @@
     [GMDCircleLoader hideFromView:self.view animated:YES];
 }
 
+- (float)getIOSVersion
+{
+    return [[[UIDevice currentDevice] systemVersion] floatValue];
+}
+
 @end

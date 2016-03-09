@@ -10,4 +10,14 @@
 
 @interface MyTeamsVC : BasePullTableVC
 
+//@property (nonatomic, strong) NSString *userid;
+//@property (nonatomic, strong) NSString *toptitle;
+//@property (nonatomic, strong) NSString *name;
+//
+//- (NSDictionary *) getRulesByField:(NSString *) field op:(NSString *) op data:(NSString *) data;
+//
+//- (void) initHeaderView;
+//
+//- (NSAttributedString *) getOrderDetailString:(NSInteger) orderCount;
+
 @end
