@@ -125,6 +125,7 @@
 		867AC0AB1C8EBD5A00E91A77 /* BIllDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 867AC0A91C8EBD5A00E91A77 /* BIllDetailTableViewCell.m */; };
 		867AC0AC1C8EBD5A00E91A77 /* BIllDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 867AC0AA1C8EBD5A00E91A77 /* BIllDetailTableViewCell.xib */; };
 		867AC0AF1C8EBD8400E91A77 /* NetWorkHandler+queryUserBillDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 867AC0AE1C8EBD8400E91A77 /* NetWorkHandler+queryUserBillDetail.m */; };
+		868C7CAC1C92CFE600B7617A /* SepLineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C7CAB1C92CFE600B7617A /* SepLineLabel.m */; };
 		86A26E351C4355220073FFFC /* NetWorkHandler+getProvinces.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A26E341C4355220073FFFC /* NetWorkHandler+getProvinces.m */; };
 		86A26E381C4356540073FFFC /* ProviendeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A26E371C4356540073FFFC /* ProviendeModel.m */; };
 		86A26E3B1C4356620073FFFC /* CityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A26E3A1C4356620073FFFC /* CityModel.m */; };
@@ -610,6 +611,8 @@
 		867AC0AA1C8EBD5A00E91A77 /* BIllDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BIllDetailTableViewCell.xib; sourceTree = "<group>"; };
 		867AC0AD1C8EBD8400E91A77 /* NetWorkHandler+queryUserBillDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetWorkHandler+queryUserBillDetail.h"; sourceTree = "<group>"; };
 		867AC0AE1C8EBD8400E91A77 /* NetWorkHandler+queryUserBillDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetWorkHandler+queryUserBillDetail.m"; sourceTree = "<group>"; };
+		868C7CAA1C92CFE600B7617A /* SepLineLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SepLineLabel.h; sourceTree = "<group>"; };
+		868C7CAB1C92CFE600B7617A /* SepLineLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SepLineLabel.m; sourceTree = "<group>"; };
 		86A26E331C4355220073FFFC /* NetWorkHandler+getProvinces.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetWorkHandler+getProvinces.h"; sourceTree = "<group>"; };
 		86A26E341C4355220073FFFC /* NetWorkHandler+getProvinces.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetWorkHandler+getProvinces.m"; sourceTree = "<group>"; };
 		86A26E361C4356540073FFFC /* ProviendeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProviendeModel.h; sourceTree = "<group>"; };
@@ -1809,6 +1812,8 @@
 				86A5050E1C5285EE0032A901 /* NJKWebViewProgressView.h */,
 				86A5051F1C57588D0032A901 /* ZWIntroductionViewController.h */,
 				86A505201C57588D0032A901 /* ZWIntroductionViewController.m */,
+				868C7CAA1C92CFE600B7617A /* SepLineLabel.h */,
+				868C7CAB1C92CFE600B7617A /* SepLineLabel.m */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -2752,6 +2757,7 @@
 				86C3BC3C1C2D73E100F98E80 /* MenuCell.m in Sources */,
 				86C3BB941C27E9A800F98E80 /* CustomerDetailVC.m in Sources */,
 				86A26F061C4A29CB0073FFFC /* NSArray+FPAdditions.m in Sources */,
+				868C7CAC1C92CFE600B7617A /* SepLineLabel.m in Sources */,
 				8625B0061C3B802900312B98 /* CustomerInfoModel.m in Sources */,
 				86A504FE1C5258730032A901 /* OrderWebVC.m in Sources */,
 				86A504D81C51D0720032A901 /* BillInfoModel.m in Sources */,

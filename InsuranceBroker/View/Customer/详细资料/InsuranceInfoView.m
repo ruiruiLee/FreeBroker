@@ -88,7 +88,7 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[lbSepLine]-20-|" options:0 metrics:nil views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[lbExplain]-20-|" options:0 metrics:nil views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-90-[btnAdd]-90-|" options:0 metrics:nil views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[lbTitle]-10-[lbSepLine(1)]-40-[lbExplain]-20-[btnAdd(40)]->=10-|" options:0 metrics:nil views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-30-[lbTitle]-10-[lbSepLine(1)]-40-[lbExplain]-20-[btnAdd(40)]->=10-|" options:0 metrics:nil views:views]];
     [btnAdd addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-24-[indicatorView(20)]->=0-|" options:0 metrics:nil views:views]];
     [btnAdd addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[indicatorView(20)]-10-|" options:0 metrics:nil views:views]];
 }
